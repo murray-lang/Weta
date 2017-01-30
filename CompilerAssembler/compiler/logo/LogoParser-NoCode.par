@@ -1,0 +1,544 @@
+/~
+   /*
+   ---------------------------------------------------------------------------
+   Copyright 2014 Murray Lang
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   --------------------------------------------------------------------------
+
+   The format of this file is as specified for JS/CC:
+		http://jscc.phorward-software.com/
+   Kudos to Jan Max Meyer for providing such a useful tool free of charge.
+
+   This file describes a parser for a variant of the Logo programming language.
+   It's based on Cricket Logo, but I've endeavoured to provide a somewhat more
+   comprehensive set of Logo language features. I've used Berkley Logo as my
+   reference and have not added any key words that are not in the Berkley
+   standard.
+   */
+~/
+	
+	
+[*
+*]
+!	' |\r|\n|\t|;[^\n\r]*[\n\r]'
+
+    "\"[A-Za-z_][A-Za-z0-9_]*[%&!#\$]?"	NameOf	    [* *]
+    "config"                                        [* *]
+	"if"                                            [* *]
+	"ifelse"                                        [* *]
+	"repeat"                                        [* *]
+	"loop"                                          [* *]
+	"for"                                           [* *]
+	"foreach"                                       [* *]
+	"forever"                                       [* *]
+	"while"                                         [* *]
+	"do\.while"						DoWhile         [* *]
+	"to"                                            [* *]
+	"end"                                           [* *]
+	"tag"                                           [* *]
+	"goto"                                          [* *]
+	"stop"                                          [* *]
+	"make"                                          [* *]
+	"wait"                                          [* *]
+	"waituntil"                                     [* *]
+	"ledon"                                         [* *]
+	"ledoff"                                        [* *]
+	"beep"                                          [* *]
+	"on"                                            [* *]
+	"onfor"                                         [* *]
+	"off"                                           [* *]
+	"thisway"                                       [* *]
+	"thatway"                                       [* *]
+	"rd"                                            [* *]
+	"brake"                                         [* *]
+	"setpower"                                      [* *]
+	"and"                                           [* *]
+	"or"                                            [* *]
+	"xor"                                           [* *]
+	"not"                                           [* *]
+	"bitand"                                        [* *]
+    "bitor"                                         [* *]
+    "bitxor"                                        [* *]
+    "bitnot"                                        [* *]
+    "ashift"                                        [* *]
+    "lshift"                                        [* *]
+    "rotate"                                        [* *]
+	"true"                                          [* *]
+	"false"                                         [* *]
+	"timer"                                         [* *]
+	"resett"                                        [* *]
+	"random"                                        [* *]
+	"setsvh"                                        [* *]
+	"svr"                                           [* *]
+	"svl"                                           [* *]
+	"resetdp"                                       [* *]
+    "setdp"                                         [* *]
+	"record"                                        [* *]
+	"recall"                                        [* *]
+	"erase"                                         [* *]
+	"send"                                          [* *]
+	"receive"                                       [* *]
+	"ethernet"                                      [* *]
+	"newserial\?"					NewSerial       [* *]
+	"repcount"                                      [* *]
+    "thing"                                         [* *]
+    "i2cstart"                                      [* *]
+    "i2cstop"                                       [* *]
+    "i2ctxrx"                                       [* *]
+    "i2crx"                                         [* *]
+    "i2cerr"                                        [* *]
+	"#"
+	","
+	"sensor[1-8]"						Sensorn     [* *]
+	"switch[1-8]"						Switchn     [* *]
+    "digitalin"                                     [* *]
+    "digitalout"                                    [* *]
+    "analogin"                                      [* *]
+    "analogout"                                     [* *]
+    "array"                                         [* *]
+    "bytearray"                                     [* *]
+    "aset"                                          [* *]
+    "aget"                                          [* *]
+    "setitem"                                       [* *]
+    "item"                                          [* *]
+    "local"                                         [* *]
+    "min"                                           [* *]
+    "max"                                           [* *]
+    "abs"                                           [* *]
+    "neg"                                           [* *]
+    "pow"                                           [* *]
+    "sqr"                                           [* *]
+    "sqrt"                                          [* *]
+    "exp"                                           [* *]
+    "sin"                                           [* *]
+    "cos"                                           [* *]
+    "tan"                                           [* *]
+    "asin"                                          [* *]
+    "acos"                                          [* *]
+    "atan"                                          [* *]
+    "atan2"                                         [* *]
+    "sinh"                                          [* *]
+    "cosh"                                          [* *]
+    "tanh"                                          [* *]
+    "hypot"                                         [* *]
+    "ln"                                            [* *]
+    "log10"                                         [* *]
+
+    "round"      Round                             [* *]
+    "trunc"    Trunc                           [* *]
+    "floor"    Floor                           [* *]
+    "ceil"     Ceil                            [* *]
+
+    "isnan"    IsNan                           [* *]
+    "isinf"    IsInf                           [* *]
+    "string"                                        [* *]
+    "tostring"                                      [* *]
+    "ascii"                                         [* *]
+    "count"                                         [* *]
+    "\["                                            [* *]
+	"\]"                                            [* *]
+	"\("
+    "\)"
+    "output"                            Output      [* *]
+    "E"                                             [* *]
+    "PI"                                            [* *]
+    "LN2"                                           [* *]
+    "LN10"                                          [* *]
+    "LOG2E"                                         [* *]
+    "LOG10E"                                        [* *]
+    "SQRT1_2"                                       [* *]
+    "SQRT2"                                         [* *]
+
+    
+
+    "[A-Za-z_][A-Za-z0-9_]*\""			Label		[* *]
+    "\:[A-Za-z_][A-Za-z0-9_]*[%&!#\$]?"	ValueOf	    [* *]
+	"[A-Za-z_][A-Za-z0-9_]*[%&!#\$]?"	Identifier  [* *]
+    "[a-h]+,"			    			Motors		[* *]
+    "[n-u]+,"			    			Servos		[* *]
+    "\'([^\']|\'\')*\'"					StringLit		[* *]
+
+    "-?[0-9]+S?"						Short		[* *]
+    "[0-9]+US"							UShort		[* *]
+    "-?[0-9]+I"							Integer		[* *]
+    "[0-9]+UI"						    UInteger	[* *]
+
+    "[0-9]*\.[0-9]*F?"	                Float		[* *]
+    "[0-9]*\.[0-9]*R"	                Double		[* *]
+    ;
+
+
+/~ Operators to be used in expressions ~/
+>	"="                     [* *]
+	"<>"                    [* *]
+	"<="                    [* *]
+	">="                    [* *]
+	">"                     [* *]
+	"<"                     [* *]
+	;
+
+
+<	"\+"                    [* *]
+	"sum"                   [* *]
+	"\-"                    [* *]
+	"difference"            [* *]
+	;
+
+<	"/"                     [* *]
+	"quotient"              [* *]
+	"\*"                    [* *]
+	"product"               [* *]
+	"%"                     [* *]
+	"modulo"                [* *]
+	;
+
+<   "not"                   [* *]
+	"and"                   [* *]
+	"or"                    [* *]
+	"xor"                   [* *]
+	;
+
+
+##
+
+Program:			Program Stmt									[* *]
+					|
+					;
+
+ConfigStmt:         config '[' ConfigIds ']' '[' ParamAssignments ']'    [* *]
+					;
+
+ConfigIds:          ConfigIds ConfigId                [* *]
+          		    |                                 [* *]
+          		    ;
+
+ConfigId:             Identifier
+          		    | digitalin
+          		    ;
+
+ParamAssignments:   ParamAssignments ParamAssignment   [* *]
+                    |
+                    ;
+
+ParamAssignment:    make NameOf ParamSetting           [* *]
+                    ;
+
+ParamSetting:         ParamValue
+                    | '[' ParamValueList ']'            [* *]
+                    ;
+
+ParamValueList:     ParamValueList  ParamValue          [* *]
+                    |
+                    ;
+
+ParamValue:           StringLit         [* *]
+                    | IntLike
+                    | Double            [* *]
+                    | Float             [* *]
+                    | true              [* *]
+                    | false             [* *]
+                    ;
+
+Block:				'[' Block_Stmt_List ']'				[* *]
+					;
+
+
+Block_Stmt:			Stmt
+					|
+					;
+
+Block_Stmt_List:	Block_Stmt_List Block_Stmt						[* *]
+					|
+					;
+
+Proc_Stmt_List:		Proc_Stmt_List Proc_Stmt						[* *]
+					|
+					;
+
+Proc_Stmt:			Stmt
+                    |
+                    ;
+
+List:               '[' ListItems ']'                       [* *]
+                    ;
+
+ListItems:          ListItems Expression                    [* *]
+					|
+					;
+
+Param_List:			Param_List Param					    [* *]
+					|
+					;
+
+Param:				ValueOf '[' ']'                        [* *]
+					| ValueOf                              [* *]
+					;
+
+ProcDef:			to Identifier Param_List Proc_Stmt_List end		[* *]
+					;
+
+
+ArraySpec:          Identifier IntLike                      [* *]
+					;
+
+Variable:           NameOf                                [* *]
+                    | ValueOf                                 [* *]
+					;
+
+ThingVar:            Variable
+					| thing Variable                        [* *]
+					| '(' ThingVar ')'                      [* *]
+					;
+
+Arg_List:		Arg_List Arg								[* *]
+				|
+				;
+
+Arg:            Expression
+                | NameOf                                [* *]
+				;
+
+ProcCall:		IsNan Identifier Arg_List					    [* *]
+                | '(' ProcCall ')'                      [* *]
+				;
+
+ProcCallNoArg:  IsNan Identifier 								[* *]
+                | '(' ProcCallNoArg ')'                 [* *]
+				;
+
+Stmt:	ConfigStmt
+        | if Expression Block 								    [* *]
+        | ifelse Expression Block Block 					    [* *]
+        | repeat Expression Block						    	[* *]
+        | loop Block										[* *]
+        | for '[' Identifier Expression Expression NegExp ']' Block	[* *]
+        | foreach Identifier List Block                     [* *]
+        | forever Block										[* *]
+        | while Expression Block 							    [* *]
+        | DoWhile Expression Block							    [* *]
+        | waituntil '[' Expression ']'						    [* *]
+        | wait Expression									    [* *]
+        | tag Label											[* *]
+        | goto Identifier									[* *]
+        | stop												[* *]
+        | Output Expression	    						    [* *]
+        | ProcCall									    	[* *]
+        | ProcCallNoArg								    	[* *]
+        | make ThingVar Expression 							[* *]
+        | make ThingVar '(' string IntLike ')'                [* *]
+        | make ThingVar '(' array IntLike ')'                [* *]
+        | Motors  									        [* *]
+        | Servos                                            [* *]
+        | Motor_cmd
+        | Servo_cmd
+        | Data_cmd
+        | ledon												[* *]
+        | ledoff 											[* *]
+        | beep 												[* *]
+        | resett 											[* *]
+        | array '[' ArraySpec ']'                           [* *]
+        | bytearray '[' ArraySpec ']'                       [* *]
+        | aset ThingVar Expression Expression                [* *]
+        | setitem Expression ThingVar Expression             [* *]
+        | local Identifier                                  [* *]
+        | digitalout Expression Expression                      [* *]
+        | analogout Expression Expression                     [* *]
+        | i2cstart                                          [* *]
+        | i2cstop                                           [* *]
+        | i2ctxrx Expression Variable Expression Variable Expression Expression [* *]
+        | i2crx Expression Variable Expression Expression      [* *]
+        | ProcDef
+        ;
+
+
+
+Motor_cmd:		on											[* *]
+				| onfor Expression 							[* *]
+				| off 										[* *]
+				| thisway									[* *]
+				| thatway									[* *]
+				| rd										[* *]
+				| brake										[* *]
+				| setpower Expression						[* *]
+				;
+
+Servo_cmd:		setsvh Expression  							[* *]
+				| svr Expression  							[* *]
+				| svl Expression  							[* *]
+				;
+
+Data_cmd:		resetdp										[* *]
+                | setdp	Expression						    [* *]
+				| record Expression							[* *]
+				| erase Expression							[* *]
+				| send Expression Expression Expression     [* *]
+				| send Expression							[* *]
+				;
+
+Expression:		  ThingVar                           [* *]
+				| MathExp
+				| BoolExp
+				| StringExp
+				| '(' Expression ')'							[* *]
+				;
+
+StringExp:      StringLit                                       [* *]
+				| tostring Expression                           [* *]
+				;
+
+MathExp:		  Expression '-' Expression                 [* *]
+				| difference Expression Expression        [* *]
+				| Expression '+' Expression               [* *]
+				| sum Expression Expression               [* *]
+				| Expression '*' Expression               [* *]
+                | product Expression Expression           [* *]
+                | Expression '/' Expression               [* *]
+                | quotient Expression Expression          [* *]
+                | Expression '%' Expression               [* *]
+                | modulo Expression Expression	        [* *]
+                | MathFuncExp
+                | BitwiseExp
+				| NegExp
+				| ascii Expression                [* *]
+				| count Expression                [* *]
+				| '(' MathExp ')'				    [* *]
+				;
+
+MathFuncExp:      min Expression Expression             [* *]
+                | max Expression Expression             [* *]
+                | abs Expression                     [* *]
+                | neg Expression                     [* *]
+                | pow Expression Expression             [* *]
+                | sqr Expression                     [* *]
+                | sqrt Expression                    [* *]
+                | exp Expression                     [* *]
+                | sin Expression                     [* *]
+                | cos Expression                     [* *]
+                | tan Expression                     [* *]
+                | asin Expression                    [* *]
+                | acos Expression                    [* *]
+                | atan Expression                    [* *]
+                | atan2 Expression Expression           [* *]
+                | sinh Expression                    [* *]
+                | cosh Expression                    [* *]
+                | tanh Expression                    [* *]
+                | hypot Expression Expression           [* *]
+                | ln Expression                      [* *]
+                | log10 Expression                   [* *]
+                | Round Expression                     [* *]
+                | Trunc Expression                   [* *]
+                | Floor Expression                   [* *]
+                | Ceil Expression                    [* *]
+                ;
+
+BitwiseExp:        bitand Expression Expression        [* *]
+                | bitor  Expression Expression        [* *]
+                | bitxor Expression Expression        [* *]
+                | bitnot Expression Expression        [* *]
+                | ashift Expression Expression        [* *]
+                | lshift Expression Expression        [* *]
+                | rotate Expression Expression        [* *]
+                ;
+
+NegExp:			'-' NumericValue		&'*'    [* *]
+				| NumericValue
+				;
+
+Value:			NumericValue
+				| BoolValue
+				| '(' Value ')'
+				;
+
+BoolExp:		  Expression '=' Expression			[* *]
+                | Expression '<>' Expression		[* *]
+				| Expression '<' Expression		 	[* *]
+				| Expression '>' Expression			[* *]
+				| Expression '<=' Expression		[* *]
+				| Expression '>=' Expression		[* *]
+				| not Expression						[* *]
+				| and Expression Expression				[* *]
+				| or Expression Expression				[* *]
+				| xor Expression Expression				[* *]
+				| BoolValue
+				| '(' BoolExp ')'					[* *]
+				;
+
+BoolValue:		  true								[* *]
+				| false								[* *]
+				| Switchn							[* *]
+				| NewSerial Expression				    [* *]
+				| NewSerial							[* *]
+                | digitalin	Expression				    [* *]
+				| ProcCall			  				[* *]
+				| ProcCallNoArg			  			[* *]
+				| IsNan Expression                     [* *]
+                | IsInf Expression                     [* *]
+				;
+
+NumericValue:	IntLike
+				| Double							[* *]
+				| Float							    [* *]
+				| E							        [* *]
+                | PI							    [* *]
+                | LN2							    [* *]
+                | LN10							    [* *]
+                | LOG2E							    [* *]
+                | LOG10E					        [* *]
+                | SQRT1_2						    [* *]
+                | SQRT2							    [* *]
+                | repcount                          [* *]
+				| recall						    [* *]
+				| timer								[* *]
+				| random Expression Expression		[* *]
+				| random							[* *]
+				| Sensorn							[* *]
+				| receive Expression					[* *]
+				| receive							[* *]
+				| analogin	Expression				[* *]
+				| ProcCall			  				[* *]
+				| ProcCallNoArg			  			[* *]
+				| aget ThingVar Expression           [* *]
+				| item Expression ThingVar           [* *]
+				| i2cerr                            [* *]
+				;
+
+IntLike:        Short								[* *]
+				| UShort							[* *]
+				| Integer							[* *]
+				| UInteger							[* *]
+				;
+				
+
+
+[*
+if(process.argv.length == 3)
+{
+    var str = require("fs").readFileSync( process.argv[2] ).toString("utf-8");
+    var error_cnt = 0;
+    var error_off = new Array();
+    var error_la = new Array();
+    if((error_cnt = __##PREFIX##parse(str, error_off, error_la)) > 0)
+    {
+        var i;
+        for( i = 0; i < error_cnt; i++ )
+        {
+            console.log( "Parse error near >" + str.substr( error_off[i], 30 ) + "<, expecting \"" + error_la[i].join() + "\"" );
+        }
+    }
+}
+else
+{
+    console.log( 'usage: program <filename>' );
+}
+*]

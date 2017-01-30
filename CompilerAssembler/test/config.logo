@@ -1,0 +1,2 @@
+config [comm serial] [make "port 0 make "baud 9600 make "databits 8 make "stopbits 1 make "parity 'none']
+config [io digitalin] [make "select [1 3 5 7]]

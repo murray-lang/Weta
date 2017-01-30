@@ -1,0 +1,248 @@
+{
+    "project": {},
+    "files": {
+        "assembler/AstNodes/ParamsNode.js": {
+            "name": "assembler/AstNodes/ParamsNode.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "assembler/generate/codes/ByteCodes.js": {
+            "name": "assembler/generate/codes/ByteCodes.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "compiler/common/Variable.js": {
+            "name": "compiler/common/Variable.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "compiler/logo/process/traverse/FixTypesAndBuildVariableTables.js": {
+            "name": "compiler/logo/process/traverse/FixTypesAndBuildVariableTables.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "compiler/logo/process/traverse/ResolveProcedureReturnTypes.js": {
+            "name": "compiler/logo/process/traverse/ResolveProcedureReturnTypes.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "compiler/logo/process/traverse/SeparateStatementsFromArgs.js": {
+            "name": "compiler/logo/process/traverse/SeparateStatementsFromArgs.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "compiler/logo/BabuinoLogo.js": {
+            "name": "compiler/logo/WetaLogo.js",
+            "modules": {},
+            "classes": {
+                "BabuinoLogo": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "old/BabuinoBackend.js": {
+            "name": "old/BabuinoBackend.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "BabuinoCompilerAssembler.js": {
+            "name": "WetaCompilerAssembler.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "BabuinoLogo": {
+            "name": "WetaLogo",
+            "shortname": "WetaLogo",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "compiler/logo/WetaLogo.js",
+            "line": 9,
+            "description": "This is the main class for generating Babuino Virtual Machine assembly\nlanguage from a variant of Cricket Logo.",
+            "params": [
+                {
+                    "name": "output",
+                    "description": "A function that does something with assembly language text",
+                    "type": "Function"
+                },
+                {
+                    "name": "messageFormatter",
+                    "description": "Formats messages (debug, info, warning error)",
+                    "type": "MessageFormatter"
+                }
+            ],
+            "is_constructor": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "assembler/AstNodes/ParamsNode.js",
+            "line": 12,
+            "description": "getTable()\nCreate the lookup table for procedure parameters.",
+            "return": {
+                "description": "an object with parameter names as attributes and their offsets as\n         values."
+            },
+            "class": "WetaLogo"
+        },
+        {
+            "file": "assembler/generate/codes/ByteCodes.js",
+            "line": 1,
+            "description": "Created by murray on 14/09/14.",
+            "class": "WetaLogo"
+        },
+        {
+            "file": "compiler/common/Variable.js",
+            "line": 10,
+            "description": "Search for the variable name, starting at the innermost scope. If the name is\nfound but it has been renamed, then return the new name.",
+            "class": "WetaLogo"
+        },
+        {
+            "file": "compiler/logo/process/traverse/FixTypesAndBuildVariableTables.js",
+            "line": 936,
+            "description": "Mangle the name of a variable if it clashes with variables in outer scopes.\n\nVariables in code blocks (e.g. in if, while, for etc.) can reuse\nnames found in outer scopes. (This isn't standard Logo, but I want the\nsemantic analyser to be able to cope with languages that have this.)\nThe problem is that the back end virtual machine has no such concept - all\nvariables local to a procedure are stored in the same table. So the names\nof variables in inner scopes need to be mangled if they clash with outer\nvariables.\nThis is complicated by the fact that Logo doesn't require variable\ndeclarations. So, if an undeclared variable is used in an inner scope, and\na variable with the same name is used in an outer scope, then the two\nvariable are deemed to be one in the same. However, if the inner variable is\nexplicitly declared, then it will be deemed to be separate (and require\nmangling).",
+            "class": "WetaLogo"
+        },
+        {
+            "file": "compiler/logo/process/traverse/ResolveProcedureReturnTypes.js",
+            "line": 6,
+            "description": "This traversal cannot operate on its own. It is intended to be used by\nFixTypesAndBuildVariableTable, which mixes in its own handlers for nodes\nother than procedure and call",
+            "is_constructor": 1,
+            "class": "WetaLogo"
+        },
+        {
+            "file": "compiler/logo/process/traverse/SeparateStatementsFromArgs.js",
+            "line": 5,
+            "description": "Since Logo has no statement delimiter, nor a delimiter for arguments to a\nprocedure, the parser alone cannot possibly distinguish what's what when\nthe arguments to a procedure are themselves procedures (functions). The\nparser will treat everything following a procedure call as an argument until\nit reaches a token that it knows not to be a procedure or value expression.\n\nNote that therefore any procedure found in the argument list must be the last\nargument for the previous procedure because all following arguments are\nassociated with the latter as far as the parser is concerned.\nThis of course continues down the line. So, arguments for one procedure might\nbe found in child node of another procedure node further out in the tree.\n\nThe other problem is that a procedure that the parser thinks to be an\nargument might in fact be an unrelated statement that's meant to follow the\nprevious procedure.\n\nTo unravel all of this ambiguity requires information about the procedure\ndefinitions to be gathered first. This way we can determine how many\narguments the procedure is supposed to have and whether it returns a value.\nThe latter is useful because a void function is unlikely to be an argument\nand is surely meant to follow the current function at hand.",
+            "class": "WetaLogo"
+        },
+        {
+            "file": "old/BabuinoBackend.js",
+            "line": 77,
+            "is_constructor": 1,
+            "class": ""
+        },
+        {
+            "file": "WetaCompilerAssembler.js",
+            "line": 452,
+            "description": "getTable()\nCreate the lookup table for procedure parameters.",
+            "return": {
+                "description": "an object with parameter names as attributes and their offsets as\n         values."
+            },
+            "class": ""
+        },
+        {
+            "file": "WetaCompilerAssembler.js",
+            "line": 15409,
+            "description": "Created by murray on 14/09/14.",
+            "class": ""
+        },
+        {
+            "file": "WetaCompilerAssembler.js",
+            "line": 18143,
+            "description": "Search for the variable name, starting at the innermost scope. If the name is\nfound but it has been renamed, then return the new name.",
+            "class": ""
+        },
+        {
+            "file": "WetaCompilerAssembler.js",
+            "line": 29111,
+            "description": "Mangle the name of a variable if it clashes with variables in outer scopes.\n\nVariables in code blocks (e.g. in if, while, for etc.) can reuse\nnames found in outer scopes. (This isn't standard Logo, but I want the\nsemantic analyser to be able to cope with languages that have this.)\nThe problem is that the back end virtual machine has no such concept - all\nvariables local to a procedure are stored in the same table. So the names\nof variables in inner scopes need to be mangled if they clash with outer\nvariables.\nThis is complicated by the fact that Logo doesn't require variable\ndeclarations. So, if an undeclared variable is used in an inner scope, and\na variable with the same name is used in an outer scope, then the two\nvariable are deemed to be one in the same. However, if the inner variable is\nexplicitly declared, then it will be deemed to be separate (and require\nmangling).",
+            "class": ""
+        },
+        {
+            "file": "WetaCompilerAssembler.js",
+            "line": 29160,
+            "description": "This traversal cannot operate on its own. It is intended to be used by\nFixTypesAndBuildVariableTable, which mixes in its own handlers for nodes\nother than procedure and call",
+            "is_constructor": 1,
+            "class": ""
+        },
+        {
+            "file": "WetaCompilerAssembler.js",
+            "line": 29318,
+            "description": "Since Logo has no statement delimiter, nor a delimiter for arguments to a\nprocedure, the parser alone cannot possibly distinguish what's what when\nthe arguments to a procedure are themselves procedures (functions). The\nparser will treat everything following a procedure call as an argument until\nit reaches a token that it knows not to be a procedure or value expression.\n\nNote that therefore any procedure found in the argument list must be the last\nargument for the previous procedure because all following arguments are\nassociated with the latter as far as the parser is concerned.\nThis of course continues down the line. So, arguments for one procedure might\nbe found in child node of another procedure node further out in the tree.\n\nThe other problem is that a procedure that the parser thinks to be an\nargument might in fact be an unrelated statement that's meant to follow the\nprevious procedure.\n\nTo unravel all of this ambiguity requires information about the procedure\ndefinitions to be gathered first. This way we can determine how many\narguments the procedure is supposed to have and whether it returns a value.\nThe latter is useful because a void function is unlikely to be an argument\nand is surely meant to follow the current function at hand.",
+            "class": ""
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " assembler/AstNodes/ParamsNode.js:12"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " WetaCompilerAssembler.js:452"
+        },
+        {
+            "message": "Missing item type\ngetTable()\nCreate the lookup table for procedure parameters.",
+            "line": " assembler/AstNodes/ParamsNode.js:12"
+        },
+        {
+            "message": "Missing item type\nCreated by murray on 14/09/14.",
+            "line": " assembler/generate/codes/ByteCodes.js:1"
+        },
+        {
+            "message": "Missing item type\nSearch for the variable name, starting at the innermost scope. If the name is\nfound but it has been renamed, then return the new name.",
+            "line": " compiler/common/Variable.js:10"
+        },
+        {
+            "message": "Missing item type\nMangle the name of a variable if it clashes with variables in outer scopes.\n\nVariables in code blocks (e.g. in if, while, for etc.) can reuse\nnames found in outer scopes. (This isn't standard Logo, but I want the\nsemantic analyser to be able to cope with languages that have this.)\nThe problem is that the back end virtual machine has no such concept - all\nvariables local to a procedure are stored in the same table. So the names\nof variables in inner scopes need to be mangled if they clash with outer\nvariables.\nThis is complicated by the fact that Logo doesn't require variable\ndeclarations. So, if an undeclared variable is used in an inner scope, and\na variable with the same name is used in an outer scope, then the two\nvariable are deemed to be one in the same. However, if the inner variable is\nexplicitly declared, then it will be deemed to be separate (and require\nmangling).",
+            "line": " compiler/logo/process/traverse/FixTypesAndBuildVariableTables.js:936"
+        },
+        {
+            "message": "Missing item type\nThis traversal cannot operate on its own. It is intended to be used by\nFixTypesAndBuildVariableTable, which mixes in its own handlers for nodes\nother than procedure and call",
+            "line": " compiler/logo/process/traverse/ResolveProcedureReturnTypes.js:6"
+        },
+        {
+            "message": "Missing item type\nSince Logo has no statement delimiter, nor a delimiter for arguments to a\nprocedure, the parser alone cannot possibly distinguish what's what when\nthe arguments to a procedure are themselves procedures (functions). The\nparser will treat everything following a procedure call as an argument until\nit reaches a token that it knows not to be a procedure or value expression.\n\nNote that therefore any procedure found in the argument list must be the last\nargument for the previous procedure because all following arguments are\nassociated with the latter as far as the parser is concerned.\nThis of course continues down the line. So, arguments for one procedure might\nbe found in child node of another procedure node further out in the tree.\n\nThe other problem is that a procedure that the parser thinks to be an\nargument might in fact be an unrelated statement that's meant to follow the\nprevious procedure.\n\nTo unravel all of this ambiguity requires information about the procedure\ndefinitions to be gathered first. This way we can determine how many\narguments the procedure is supposed to have and whether it returns a value.\nThe latter is useful because a void function is unlikely to be an argument\nand is surely meant to follow the current function at hand.",
+            "line": " compiler/logo/process/traverse/SeparateStatementsFromArgs.js:5"
+        },
+        {
+            "message": "Missing item type",
+            "line": " old/BabuinoBackend.js:77"
+        },
+        {
+            "message": "Missing item type\ngetTable()\nCreate the lookup table for procedure parameters.",
+            "line": " WetaCompilerAssembler.js:452"
+        },
+        {
+            "message": "Missing item type\nCreated by murray on 14/09/14.",
+            "line": " WetaCompilerAssembler.js:15409"
+        },
+        {
+            "message": "Missing item type\nSearch for the variable name, starting at the innermost scope. If the name is\nfound but it has been renamed, then return the new name.",
+            "line": " WetaCompilerAssembler.js:18143"
+        },
+        {
+            "message": "Missing item type\nMangle the name of a variable if it clashes with variables in outer scopes.\n\nVariables in code blocks (e.g. in if, while, for etc.) can reuse\nnames found in outer scopes. (This isn't standard Logo, but I want the\nsemantic analyser to be able to cope with languages that have this.)\nThe problem is that the back end virtual machine has no such concept - all\nvariables local to a procedure are stored in the same table. So the names\nof variables in inner scopes need to be mangled if they clash with outer\nvariables.\nThis is complicated by the fact that Logo doesn't require variable\ndeclarations. So, if an undeclared variable is used in an inner scope, and\na variable with the same name is used in an outer scope, then the two\nvariable are deemed to be one in the same. However, if the inner variable is\nexplicitly declared, then it will be deemed to be separate (and require\nmangling).",
+            "line": " WetaCompilerAssembler.js:29111"
+        },
+        {
+            "message": "Missing item type\nThis traversal cannot operate on its own. It is intended to be used by\nFixTypesAndBuildVariableTable, which mixes in its own handlers for nodes\nother than procedure and call",
+            "line": " WetaCompilerAssembler.js:29160"
+        },
+        {
+            "message": "Missing item type\nSince Logo has no statement delimiter, nor a delimiter for arguments to a\nprocedure, the parser alone cannot possibly distinguish what's what when\nthe arguments to a procedure are themselves procedures (functions). The\nparser will treat everything following a procedure call as an argument until\nit reaches a token that it knows not to be a procedure or value expression.\n\nNote that therefore any procedure found in the argument list must be the last\nargument for the previous procedure because all following arguments are\nassociated with the latter as far as the parser is concerned.\nThis of course continues down the line. So, arguments for one procedure might\nbe found in child node of another procedure node further out in the tree.\n\nThe other problem is that a procedure that the parser thinks to be an\nargument might in fact be an unrelated statement that's meant to follow the\nprevious procedure.\n\nTo unravel all of this ambiguity requires information about the procedure\ndefinitions to be gathered first. This way we can determine how many\narguments the procedure is supposed to have and whether it returns a value.\nThe latter is useful because a void function is unlikely to be an argument\nand is surely meant to follow the current function at hand.",
+            "line": " WetaCompilerAssembler.js:29318"
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+	.global _start
+
+	
+	.data
+txbuff:
+	.rept 5
+		.byte		0
+	.endr
+	
+	.text
+_start:
+	uint8		0
+	int16		0
+	global		txbuff
+	aubset
+	uint8		1
+	int16		1
+	global		txbuff
+	aubset
+	uint8		2
+	int16		2
+	global		txbuff
+	aubset
+	uint8		3
+	int16		3
+	global		txbuff
+	aubset
+	uint8		4
+	int16		4
+	global		txbuff
+	aubset
+	int16		42
+	stx
+	uint8		5
+	global		txbuff
+	uint8		0
+	txn
+	uint8	1
+	pop
+	exit
+	
+	.end

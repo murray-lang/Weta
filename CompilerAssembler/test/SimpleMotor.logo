@@ -1,0 +1,9 @@
+a, thisway
+b, thatway
+on
+loop
+[
+  wait 10
+  rd
+]
+

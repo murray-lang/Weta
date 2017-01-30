@@ -1,0 +1,20 @@
+menu "Board Configuration"
+
+choice TARGET_BOARD
+    prompt "Target Board"
+    default TARGET_BOARD_MYNANO32
+    help
+		Select a target ESP32 system.
+    
+config TARGET_BOARD_MYNANO32
+    bool "Murray's Nano32 Prototype"
+	help
+		Build Weta for this target.
+		
+config TARGET_BOARD_CARLOS
+    bool "Carlos's Tangible Programming board"
+	help
+		Build Weta for this target.		
+endchoice
+endmenu
+

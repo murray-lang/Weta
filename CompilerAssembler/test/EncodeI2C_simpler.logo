@@ -1,0 +1,27 @@
+bytearray [txbuff 1]
+bytearray [rxbuff 8]
+array [myFloats! 2]
+array [myDecodedFloats! 2]
+aset :myFloats 0 PI
+aset :myFloats 1 E
+make "eepromAddr 0
+foreach i (encode "myFloats 2
+)
+[
+  aset :txbuff 0 :i
+  i2cwrite 80 0 2 "txbuff 1
+  make "eepromAddr :eepromAddr + 1
+  waitms 5
+
+]
+make "eepromAddr 0
+i2cread 80 0 2 "rxbuff 8
+make "next 0
+foreach j (decode float "rxbuff 8
+)
+[
+  aset :myDecodedFloats :next :j
+  send :j
+  send ' '
+
+]

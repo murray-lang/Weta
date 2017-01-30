@@ -1,0 +1,15 @@
+loop
+[
+  digitalout 0 true
+  wait 10
+  digitalout 0 false
+  digitalout 1 true
+  wait 10
+  digitalout 1 false
+  digitalout 2 true
+  wait 10
+  digitalout 2 false
+  digitalout 3 true
+  wait 10
+  digitalout 3 false
+]

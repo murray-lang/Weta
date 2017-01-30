@@ -1,0 +1,20 @@
+loop
+[
+  print_switch 1 switch1
+
+  print_switch 2 switch2
+
+  print_switch 3 switch3
+
+  print_switch 4 switch4
+
+  wait 1
+]
+
+to print_switch :switchno  :value
+  foreach j ['Switch ' :switchno ' is ' :value '\n']
+  [
+    send :j
+
+  ]
+end

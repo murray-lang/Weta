@@ -1,0 +1,13 @@
+		.global _start
+	
+	.config
+		comm.serial { "port": 0, "baud": 9600, "databits": 8, "stopbits": 1, "parity": "none"}
+	.endconfig	
+
+	.data
+	
+	.text
+_start:
+	exit
+	
+	.end

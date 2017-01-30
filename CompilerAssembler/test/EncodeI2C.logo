@@ -1,0 +1,55 @@
+bytearray [txbuff 1]
+bytearray [rxbuff 8]
+array [myValues& 2]
+array [myOtherValues& 2]
+
+aset :myValues 0 765432
+aset :myValues 1 234567
+
+loop
+[
+	send 'About to store data in EEPROM\r\n'
+        ; The EEPROM allows writing either 1 byte at a time or in 64 byte
+        ; "pages". So write one byte at a time.
+    make "eepromAddr 0
+	foreach i encode :myValues 2
+	[
+		aset :txbuff 0 :i
+		i2cstart
+        i2cwrite 80 :eepromAddr 2 "txbuff 1
+        i2cstop
+        make "eepromAddr :eepromAddr + 1
+        waitms 5    ; Allow time for the write
+	]
+	    ; Clear Rx buffer
+	for [j 0 7 1]
+	[
+	    aset :rxbuff :j 0
+	]
+	send 'About to read back EEPROM data\r\n'
+		; Read 8 bytes into a buffer for decoding
+	make "eepromAddr 0
+    i2cstart
+    i2cread 80 :eepromAddr 2 "rxbuff 8
+    i2cstop
+
+        ; Send Rx buffer
+    for [k 0 7 1]
+    [
+        send tostring aget :rxbuff :k
+        send ' '
+    ]
+    send '\r\n'
+	make "next 0
+	foreach l decode int32 "rxbuff 8
+	[
+		aset :myOtherValues :next :l
+		make "next :next + 1
+		send tostring :l
+		send '\r\n'
+	]
+	wait 10
+]
+
+
+

@@ -1,0 +1,15 @@
+loop
+[
+  ifelse not (switch1
+  )
+  [
+    digitalout 0 true
+
+  ]
+  [
+    digitalout 0 false
+
+  ]
+
+  wait 10
+]

@@ -1,0 +1,10 @@
+bytearray [txbuff 5]
+aset :txbuff 0 0
+aset :txbuff 1 1
+aset :txbuff 2 2
+aset :txbuff 3 3
+aset :txbuff 4 4
+
+send 42
+send 0 "txbuff 5
+

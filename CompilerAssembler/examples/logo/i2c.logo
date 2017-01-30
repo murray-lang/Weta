@@ -1,0 +1,19 @@
+bytearray [txbuff 1]
+bytearray [rxbuff 1]
+
+aset :txbuff 0 255
+
+loop
+[
+	i2cstart
+	aset :txbuff 0 255
+	i2cwrite 63 0 0 "txbuff 1
+	i2cstop
+	wait 10
+	aset :txbuff 0 0
+	i2cwrite 63 0 0 "txbuff 1
+
+	;i2cread 63 0 0 "rxbuff 1
+	i2cstop
+	wait 10
+]

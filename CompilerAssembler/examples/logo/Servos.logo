@@ -1,0 +1,41 @@
+make "heading 0
+n, 
+setsvh :heading
+loop
+[
+	if not switch1
+	[
+		digitalout 0 true
+		make "heading :heading + 10
+		setsvh :heading
+		wait 10
+		digitalout 0 false
+	]
+	if not switch2
+	[
+		digitalout 1 true
+		make "heading :heading - 10
+		setsvh :heading
+		wait 10
+		digitalout 1 false
+	]
+	if not switch3
+	[
+		digitalout 2 true
+		make "heading :heading - 1
+		setsvh :heading
+		wait 10
+		digitalout 2 false
+	]
+	if not switch4
+	[
+		digitalout 3 true
+		make "heading :heading + 1
+		setsvh :heading
+		wait 10
+		digitalout 3 false
+	]
+]
+
+
+

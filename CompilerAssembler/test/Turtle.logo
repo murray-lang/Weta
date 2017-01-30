@@ -1,0 +1,12 @@
+forward 42
+fw 142
+backward 54
+bw 154
+left 90
+lt 190
+right 180
+rt 280
+pendown
+penup
+pd
+pu

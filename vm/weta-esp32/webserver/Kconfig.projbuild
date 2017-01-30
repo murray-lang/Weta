@@ -1,0 +1,16 @@
+menu "Webserver Configuration"
+
+config WIFI_SSID
+	string "WiFi Access Point ID"
+	default "YourWifiSSID"
+	help
+		The name of your WiFi Access Point as shown in a WiFi network list.
+		
+config WIFI_PASSWORD
+	string "WiFi Password"
+	default "password"
+	help
+		Password to your WiFi Access Point.
+
+endmenu
+

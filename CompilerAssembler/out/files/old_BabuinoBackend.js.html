@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>old/BabuinoBackend.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/BabuinoLogo.html">BabuinoLogo</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: old/BabuinoBackend.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+
+var ePurpose =
+{
+	UNKNOWN :		-1,
+	PROC_ADDR :		0x00,
+	VARIABLE :		0x01,
+	IMMEDIATE:		0x02,
+	COUNTER:		0x03,
+	TAG_DECL:		0x04,
+	TAG_REF:		0x05,
+	BLOCK_LENGTH:	0x06
+};
+
+function VmCodeArgument(value, purpose, typeArray)
+{
+	this.value		= value;
+	this.purpose	= purpose;
+	this.typeArray	= typeArray;
+}
+
+VmCodeArgument.prototype.toString = 
+	function ()
+	{
+		var result = &quot;&quot;;
+		if (this.value !== undefined &amp;&amp; this.value != null)
+			result += this.value;
+		return result;
+	};
+
+function VmCode(code, arg, comment)
+{
+	//this.address      = -1;
+	//this.length       = length;
+	this.code         = code;
+	this.argument     = arg;
+	//this.argumentType = argType;
+	this.comment      = comment;
+	this.xref         = null;
+	this.xrefResolved = false;
+		// This member was added so that &quot;uint8 n&quot; commands that are variable
+		// indexes can have a convenient reference to the corresponding
+		//(set|get)(global|local|temp|param) command code.
+	this.partnerCode  = null;
+}
+
+VmCode.prototype.asAssembly =
+function ()
+{
+	if (this.length == 0)
+	return &quot;&quot;;
+		// 4 digit padding of address
+	var	str = this.code; //(10000 + this.address + &quot;: &quot;).substr(1);
+	//str += this.code;
+	if (this.argument !== undefined &amp;&amp; this.argument != null)
+		str += &quot; &quot; + this.argument.toString();
+
+	if (this.comment !== undefined &amp;&amp; this.comment != null)
+	str += &quot;\t\t;&quot; + this.comment;
+	return str;
+};
+
+function TagAddress(name, address)
+{
+	this.name  = name;
+	this.index = address;
+}
+
+function ProcedureCall(name, args)
+{
+	this.name					= name;
+	this.argList				= args;
+	this.returnValueExpected 	= false;
+		// This will be worked out later
+	this.returnType				= [Types.unknown];
+}
+
+/*******************************************************************************
+ *
+ * @constructor
+ ******************************************************************************/
+function BabuinoBackEnd()
+{
+    this.output = null;
+    this.errorOutput = null;
+	this.reset();
+}
+
+BabuinoBackEnd.prototype.reset =
+    function ()
+    {
+    };
+
+BabuinoBackEnd.prototype.compileByte =
+	function (value, comment, returnType)
+	{
+		return new ExpressionNode(
+			[Types.uint8],
+			new VmCode(Types.uint8.code, new VmCodeArgument(value, ePurpose.IMMEDIATE, returnType), comment)
+			);
+	};
+	
+BabuinoBackEnd.prototype.compileShort =
+	function (value, comment)
+	{
+		return new ExpressionNode(
+			[Types.int16],
+			new VmCode(Types.int16.code, new VmCodeArgument(value, ePurpose.IMMEDIATE, [Types.int16]), comment)
+			);
+	};
+	
+BabuinoBackEnd.prototype.compileUShort =
+	function (value, comment)
+	{
+		return new ExpressionNode(
+			[Types.uint16],
+			new VmCode(Types.uint16.code, new VmCodeArgument(value, ePurpose.IMMEDIATE, [Types.uint16]), comment)
+			);
+	};	
+	
+BabuinoBackEnd.prototype.compileInteger =
+	function (value, comment)
+	{
+		return new ExpressionNode(
+			[Types.int32],
+			new VmCode(Types.int32.code, new VmCodeArgument(value, ePurpose.IMMEDIATE, [Types.int32]), comment)
+			);
+	};	
+	
+BabuinoBackEnd.prototype.compileUInteger =
+	function (value, comment)
+	{
+		return new ExpressionNode(
+			[Types.uint32],
+			new VmCode(Types.uint32.code, new VmCodeArgument(value, ePurpose.IMMEDIATE, [Types.uint32]), comment)
+			);
+	};	
+	
+BabuinoBackEnd.prototype.compileSingle =
+	function (value, comment)
+	{
+		return new ExpressionNode(
+			[Types.float],
+			new VmCode(Types.float.code, new VmCodeArgument(value, ePurpose.IMMEDIATE, [Types.float]), comment)
+			);
+	};
+
+BabuinoBackEnd.prototype.compileDouble =
+	function (value, comment)
+	{
+		return new ExpressionNode(
+			[Types.double],
+			new VmCode(Types.double.code, new VmCodeArgument(value, ePurpose.IMMEDIATE, [Types.double]), comment)
+			);
+	};	
+
+BabuinoBackEnd.prototype.compileUnaryMinus =
+	function (value)
+	{
+				//var result = new ExpressionNode(value.resultType, [].concat(value));
+		if (value.resultType.length &gt; 1)
+		{
+			this.errorOutput(&quot;Cannot negate a compound type.&quot;);
+			return null;
+		}
+		if (value.resultType.length == 0)
+		{
+			this.errorOutput(&quot;Cannot negate value (no type information.&quot;);
+			return null;
+		}
+		var code = null;
+		var resultType = [&quot;unknown&quot;];
+        var promotion = null;
+
+		switch (value.resultType[0])
+		{
+        case Types.uint8:
+                // Can&#x27;t negate an unsigned byte. Byte needs to be promoted to
+                // short to ensure that a negation doesn&#x27;t overflow.
+            promotion = new ExpressionNode(Types.int16, new VmCode(&quot;btos&quot;));
+            code = new VmCode(&quot;sneg&quot;);
+            resultType = Types.int16;
+			break;
+
+		case Types.uint16.code:
+			    // Can&#x27;t negate an unsigned short. Short needs to be promoted to
+                // int to ensure that a negation doesn&#x27;t overflow.
+            promotion = new ExpressionNode(Types.int32, new VmCode(&quot;ustoi&quot;));
+            code = new VmCode(&quot;ineg&quot;);
+            resultType = Types.int32;
+			break;
+
+		case Types.uint32.code:
+			this.errorOutput(&quot;Cannot negate an unsigned (integer) value.&quot;);
+			break;
+
+		case Types.int16.code:
+			code = new VmCode(&quot;sneg&quot;);
+			resultType = Types.int16;
+			break;
+
+		case Types.int32.code:
+
+			code = new VmCode(&quot;ineg&quot;);
+			resultType = Types.int32;
+			break;
+
+		case Types.float.code:
+			code = new VmCode(&quot;fneg&quot;);
+			resultType = Types.float;
+			break;
+
+		case Types.double.code:
+			code = new VmCode(&quot;dneg&quot;);
+			resultType = Types.double;
+			break;
+		}
+		if (code == null)
+			return null;
+		
+		return new ExpressionNode([resultType], code, value, promotion);
+	};
+
+
+
+
+BabuinoBackEnd.prototype.compileFetch =
+    function (name, type, args)
+    {
+        return new VarFetchNode(name, type, args);
+    }
+
+BabuinoBackEnd.prototype.compileGetVariable =
+	function (name)
+	{
+        var type  = Types.fromName(name);
+        return this.compileFetch(name, type);
+
+		/*
+		var codeVar = new VmCode(Types.uint8.code, new VmCodeArgument(-1, ePurpose.VARIABLE, [Types.uint8]), &quot;Index of &quot; + name);
+			// It&#x27;s possible that the name could be resolved now, but not certain.
+			// Just defer all variable resolutions until parsing is done and
+			// we can traverse the parse tree.
+        codeVar.xref = name;
+        codeVar.xrefResolved = false;
+		var nodeVar = new ExpressionNode([Types.uint8], codeVar);
+		//&quot;&lt;getvar&gt;&quot; will be changed to either &quot;getglobal&quot;,&quot;getlocal&quot; or
+		//&quot;gettemp&quot; when the scope is resolved later,
+		var codeGet = new VmCode(&quot;&lt;getvar&gt;&quot;);
+		return new ExpressionNode([Types.unknown], codeGet, nodeVar);
+		*/
+	};
+/*
+BabuinoBackEnd.prototype.compileSetVariable =
+	function (name, exp)
+	{
+
+			
+		var codeVar = new VmCode(Types.uint8.code, new VmCodeArgument(-1, ePurpose.VARIABLE, [Types.uint8]), &quot;Index of &quot; + name);
+        codeVar.xref = name;
+        codeVar.xrefResolved = false;
+		var nodeVar = new ExpressionNode([Types.uint8], codeVar);
+		//&quot;&lt;setvar&gt;&quot; will be changed to either &quot;setglobal&quot;,&quot;setlocal&quot; or
+		//&quot;settemp&quot; when the scope is resolved later,
+		var codeSetVar = new VmCode(&quot;&lt;setvar&gt;&quot;);
+		 
+		return new ExpressionNode([Types.void], codeSetVar, nodeVar, exp);
+	};
+*/
+BabuinoBackEnd.prototype.addToBlock =
+	function (statements)
+	{
+		if (this.currentBlock == null)
+			this.currentBlock = [];
+		this.currentBlock.push(statements);
+	};
+
+BabuinoBackEnd.prototype.clearBlock =
+	function ()
+	{
+		this.currentBlock = null;
+	};
+
+BabuinoBackEnd.prototype.addToProcedure =
+	function (statements)
+	{
+		if (this.currentProc == null)
+			this.currentProc = [];
+		this.currentProc.push(statements);
+	}
+
+BabuinoBackEnd.prototype.clearProcedure =
+	function ()
+	{
+		this.currentProc = null;
+	};
+
+BabuinoBackEnd.prototype.compileBlock =
+	function (block)
+	{
+
+/* Block lengths now need to be calculated by the assembler			
+		var blockLength = 0;
+		if (block !== undefined &amp;&amp; block != null &amp;&amp; block.codes !== undefined &amp;&amp; block.codes != null)
+		{
+			for (var i = 0; i &lt; block.codes.length; i++)
+			{
+				blockLength += block[i].length;
+			}
+		}
+		blockLength += 1; // For added eob code
+*/		
+			// The length of the block needs to be calculate (and set) by the assembler
+		var codeBlock = new VmCode(&quot;block&quot;, new VmCodeArgument(0, ePurpose.BLOCK_LENGTH, [Types.uint8]), &quot;Length of this block&quot;);
+		var nodeBlock = new ExpressionNode(block.returnType, codeBlock);
+		var nodeEob   = new ExpressionNode([Types.void], new VmCode(&quot;eob&quot;));
+
+		return new ExpressionNode(block.returnType, null, nodeBlock, block, nodeEob);
+	};
+
+BabuinoBackEnd.prototype.compileCurrentBlock =
+	function ()
+	{
+		//if (this.currentPass != 2)
+		//	return null;
+		var result = this.compileBlock(this.currentBlock);
+		this.clearBlock();
+
+		return result;
+	};
+
+BabuinoBackEnd.prototype.compileIf =
+	function (exp, block)
+	{
+		var ifCode = new VmCode(&quot;if&quot;);
+		//return new ExpressionNode(eType.void, exp.concat(block).concat([ifCode]));
+		return new ExpressionNode([Types.void], ifCode, exp, block);
+	};
+
+BabuinoBackEnd.prototype.compileRepeat =
+	function (exp, block)
+	{
+		var repeatCode = new VmCode(&quot;repeat&quot;);
+		//return new ExpressionNode(eType.void, exp.concat(block, [repeatCode]));
+		return new ExpressionNode([Types.void], repeatCode, exp, block);
+	};
+
+BabuinoBackEnd.prototype.compileLoop =
+	function (block)
+	{
+		var loopCode = new VmCode(&quot;loop&quot;);
+		//return new ExpressionNode(eType.void, block.concat([loopCode]));
+		return new ExpressionNode([Types.void], loopCode, block);
+	};
+
+BabuinoBackEnd.prototype.compileWhile =
+	function (exp, block)
+	{
+		if (this.currentPass != 2)
+			return null;
+		var whileCode = new VmCode(&quot;while&quot;);
+		//return new ExpressionNode(eType.void, block.concat(exp, [whileCode]));
+		return new ExpressionNode([Types.void], whileCode, block, exp);
+	};
+	
+BabuinoBackEnd.prototype.compileDoWhile =
+	function (exp, block)
+	{
+		var doCode    = new VmCode(&quot;do&quot;);
+		var whileCode = new VmCode(&quot;while&quot;);
+
+		//exp[0].comment += &quot; (\&quot;while\&quot; condition test)&quot;;
+		//return new ExpressionNode(eType.void, [doCode].concat(block, exp, [whileCode]));
+		return new ExpressionNode([Types.void], whileCode, doCode, block, exp);
+	};
+
+BabuinoBackEnd.prototype.compileWaitUntil =
+	function (exp)
+	{
+		var block = this.compileBlock(exp);
+
+		//return new ExpressionNode(eType.void, block.concat([new VmCode(&quot;waituntil&quot;)]));
+		return new ExpressionNode([Types.void], new VmCode(&quot;waituntil&quot;), block);
+	};
+
+BabuinoBackEnd.prototype.compileFor =
+	function(counter, from, to, step, block)
+	{
+		//from[from.length-1].comment = &quot;from&quot;; // This could be an expression
+		//to[to.length-1].comment = &quot;to&quot;;
+		//step[step.length-1].comment = &quot;step&quot;;
+		// This is i, but with no partner that will act on it
+		
+		var i = new VmCode(Types.uint8.code, new VmCodeArgument(-1, ePurpose.COUNTER, [Types.uint8]), &quot;Index of &quot; + counter);
+		i.xref = counter;
+		i.xrefResolved = false;
+		var forCode = new VmCode(&quot;for&quot;);
+		//return new ExpressionNode(eType.void, [i].concat(from, to, step, block, [forCode]));
+		return new ExpressionNode([Types.void], forCode, i, from, to, step, block);
+	};
+
+BabuinoBackEnd.prototype.compileIfElse =
+	function (exp, thenBlock, elseBlock)
+	{
+		var ifCode = new VmCode(&quot;ifelse&quot;);
+		//return new ExpressionNode(eType.void, [ifCode].concat(exp, thenBlock, elseBlock, [ifCode]));
+		return new ExpressionNode([Types.void], ifCode, exp, thenBlock, elseBlock);
+	};
+
+BabuinoBackEnd.prototype.compileTag =
+	function (label)
+	{
+		var tagCode = new VmCode(null, new VmCodeArgument(label, ePurpose.TAG_DECL, [Types.pointer]));
+		return new ExpressionNode([Types.void], tagCode);
+	};
+
+BabuinoBackEnd.prototype.compileGoto =
+	function (label)
+	{
+		var addrCode = new VmCode(&quot;short&quot;, new VmCodeArgument(null, ePurpose.TAG_REF, [Types.pointer]));
+		addrCode.xref = label;
+		var gotoCode = new VmCode(&quot;goto&quot;);
+
+		return new ExpressionNode([Types.void], gotoCode, addrCode);
+	};
+
+BabuinoBackEnd.prototype.compileWait =
+	function (exp)
+	{
+		var waitCode = new VmCode(&quot;wait&quot;);
+		return new ExpressionNode([Types.void], waitCode, exp);
+	};
+
+//------------------------------------------------------------------------------
+// Cricket-compatible motor selection
+//------------------------------------------------------------------------------
+BabuinoBackEnd.prototype.compileSelectMotors0 =
+	function (motors)
+	{
+		var motorTokens =
+		[
+		[&quot;a&quot;,     1],
+		[&quot;b&quot;,     2],
+		[&quot;ab&quot;,    3],
+		[&quot;c&quot;,     4],
+		[&quot;ac&quot;,    5],
+		[&quot;bc&quot;,    6],
+		[&quot;abc&quot;,   7],
+		[&quot;d&quot;,     8],
+		[&quot;ad&quot;,    9],
+		[&quot;bd&quot;,   10],
+		[&quot;abd&quot;,  11],
+		[&quot;cd&quot;,   12],
+		[&quot;acd&quot;,  13],
+		[&quot;bcd&quot;,  14],
+		[&quot;abcd&quot;, 15]
+		];
+		for (var i = 0; i &lt; motorTokens.length; i++)
+		{
+			if (motors == motorTokens[i][0])
+			{
+					
+				var select = new VmCode(Types.uint8.code, new VmCodeArgument(motorTokens[i][1], ePurpose.IMMEDIATE, [Types.uint8]), &quot;Motors &quot; + motors);
+				var motors = new VmCode(&quot;motors&quot;);
+				//return [select, motors];
+				
+				return new ExpressionNode([Types.void], motors, new ExpressionNode([Types.uint8], select));
+			}
+		}
+		this.errorOutput(&quot;Motor selection &quot; + motors + &quot; not supported.&quot;);
+		return null;
+	};
+
+//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
+BabuinoBackEnd.prototype.compileSelectMotors1 =
+	function (motors)
+	{
+		// This way of assigning motors to bits is not compatible with the
+		// original Babuino, which assigned a token to each possible
+		// combination.
+		//Elements correspond to motors a, b, c, d, e, f, g, h
+		var flags = new Array(0, 0, 0, 0, 0, 0, 0, 0);
+		var a = &quot;a&quot;.charCodeAt(0);	// Get code for &#x27;a&#x27;
+
+		for (var i = 0; i &lt; motors.length; i++)
+		{
+			var c = motors.charCodeAt(i);
+			var m = c - a;		// Convert to index (&#x27;a&#x27; == 0)
+			flags[m] = 1;			// Flag this motor
+		}
+		// Now create a binary number as bitwise flags for motors.
+		// &#x27;a&#x27; is first in the array but will be the LSB, so step
+		// backwards through the array to build the argument.
+		var	arg = &quot;0b&quot;;
+		for (var i = 7; i &gt;= 0; i--)
+		{
+			if (flags[i] == 0)
+				arg += &#x27;0&#x27;;
+			else
+				arg += &#x27;1&#x27;;
+		}
+		
+		var select = new VmCode(Types.uint8.code, new VmCodeArgument(arg, ePurpose.IMMEDIATE, [Types.uint8]), &quot;Motors &quot; + motors);
+		var motors = new VmCode(&quot;motors&quot;);
+		//return [select, motors];
+		return new ExpressionNode([Types.void], motors, new ExpressionNode([Types.uint8], select));
+	};
+
+BabuinoBackEnd.prototype.compileMotorCommand =
+	function (motors, cmd)
+	{
+		// Stick with Cricket compatibility for now
+		var select = this.compileSelectMotors0(motors);
+		//return new ExpressionNode(eType.void, select.concat(cmd));
+		return new ExpressionNode([Types.void], null, select, cmd);
+	};
+
+BabuinoBackEnd.prototype.compileRandomXY =
+	function (min, max)
+	{
+		//var minCode = new VmCode(&quot;short&quot;, new VmCodeArgument(min, ePurpose.IMMEDIATE, eType.SHORT), &quot;random lower bound&quot;);
+		//var maxCode = new VmCode(&quot;short&quot;, new VmCodeArgument(max, ePurpose.IMMEDIATE, eType.SHORT), &quot;random upper bound&quot;);
+		var randCode = new VmCode(&quot;randomxy&quot;);
+		
+		// TO DO: Do any necessary type conversions of parameters
+
+		//return new ExpressionNode(eType.int16, [minCode, maxCode, randCode]);
+		return new ExpressionNode([Types.int16], randCode, min, max);
+	};
+
+
+BabuinoBackEnd.prototype.compileOutput =
+	function (arg)
+	{
+		return new ExpressionNode(arg.returnType, new VmCode(&quot;output&quot;), arg);
+	};
+
+BabuinoBackEnd.prototype.compileSimpleCommand =
+	function (cmd, returnType)
+	{
+		return new ExpressionNode(returnType, new VmCode(cmd));
+	};
+
+BabuinoBackEnd.prototype.compileArgCommand =
+	function (cmd, arg, returnType)
+	{
+		return new ExpressionNode(returnType, new VmCode(cmd), arg);
+	};
+	
+BabuinoBackEnd.prototype.getConversionCode =
+	function (from, to)	
+	{
+		return new ExpressionNode([Types.void], new VmCode(from.prefix + &quot;to&quot; + to.prefix));
+	};
+
+BabuinoBackEnd.prototype.isValidTypeForNumericExpressions =
+	function (returnType)
+	{
+		return  returnType.length == 1 &amp;&amp; // No compound types (arrays etc.)
+               (
+                  returnType[0] == Types.int8
+		       || returnType[0] == Types.uint8
+		       || returnType[0] == Types.int16
+               || returnType[0] == Types.uint16
+               || returnType[0] == Types.int32
+               || returnType[0] == Types.uint32
+               || returnType[0] == Types.float
+               || returnType[0] == Types.double
+               );
+	};
+	
+BabuinoBackEnd.prototype.isValidTypeForBooleanExpressions =
+	function (returnType)
+	{	
+		return this.isValidTypeForNumericExpressions(returnType)
+               || (returnType.length == 1 &amp;&amp; returnType[0] == Types.boolean);
+	};
+
+BabuinoBackEnd.prototype.compileNumericExpression =
+	function (lhs, op, rhs)
+	{
+		if (!this.isValidTypeForNumericExpressions(lhs.returnType))
+		{
+			this.errorOutput(&quot;Left hand side of expression cannot be part of a numeric expression.&quot;);
+			return null;
+		}
+		if (!this.isValidTypeForNumericExpressions(rhs.returnType))
+		{
+			this.errorOutput(&quot;Right hand side of expression cannot be part of a numeric expression.&quot;);
+			return null;
+		}
+            // if both sides are the same then any side will do as the default
+		var returnType = lhs.returnType[0];
+			// Append a conversion to the least precise side to the type of the
+			// most precise side. (If they are the same then no conversion is
+			// required.
+		if (lhs.returnType[0].size &gt; rhs.returnType[0].size)
+		{
+			var conversion = this.getConversionCode(rhs.returnType[0], lhs.returnType[0]);
+			rhs.append(conversion);
+            returnType = lhs.returnType[0];
+		}
+		else if(lhs.returnType[0].size &lt; rhs.returnType[0].size)
+		{
+			var conversion = this.getConversionCode(lhs.returnType[0], rhs.returnType[0]);
+			lhs.append(conversion);
+            returnType = lhs.returnType[0];
+		}
+		
+
+		var newOp = new VmCode(returnType.prefix + op);
+		
+		return new ExpressionNode([returnType], newOp, lhs, rhs);
+	};
+	
+BabuinoBackEnd.prototype.compileBooleanExpression =
+	function (lhs, op, rhs)
+	{
+		if (!this.isValidTypeForBooleanExpressions(lhs.returnType))
+		{
+			this.errorOutput(&quot;Left hand side of expression cannot be part of a Boolean expression.&quot;);
+			return null;
+		}
+		if (!this.isValidTypeForBooleanExpressions(rhs.returnType))
+		{
+			this.errorOutput(&quot;Right hand side of expression cannot be part of a Boolean expression.&quot;);
+			return null;
+		}
+        var returnType = Types.boolean;
+			// If one side is already a boolean value, then both sides must be.
+			// Otherwise append a conversion to the least precise side to the type of the
+			// most precise side. (If they are the same then no conversion is
+			// required.
+		if (lhs.returnType[0] == Types.boolean || rhs.returnType[0] == Types.boolean)
+		{
+				// One of them is Boolean. Now make sure they both are.
+			if (lhs.returnType[0] != rhs.returnType[0])
+			{
+				this.errorOutput(&quot;A Boolean value cannot be compared to a numeric value.&quot;)
+				return null;
+			}
+		}
+		else if (lhs.returnType[0].size &gt; rhs.returnType[0].size)	// Comparing two numbers
+		{
+			var conversion = this.getConversionCode(rhs.returnType[0], lhs.returnType[0]);
+			rhs.append(conversion);
+            returnType = lhs.returnType[0];
+		}
+		else if(lhs.returnType[0].size &lt; rhs.returnType[0].size)	// Comparing two numbers
+		{
+			var conversion = this.getConversionCode(lhs.returnType[0], rhs.returnType[0]);
+			lhs.append(conversion);
+            returnType = rhs.returnType[0];
+		}
+		var newOp;
+		newOp = new VmCode(returnType.prefix + op);
+		
+		return new ExpressionNode([Types.boolean], newOp, lhs, rhs);
+	};	
+	
+BabuinoBackEnd.prototype.compileLogicExpression =
+	function (lhs, op, rhs)
+	{
+			// Both sides of a logic expression (e.g. AND, OR, XOR, NOT etc.) bust be Boolean
+		if (lhs.returnType.length != 1 || lhs.returnType[0] != Types.boolean)
+		{
+			this.errorOutput(&quot;Left hand side of &quot; + op + &quot; expression does not evaluate to a Boolean.&quot;);
+			return null;
+		}
+		if (rhs.returnType.length != 1 || rhs.returnType[0] != Types.boolean)
+		{
+			this.errorOutput(&quot;Right hand side of &quot; + op + &quot; expression does not evaluate to a Boolean.&quot;);
+			return null;
+		}
+		var newOp = new VmCode(op);
+
+		return new ExpressionNode([Types.boolean], newOp, lhs, rhs);
+	};				
+
+BabuinoBackEnd.prototype.asAssembly =
+	function (byteCodes)
+	{
+		var str = &quot;&quot;;
+
+		if (byteCodes.length == 0)
+			str = &quot;Empty code list!&quot;;
+
+		for (var i = 0; i &lt; byteCodes.length; i++)
+		{
+			if (byteCodes[i].length &gt; 0)
+			{
+				str += byteCodes[i].asAssembly();
+				str += &quot;\n&quot;;
+			}
+		}
+		return str;
+	};
+
+BabuinoBackEnd.prototype.printCodes =
+	function (byteCodes)
+	{
+		this.output(this.asAssembly(byteCodes));
+	};
+
+BabuinoBackEnd.prototype.createProcedureCall =
+    function (name, arguments)
+    {
+        return new ProcedureCall(name, arguments);
+    };
+
+BabuinoBackEnd.prototype.compileProcedureCall =
+    function (call, returnValueExpected)
+    {
+        if (call === undefined || call == null)
+            return null;
+
+        call.returnValueExpected = returnValueExpected;
+
+        return new CallNode(call);
+    };
+
+BabuinoBackEnd.prototype.oldCompileProcedureCall =
+	function (name, returnValueExpected, parserSeesArgList)
+	{
+		var callDetails = new ProcedureCall(name, this.argList, returnValueExpected, parserSeesArgList);
+		var arg = new VmCodeArgument(callDetails, ePurpose.PROC_ADDR, [Types.pointer]);
+		var addressOf = new ExpressionNode([Types.pointer], new VmCode(&quot;addressOf&quot;, arg));
+
+		return new ExpressionNode([Types.unknown], new VmCode(&quot;call&quot;), addressOf);
+		/*
+
+		var procDef = this.findProcedureDefinition(name);
+
+		// Debugging
+		// this.output(&quot;compileProcedureCall(&quot; + name + &quot;)\n{\n&quot;);
+		// var numParams = procDef.parameters == null ? 0 : procDef.parameters.length;
+		// var numArgs = this.argList == null ? 0 : this.argList.length;
+		// this.output(&quot;#Parameters: &quot; + numParams + &quot;\n&quot;);
+		// this.output(&quot;#Arguments: &quot; + numArgs + &quot;\n&quot;);
+		// this.output(&quot;#Output: &quot; + (procDef.returnsValue ? &quot;true&quot; : &quot;false&quot;) + &quot;\n&quot;);
+		// if (this.argList != null)
+		// for (var i = 0; i &lt; this.argList.length; i++)
+		// {
+		// 		this.output(&quot;------------------------\n&quot;);
+		// 		this.printCodes(this.argList[i]);
+		// 		this.output(&quot;------------------------\n&quot;);
+		// }
+		
+		var args = null;
+		var appendStatementsThatWereArguments = false;
+		if (procDef.parameters != null &amp;&amp; this.argList != null &amp;&amp; parserSeesArgList)
+		{
+			args = null;
+			// Find the last &quot;empty argument&quot;. This will correspond to the
+			// procedure call being handled here. Also see if it&#x27;s the first (left-most).
+			// If there are no more empty arguments (marking the place of a procedure call)
+			// then this current call is the leftmost in a expression and all of the arguments,
+			// including other procedure calls, should now be in place. Any &quot;arguments&quot; that
+			// were found to be in fact separate nodes can be appended after this call.
+			var argIndex = -1;
+			var first = true;
+			for (var i = this.argList.length - 1; i &gt;= 0; i--)
+			{
+				if (this.argList[i][0].code == &quot;empty argument&quot;)
+				{
+					if (argIndex == -1)
+					{
+						argIndex = i; // found the last (right-most)
+					}
+					else
+					{
+						// There is another call to the left. (Keep accumulating any
+						// nodes mistaken for arguments.)
+						first = false;
+						break;
+					}
+				}
+			}
+			appendStatementsThatWereArguments = first;
+			// If there&#x27;s no empty argument associated with this procedure
+			// then I&#x27;ve screwed something up.
+			if (argIndex &lt; 0)
+			{
+				this.errorOutput(&quot;Internal error; Procedure &quot; + name + &quot; has no argument list (even an empty one).\n&quot;);
+				return null;
+			}
+			//Now pick off the parameters
+			if (procDef.parameters.length &gt; 0)
+			{
+				// The number of arguments to the right of the procedure name
+				// must at least be the number of expected parameters (I&#x27;ll
+				// sort out variable argument lists some other time)
+				var availableArgs = this.argList.length - (argIndex+1);
+				if (availableArgs &lt; procDef.parameters.length)
+				{
+					this.errorOutput(name + &quot; requires &quot; + procDef.parameters.length +
+					&quot;arguments, but has been given at most &quot; + availableArgs + &quot;\n&quot;);
+					return null;
+				}
+				args = this.argList.splice(argIndex + 1, procDef.parameters.length);
+			}
+		}
+
+		//this.output(&quot;}\n&quot;);
+		var callDetails = new ProcedureCall(name, args, procDef.returnsValue, returnValueExpected, parserSeesArgList);
+		
+		var call = new VmCode(&quot;call placeholder(&quot; + name + &quot;)&quot; );
+		call.argument = new VmCodeArgument(callDetails, ePurpose.PROC_ADDRESS, eType.pointer);
+
+		var returnValue = [call];
+
+		if (appendStatementsThatWereArguments)
+			returnValue = returnValue.concat(this.compileStatementsMistakenForArguments());
+
+		return returnValue;
+		*/
+	};
+
+BabuinoBackEnd.prototype.compileStatementsMistakenForArguments =
+	function ()
+	{
+		var statementNodes = [];
+
+		if (this.statementsNotArguments != null)
+		{
+			for (var i = 0; i &lt; this.statementsNotArguments.length; i++)
+			{
+                statementNodes = statementNodes.concat(this.statementsNotArguments[i]);
+			}
+			this.statementsNotArguments = null;
+		}
+
+		return statementNodes;
+	};
+
+BabuinoBackEnd.prototype.resolveProcedureCrossReferences =
+	function ()
+	{
+		this.globalProcDef.resolveProcedureCrossReferences(this.procedureDefinitions);
+		for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+		{
+			this.procedureDefinitions[i].resolveProcedureCrossReferences(this.procedureDefinitions);
+		}
+	};
+
+BabuinoBackEnd.prototype.addProcedureDefinition =
+	function (name, params, statements)
+	{
+//		if (this.currentPass == 1)
+//		{
+			var procDef = new ProcedureDefinition(name, params, statements);
+				// Look for an output code to determine what type, if any, this
+				// procedure returns.
+        /*
+			if (this.currentProc != null)
+			{
+				for (var i = 0; i &lt; this.currentProc.length; i++)
+				{
+					if (this.currentProc[i] == null || this.currentProc[i].length == 0)
+						continue;
+					var statements = this.currentProc[i].codes;
+					for (var j = 0; j &lt; statements.length; j++)
+					{
+						if (statements[j] != null &amp;&amp; statements[j].code == &quot;output&quot;)
+							procDef.returnType = true;
+					}
+				}
+				this.clearProc();
+			}
+			*/
+			this.procedureDefinitions.push(procDef);
+
+/*		}
+		else if (this.currentPass == 2)
+		{
+			var procDef = this.findProcedureDefinition(name);
+			if (procDef != null)
+			{
+				procDef.nodes = this.currentProc;
+				this.clearProc();
+			}
+			else
+			{
+				this.output(&quot;addProcedureDefinition(): &quot; + name + &quot; not found!&quot;);
+			}
+		}
+*/
+	};
+
+BabuinoBackEnd.prototype.findProcedureDefinition =
+	function (name)
+	{
+		for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+		{
+			if (this.procedureDefinitions[i].name == name)
+				return this.procedureDefinitions[i];
+		}
+		return null;
+	};
+
+BabuinoBackEnd.prototype.printProcedureDefinitions	=
+	function ()
+	{
+		this.errorOutput(&quot;---- Procedure Definitions ----\n&quot;);
+		for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+		{
+			var str = this.procedureDefinitions[i].toString();
+			this.errorOutput(str);
+		}
+
+	};
+
+BabuinoBackEnd.prototype.completeProcedureCall =
+	function (codes, i)
+	{
+		var callPlaceholder = codes[i];
+		var procedureCall = callPlaceholder.argument.value;
+		if (procedureCall === undefined || procedureCall == null)
+		{
+			this.errorOutput(&quot;Procedure call to &#x27;&quot; + procedureCall.name + &quot;&#x27; has information missing.&quot;);
+			return;
+		}
+		var procDef = this.findProcedureDefinition(procedureCall.name);
+		if (procDef == null)
+		{
+			this.errorOutput(&quot;No procedure defined for &#x27;&quot; + procedureCall.name + &quot;&#x27;.&quot;);
+			return;
+		}
+		if (procedureCall.returnValueExpected &amp;&amp; !procDef.returnsValue)
+		{
+			// This procedure call looks like an argument to another function
+			// but it can&#x27;t be because it doesn&#x27;t return a value. It must
+			// therefore be a new expression on the same line.
+			return; // To do: proper error handling.
+		}
+			// Determine whether to pop return value
+		var cleanupReturnValue = procDef.returnsValue &amp;&amp; !procedureCall.returnValueExpected;
+		var callAddress = new VmCode(&quot;short&quot;, 0, ePurpose.PROC_ADDR, &quot;Address of &quot; + procDef.name);
+			// Mark this short as a cross reference to the procedure name and flag
+			// it as unresolved.
+		callAddress.xref = procDef.name;
+		callAddress.xrefResolved = false;
+		codes.splice(i, 1);	// Remove the placeholder
+		var sequence = [];
+		if (procDef.returnsValue) 
+			sequence.push(new VmCode(&quot;short&quot;, new VmCodeArgument(0, ePurpose.IMMEDIATE, eType.SHORT), &quot;space for &quot; + procedureCall.name + &quot; return value&quot;));
+			//Using a cdecl-like calling convention where arguments get
+			//pushed onto the stack from right to left. This means that
+			//the top of the stack will have param1, and top-1 will have
+			//param2 etc. This facilitates variable argument lists
+			//(although this isn&#x27;t implemented yet)
+		var numArgs = new VmCode(Types.uint8.code, new VmCodeArgument(0, ePurpose.IMMEDIATE, eType.uint8), &quot;Number of arguments&quot;);
+		var call    = new VmCode(&quot;call&quot; );
+		var clear   = new VmCode(Types.uint8.code, new VmCodeArgument(0, ePurpose.IMMEDIATE, eType.uint8), &quot;Number of arguments to remove(and return value if not used)&quot;);
+		var pop     = new VmCode(&quot;pop&quot;, null, &quot;Clean up the stack.&quot;);
+		if (procedureCall.argList != null)
+		{
+			for (var j = procedureCall.argList.length - 1; j &gt;=0; j--)
+			//for (var j = 0; j &lt; procedureCall.argList.length; j++)
+			{
+				var args = [];
+				//procedureCall.argList[j][procedureCall.argList[j].length - 1].comment = &quot;Value of &quot; + procDef.parameters[j];
+				args = args.concat(procedureCall.argList[j]);
+				this.completeProcedureCalls(args);	// NOTE: This call is ultimately recursive
+				sequence = sequence.concat(args);
+			}
+			numArgs.argument.value = procedureCall.argList.length;
+			clear.argument.value += procedureCall.argList.length;
+		}
+			// If there are no arguments but there is a return value, then we can
+			// conserve byte codes by leaving out the numArgs codes and relying on
+			// the zero in the return value place holder to double-up as a zero
+			// arguments indicator. That means that we also don&#x27;t need to do any
+			// stack cleanup of the argument count.
+		if (!(numArgs.argument.value == 0 &amp;&amp; procDef.returnsValue))
+		{
+			sequence.push(numArgs);
+			clear.argument.value++;		// Include the numArgs
+		}
+		sequence.push(callAddress);
+		sequence.push(call);
+		if (cleanupReturnValue)
+			clear.argument.value++;
+		if (clear.argument.value &gt; 0)
+		{
+			sequence.push(clear);
+			sequence.push(pop);
+		}
+
+		for (var k = 0; k &lt; sequence.length; k++)
+			codes.splice(i+k, 0, sequence[k]);
+	};
+
+BabuinoBackEnd.prototype.completeProcedureCalls =
+	function (codes)
+	{
+		if (codes == null)
+			return;
+		for (var i = 0; i &lt; codes.length; i++)
+		{
+			if (codes[i].code.substr(0, 16) != &quot;call placeholder&quot;)
+				continue;
+			this.completeProcedureCall(codes, i);
+		}
+	};
+
+BabuinoBackEnd.prototype.completeAllProcedureCalls =
+	function ()
+	{
+		this.completeProcedureCalls(this.globalProcDef.nodes);
+		for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+			this.completeProcedureCalls(this.procedureDefinitions[i].nodes);
+
+	};
+
+BabuinoBackEnd.prototype.compileProcedureDefinitions =
+	function ()
+	{
+		for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+		{
+			this.procedureDefinitions[i].compile();
+		}
+	};
+
+BabuinoBackEnd.prototype.resolveVariablesInProcedures =
+	function ()
+	{
+			// If there&#x27;s code outside of a function definition, then it&#x27;s the
+			// mainline. Any variables created in that code will be global.
+		var haveGlobalCode = this.globalProcDef.nodes.length &gt; 0;
+		if (haveGlobalCode)
+		{
+			// Treat all functions, including start, as the same
+			// and give them the global variables to help resolve their
+			// references.
+			for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+			{
+				this.procedureDefinitions[i].resolveVariables(this.globalProcDef.variables);
+			}
+		}
+		else
+		{
+			// No global code outside of a function definition.
+			// Look for a &quot;start&quot; function - that will be the global code
+			// and its variables will be global.
+			var startIndex = -1;
+			for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+			{
+				if (this.procedureDefinitions[i].name == &quot;start&quot;)
+					startIndex = i;
+			}
+			// Now go through all the other functions and resolve their
+			// variables with the variables in start given as the globalVars.
+			// (If no start then no globalVars)
+			var globals = startIndex == -1 ? null : this.procedureDefinitions[startIndex].variables;
+			for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+			{
+				if (i != startIndex)
+					this.procedureDefinitions[i].resolveVariables(globals);
+			}
+		}
+	};
+
+
+BabuinoBackEnd.prototype.addArgument =
+	function (arg)
+	{
+		if (arg === undefined)
+		{
+			this.output(&quot;addArgument(undefined)&quot;);
+			//this.clearArguments();
+			return;
+		}
+		/*
+		this.output(&quot;addArgument\n(\n&quot;);
+		this.printCodes(arg);
+		this.output(&quot;)\n&quot;);
+		*/
+		if (this.argList == null)
+			this.argList = [];
+	
+		if (arg[0].code.substr(0, 16) == &quot;call placeholder&quot;)
+		{
+				// All procedure arguments get reported after all value arguments.
+				// Also, the procedure arguments are reported from right to left,
+				// while the value arguments are reported left to right.
+				// But, if there are procedure arguments, a quirk of the parser is
+				// that an empty argument is reported in the place of each procedure
+				// argument in sequence with any value arguments.
+				// ERRATA: ProcCallNoArg now means that an empty argument might not be
+				// added.
+				// So, match procedures with their empty argument proxies by searching
+				// backwards from the end of the arguments.
+			var argIndex = -1;
+			var callDetails = arg[0].argument.value;
+			if (callDetails.parserSeesArgList)
+			{
+				argIndex = this.argList.length - 1;
+				while (argIndex &gt;= 0)
+				{
+					if (this.argList[argIndex][0].code == &quot;empty argument&quot;)
+					break;
+					argIndex--;
+				}
+				// If there&#x27;s no empty argument associated with this procedure
+				// then I&#x27;ve screwed something up (or misunderstood the parser).
+				if (argIndex &lt; 0)
+				{
+					this.errorOutput(&quot;Internal error; Procedure &quot; + name + &quot; has no argument list (even an empty one).\n&quot;);
+					return;
+				}
+			}
+				// If this procedure doesn&#x27;t return a value, then it&#x27;s not
+				// really an argument - it&#x27;s a new expression. Add it to
+				// a list for appending AFTER the procedure call that
+				// is receiving these arguments.
+			if (!callDetails.returnsValue)
+			{
+				callDetails.returnValueExpected = false;
+				if (this.statementsNotArguments == null)
+					this.statementsNotArguments = [];
+				this.statementsNotArguments.unshift(arg);
+				// Now remove everything associated with this
+				// procedure from the argument list.
+				// (These arguments will already have been added to the
+				// procedure&#x27;s call details.
+				if (callDetails.parserSeesArgList)
+					this.argList.splice(argIndex, this.argList.length - argIndex);
+			}
+			else
+			{
+				// It returns a value so should take its place in the
+				// argument list.
+				// If the parser didn&#x27;t see an argument list, then it would
+				// not have added an empty argument that would have given
+				// us a place to put the procedure call. In that case the
+				// call should just go to the end of the argument list.
+				if (callDetails.parserSeesArgList)
+					this.argList[argIndex] = arg;
+				else
+					this.argList.push(arg);
+			}
+		}
+		else
+		{
+			//this.output(&quot;addArgument(&quot; + arg[arg.length-1].asAssembly() + &quot;)&quot;);
+			this.argList.push(arg);
+			//this.argList = this.argList.concat(arg);
+		}
+	};
+
+//------------------------------------------------------------------------------
+// An empty argument appears to be produced whenever a procedure name is
+// encountered in the left to right parsing of a procedure call.  I&#x27;m using this
+// to work out the sequence of arguments to a procedure, because the parser
+// reports the adding of the actual procedure names AFTER all of the value
+// arguments have been reported. I can&#x27;t see a way (other than what I&#x27;ve
+// discovered here) to work out the full sequence of arguments including other
+// procedure calls.
+//------------------------------------------------------------------------------
+BabuinoBackEnd.prototype.addEmptyArgument =
+	function (arg)
+	{
+		if (this.argList == null)
+			this.argList = [];
+		var call = new VmCode(&quot;empty argument&quot; );
+		this.argList.push([call]);
+	};
+
+
+
+BabuinoBackEnd.prototype.compileArrayGet =
+    function (name, index)
+    {
+
+    };
+
+BabuinoBackEnd.prototype.compileLocal =
+    function (name)
+    {
+        var resultType = Types.fromName(name);
+        return new DeclarationNode([resultType], name);
+    };
+
+BabuinoBackEnd.prototype.appendVmNode =
+	function (node)
+	{
+		//this.assembly = this.assembly.concat(codes);
+		this.globalProcDef.appendVmNode(node); // = this.globalProcDef.nodes.concat(codes);
+		/*
+		for (var i = 0; i &lt; codes.length; i++)
+		{
+		var nextCode = codes[i];
+		nextCode.address = this.currentAddress;
+		this.currentAddress += nextCode.length;
+		}
+		*/
+	};
+
+BabuinoBackEnd.prototype.assignAddresses =
+	function ()
+	{
+		this.currentAddress = this.baseAddress;
+		// Start with global code
+		this.currentAddress = this.globalProcDef.assignAddresses(this.currentAddress);
+		// Do the procedures separately.
+		// They&#x27;re not being appended to the main code yet because I don&#x27;t
+		// want any gotos to be resolved outside of the current procedure.
+		for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+			this.currentAddress = this.procedureDefinitions[i].assignAddresses(this.currentAddress);
+	};
+
+BabuinoBackEnd.prototype.resolveGotos =
+	function ()
+	{
+		this.globalProcDef.resolveGotos();
+		for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+			this.procedureDefinitions[i].resolveGotos();
+	};
+
+BabuinoBackEnd.prototype.joinProcedures	 =
+	function ()
+	{
+		for (var i = 0; i &lt; this.procedureDefinitions.length; i++)
+		{
+			if (this.procedureDefinitions[i].nodes != null)
+			this.globalProcDef.nodes = this.globalProcDef.nodes.concat(this.procedureDefinitions[i].nodes);
+		}
+	};
+
+
+
+
+
+BabuinoBackEnd.prototype.resolve =
+    function ()
+    {
+        this.globalProcDef.resolveVariables();
+        return 0;
+    };
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

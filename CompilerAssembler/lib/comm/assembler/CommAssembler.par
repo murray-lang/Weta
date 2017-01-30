@@ -1,0 +1,121 @@
+/~
+   /*
+   Copyright 2014 Murray Lang
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.	
+   
+   The format of this file is as specified for JS/CC: 
+		http://jscc.phorward-software.com/
+   Kudos to Jan Max Meyer for providing such a useful tool free of charge.
+
+   This file describes a parser for an assembly language based on the byte
+   codes of the Babuino Virtual Machine. These codes are based on Cricket
+   Logo, but are more comprehensive.
+   */
+~/
+	
+	
+[*
+
+//--------------------------------------------------------------------------
+// My stuff
+
+AST               = require('../../../common/Ast');
+InstructionNode   = require('../../../assembler/AstNodes/InstructionNode');
+
+
+var _ast = new AST.AbstractSyntaxTree();
+var lib = "comm.";
+*]
+
+!	' |\r|\t'
+
+	"\n|;[^\n]*\n"        NL
+    "comm"                                           [* %match = { value: %match, token: %match, offset: %offset}; *]
+    "serial\.config"            SerialConfig         [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.config"              WifiConfig           [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.config\.ip"          WifiConfigIp         [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.config\.dns"         WifiConfigDns        [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.config\.gateway"     WifiConfigGateway    [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.config\.mask"        WifiConfigMask       [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.scan"                WifiScan             [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.ssid"                WifiSsid             [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.rssi"                WifiRssi             [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.bssid"               WifiBssid            [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.encrypt"             WifiEncrypt          [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.connect"             WifiConnect          [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.disconnect"          WifiDisconnect       [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.mac"                 WifiMac              [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.ip"                  WifiIp               [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.mask"                WifiMask             [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.gateway"             WifiGateway          [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.status"              WifiStatus           [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.client\.connect"     WifiClientConnect    [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.client\.disconnect"  WifiClientDisconnect [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.client\.available"   WifiClientAvailable  [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.client\.read"        WifiClientRead       [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.client\.write"       WifiClientWrite      [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.Server\.start"       WifiServerStart      [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.Server\.stop"        WifiServerStop       [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.Server\.listen"      WifiServerListen     [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.Server\.write"       WifiServerWrite      [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+	"wifi\.Server\.status"      WifiServerStatus     [* %match = { value: lib + %match, token: %match, offset: %offset}; *]
+    ;
+##
+
+Program:		Program Stmt 		[*  if (%2 !== undefined && %2 != null)
+                                                {
+                                                    _ast.appendNode(%2);
+                                                }
+                                            *]
+				|
+				;
+
+Stmt:	        UnaryInstr NL		    	[* %% = new InstructionNode(%1); *]
+                | NL                        [* *]
+				;
+
+UnaryInstr:       SerialConfig
+                | WifiConfig
+                | WifiConfigIp
+                | WifiConfigDns
+                | WifiConfigGateway
+                | WifiConfigMask
+                | WifiScan
+                | WifiSsid
+                | WifiRssi
+                | WifiBssid
+                | WifiEncrypt
+                | WifiConnect
+                | WifiDisconnect
+                | WifiMac
+                | WifiIp
+                | WifiMask
+                | WifiGateway
+                | WifiStatus
+                | WifiClientConnect
+                | WifiClientDisconnect
+                | WifiClientAvailable
+                | WifiClientRead
+                | WifiClientWrite
+                | WifiServerStart
+                | WifiServerStop
+                | WifiServerListen
+                | WifiServerWrite
+                | WifiServerStatus
+    			;
+
+[*
+module.exports.parse = __CommAsmCCparse;
+module.exports.ast   = _ast;
+*]

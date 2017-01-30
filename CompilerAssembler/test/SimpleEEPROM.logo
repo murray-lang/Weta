@@ -1,0 +1,32 @@
+bytearray [txbuff 1]
+bytearray [rxbuff 1]
+
+loop
+[
+	send 'About to send\r\n'
+	aset :txbuff 0 42
+	aset :rxbuff 0 54
+	i2cstart
+	i2cwrite 80 0 2 "txbuff 1
+	i2cstop
+	
+	send 'About to receive\r\n'
+	i2cstart
+		; Write the address only (note data length is 0) to set the read address
+	i2cwrite 80 0 2 "rxbuff 0
+	i2cstop
+
+	i2cstart
+		; Write the address only (note data length is 0) to set the read address
+	i2cread 80 0 2 "rxbuff 1
+	i2cstop
+
+	send tostring aget :rxbuff 0
+	send '\r\n'
+
+	wait 10
+]
+
+
+
+

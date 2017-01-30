@@ -1,0 +1,1378 @@
+___ ERROR ___
+Call to undefined non-terminal "config"
+___ ERROR ___
+Call to undefined non-terminal "Send"
+___ ERROR ___
+Call to undefined non-terminal "Sendn"
+___ ERROR ___
+Call to undefined non-terminal "NewSerial"
+___ ERROR ___
+Call to undefined non-terminal "And"
+___ ERROR ___
+Call to undefined non-terminal "Or"
+___ ERROR ___
+Call to undefined non-terminal "Xor"
+___ ERROR ___
+Call to undefined non-terminal "Not"
+___ ERROR ___
+Call to undefined non-terminal "pop"
+___ ERROR ___
+Call to undefined non-terminal "Pow"
+___ ERROR ___
+Call to undefined non-terminal "Sqr"
+___ ERROR ___
+Call to undefined non-terminal "Sqrt"
+___ ERROR ___
+Call to undefined non-terminal "Exp"
+___ ERROR ___
+Call to undefined non-terminal "Sin"
+___ ERROR ___
+Call to undefined non-terminal "Cos"
+___ ERROR ___
+Call to undefined non-terminal "Tan"
+___ ERROR ___
+Call to undefined non-terminal "Asin"
+___ ERROR ___
+Call to undefined non-terminal "Acos"
+___ ERROR ___
+Call to undefined non-terminal "Atan"
+___ ERROR ___
+Call to undefined non-terminal "Atan2"
+___ ERROR ___
+Call to undefined non-terminal "Sinh"
+___ ERROR ___
+Call to undefined non-terminal "Cosh"
+___ ERROR ___
+Call to undefined non-terminal "Tanh"
+___ ERROR ___
+Call to undefined non-terminal "Hypot"
+___ ERROR ___
+Call to undefined non-terminal "Ln"
+___ ERROR ___
+Call to undefined non-terminal "Log10"
+___ ERROR ___
+Call to undefined non-terminal "Rnd"
+___ ERROR ___
+Call to undefined non-terminal "Trunc"
+___ ERROR ___
+Call to undefined non-terminal "Floor"
+___ ERROR ___
+Call to undefined non-terminal "Ceil"
+___ ERROR ___
+Call to undefined non-terminal "IsNan"
+___ ERROR ___
+Call to undefined non-terminal "IsInf"
+--- WARN ---
+Unreachable non-terminal "Declarations"
+--- Symbol Dump ---
+Program'            Non-terminal
+WHITESPACE          Terminal            0/^
+NL                  Terminal            0/^
+Config              Terminal            0/^
+LibDotCode          Terminal            0/^
+Baud                Terminal            0/^
+DataBits            Terminal            0/^
+StopBits            Terminal            0/^
+Parity              Terminal            0/^
+PortAssignment      Terminal            0/^
+begin               Terminal            0/^
+byte                Terminal            0/^
+uint8               Terminal            0/^
+short               Terminal            0/^
+int16               Terminal            0/^
+bool                Terminal            0/^
+span                Terminal            0/^
+int8                Terminal            0/^
+uint16              Terminal            0/^
+int32               Terminal            0/^
+uint32              Terminal            0/^
+float               Terminal            0/^
+double              Terminal            0/^
+string              Terminal            0/^
+strlen              Terminal            0/^
+cptr                Terminal            0/^
+global              Terminal            0/^
+local               Terminal            0/^
+param               Terminal            0/^
+block               Terminal            0/^
+eob                 Terminal            0/^
+return              Terminal            0/^
+exit                Terminal            0/^
+Output              Terminal            0/^
+repeat              Terminal            0/^
+if                  Terminal            0/^
+ifelse              Terminal            0/^
+beep                Terminal            0/^
+waituntil           Terminal            0/^
+loop                Terminal            0/^
+forever             Terminal            0/^
+Foreach             Terminal            0/^
+wait                Terminal            0/^
+timer               Terminal            0/^
+resett              Terminal            0/^
+Tx                  Terminal            0/^
+Slot                Terminal            0/^
+serial              Terminal            0/^
+rx                  Terminal            0/^
+NewRx               Terminal            0/^
+random              Terminal            0/^
+Add                 Terminal            0/^
+Sub                 Terminal            0/^
+Mul                 Terminal            0/^
+Div                 Terminal            0/^
+Mod                 Terminal            0/^
+Eq                  Terminal            0/^
+Gt                  Terminal            0/^
+Lt                  Terminal            0/^
+Le                  Terminal            0/^
+Ge                  Terminal            0/^
+Ne                  Terminal            0/^
+and                 Terminal            0/^
+or                  Terminal            0/^
+xor                 Terminal            0/^
+not                 Terminal            0/^
+Set                 Terminal            0/^
+Get                 Terminal            0/^
+record              Terminal            0/^
+recall              Terminal            0/^
+resetdp             Terminal            0/^
+setdp               Terminal            0/^
+erase               Terminal            0/^
+when                Terminal            0/^
+on                  Terminal            0/^
+onfor               Terminal            0/^
+off                 Terminal            0/^
+thisway             Terminal            0/^
+thatway             Terminal            0/^
+rd                  Terminal            0/^
+setpower            Terminal            0/^
+brake               Terminal            0/^
+Sensorn             Terminal            0/^
+Switchn             Terminal            0/^
+ledon               Terminal            0/^
+ledoff              Terminal            0/^
+setsvh              Terminal            0/^
+svr                 Terminal            0/^
+svl                 Terminal            0/^
+motors              Terminal            0/^
+servos              Terminal            0/^
+i2cstart            Terminal            0/^
+i2cstop             Terminal            0/^
+i2ctxrx             Terminal            0/^
+i2crx               Terminal            0/^
+i2cerr              Terminal            0/^
+error               Terminal            0/^
+getport             Terminal            0/^
+setport             Terminal            0/^
+ain                 Terminal            0/^
+aout                Terminal            0/^
+din                 Terminal            0/^
+dout                Terminal            0/^
+digitalin           Terminal            0/^
+digitalout          Terminal            0/^
+analogin            Terminal            0/^
+analogout           Terminal            0/^
+BitAnd              Terminal            0/^
+BitOr               Terminal            0/^
+BitXor              Terminal            0/^
+BitNot              Terminal            0/^
+Ashift              Terminal            0/^
+Lshift              Terminal            0/^
+Rotate              Terminal            0/^
+while               Terminal            0/^
+serialn             Terminal            0/^
+NewSerialn          Terminal            0/^
+sensor              Terminal            0/^
+switch              Terminal            0/^
+randomxy            Terminal            0/^
+call                Terminal            0/^
+push                Terminal            0/^
+chkpoint            Terminal            0/^
+rollback            Terminal            0/^
+do                  Terminal            0/^
+for                 Terminal            0/^
+goto                Terminal            0/^
+Min                 Terminal            0/^
+Max                 Terminal            0/^
+Abs                 Terminal            0/^
+Neg                 Terminal            0/^
+withuint8           Terminal            0/^
+withint16           Terminal            0/^
+withuint16          Terminal            0/^
+withint32           Terminal            0/^
+withuint32          Terminal            0/^
+withfloat           Terminal            0/^
+withdouble          Terminal            0/^
+withbool            Terminal            0/^
+withstring          Terminal            0/^
+withptr             Terminal            0/^
+ToStr               Terminal            0/^
+btos                Terminal            0/^
+btoi                Terminal            0/^
+btof                Terminal            0/^
+btod                Terminal            0/^
+ubtos               Terminal            0/^
+ubtoi               Terminal            0/^
+ubtof               Terminal            0/^
+ubtod               Terminal            0/^
+stob                Terminal            0/^
+stoi                Terminal            0/^
+stof                Terminal            0/^
+stod                Terminal            0/^
+ustob               Terminal            0/^
+ustoi               Terminal            0/^
+ustof               Terminal            0/^
+ustod               Terminal            0/^
+itob                Terminal            0/^
+itos                Terminal            0/^
+itof                Terminal            0/^
+itod                Terminal            0/^
+uitob               Terminal            0/^
+uitos               Terminal            0/^
+uitof               Terminal            0/^
+uitod               Terminal            0/^
+ftob                Terminal            0/^
+ftos                Terminal            0/^
+ftoi                Terminal            0/^
+ftod                Terminal            0/^
+dtob                Terminal            0/^
+dtos                Terminal            0/^
+dtoi                Terminal            0/^
+dtof                Terminal            0/^
+invalid             Terminal            0/^
+DotConfig           Terminal            0/^
+EndConfig           Terminal            0/^
+Global              Terminal            0/^
+Org                 Terminal            0/^
+Data                Terminal            0/^
+Text                Terminal            0/^
+Align               Terminal            0/^
+Rept                Terminal            0/^
+Endr                Terminal            0/^
+Proc                Terminal            0/^
+EndProc             Terminal            0/^
+Params              Terminal            0/^
+EndParams           Terminal            0/^
+Locals              Terminal            0/^
+EndLocals           Terminal            0/^
+End                 Terminal            0/^
+Byte                Terminal            0/^
+Double              Terminal            0/^
+Int                 Terminal            0/^
+Long                Terminal            0/^
+Short               Terminal            0/^
+Single              Terminal            0/^
+Pointer             Terminal            0/^
+Asciz               Terminal            0/^
+Dot                 Terminal            0/^
+SizeOf              Terminal            0/^
+True                Terminal            0/^
+False               Terminal            0/^
+_String             Terminal            0/^
+Label               Terminal            0/^
+Symbol              Terminal            0/^
+DecInteger          Terminal            0/^
+BinInteger          Terminal            0/^
+HexInteger          Terminal            0/^
+Float               Terminal            0/^
+(                   Terminal            0/^
+)                   Terminal            0/^
+,                   Terminal            0/^
+;                   Terminal            0/^
+|                   Terminal            2/<
+&                   Terminal            2/<
++                   Terminal            3/<
+-                   Terminal            3/<
+/                   Terminal            4/<
+*                   Terminal            4/<
+%                   Terminal            4/<
+Program             Non-terminal
+Stmt                Non-terminal
+Instruction         Non-terminal
+Directive           Non-terminal
+ConfigSect          Non-terminal
+Subsection          Non-terminal
+AddrExp             Non-terminal
+Value               Non-terminal
+Declaration         Non-terminal
+Configs             Non-terminal
+ProcStmts           Non-terminal
+ProcDecl            Non-terminal
+ProcStmt            Non-terminal
+ParamsList          Non-terminal
+LocalsList          Non-terminal
+LocalsDecls         Non-terminal
+LocalsDecl          Non-terminal
+BaseTypeDecl        Non-terminal
+ArrayDecl           Non-terminal
+Expression          Non-terminal
+DataType            Non-terminal
+StringLiteral       Non-terminal
+Declarations        Non-terminal
+UnaryInstr          Non-terminal
+BinaryInstr         Non-terminal
+config              Non-terminal
+Send                Non-terminal
+Sendn               Non-terminal
+NewSerial           Non-terminal
+And                 Non-terminal
+Or                  Non-terminal
+Xor                 Non-terminal
+Not                 Non-terminal
+pop                 Non-terminal
+Pow                 Non-terminal
+Sqr                 Non-terminal
+Sqrt                Non-terminal
+Exp                 Non-terminal
+Sin                 Non-terminal
+Cos                 Non-terminal
+Tan                 Non-terminal
+Asin                Non-terminal
+Acos                Non-terminal
+Atan                Non-terminal
+Atan2               Non-terminal
+Sinh                Non-terminal
+Cosh                Non-terminal
+Tanh                Non-terminal
+Hypot               Non-terminal
+Ln                  Non-terminal
+Log10               Non-terminal
+Rnd                 Non-terminal
+Trunc               Non-terminal
+Floor               Non-terminal
+Ceil                Non-terminal
+IsNan               Non-terminal
+IsInf               Non-terminal
+Boolean             Non-terminal
+
+Program' { NL  block  eob  return  LibDotCode  Global  Text  Data  Org  Set  End  DotConfig  begin  Output  repeat  if  ifelse  goto  beep  waituntil  loop  for  forever  Foreach  wait  timer  resett  Slot  serial  serialn  NewSerialn  random  randomxy  i2cstart  i2cstop  i2crx  i2ctxrx  i2cerr  withuint8  withint16  withuint16  withint32  withuint32  withfloat  withdouble  withbool  withstring  withptr  Add  Sub  Mul  Div  Mod  Eq  Gt  Lt  Le  Ge  Ne  BitAnd  BitOr  BitXor  BitNot  Ashift  Lshift  Rotate  Get  record  recall  resetdp  setdp  erase  when  on  onfor  off  thisway  thatway  rd  setpower  brake  ledon  ledoff  setsvh  svr  svl  motors  servos  while  do  call  sensor  Sensorn  switch  Switchn  ain  aout  din  dout  push  chkpoint  rollback  exit  Min  Max  Abs  Neg  ToStr  btos  btoi  btof  btod  ubtos  ubtoi  ubtof  ubtod  stob  ustob  stoi  ustoi  stof  ustof  stod  ustod  itob  uitob  itos  itof  uitos  uitof  itod  uitod  ftob  ftos  ftoi  ftod  dtob  dtos  dtoi  dtof  strlen  byte  uint8  int8  short  int16  uint16  int32  uint32  float  double  bool  span  string  cptr  global  local  param  Label  Dot  (  Align  DecInteger  BinInteger  HexInteger  Float  SizeOf  Symbol  True  False }
+	Program 
+Program { NL  block  eob  return  LibDotCode  Global  Text  Data  Org  Set  End  DotConfig  begin  Output  repeat  if  ifelse  goto  beep  waituntil  loop  for  forever  Foreach  wait  timer  resett  Slot  serial  serialn  NewSerialn  random  randomxy  i2cstart  i2cstop  i2crx  i2ctxrx  i2cerr  withuint8  withint16  withuint16  withint32  withuint32  withfloat  withdouble  withbool  withstring  withptr  Add  Sub  Mul  Div  Mod  Eq  Gt  Lt  Le  Ge  Ne  BitAnd  BitOr  BitXor  BitNot  Ashift  Lshift  Rotate  Get  record  recall  resetdp  setdp  erase  when  on  onfor  off  thisway  thatway  rd  setpower  brake  ledon  ledoff  setsvh  svr  svl  motors  servos  while  do  call  sensor  Sensorn  switch  Switchn  ain  aout  din  dout  push  chkpoint  rollback  exit  Min  Max  Abs  Neg  ToStr  btos  btoi  btof  btod  ubtos  ubtoi  ubtof  ubtod  stob  ustob  stoi  ustoi  stof  ustof  stod  ustod  itob  uitob  itos  itof  uitos  uitof  itod  uitod  ftob  ftos  ftoi  ftod  dtob  dtos  dtoi  dtof  strlen  byte  uint8  int8  short  int16  uint16  int32  uint32  float  double  bool  span  string  cptr  global  local  param  Label  Dot  (  Align  DecInteger  BinInteger  HexInteger  Float  SizeOf  Symbol  True  False }
+	Program Stmt 
+	
+Stmt { NL  block  eob  return  LibDotCode  Global  Text  Data  Org  Set  End  DotConfig  begin  Output  repeat  if  ifelse  goto  beep  waituntil  loop  for  forever  Foreach  wait  timer  resett  Slot  serial  serialn  NewSerialn  random  randomxy  i2cstart  i2cstop  i2crx  i2ctxrx  i2cerr  withuint8  withint16  withuint16  withint32  withuint32  withfloat  withdouble  withbool  withstring  withptr  Add  Sub  Mul  Div  Mod  Eq  Gt  Lt  Le  Ge  Ne  BitAnd  BitOr  BitXor  BitNot  Ashift  Lshift  Rotate  Get  record  recall  resetdp  setdp  erase  when  on  onfor  off  thisway  thatway  rd  setpower  brake  ledon  ledoff  setsvh  svr  svl  motors  servos  while  do  call  sensor  Sensorn  switch  Switchn  ain  aout  din  dout  push  chkpoint  rollback  exit  Min  Max  Abs  Neg  ToStr  btos  btoi  btof  btod  ubtos  ubtoi  ubtof  ubtod  stob  ustob  stoi  ustoi  stof  ustof  stod  ustod  itob  uitob  itos  itof  uitos  uitof  itod  uitod  ftob  ftos  ftoi  ftod  dtob  dtos  dtoi  dtof  strlen  byte  uint8  int8  short  int16  uint16  int32  uint32  float  double  bool  span  string  cptr  global  local  param  Label  Dot  (  Align  DecInteger  BinInteger  HexInteger  Float  SizeOf  Symbol  True  False }
+	Instruction 
+	Directive 
+	ConfigSect 
+	#NL 
+	
+Instruction { block  eob  return  LibDotCode  begin  Output  repeat  if  ifelse  goto  beep  waituntil  loop  for  forever  Foreach  wait  timer  resett  Slot  serial  serialn  NewSerialn  random  randomxy  i2cstart  i2cstop  i2crx  i2ctxrx  i2cerr  withuint8  withint16  withuint16  withint32  withuint32  withfloat  withdouble  withbool  withstring  withptr  Add  Sub  Mul  Div  Mod  Eq  Gt  Lt  Le  Ge  Ne  BitAnd  BitOr  BitXor  BitNot  Ashift  Lshift  Rotate  Set  Get  record  recall  resetdp  setdp  erase  when  on  onfor  off  thisway  thatway  rd  setpower  brake  ledon  ledoff  setsvh  svr  svl  motors  servos  while  do  call  sensor  Sensorn  switch  Switchn  ain  aout  din  dout  push  chkpoint  rollback  exit  Min  Max  Abs  Neg  ToStr  btos  btoi  btof  btod  ubtos  ubtoi  ubtof  ubtod  stob  ustob  stoi  ustoi  stof  ustof  stod  ustod  itob  uitob  itos  itof  uitos  uitof  itod  uitod  ftob  ftos  ftoi  ftod  dtob  dtos  dtoi  dtof  strlen  byte  uint8  int8  short  int16  uint16  int32  uint32  float  double  bool  span  string  cptr  global  local  param }
+	UnaryInstr #NL 
+	BinaryInstr #NL 
+	#block #NL 
+	#eob #NL 
+	#return #NL 
+	#LibDotCode 
+Directive { Global  Text  Data  Org  Set  End  Label  Dot  (  Align  DecInteger  BinInteger  HexInteger  Float  SizeOf  Symbol  True  False }
+	#Global #Symbol #NL 
+	#Text Subsection #NL 
+	#Data Subsection #NL 
+	#Org AddrExp #NL 
+	#Set #Symbol #, Value 
+	#End #NL 
+	Declaration 
+ConfigSect { DotConfig }
+	#DotConfig #NL Configs #EndConfig 
+Subsection { DecInteger }
+	#DecInteger 
+	
+AddrExp { Dot  (  DecInteger  BinInteger  HexInteger  Float  SizeOf  Symbol  True  False }
+	AddrExp #- AddrExp 
+	AddrExp #+ AddrExp 
+	#Dot 
+	Value 
+	#( AddrExp #) 
+Value { DecInteger  BinInteger  HexInteger  Float  SizeOf  Symbol  True  False }
+	#DecInteger 
+	#BinInteger 
+	#HexInteger 
+	#Float 
+	Boolean 
+	#SizeOf #( DataType #) 
+	#Symbol 
+Declaration { Label  Dot  (  Align  DecInteger  BinInteger  HexInteger  Float  SizeOf  Symbol  True  False }
+	#Label BaseTypeDecl #NL 
+	#Label ArrayDecl #NL 
+	#Label AddrExp #NL 
+	#Label #NL BaseTypeDecl #NL 
+	#Label #NL ArrayDecl #NL 
+	#Label #NL AddrExp #NL 
+	AddrExp #NL 
+	#Align #DecInteger #NL 
+	#Label #NL 
+	ProcDecl 
+Configs { NL  Config }
+	Configs #Config 
+	#NL 
+	
+ProcStmts { block  eob  return  LibDotCode  NL  Params  Locals  begin  Output  repeat  if  ifelse  goto  beep  waituntil  loop  for  forever  Foreach  wait  timer  resett  Slot  serial  serialn  NewSerialn  random  randomxy  i2cstart  i2cstop  i2crx  i2ctxrx  i2cerr  withuint8  withint16  withuint16  withint32  withuint32  withfloat  withdouble  withbool  withstring  withptr  Add  Sub  Mul  Div  Mod  Eq  Gt  Lt  Le  Ge  Ne  BitAnd  BitOr  BitXor  BitNot  Ashift  Lshift  Rotate  Set  Get  record  recall  resetdp  setdp  erase  when  on  onfor  off  thisway  thatway  rd  setpower  brake  ledon  ledoff  setsvh  svr  svl  motors  servos  while  do  call  sensor  Sensorn  switch  Switchn  ain  aout  din  dout  push  chkpoint  rollback  exit  Min  Max  Abs  Neg  ToStr  btos  btoi  btof  btod  ubtos  ubtoi  ubtof  ubtod  stob  ustob  stoi  ustoi  stof  ustof  stod  ustod  itob  uitob  itos  itof  uitos  uitof  itod  uitod  ftob  ftos  ftoi  ftod  dtob  dtos  dtoi  dtof  strlen  byte  uint8  int8  short  int16  uint16  int32  uint32  float  double  bool  span  string  cptr  global  local  param }
+	ProcStmts ProcStmt 
+	
+ProcDecl { Label }
+	#Label #Proc #NL ProcStmts #EndProc #NL 
+ProcStmt { block  eob  return  LibDotCode  NL  Params  Locals  begin  Output  repeat  if  ifelse  goto  beep  waituntil  loop  for  forever  Foreach  wait  timer  resett  Slot  serial  serialn  NewSerialn  random  randomxy  i2cstart  i2cstop  i2crx  i2ctxrx  i2cerr  withuint8  withint16  withuint16  withint32  withuint32  withfloat  withdouble  withbool  withstring  withptr  Add  Sub  Mul  Div  Mod  Eq  Gt  Lt  Le  Ge  Ne  BitAnd  BitOr  BitXor  BitNot  Ashift  Lshift  Rotate  Set  Get  record  recall  resetdp  setdp  erase  when  on  onfor  off  thisway  thatway  rd  setpower  brake  ledon  ledoff  setsvh  svr  svl  motors  servos  while  do  call  sensor  Sensorn  switch  Switchn  ain  aout  din  dout  push  chkpoint  rollback  exit  Min  Max  Abs  Neg  ToStr  btos  btoi  btof  btod  ubtos  ubtoi  ubtof  ubtod  stob  ustob  stoi  ustoi  stof  ustof  stod  ustod  itob  uitob  itos  itof  uitos  uitof  itod  uitod  ftob  ftos  ftoi  ftod  dtob  dtos  dtoi  dtof  strlen  byte  uint8  int8  short  int16  uint16  int32  uint32  float  double  bool  span  string  cptr  global  local  param }
+	ParamsList 
+	LocalsList 
+	Instruction 
+	#NL 
+ParamsList { Params }
+	#Params #NL LocalsDecls #EndParams #NL 
+LocalsList { Locals }
+	#Locals #NL LocalsDecls #EndLocals #NL 
+LocalsDecls { Label  NL }
+	LocalsDecls LocalsDecl 
+	
+LocalsDecl { Label  NL }
+	#Label BaseTypeDecl #NL 
+	#Label ArrayDecl #NL 
+	#Label #NL BaseTypeDecl #NL 
+	#Label #NL ArrayDecl #NL 
+	#NL 
+BaseTypeDecl { Byte  Double  Int  Long  Short  Single  Pointer  Asciz }
+	DataType Expression 
+	DataType StringLiteral 
+ArrayDecl { Rept }
+	#Rept Expression #NL BaseTypeDecl #NL #Endr 
+Expression { (  DecInteger  BinInteger  HexInteger  Float  SizeOf  Symbol  True  False }
+	Expression #- Expression 
+	Expression #+ Expression 
+	Expression #* Expression 
+	Expression #/ Expression 
+	Expression #% Expression 
+	Expression #| Expression 
+	Expression #& Expression 
+	#( Expression #) 
+	Value 
+DataType { Byte  Double  Int  Long  Short  Single  Pointer  Asciz }
+	#Byte 
+	#Double 
+	#Int 
+	#Long 
+	#Short 
+	#Single 
+	#Pointer 
+	#Asciz 
+StringLiteral { _String }
+	#_String 
+Declarations { Label  Dot  (  Align  DecInteger  BinInteger  HexInteger  Float  SizeOf  Symbol  True  False }
+	Declarations Declaration 
+	
+UnaryInstr { begin  Output  repeat  if  ifelse  goto  beep  waituntil  loop  for  forever  Foreach  wait  timer  resett  Slot  serial  serialn  NewSerialn  random  randomxy  i2cstart  i2cstop  i2crx  i2ctxrx  i2cerr  withuint8  withint16  withuint16  withint32  withuint32  withfloat  withdouble  withbool  withstring  withptr  Add  Sub  Mul  Div  Mod  Eq  Gt  Lt  Le  Ge  Ne  BitAnd  BitOr  BitXor  BitNot  Ashift  Lshift  Rotate  Set  Get  record  recall  resetdp  setdp  erase  when  on  onfor  off  thisway  thatway  rd  setpower  brake  ledon  ledoff  setsvh  svr  svl  motors  servos  while  do  call  sensor  Sensorn  switch  Switchn  ain  aout  din  dout  push  chkpoint  rollback  exit  Min  Max  Abs  Neg  ToStr  btos  btoi  btof  btod  ubtos  ubtoi  ubtof  ubtod  stob  ustob  stoi  ustoi  stof  ustof  stod  ustod  itob  uitob  itos  itof  uitos  uitof  itod  uitod  ftob  ftos  ftoi  ftod  dtob  dtos  dtoi  dtof  strlen }
+	config 
+	#begin 
+	#Output 
+	#repeat 
+	#if 
+	#ifelse 
+	#goto 
+	#beep 
+	#waituntil 
+	#loop 
+	#for 
+	#forever 
+	#Foreach 
+	#wait 
+	#timer 
+	#resett 
+	Send 
+	Sendn 
+	#Slot 
+	#serial 
+	#serialn 
+	NewSerial 
+	#NewSerialn 
+	#random 
+	#randomxy 
+	#i2cstart 
+	#i2cstop 
+	#i2crx 
+	#i2ctxrx 
+	#i2cerr 
+	#withuint8 
+	#withint16 
+	#withuint16 
+	#withint32 
+	#withuint32 
+	#withfloat 
+	#withdouble 
+	#withbool 
+	#withstring 
+	#withptr 
+	#Add 
+	#Sub 
+	#Mul 
+	#Div 
+	#Mod 
+	#Eq 
+	#Gt 
+	#Lt 
+	#Le 
+	#Ge 
+	#Ne 
+	And 
+	Or 
+	Xor 
+	Not 
+	#BitAnd 
+	#BitOr 
+	#BitXor 
+	#BitNot 
+	#Ashift 
+	#Lshift 
+	#Rotate 
+	#Set 
+	#Get 
+	#record 
+	#recall 
+	#resetdp 
+	#setdp 
+	#erase 
+	#when 
+	#on 
+	#onfor 
+	#off 
+	#thisway 
+	#thatway 
+	#rd 
+	#setpower 
+	#brake 
+	#ledon 
+	#ledoff 
+	#setsvh 
+	#svr 
+	#svl 
+	#motors 
+	#servos 
+	#while 
+	#do 
+	#call 
+	#sensor 
+	#Sensorn 
+	#switch 
+	#Switchn 
+	#ain 
+	#aout 
+	#din 
+	#dout 
+	#push 
+	pop 
+	#chkpoint 
+	#rollback 
+	#exit 
+	#Min 
+	#Max 
+	#Abs 
+	#Neg 
+	Pow 
+	Sqr 
+	Sqrt 
+	Exp 
+	Sin 
+	Cos 
+	Tan 
+	Asin 
+	Acos 
+	Atan 
+	Atan2 
+	Sinh 
+	Cosh 
+	Tanh 
+	Hypot 
+	Ln 
+	Log10 
+	Rnd 
+	Trunc 
+	Floor 
+	Ceil 
+	IsNan 
+	IsInf 
+	#ToStr 
+	#btos 
+	#btoi 
+	#btof 
+	#btod 
+	#ubtos 
+	#ubtoi 
+	#ubtof 
+	#ubtod 
+	#stob 
+	#ustob 
+	#stoi 
+	#ustoi 
+	#stof 
+	#ustof 
+	#stod 
+	#ustod 
+	#itob 
+	#uitob 
+	#itos 
+	#itof 
+	#uitos 
+	#uitof 
+	#itod 
+	#uitod 
+	#ftob 
+	#ftos 
+	#ftoi 
+	#ftod 
+	#dtob 
+	#dtos 
+	#dtoi 
+	#dtof 
+	#strlen 
+BinaryInstr { byte  uint8  int8  short  int16  uint16  int32  uint32  float  double  bool  span  string  cptr  global  local  param }
+	#byte Expression 
+	#uint8 Expression 
+	#int8 Expression 
+	#short Expression 
+	#int16 Expression 
+	#uint16 Expression 
+	#int32 Expression 
+	#uint32 Expression 
+	#float Expression 
+	#double Expression 
+	#bool Expression 
+	#span Expression 
+	#string StringLiteral 
+	#cptr #Symbol 
+	#global #Symbol 
+	#local #Symbol 
+	#param #Symbol 
+config {}
+Send {}
+Sendn {}
+NewSerial {}
+And {}
+Or {}
+Xor {}
+Not {}
+pop {}
+Pow {}
+Sqr {}
+Sqrt {}
+Exp {}
+Sin {}
+Cos {}
+Tan {}
+Asin {}
+Acos {}
+Atan {}
+Atan2 {}
+Sinh {}
+Cosh {}
+Tanh {}
+Hypot {}
+Ln {}
+Log10 {}
+Rnd {}
+Trunc {}
+Floor {}
+Ceil {}
+IsNan {}
+IsInf {}
+Boolean { True  False }
+	#True 
+	#False 
+
+--- WARN ---
+Reduce-reduce conflict on symbol '$' in state 1
+         Conflict resolved by reducing with production 0
+--- WARN ---
+Shift-reduce conflict on symbol 'NL' in state 1
+         Conflict resolved by shifting to state 6
+--- WARN ---
+Shift-reduce conflict on symbol 'block' in state 1
+         Conflict resolved by shifting to state 9
+--- WARN ---
+Shift-reduce conflict on symbol 'eob' in state 1
+         Conflict resolved by shifting to state 10
+--- WARN ---
+Shift-reduce conflict on symbol 'return' in state 1
+         Conflict resolved by shifting to state 11
+--- WARN ---
+Shift-reduce conflict on symbol 'LibDotCode' in state 1
+         Conflict resolved by shifting to state 12
+--- WARN ---
+Shift-reduce conflict on symbol 'Global' in state 1
+         Conflict resolved by shifting to state 13
+--- WARN ---
+Shift-reduce conflict on symbol 'Text' in state 1
+         Conflict resolved by shifting to state 14
+--- WARN ---
+Shift-reduce conflict on symbol 'Data' in state 1
+         Conflict resolved by shifting to state 15
+--- WARN ---
+Shift-reduce conflict on symbol 'Org' in state 1
+         Conflict resolved by shifting to state 16
+--- WARN ---
+Shift-reduce conflict on symbol 'Set' in state 1
+         Conflict resolved by shifting to state 17
+--- WARN ---
+Shift-reduce conflict on symbol 'End' in state 1
+         Conflict resolved by shifting to state 18
+--- WARN ---
+Shift-reduce conflict on symbol 'DotConfig' in state 1
+         Conflict resolved by shifting to state 20
+--- WARN ---
+Shift-reduce conflict on symbol 'begin' in state 1
+         Conflict resolved by shifting to state 22
+--- WARN ---
+Shift-reduce conflict on symbol 'Output' in state 1
+         Conflict resolved by shifting to state 23
+--- WARN ---
+Shift-reduce conflict on symbol 'repeat' in state 1
+         Conflict resolved by shifting to state 24
+--- WARN ---
+Shift-reduce conflict on symbol 'if' in state 1
+         Conflict resolved by shifting to state 25
+--- WARN ---
+Shift-reduce conflict on symbol 'ifelse' in state 1
+         Conflict resolved by shifting to state 26
+--- WARN ---
+Shift-reduce conflict on symbol 'goto' in state 1
+         Conflict resolved by shifting to state 27
+--- WARN ---
+Shift-reduce conflict on symbol 'beep' in state 1
+         Conflict resolved by shifting to state 28
+--- WARN ---
+Shift-reduce conflict on symbol 'waituntil' in state 1
+         Conflict resolved by shifting to state 29
+--- WARN ---
+Shift-reduce conflict on symbol 'loop' in state 1
+         Conflict resolved by shifting to state 30
+--- WARN ---
+Shift-reduce conflict on symbol 'for' in state 1
+         Conflict resolved by shifting to state 31
+--- WARN ---
+Shift-reduce conflict on symbol 'forever' in state 1
+         Conflict resolved by shifting to state 32
+--- WARN ---
+Shift-reduce conflict on symbol 'Foreach' in state 1
+         Conflict resolved by shifting to state 33
+--- WARN ---
+Shift-reduce conflict on symbol 'wait' in state 1
+         Conflict resolved by shifting to state 34
+--- WARN ---
+Shift-reduce conflict on symbol 'timer' in state 1
+         Conflict resolved by shifting to state 35
+--- WARN ---
+Shift-reduce conflict on symbol 'resett' in state 1
+         Conflict resolved by shifting to state 36
+--- WARN ---
+Shift-reduce conflict on symbol 'Slot' in state 1
+         Conflict resolved by shifting to state 39
+--- WARN ---
+Shift-reduce conflict on symbol 'serial' in state 1
+         Conflict resolved by shifting to state 40
+--- WARN ---
+Shift-reduce conflict on symbol 'serialn' in state 1
+         Conflict resolved by shifting to state 41
+--- WARN ---
+Shift-reduce conflict on symbol 'NewSerialn' in state 1
+         Conflict resolved by shifting to state 43
+--- WARN ---
+Shift-reduce conflict on symbol 'random' in state 1
+         Conflict resolved by shifting to state 44
+--- WARN ---
+Shift-reduce conflict on symbol 'randomxy' in state 1
+         Conflict resolved by shifting to state 45
+--- WARN ---
+Shift-reduce conflict on symbol 'i2cstart' in state 1
+         Conflict resolved by shifting to state 46
+--- WARN ---
+Shift-reduce conflict on symbol 'i2cstop' in state 1
+         Conflict resolved by shifting to state 47
+--- WARN ---
+Shift-reduce conflict on symbol 'i2crx' in state 1
+         Conflict resolved by shifting to state 48
+--- WARN ---
+Shift-reduce conflict on symbol 'i2ctxrx' in state 1
+         Conflict resolved by shifting to state 49
+--- WARN ---
+Shift-reduce conflict on symbol 'i2cerr' in state 1
+         Conflict resolved by shifting to state 50
+--- WARN ---
+Shift-reduce conflict on symbol 'withuint8' in state 1
+         Conflict resolved by shifting to state 51
+--- WARN ---
+Shift-reduce conflict on symbol 'withint16' in state 1
+         Conflict resolved by shifting to state 52
+--- WARN ---
+Shift-reduce conflict on symbol 'withuint16' in state 1
+         Conflict resolved by shifting to state 53
+--- WARN ---
+Shift-reduce conflict on symbol 'withint32' in state 1
+         Conflict resolved by shifting to state 54
+--- WARN ---
+Shift-reduce conflict on symbol 'withuint32' in state 1
+         Conflict resolved by shifting to state 55
+--- WARN ---
+Shift-reduce conflict on symbol 'withfloat' in state 1
+         Conflict resolved by shifting to state 56
+--- WARN ---
+Shift-reduce conflict on symbol 'withdouble' in state 1
+         Conflict resolved by shifting to state 57
+--- WARN ---
+Shift-reduce conflict on symbol 'withbool' in state 1
+         Conflict resolved by shifting to state 58
+--- WARN ---
+Shift-reduce conflict on symbol 'withstring' in state 1
+         Conflict resolved by shifting to state 59
+--- WARN ---
+Shift-reduce conflict on symbol 'withptr' in state 1
+         Conflict resolved by shifting to state 60
+--- WARN ---
+Shift-reduce conflict on symbol 'Add' in state 1
+         Conflict resolved by shifting to state 61
+--- WARN ---
+Shift-reduce conflict on symbol 'Sub' in state 1
+         Conflict resolved by shifting to state 62
+--- WARN ---
+Shift-reduce conflict on symbol 'Mul' in state 1
+         Conflict resolved by shifting to state 63
+--- WARN ---
+Shift-reduce conflict on symbol 'Div' in state 1
+         Conflict resolved by shifting to state 64
+--- WARN ---
+Shift-reduce conflict on symbol 'Mod' in state 1
+         Conflict resolved by shifting to state 65
+--- WARN ---
+Shift-reduce conflict on symbol 'Eq' in state 1
+         Conflict resolved by shifting to state 66
+--- WARN ---
+Shift-reduce conflict on symbol 'Gt' in state 1
+         Conflict resolved by shifting to state 67
+--- WARN ---
+Shift-reduce conflict on symbol 'Lt' in state 1
+         Conflict resolved by shifting to state 68
+--- WARN ---
+Shift-reduce conflict on symbol 'Le' in state 1
+         Conflict resolved by shifting to state 69
+--- WARN ---
+Shift-reduce conflict on symbol 'Ge' in state 1
+         Conflict resolved by shifting to state 70
+--- WARN ---
+Shift-reduce conflict on symbol 'Ne' in state 1
+         Conflict resolved by shifting to state 71
+--- WARN ---
+Shift-reduce conflict on symbol 'BitAnd' in state 1
+         Conflict resolved by shifting to state 76
+--- WARN ---
+Shift-reduce conflict on symbol 'BitOr' in state 1
+         Conflict resolved by shifting to state 77
+--- WARN ---
+Shift-reduce conflict on symbol 'BitXor' in state 1
+         Conflict resolved by shifting to state 78
+--- WARN ---
+Shift-reduce conflict on symbol 'BitNot' in state 1
+         Conflict resolved by shifting to state 79
+--- WARN ---
+Shift-reduce conflict on symbol 'Ashift' in state 1
+         Conflict resolved by shifting to state 80
+--- WARN ---
+Shift-reduce conflict on symbol 'Lshift' in state 1
+         Conflict resolved by shifting to state 81
+--- WARN ---
+Shift-reduce conflict on symbol 'Rotate' in state 1
+         Conflict resolved by shifting to state 82
+--- WARN ---
+Shift-reduce conflict on symbol 'Get' in state 1
+         Conflict resolved by shifting to state 83
+--- WARN ---
+Shift-reduce conflict on symbol 'record' in state 1
+         Conflict resolved by shifting to state 84
+--- WARN ---
+Shift-reduce conflict on symbol 'recall' in state 1
+         Conflict resolved by shifting to state 85
+--- WARN ---
+Shift-reduce conflict on symbol 'resetdp' in state 1
+         Conflict resolved by shifting to state 86
+--- WARN ---
+Shift-reduce conflict on symbol 'setdp' in state 1
+         Conflict resolved by shifting to state 87
+--- WARN ---
+Shift-reduce conflict on symbol 'erase' in state 1
+         Conflict resolved by shifting to state 88
+--- WARN ---
+Shift-reduce conflict on symbol 'when' in state 1
+         Conflict resolved by shifting to state 89
+--- WARN ---
+Shift-reduce conflict on symbol 'on' in state 1
+         Conflict resolved by shifting to state 90
+--- WARN ---
+Shift-reduce conflict on symbol 'onfor' in state 1
+         Conflict resolved by shifting to state 91
+--- WARN ---
+Shift-reduce conflict on symbol 'off' in state 1
+         Conflict resolved by shifting to state 92
+--- WARN ---
+Shift-reduce conflict on symbol 'thisway' in state 1
+         Conflict resolved by shifting to state 93
+--- WARN ---
+Shift-reduce conflict on symbol 'thatway' in state 1
+         Conflict resolved by shifting to state 94
+--- WARN ---
+Shift-reduce conflict on symbol 'rd' in state 1
+         Conflict resolved by shifting to state 95
+--- WARN ---
+Shift-reduce conflict on symbol 'setpower' in state 1
+         Conflict resolved by shifting to state 96
+--- WARN ---
+Shift-reduce conflict on symbol 'brake' in state 1
+         Conflict resolved by shifting to state 97
+--- WARN ---
+Shift-reduce conflict on symbol 'ledon' in state 1
+         Conflict resolved by shifting to state 98
+--- WARN ---
+Shift-reduce conflict on symbol 'ledoff' in state 1
+         Conflict resolved by shifting to state 99
+--- WARN ---
+Shift-reduce conflict on symbol 'setsvh' in state 1
+         Conflict resolved by shifting to state 100
+--- WARN ---
+Shift-reduce conflict on symbol 'svr' in state 1
+         Conflict resolved by shifting to state 101
+--- WARN ---
+Shift-reduce conflict on symbol 'svl' in state 1
+         Conflict resolved by shifting to state 102
+--- WARN ---
+Shift-reduce conflict on symbol 'motors' in state 1
+         Conflict resolved by shifting to state 103
+--- WARN ---
+Shift-reduce conflict on symbol 'servos' in state 1
+         Conflict resolved by shifting to state 104
+--- WARN ---
+Shift-reduce conflict on symbol 'while' in state 1
+         Conflict resolved by shifting to state 105
+--- WARN ---
+Shift-reduce conflict on symbol 'do' in state 1
+         Conflict resolved by shifting to state 106
+--- WARN ---
+Shift-reduce conflict on symbol 'call' in state 1
+         Conflict resolved by shifting to state 107
+--- WARN ---
+Shift-reduce conflict on symbol 'sensor' in state 1
+         Conflict resolved by shifting to state 108
+--- WARN ---
+Shift-reduce conflict on symbol 'Sensorn' in state 1
+         Conflict resolved by shifting to state 109
+--- WARN ---
+Shift-reduce conflict on symbol 'switch' in state 1
+         Conflict resolved by shifting to state 110
+--- WARN ---
+Shift-reduce conflict on symbol 'Switchn' in state 1
+         Conflict resolved by shifting to state 111
+--- WARN ---
+Shift-reduce conflict on symbol 'ain' in state 1
+         Conflict resolved by shifting to state 112
+--- WARN ---
+Shift-reduce conflict on symbol 'aout' in state 1
+         Conflict resolved by shifting to state 113
+--- WARN ---
+Shift-reduce conflict on symbol 'din' in state 1
+         Conflict resolved by shifting to state 114
+--- WARN ---
+Shift-reduce conflict on symbol 'dout' in state 1
+         Conflict resolved by shifting to state 115
+--- WARN ---
+Shift-reduce conflict on symbol 'push' in state 1
+         Conflict resolved by shifting to state 116
+--- WARN ---
+Shift-reduce conflict on symbol 'chkpoint' in state 1
+         Conflict resolved by shifting to state 118
+--- WARN ---
+Shift-reduce conflict on symbol 'rollback' in state 1
+         Conflict resolved by shifting to state 119
+--- WARN ---
+Shift-reduce conflict on symbol 'exit' in state 1
+         Conflict resolved by shifting to state 120
+--- WARN ---
+Shift-reduce conflict on symbol 'Min' in state 1
+         Conflict resolved by shifting to state 121
+--- WARN ---
+Shift-reduce conflict on symbol 'Max' in state 1
+         Conflict resolved by shifting to state 122
+--- WARN ---
+Shift-reduce conflict on symbol 'Abs' in state 1
+         Conflict resolved by shifting to state 123
+--- WARN ---
+Shift-reduce conflict on symbol 'Neg' in state 1
+         Conflict resolved by shifting to state 124
+--- WARN ---
+Shift-reduce conflict on symbol 'ToStr' in state 1
+         Conflict resolved by shifting to state 148
+--- WARN ---
+Shift-reduce conflict on symbol 'btos' in state 1
+         Conflict resolved by shifting to state 149
+--- WARN ---
+Shift-reduce conflict on symbol 'btoi' in state 1
+         Conflict resolved by shifting to state 150
+--- WARN ---
+Shift-reduce conflict on symbol 'btof' in state 1
+         Conflict resolved by shifting to state 151
+--- WARN ---
+Shift-reduce conflict on symbol 'btod' in state 1
+         Conflict resolved by shifting to state 152
+--- WARN ---
+Shift-reduce conflict on symbol 'ubtos' in state 1
+         Conflict resolved by shifting to state 153
+--- WARN ---
+Shift-reduce conflict on symbol 'ubtoi' in state 1
+         Conflict resolved by shifting to state 154
+--- WARN ---
+Shift-reduce conflict on symbol 'ubtof' in state 1
+         Conflict resolved by shifting to state 155
+--- WARN ---
+Shift-reduce conflict on symbol 'ubtod' in state 1
+         Conflict resolved by shifting to state 156
+--- WARN ---
+Shift-reduce conflict on symbol 'stob' in state 1
+         Conflict resolved by shifting to state 157
+--- WARN ---
+Shift-reduce conflict on symbol 'ustob' in state 1
+         Conflict resolved by shifting to state 158
+--- WARN ---
+Shift-reduce conflict on symbol 'stoi' in state 1
+         Conflict resolved by shifting to state 159
+--- WARN ---
+Shift-reduce conflict on symbol 'ustoi' in state 1
+         Conflict resolved by shifting to state 160
+--- WARN ---
+Shift-reduce conflict on symbol 'stof' in state 1
+         Conflict resolved by shifting to state 161
+--- WARN ---
+Shift-reduce conflict on symbol 'ustof' in state 1
+         Conflict resolved by shifting to state 162
+--- WARN ---
+Shift-reduce conflict on symbol 'stod' in state 1
+         Conflict resolved by shifting to state 163
+--- WARN ---
+Shift-reduce conflict on symbol 'ustod' in state 1
+         Conflict resolved by shifting to state 164
+--- WARN ---
+Shift-reduce conflict on symbol 'itob' in state 1
+         Conflict resolved by shifting to state 165
+--- WARN ---
+Shift-reduce conflict on symbol 'uitob' in state 1
+         Conflict resolved by shifting to state 166
+--- WARN ---
+Shift-reduce conflict on symbol 'itos' in state 1
+         Conflict resolved by shifting to state 167
+--- WARN ---
+Shift-reduce conflict on symbol 'itof' in state 1
+         Conflict resolved by shifting to state 168
+--- WARN ---
+Shift-reduce conflict on symbol 'uitos' in state 1
+         Conflict resolved by shifting to state 169
+--- WARN ---
+Shift-reduce conflict on symbol 'uitof' in state 1
+         Conflict resolved by shifting to state 170
+--- WARN ---
+Shift-reduce conflict on symbol 'itod' in state 1
+         Conflict resolved by shifting to state 171
+--- WARN ---
+Shift-reduce conflict on symbol 'uitod' in state 1
+         Conflict resolved by shifting to state 172
+--- WARN ---
+Shift-reduce conflict on symbol 'ftob' in state 1
+         Conflict resolved by shifting to state 173
+--- WARN ---
+Shift-reduce conflict on symbol 'ftos' in state 1
+         Conflict resolved by shifting to state 174
+--- WARN ---
+Shift-reduce conflict on symbol 'ftoi' in state 1
+         Conflict resolved by shifting to state 175
+--- WARN ---
+Shift-reduce conflict on symbol 'ftod' in state 1
+         Conflict resolved by shifting to state 176
+--- WARN ---
+Shift-reduce conflict on symbol 'dtob' in state 1
+         Conflict resolved by shifting to state 177
+--- WARN ---
+Shift-reduce conflict on symbol 'dtos' in state 1
+         Conflict resolved by shifting to state 178
+--- WARN ---
+Shift-reduce conflict on symbol 'dtoi' in state 1
+         Conflict resolved by shifting to state 179
+--- WARN ---
+Shift-reduce conflict on symbol 'dtof' in state 1
+         Conflict resolved by shifting to state 180
+--- WARN ---
+Shift-reduce conflict on symbol 'strlen' in state 1
+         Conflict resolved by shifting to state 181
+--- WARN ---
+Shift-reduce conflict on symbol 'byte' in state 1
+         Conflict resolved by shifting to state 182
+--- WARN ---
+Shift-reduce conflict on symbol 'uint8' in state 1
+         Conflict resolved by shifting to state 183
+--- WARN ---
+Shift-reduce conflict on symbol 'int8' in state 1
+         Conflict resolved by shifting to state 184
+--- WARN ---
+Shift-reduce conflict on symbol 'short' in state 1
+         Conflict resolved by shifting to state 185
+--- WARN ---
+Shift-reduce conflict on symbol 'int16' in state 1
+         Conflict resolved by shifting to state 186
+--- WARN ---
+Shift-reduce conflict on symbol 'uint16' in state 1
+         Conflict resolved by shifting to state 187
+--- WARN ---
+Shift-reduce conflict on symbol 'int32' in state 1
+         Conflict resolved by shifting to state 188
+--- WARN ---
+Shift-reduce conflict on symbol 'uint32' in state 1
+         Conflict resolved by shifting to state 189
+--- WARN ---
+Shift-reduce conflict on symbol 'float' in state 1
+         Conflict resolved by shifting to state 190
+--- WARN ---
+Shift-reduce conflict on symbol 'double' in state 1
+         Conflict resolved by shifting to state 191
+--- WARN ---
+Shift-reduce conflict on symbol 'bool' in state 1
+         Conflict resolved by shifting to state 192
+--- WARN ---
+Shift-reduce conflict on symbol 'span' in state 1
+         Conflict resolved by shifting to state 193
+--- WARN ---
+Shift-reduce conflict on symbol 'string' in state 1
+         Conflict resolved by shifting to state 194
+--- WARN ---
+Shift-reduce conflict on symbol 'cptr' in state 1
+         Conflict resolved by shifting to state 195
+--- WARN ---
+Shift-reduce conflict on symbol 'global' in state 1
+         Conflict resolved by shifting to state 196
+--- WARN ---
+Shift-reduce conflict on symbol 'local' in state 1
+         Conflict resolved by shifting to state 197
+--- WARN ---
+Shift-reduce conflict on symbol 'param' in state 1
+         Conflict resolved by shifting to state 198
+--- WARN ---
+Shift-reduce conflict on symbol 'Label' in state 1
+         Conflict resolved by shifting to state 199
+--- WARN ---
+Shift-reduce conflict on symbol 'Dot' in state 1
+         Conflict resolved by shifting to state 203
+--- WARN ---
+Shift-reduce conflict on symbol '(' in state 1
+         Conflict resolved by shifting to state 205
+--- WARN ---
+Shift-reduce conflict on symbol 'Align' in state 1
+         Conflict resolved by shifting to state 201
+--- WARN ---
+Shift-reduce conflict on symbol 'DecInteger' in state 1
+         Conflict resolved by shifting to state 206
+--- WARN ---
+Shift-reduce conflict on symbol 'BinInteger' in state 1
+         Conflict resolved by shifting to state 207
+--- WARN ---
+Shift-reduce conflict on symbol 'HexInteger' in state 1
+         Conflict resolved by shifting to state 208
+--- WARN ---
+Shift-reduce conflict on symbol 'Float' in state 1
+         Conflict resolved by shifting to state 209
+--- WARN ---
+Shift-reduce conflict on symbol 'SizeOf' in state 1
+         Conflict resolved by shifting to state 211
+--- WARN ---
+Shift-reduce conflict on symbol 'Symbol' in state 1
+         Conflict resolved by shifting to state 212
+--- WARN ---
+Shift-reduce conflict on symbol 'True' in state 1
+         Conflict resolved by shifting to state 213
+--- WARN ---
+Shift-reduce conflict on symbol 'False' in state 1
+         Conflict resolved by shifting to state 214
+--- WARN ---
+Shift-reduce conflict on symbol 'Dot' in state 249
+         Conflict resolved by shifting to state 203
+--- WARN ---
+Shift-reduce conflict on symbol '(' in state 249
+         Conflict resolved by shifting to state 205
+--- WARN ---
+Shift-reduce conflict on symbol 'DecInteger' in state 249
+         Conflict resolved by shifting to state 206
+--- WARN ---
+Shift-reduce conflict on symbol 'BinInteger' in state 249
+         Conflict resolved by shifting to state 207
+--- WARN ---
+Shift-reduce conflict on symbol 'HexInteger' in state 249
+         Conflict resolved by shifting to state 208
+--- WARN ---
+Shift-reduce conflict on symbol 'Float' in state 249
+         Conflict resolved by shifting to state 209
+--- WARN ---
+Shift-reduce conflict on symbol 'SizeOf' in state 249
+         Conflict resolved by shifting to state 211
+--- WARN ---
+Shift-reduce conflict on symbol 'Symbol' in state 249
+         Conflict resolved by shifting to state 212
+--- WARN ---
+Shift-reduce conflict on symbol 'True' in state 249
+         Conflict resolved by shifting to state 213
+--- WARN ---
+Shift-reduce conflict on symbol 'False' in state 249
+         Conflict resolved by shifting to state 214
+--- WARN ---
+Shift-reduce conflict on symbol '-' in state 294
+         Conflict resolved by reducing with production 238
+--- WARN ---
+Shift-reduce conflict on symbol '+' in state 294
+         Conflict resolved by reducing with production 238
+--- WARN ---
+Shift-reduce conflict on symbol '-' in state 295
+         Conflict resolved by reducing with production 237
+--- WARN ---
+Shift-reduce conflict on symbol '+' in state 295
+         Conflict resolved by reducing with production 237
+--- WARN ---
+Shift-reduce conflict on symbol '-' in state 302
+         Conflict resolved by shifting to state 282
+--- WARN ---
+Shift-reduce conflict on symbol '+' in state 302
+         Conflict resolved by shifting to state 281
+--- WARN ---
+Shift-reduce conflict on symbol '*' in state 302
+         Conflict resolved by shifting to state 280
+--- WARN ---
+Shift-reduce conflict on symbol '/' in state 302
+         Conflict resolved by shifting to state 279
+--- WARN ---
+Shift-reduce conflict on symbol '%' in state 302
+         Conflict resolved by shifting to state 278
+--- WARN ---
+Shift-reduce conflict on symbol '|' in state 302
+         Conflict resolved by reducing with production 248
+--- WARN ---
+Shift-reduce conflict on symbol '&' in state 302
+         Conflict resolved by reducing with production 248
+--- WARN ---
+Shift-reduce conflict on symbol '-' in state 303
+         Conflict resolved by shifting to state 282
+--- WARN ---
+Shift-reduce conflict on symbol '+' in state 303
+         Conflict resolved by shifting to state 281
+--- WARN ---
+Shift-reduce conflict on symbol '*' in state 303
+         Conflict resolved by shifting to state 280
+--- WARN ---
+Shift-reduce conflict on symbol '/' in state 303
+         Conflict resolved by shifting to state 279
+--- WARN ---
+Shift-reduce conflict on symbol '%' in state 303
+         Conflict resolved by shifting to state 278
+--- WARN ---
+Shift-reduce conflict on symbol '|' in state 303
+         Conflict resolved by reducing with production 247
+--- WARN ---
+Shift-reduce conflict on symbol '&' in state 303
+         Conflict resolved by reducing with production 247
+--- WARN ---
+Shift-reduce conflict on symbol '-' in state 304
+         Conflict resolved by reducing with production 246
+--- WARN ---
+Shift-reduce conflict on symbol '+' in state 304
+         Conflict resolved by reducing with production 246
+--- WARN ---
+Shift-reduce conflict on symbol '*' in state 304
+         Conflict resolved by reducing with production 246
+--- WARN ---
+Shift-reduce conflict on symbol '/' in state 304
+         Conflict resolved by reducing with production 246
+--- WARN ---
+Shift-reduce conflict on symbol '%' in state 304
+         Conflict resolved by reducing with production 246
+--- WARN ---
+Shift-reduce conflict on symbol '|' in state 304
+         Conflict resolved by reducing with production 246
+--- WARN ---
+Shift-reduce conflict on symbol '&' in state 304
+         Conflict resolved by reducing with production 246
+--- WARN ---
+Shift-reduce conflict on symbol '-' in state 305
+         Conflict resolved by reducing with production 245
+--- WARN ---
+Shift-reduce conflict on symbol '+' in state 305
+         Conflict resolved by reducing with production 245
+--- WARN ---
+Shift-reduce conflict on symbol '*' in state 305
+         Conflict resolved by reducing with production 245
+--- WARN ---
+Shift-reduce conflict on symbol '/' in state 305
+         Conflict resolved by reducing with production 245
+--- WARN ---
+Shift-reduce conflict on symbol '%' in state 305
+         Conflict resolved by reducing with production 245
+--- WARN ---
+Shift-reduce conflict on symbol '|' in state 305
+         Conflict resolved by reducing with production 245
+--- WARN ---
+Shift-reduce conflict on symbol '&' in state 305
+         Conflict resolved by reducing with production 245
+--- WARN ---
+Shift-reduce conflict on symbol '-' in state 306
+         Conflict resolved by reducing with production 244
+--- WARN ---
+Shift-reduce conflict on symbol '+' in state 306
+         Conflict resolved by reducing with production 244
+--- WARN ---
+Shift-reduce conflict on symbol '*' in state 306
+         Conflict resolved by reducing with production 244
+--- WARN ---
+Shift-reduce conflict on symbol '/' in state 306
+         Conflict resolved by reducing with production 244
+--- WARN ---
+Shift-reduce conflict on symbol '%' in state 306
+         Conflict resolved by reducing with production 244
+--- WARN ---
+Shift-reduce conflict on symbol '|' in state 306
+         Conflict resolved by reducing with production 244
+--- WARN ---
+Shift-reduce conflict on symbol '&' in state 306
+         Conflict resolved by reducing with production 244
+--- WARN ---
+Shift-reduce conflict on symbol '-' in state 307
+         Conflict resolved by reducing with production 243
+--- WARN ---
+Shift-reduce conflict on symbol '+' in state 307
+         Conflict resolved by reducing with production 243
+--- WARN ---
+Shift-reduce conflict on symbol '*' in state 307
+         Conflict resolved by shifting to state 280
+--- WARN ---
+Shift-reduce conflict on symbol '/' in state 307
+         Conflict resolved by shifting to state 279
+--- WARN ---
+Shift-reduce conflict on symbol '%' in state 307
+         Conflict resolved by shifting to state 278
+--- WARN ---
+Shift-reduce conflict on symbol '|' in state 307
+         Conflict resolved by reducing with production 243
+--- WARN ---
+Shift-reduce conflict on symbol '&' in state 307
+         Conflict resolved by reducing with production 243
+--- WARN ---
+Shift-reduce conflict on symbol '-' in state 308
+         Conflict resolved by reducing with production 242
+--- WARN ---
+Shift-reduce conflict on symbol '+' in state 308
+         Conflict resolved by reducing with production 242
+--- WARN ---
+Shift-reduce conflict on symbol '*' in state 308
+         Conflict resolved by shifting to state 280
+--- WARN ---
+Shift-reduce conflict on symbol '/' in state 308
+         Conflict resolved by shifting to state 279
+--- WARN ---
+Shift-reduce conflict on symbol '%' in state 308
+         Conflict resolved by shifting to state 278
+--- WARN ---
+Shift-reduce conflict on symbol '|' in state 308
+         Conflict resolved by reducing with production 242
+--- WARN ---
+Shift-reduce conflict on symbol '&' in state 308
+         Conflict resolved by reducing with production 242

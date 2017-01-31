@@ -73,6 +73,7 @@ typedef uint8_t WetaDebounceFlags;
 
 #define FORCE_STACK_BYTE_ALIGNED
 
+
 #include <../boards/board.h>
 /*
 #if defined(CONFIG_TARGET_BOARD_MYNANO32)

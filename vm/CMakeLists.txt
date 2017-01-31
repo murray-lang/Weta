@@ -4,6 +4,7 @@ project(vm)
 INCLUDE_DIRECTORIES(
         /home/murray/Robotics/Weta/vm/weta-esp32/include
         /home/murray/Robotics/Weta/vm/weta-esp32/boards
+        /home/murray/Robotics/Weta/vm/weta-esp32/build/include
         /home/murray/ESP/esp-idf-v2.0/components/driver/include
         /home/murray/ESP/esp-idf-v2.0/components/esp32/include
         /home/murray/ESP/esp-idf-v2.0/components/freertos/include

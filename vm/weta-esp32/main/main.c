@@ -55,6 +55,24 @@ init_wifi(void)
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK( esp_wifi_init(&cfg) );
     ESP_ERROR_CHECK( esp_wifi_set_storage(WIFI_STORAGE_RAM) );
+#ifdef CONFIG_WETA_WIFI_MODE_AP
+    ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_AP) );
+    wifi_config_t apConfig = {
+            .ap = {
+                    .ssid = CONFIG_WIFI_SSID,
+                    .password = CONFIG_WIFI_PASSWORD,
+                    .ssid_len = 0,
+                    .channel = 0,
+                    .authmode = WIFI_AUTH_WPA2_PSK,
+                    .ssid_hidden = 0,
+                    .max_connection = 4, // how many clients to allow?
+                    .beacon_interval = 100 // default value
+            }
+    };
+
+    ESP_ERROR_CHECK( esp_wifi_set_config(WIFI_IF_AP, &apConfig) );
+    ESP_ERROR_CHECK( esp_wifi_start() );
+#else
     ESP_ERROR_CHECK( esp_wifi_set_mode(WIFI_MODE_STA) );
 
     wifi_config_t wifi_config =
@@ -70,6 +88,8 @@ init_wifi(void)
     ESP_ERROR_CHECK( esp_wifi_set_config(WIFI_IF_STA, &wifi_config) );
     ESP_ERROR_CHECK( esp_wifi_start() );
     ESP_ERROR_CHECK( esp_wifi_connect() );
+#endif
+
 }
 
 void weta_task(void *pvParameter)

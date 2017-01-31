@@ -1,4 +1,21 @@
-menu "Webserver Configuration"
+menu "Weta WiFi Configuration"
+
+choice WETA_WIFI_MODE
+    prompt "Wifi Mode?"
+    default WETA_WIFI_MODE_AP
+    help
+		Select whether the board runs as a station or an Access Point.
+    
+config WETA_WIFI_MODE_AP
+    bool "Access Point"
+	help
+		Set the board as an Access Point.
+		
+config WETA_WIFI_MODE_STATION
+    bool "Station"
+	help
+		Set the board as a station.
+endchoice
 
 config WIFI_SSID
 	string "WiFi Access Point ID"

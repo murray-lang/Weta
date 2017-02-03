@@ -16,7 +16,7 @@
 #include <stdio.h>          // For printf()
 
 #include <weta_platform.h>
-#include "../../src/weta.h"
+#include <weta.h>
 
 Weta weta;
 extern Hardware hardware;

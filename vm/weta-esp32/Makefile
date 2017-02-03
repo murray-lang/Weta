@@ -6,7 +6,7 @@
 export EXTRA_COMPONENT_DIRS:=~/Robotics/Weta/vm
 
 PROJECT_NAME := weta
-SRCDIRS := main include boards include/webserver webserver src
+SRCDIRS := main platform webserver weta-common
 
 
 

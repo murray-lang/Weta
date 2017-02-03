@@ -6,7 +6,9 @@
 # lib(subdirectory_name).a in the build directory. This behaviour is entirely configurable,
 # please read the ESP-IDF documents if you need to do this.
 #
+COMPONENT_ADD_INCLUDEDIRS := . ../../weta-common/hw
+COMPONENT_SRCDIRS := . mcu boards
 
-#include $(IDF_PATH)/make/component_common.mk
-COMPONENT_ADD_INCLUDEDIRS := ../include ../../weta-common
+
+
 

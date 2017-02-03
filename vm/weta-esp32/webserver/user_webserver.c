@@ -18,7 +18,7 @@
 #include "lwip/api.h"
 #include <cJSON.h>
 #include <webserver/user_webserver.h>
-#include "../../src/weta.h"
+#include <weta.h>
 
 //#if ESP_PLATFORM
 //#include "user_esp_platform.h"

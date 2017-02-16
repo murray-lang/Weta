@@ -5,6 +5,7 @@ This project started as my version of Babuino (https://github.com/murray-lang/Ba
 
 Most of what is in the README for that project still holds, but much work has been done to make the virtual machine cross-platform.
 
-The work is currently in flux, and the only version of the VM that will build is for the ESP32.
+The work is currently in flux. 
+The VM will build for the ESP32 and ESP8266.
+It also builds for AVR Arduinos using CMake, but there is more work to do with flash storage as the Arduino flash api overlaps with mine.
 
-Previous versions for Arduino and ESP8266 will be rebuilt and uploaded soon.

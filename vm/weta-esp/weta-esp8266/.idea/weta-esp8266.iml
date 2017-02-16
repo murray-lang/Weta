@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../../weta-common">
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/WvmBaseCodes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/WvmMathCodes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/WvmCodes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/store/weta_store_flash.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/store/weta_store.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/store/weta_store_ram.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/store/weta_store.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/store/weta_store_ram.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/store/weta_store_flash.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/weta.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_buzzer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_serial.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_servo.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_dac.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_stepper.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_servo.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_i2c.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_stepper.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_gpio.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_flash.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_motor.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_endian.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_motor.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_pwm.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_time.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_flash.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_flash_raw.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw_adc.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/hw/hw.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/turtle/weta_turtle.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/turtle/weta_turtle_stepper.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/weta.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/WvmCommCodes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_string.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_uint16.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/type_handlers.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_bool.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_int16.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_uint32.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_stackptr.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_float.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_int32.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_int8.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_double.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/type_handlers/with_uint8.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/weta_stack.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/weta_defs.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/WvmIoCodes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../weta-common/weta_stack.c" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/main/user_main.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/weta_platform.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/boards/board.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/boards/board.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/boards/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/espmissingincludes.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_adc.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_serial.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_buzzer.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/uart_util.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_dac.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_gpio.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/uart_util.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_pwm.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_defs.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_flash_raw.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_endian.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_time.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/platform/arch/hw_i2c.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/webserver/user_webserver.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/webserver/user_json.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/webserver/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/webserver/user_webserver.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/webserver/user_json.c" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file://$USER_HOME$" />
+          <root url="file://$MODULE_DIR$/main" />
+          <root url="file://$MODULE_DIR$/platform" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$USER_HOME$" />
+          <root url="file://$MODULE_DIR$/main" />
+          <root url="file://$MODULE_DIR$/platform" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$" />
+          <root url="file://$MODULE_DIR$/main/user_main.c" />
+          <root url="file://$MODULE_DIR$/platform/weta_platform.h" />
+          <root url="file://$MODULE_DIR$/platform/boards/board.c" />
+          <root url="file://$MODULE_DIR$/platform/boards/board.h" />
+          <root url="file://$MODULE_DIR$/platform/boards/CMakeLists.txt" />
+          <root url="file://$MODULE_DIR$/platform/arch/espmissingincludes.h" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_adc.c" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_serial.c" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_buzzer.c" />
+          <root url="file://$MODULE_DIR$/platform/arch/uart_util.h" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_dac.c" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_gpio.c" />
+          <root url="file://$MODULE_DIR$/platform/arch/uart_util.c" />
+          <root url="file://$MODULE_DIR$/platform/arch/CMakeLists.txt" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_pwm.c" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_defs.h" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_flash_raw.c" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_endian.c" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_time.c" />
+          <root url="file://$MODULE_DIR$/platform/arch/hw_i2c.c" />
+          <root url="file://$MODULE_DIR$/../../weta-common" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_buzzer.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_serial.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw.c" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_servo.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_dac.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_stepper.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_servo.c" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_i2c.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_stepper.c" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_gpio.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_flash.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_motor.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_endian.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_motor.c" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_pwm.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_time.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_flash.c" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_flash_raw.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw_adc.h" />
+          <root url="file://$MODULE_DIR$/../../weta-common/hw/hw.h" />
+        </excluded>
+      </library>
+    </orderEntry>
+  </component>
+</module>

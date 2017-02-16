@@ -6,25 +6,33 @@
  * @brief 
  */
  
- #include <weta_platform.h>
- #include "./hw/hw.h"
- #include "weta_stack.h"
- #include "weta_store.h"
+#include <weta_platform.h>
+#include "hw/hw.h"
+#include "weta_stack.h"
+#include "store/weta_store.h"
+#include "store/weta_store_flash.h"
+#include "store/weta_store_ram.h"
 
 /**
  * @brief Machine states of the VM as a whole
  */
-typedef enum { CONFIG, READY, COMM, RUN, STEPPER } eMachineState;
+typedef enum
+{
+	WETA_CONFIG, WETA_READY,
+#ifdef SUPPORT_CRICKET
+    WETA_COMM,
+#endif
+    WETA_RUN
+#ifdef	SUPPORT_STEPPERS
+    , STEPPER
+#endif
+} eMachineState;
 
+#ifdef SUPPORT_CRICKET
 /**
  * @brief Communications states
  */
 typedef enum  { COMM_IDLE, COMM_STARTED, COMM_FINISHED, COMM_TIMEOUT } eCommState;
-
-/**
- * @brief Run button states
- */
-typedef enum  { STOPPED, RUNNING } eRunRequest;
 
 /**
  * @brief Cricket protocol commands
@@ -38,6 +46,12 @@ typedef enum
 	cmdCricketCheck		= 135,	//0x87
 	cmdCricketCheckACK	= 55	//0x37	
 } eCricketCommands;
+#endif
+/**
+ * @brief Run button states
+ */
+typedef enum  { STOPPED, RUNNING } eRunRequest;
+
 
 /**
  * @brief Collection of states for the VM
@@ -45,23 +59,16 @@ typedef enum
 typedef struct _WetaStates
 {
 	eMachineState    machineState    : 3;
+#ifdef SUPPORT_CRICKET
 	eCommState       commState	     : 2;
+#endif
 	eRunRequest      runRequest      : 1;
 	bool             waitingCmd      : 1;
 	unsigned int     unused          : 1;
 } WetaStates;
 
-/**
- * @brief Serial communications parameters
- */
- /*
-typedef struct _SerialParams
-{
-	uint8_t	stopbits	: 2;
-	eParity parity		: 2;
-	uint8_t databits	: 4;
-} SerialParams;
-*/
+
+
 /**
  * @brief VM program context record
  */
@@ -120,10 +127,11 @@ extern void weta_init(Weta* pWeta, Hardware* pHardware, uint16_t flags);
  */
 extern void weta_reset(Weta* pWeta);
 
-extern void weta_start(Weta* pWeta);
+extern bool weta_start(Weta* pWeta);
 
+#ifdef SUPPORT_DEBOUNCE
 extern void weta_debounce(Weta* pWeta);
-
+#endif
 /**
  * @brief Run a Weta VM
  * @param pWeta Initialised Weta structure identifying the VM
@@ -147,7 +155,7 @@ extern void popRegisters(Weta* pWeta);
  * @param jsonArray
  * @return
  */
-extern bool weta_program_json(Weta* pWeta, WetaCodePtr address, const char* jsonArray);
+extern bool weta_program_json(Weta* pWeta, WetaStorage storage, WetaCodePtr address, const char* jsonArray);
 #endif
 
 #ifdef SUPPORT_QUERY
@@ -165,7 +173,6 @@ typedef enum
 } WetaQuery;
 
 extern bool weta_query(Weta* weta, WetaQuery q, char * json, uint16_t length);
-
 #endif
 
 #endif //__WETA_H__

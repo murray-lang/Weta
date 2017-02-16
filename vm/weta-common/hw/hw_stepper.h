@@ -1,6 +1,7 @@
 #ifndef __HW_STEPPER_H__
 #define  __HW_STEPPER_H__
 
+#ifdef SUPPORT_STEPPERS
 #include <weta_platform.h>
 #include <stdbool.h>
 #include "hw_gpio.h"
@@ -28,6 +29,7 @@ typedef struct
 {
 	StepperMotor*	steppers;
 	uint8_t			n_steppers;
+	const uint8_t   steps[STEPPER_STEPS][STEPPER_WIDTH];
 } Steppers;
 
 
@@ -39,5 +41,5 @@ typedef uint32_t StepperArg;
 extern bool hw_stepper_tick(Steppers* steppers);
 extern void hw_stepper_init(Steppers* steppers, uint16_t flags);
 extern void hw_stepper_control(Steppers* steppers, eStepCommand cmd1, StepperArg arg1, eStepCommand cmd2, StepperArg arg2);
-
+#endif // SUPPORT_STEPPERS
 #endif // __HW_STEPPER_H__

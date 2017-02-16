@@ -21,11 +21,13 @@ weta_turtle_forward(Hardware* hw, int16_t mm)
         weta_turtle_backward(hw, -mm);
         return;
     }
+#ifdef	SUPPORT_STEPPERS
     hw_stepper_control(
             &hw->steppers,
             STEP_CMD_FORWARD, (StepperArg) SCALE_DISTANCE(mm),
             STEP_CMD_FORWARD, (StepperArg) SCALE_DISTANCE(mm)
     );
+#endif
 }
 
 void WETAFUNCATTR
@@ -36,11 +38,13 @@ weta_turtle_backward(Hardware* hw, int16_t mm)
         weta_turtle_forward(hw, -mm);
         return;
     }
+#ifdef	SUPPORT_STEPPERS
     hw_stepper_control(
             &hw->steppers,
             STEP_CMD_BACKWARD, (StepperArg) SCALE_DISTANCE(mm),
             STEP_CMD_BACKWARD, (StepperArg) SCALE_DISTANCE(mm)
     );
+#endif
 }
 
 void WETAFUNCATTR
@@ -53,11 +57,13 @@ weta_turtle_left(Hardware* hw, int16_t degrees)
     }
     // TO DO
     // Simple test for now
+#ifdef	SUPPORT_STEPPERS
     hw_stepper_control(
             &hw->steppers,
             STEP_CMD_FORWARD, (StepperArg) SCALE_TURN(degrees),
             STEP_CMD_BACKWARD, (StepperArg) SCALE_TURN(degrees)
     );
+#endif
 }
 
 void WETAFUNCATTR
@@ -69,11 +75,13 @@ weta_turtle_right(Hardware* hw, int16_t degrees)
         return;
     }
     // TO DO
+#ifdef	SUPPORT_STEPPERS
     hw_stepper_control(
             &hw->steppers,
             STEP_CMD_BACKWARD, (StepperArg) SCALE_TURN(degrees),
             STEP_CMD_FORWARD, (StepperArg) SCALE_TURN(degrees)
     );
+#endif
 }
 
 void WETAFUNCATTR

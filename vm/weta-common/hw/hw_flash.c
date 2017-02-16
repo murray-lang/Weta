@@ -114,7 +114,7 @@ PFLASH WETAFUNCATTR
 hw_flash_open(uint8_t* base)
 {
 	flash.base = (WetaFlashPtr)base;
-    //hw_flash_erase(&flash); // Debugging TODO: remove this line
+    hw_flash_erase(&flash); // Debugging TODO: remove this line
 	if (!readFlags((PFLASH)&flash))
 		return 0;
 		// For now, set the start address to just after the flags
@@ -198,7 +198,7 @@ hw_flash_start_write(
 	else
 		flash->start = flash->base + calcReadOffset(flash) + startAddress;
 
-    //printf("hw_flash_start_write(%0X, %d) - Location: %0X\n", startAddress, requiredBytes, flash->start);
+    //DEBUGMSG("hw_flash_start_write(%0X, %d) - Location: %0X\n", startAddress, requiredBytes, flash->start);
 		
 		// Set the buffer address to the nearest 4-byte segment that will cover
 		// the start address.
@@ -302,6 +302,7 @@ hw_flash_write_bytes(PFLASH flash, uint8_t* vals, WetaFlashPtr count)
 			 
 		if (rc != FLASH_RAW_RESULT_OK)
 		{
+			DEBUGMSG("hw_flash_raw_write() returned %d\r\n", rc);
 			// Oops! return 0 bytes written, even though there might have been data
 			// that was consumed by the buffer and written. The situation is bad so
 			// just ignore the buffered data.
@@ -396,7 +397,7 @@ WetaFlashPtr WETAFUNCATTR
 hw_flash_read_bytes(PFLASH flash, WetaFlashPtr loc, uint8_t* vals, WetaFlashPtr count)
 {
 		// Debugging
-	//printf("hw_flash_read_bytes(%0X + %0X + %0X, %d)\n", flash->base, flash->start, loc, count);
+	//DEBUGMSG("hw_flash_read_bytes(%0X + %0X + %0X, %d)\n", flash->base, flash->start, loc, count);
 		// We can't read bytes from any location. Data must be read from a 4
 		// byte boundary and the length must be a multiple of 4 bytes. Use the
 		// buffer to read any data that falls outside these boundaries.
@@ -560,9 +561,9 @@ readFlags(PFLASH flash)
 		sizeof(WetaFlashFlags)
 	);
     //if (rc != FLASH_RAW_RESULT_OK)
-    //    printf("Error reading old bytes flags.\n");
+    //    DEBUGMSG("Error reading old bytes flags.\n");
     //else
-    //    printf("readFlags(): Written: %0X, Old: %0X\n", flash->writtenBlocks, flash->oldBlocks);
+    //    DEBUGMSG("readFlags(): Written: %0X, Old: %0X\n", flash->writtenBlocks, flash->oldBlocks);
 	return rc == FLASH_RAW_RESULT_OK;
 }
 
@@ -703,7 +704,7 @@ writeBuffer(PBUFFER buffer)
 
 	FlashRawResult rc;
 	rc = hw_flash_raw_write(buffer->addr, (WetaFlashPtr*)buffer->asBytes, FLASH_ALIGN);
-    //printf("hw_flash_raw_write(%0X, [%0X, %0X, %0X, %0X])\n",
+    //DEBUGMSG("hw_flash_raw_write(%0X, [%0X, %0X, %0X, %0X])\n",
            //buffer->addr, buffer->asBytes[0], buffer->asBytes[1], buffer->asBytes[2], buffer->asBytes[3]);
 	return rc == FLASH_RAW_RESULT_OK;
 	

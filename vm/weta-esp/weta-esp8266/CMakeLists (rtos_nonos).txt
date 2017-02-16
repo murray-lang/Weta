@@ -1,0 +1,150 @@
+cmake_minimum_required(VERSION 3.3)
+project(weta-esp8266 C)
+
+set(RTOS_SDK "/home/murray/ESP/ESP8266_RTOS_SDK")
+#set(NONOS_SDK "/home/murray/ESP/esp-open-sdk/sdk")
+set(NONOS_SDK "/home/murray/ESP/ESP8266_NONOS_SDK")
+
+# Comment out one of the following depending on whether the RTOS or NONOS
+# SDK is being used. NOTE: The RTOS version currently results in the overflow
+# of iram1_0_seg
+set(SDK_FLAVOUR "nonos")
+#set(SDK_FLAVOUR "rtos")
+
+# Select the board being built for. This name will be used verbatim in the
+# path to look for the board files, and also in the TARGET_BOARD_xxxxx
+# defines used in platform/boards/board.h|c and .c to include the specific
+# files
+set(BOARD "esp12_hbridge_robot")
+#set(BOARD "esp12_stepper_robot")
+#set(BOARD "esp01_irobot")
+
+set(HOME "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266")
+set(MAIN "${HOME}/main")
+set(PLATFORM "${HOME}/platform")
+set(ARCH "${PLATFORM}/arch")
+set(BOARDS "${PLATFORM}/boards")
+set(BUILD "${HOME}/build")
+
+# Weta sources common to all platforms
+set(WETA_COMMON "../../weta-common")
+# Weta sources common to ESP32 and ESP8266
+set(WETA_ESP_COMMON "../weta-esp-common")
+
+set(BIN_DIR "${BUILD}/bin/${BOARD}/${SDK_FLAVOUR}")
+set(LIB_DIR "${BUILD}/lib/${BOARD}/${SDK_FLAVOUR}")
+
+if (${SDK_FLAVOUR} STREQUAL "rtos")
+    set(SDK ${RTOS_SDK})
+    set(WEBSERVER_DIR ${WETA_ESP_COMMON})
+elseif (SDK_FLAVOUR STREQUAL "nonos")
+    set(SDK ${NONOS_SDK})
+    set(WEBSERVER_DIR webserver)
+endif()
+
+if (${BOARD} STREQUAL "esp01_irobot")
+    # 1MB Flash in new ESP01 modules
+    set(INIT_DATA_ADDR 0xFC000)
+    set(BLANK_ADDR 0xFE000)
+elseif(${BOARD} STREQUAL "esp12_hbridge_robot")
+    # 512KB Flash in old ESP12 modules
+    set(INIT_DATA_ADDR 0x7C000)
+    set(BLANK_ADDR 0x7E000)
+elseif(${BOARD} STREQUAL "esp12_stepper_robot")
+    # 512KB Flash in old ESP12 modules
+    set(INIT_DATA_ADDR 0x7C000)
+    set(BLANK_ADDR 0x7E000)
+endif()
+
+# This is used in the main board.h and board.c to include the correct files
+# for the given board.
+add_definitions(-DTARGET_BOARD_${BOARD})
+add_definitions(-DSDK_${SDK_FLAVOUR})
+add_definitions(-DDEBUG)
+
+set(TOOLS /home/murray/ESP/esp-open-sdk/xtensa-lx106-elf)
+set(CMAKE_C_COMPILER ${TOOLS}/bin/xtensa-lx106-elf-gcc)
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -I. -DICACHE_FLASH -Os -nostdlib -mlongcalls -mtext-section-literals ")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -ffunction-sections -fdata-sections -fno-builtin-printf")
+set(CMAKE_EXE_LINKER_FLAGS -T${SDK}/ld/eagle.app.v6.ld)
+#set(CMAKE_EXE_LINKER_FLAGS -T${SDK}/ld/eagle.app.v6.new.1024.app1.ld)
+
+add_subdirectory(${WETA_COMMON} weta-common)
+add_subdirectory(${ARCH} weta-arch)
+add_subdirectory(${BOARDS} weta-boards)
+add_subdirectory(${WEBSERVER_DIR} weta-webserver)
+
+INCLUDE_DIRECTORIES(
+        .
+        main/${SDK_FLAVOUR}
+        ${PLATFORM}
+        ${BOARDS}
+        ${WEBSERVER_DIR}
+        ${WETA_COMMON}
+        ${WETA_COMMON}/hw
+        ${SDK}/include
+        ${SDK}/extra_include
+        ${SDK}/include/json
+        ${SDK}/driver_lib/include
+        ${SDK}/driver_lib/include/driver
+        ${SDK}/include/espressif
+        ${SDK}/include/espressif/esp8266
+        ${SDK}/include/lwip
+        ${SDK}/include/lwip/ipv4
+        ${SDK}/include/lwip/ipv6
+        ${TOOLS}/xtensa-lx106-elf/include
+)
+
+LINK_DIRECTORIES(
+    ${SDK}/lib
+    ${TOOLS}/xtensa-lx106-elf/lib
+)
+
+set(SOURCE_FILES 
+    main/${SDK_FLAVOUR}/user_main.c
+    ${PLATFORM}/weta_platform.h
+    ${ARCH_HEADERS}
+    ${ARCH_SOURCES}
+    ${BOARD_HEADERS}
+    ${BOARD_SOURCES}
+    ${WETA_COMMON_HEADERS}
+    ${WETA_COMMON_SOURCES}
+    ${WEBSERVER_HEADERS}
+    ${WEBSERVER_SOURCES}
+)
+
+add_executable(weta-esp8266 ${SOURCE_FILES})
+target_link_libraries(weta-esp8266
+        -nostdlib
+        -Wl,-EL
+        -Wl,--gc-sections
+        -Wl,-static
+        -Wl,-Map=${BUILD}/weta.map
+        )
+# Now add libraries depending on the SDK flavour
+if (${SDK_FLAVOUR} STREQUAL "rtos")
+    target_link_libraries(weta-esp8266 -Wl,--start-group gcc m main driver hal ssc freertos json pwm net80211 wpa lwip pp phy crypto c -Wl,--end-group)
+elseif (SDK_FLAVOUR STREQUAL "nonos")
+    target_link_libraries(weta-esp8266 -Wl,--start-group gcc m main driver hal json pwm net80211 wpa lwip pp phy crypto c -Wl,--end-group)
+endif()
+set_target_properties( weta-esp8266
+        PROPERTIES
+        ARCHIVE_OUTPUT_DIRECTORY "${LIB_DIR}"
+        LIBRARY_OUTPUT_DI$RECTORY "${LIB_DIR}"
+        RUNTIME_OUTPUT_DIRECTORY "${BIN_DIR}"
+        )
+
+add_custom_command(
+        TARGET weta-esp8266
+        POST_BUILD
+        COMMAND esptool.py --chip esp8266 elf2image --output "$<TARGET_FILE:weta-esp8266>-" $<TARGET_FILE:weta-esp8266>
+)
+
+# 0x00000 "${SDK}/bin/boot_v1.6.bin"
+add_custom_command(
+        TARGET weta-esp8266
+        POST_BUILD
+        COMMAND esptool.py --port /dev/ttyUSB0 write_flash 0x00000 "$<TARGET_FILE:weta-esp8266>-0x00000.bin" 0x10000 "$<TARGET_FILE:weta-esp8266>-0x10000.bin" ${INIT_DATA_ADDR} "${SDK}/bin/esp_init_data_default.bin" ${BLANK_ADDR} "${SDK}/bin/blank.bin"
+)
+
+

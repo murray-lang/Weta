@@ -1,3 +1,5 @@
+#include <weta_platform.h>
+#ifdef SUPPORT_STEPPERS
 #include "hw_stepper.h"
 #include "hw_time.h"
 #include "hw_gpio.h"
@@ -7,6 +9,7 @@
 #define INCREMENT_STEP(n) ((n) < STEPPER_STEPS-1 ? (n) + 1 : 0);
 #define DECREMENT_STEP(n) ((n) == 0 ? STEPPER_STEPS-1 : (n) - 1); 
 
+/*
 static const uint8_t steps[STEPPER_STEPS][STEPPER_WIDTH] =
 { 
 	{ 1, 0, 0, 1 },
@@ -14,7 +17,7 @@ static const uint8_t steps[STEPPER_STEPS][STEPPER_WIDTH] =
 	{ 0, 1, 1, 0 },
 	{ 0, 0, 1, 1 }
 };
-
+*/
 /*
 static eStepCommand	stepperCmd1 = STEP_CMD_NONE;
 static eStepCommand	stepperCmd2 = STEP_CMD_NONE;	
@@ -147,10 +150,10 @@ hw_stepper_apply(Steppers* steppers)
     }
     else
     {
-        hw_gpio_set((steppers->steppers[0].pins[0]), (steps[steppers->steppers[0].index][0]));
-        hw_gpio_set((steppers->steppers[0].pins[1]), (steps[steppers->steppers[0].index][1]));
-        hw_gpio_set((steppers->steppers[0].pins[2]), (steps[steppers->steppers[0].index][2]));
-        hw_gpio_set((steppers->steppers[0].pins[3]), (steps[steppers->steppers[0].index][3]));
+        hw_gpio_set((steppers->steppers[0].pins[0]), (steppers->steps[steppers->steppers[0].index][0]));
+        hw_gpio_set((steppers->steppers[0].pins[1]), (steppers->steps[steppers->steppers[0].index][1]));
+        hw_gpio_set((steppers->steppers[0].pins[2]), (steppers->steps[steppers->steppers[0].index][2]));
+        hw_gpio_set((steppers->steppers[0].pins[3]), (steppers->steps[steppers->steppers[0].index][3]));
     }
 
     if (steppers->steppers[1].cmd == STEP_CMD_OFF)
@@ -162,10 +165,10 @@ hw_stepper_apply(Steppers* steppers)
     }
     else
     {
-        hw_gpio_set((steppers->steppers[1].pins[0]), (steps[steppers->steppers[1].index][0]));
-        hw_gpio_set((steppers->steppers[1].pins[1]), (steps[steppers->steppers[1].index][1]));
-        hw_gpio_set((steppers->steppers[1].pins[2]), (steps[steppers->steppers[1].index][2]));
-        hw_gpio_set((steppers->steppers[1].pins[3]), (steps[steppers->steppers[1].index][3]));
+        hw_gpio_set((steppers->steppers[1].pins[0]), (steppers->steps[steppers->steppers[1].index][0]));
+        hw_gpio_set((steppers->steppers[1].pins[1]), (steppers->steps[steppers->steppers[1].index][1]));
+        hw_gpio_set((steppers->steppers[1].pins[2]), (steppers->steps[steppers->steppers[1].index][2]));
+        hw_gpio_set((steppers->steppers[1].pins[3]), (steppers->steps[steppers->steppers[1].index][3]));
     }
 }
-
+#endif // SUPPORT_STEPPERS

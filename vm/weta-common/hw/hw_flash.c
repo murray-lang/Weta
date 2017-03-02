@@ -114,7 +114,6 @@ PFLASH WETAFUNCATTR
 hw_flash_open(uint8_t* base)
 {
 	flash.base = (WetaFlashPtr)base;
-    hw_flash_erase(&flash); // Debugging TODO: remove this line
 	if (!readFlags((PFLASH)&flash))
 		return 0;
 		// For now, set the start address to just after the flags
@@ -244,7 +243,10 @@ bool WETAFUNCATTR
 hw_flash_start_read(PFLASH flash, WetaFlashPtr startAddress)
 {
 	initBuffer(&flash->buffer);
-	flash->start = flash->base + calcReadOffset(flash) + startAddress;
+	WetaFlashPtr readOffset = calcReadOffset(flash);
+	flash->start = flash->base + readOffset + startAddress;
+	//DEBUGMSG("hw_flash_start_read(): start(%0X) = base(%0X) + offset(%0X) + start(%0X)\r\n",
+	//		 flash->start, flash->base, readOffset, startAddress);
 	updateBufferAddress(flash);
 	return true;
 }
@@ -397,7 +399,7 @@ WetaFlashPtr WETAFUNCATTR
 hw_flash_read_bytes(PFLASH flash, WetaFlashPtr loc, uint8_t* vals, WetaFlashPtr count)
 {
 		// Debugging
-	//DEBUGMSG("hw_flash_read_bytes(%0X + %0X + %0X, %d)\n", flash->base, flash->start, loc, count);
+	DEBUGMSG("hw_flash_read_bytes(%0X + %0X + %0X, %d)\n", flash->base, flash->start, loc, count);
 		// We can't read bytes from any location. Data must be read from a 4
 		// byte boundary and the length must be a multiple of 4 bytes. Use the
 		// buffer to read any data that falls outside these boundaries.

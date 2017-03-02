@@ -1,6 +1,7 @@
 #include "weta_turtle.h"
 #include "../hw/hw.h"
 
+
 // TO DO: Calibrate scale factor for distance travelled
 // The scale is defined as numerator and denominator instead of floating point
 // because tools for smaller microcontrollers might not support floating point.
@@ -22,10 +23,14 @@ weta_turtle_forward(Hardware* hw, int16_t mm)
         return;
     }
 #ifdef	SUPPORT_STEPPERS
+    StepperCommand cmds[] =
+        {
+            { .cmd = STEP_CMD_FORWARD, .arg = SCALE_DISTANCE(mm) },
+            { .cmd = STEP_CMD_FORWARD, .arg = SCALE_DISTANCE(mm) }
+        };
     hw_stepper_control(
             &hw->steppers,
-            STEP_CMD_FORWARD, (StepperArg) SCALE_DISTANCE(mm),
-            STEP_CMD_FORWARD, (StepperArg) SCALE_DISTANCE(mm)
+            cmds
     );
 #endif
 }
@@ -39,11 +44,12 @@ weta_turtle_backward(Hardware* hw, int16_t mm)
         return;
     }
 #ifdef	SUPPORT_STEPPERS
-    hw_stepper_control(
-            &hw->steppers,
-            STEP_CMD_BACKWARD, (StepperArg) SCALE_DISTANCE(mm),
-            STEP_CMD_BACKWARD, (StepperArg) SCALE_DISTANCE(mm)
-    );
+    StepperCommand cmds[] =
+        {
+            { .cmd = STEP_CMD_BACKWARD, .arg = SCALE_DISTANCE(mm) },
+            { .cmd = STEP_CMD_BACKWARD, .arg = SCALE_DISTANCE(mm) }
+        };
+    hw_stepper_control( &hw->steppers, cmds);
 #endif
 }
 
@@ -58,11 +64,12 @@ weta_turtle_left(Hardware* hw, int16_t degrees)
     // TO DO
     // Simple test for now
 #ifdef	SUPPORT_STEPPERS
-    hw_stepper_control(
-            &hw->steppers,
-            STEP_CMD_FORWARD, (StepperArg) SCALE_TURN(degrees),
-            STEP_CMD_BACKWARD, (StepperArg) SCALE_TURN(degrees)
-    );
+    StepperCommand cmds[] =
+        {
+            { .cmd = STEP_CMD_FORWARD, .arg = SCALE_TURN(degrees) },
+            { .cmd = STEP_CMD_BACKWARD, .arg = SCALE_TURN(degrees) }
+        };
+    hw_stepper_control(&hw->steppers, cmds);
 #endif
 }
 
@@ -76,11 +83,12 @@ weta_turtle_right(Hardware* hw, int16_t degrees)
     }
     // TO DO
 #ifdef	SUPPORT_STEPPERS
-    hw_stepper_control(
-            &hw->steppers,
-            STEP_CMD_BACKWARD, (StepperArg) SCALE_TURN(degrees),
-            STEP_CMD_FORWARD, (StepperArg) SCALE_TURN(degrees)
-    );
+    StepperCommand cmds[] =
+        {
+            { .cmd = STEP_CMD_BACKWARD, .arg = SCALE_TURN(degrees) },
+            { .cmd = STEP_CMD_FORWARD, .arg = SCALE_TURN(degrees) }
+        };
+    hw_stepper_control(&hw->steppers, cmds);
 #endif
 }
 

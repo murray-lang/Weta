@@ -8,12 +8,15 @@
 extern "C" {
 #endif
 
-extern void hw_i2c_init(uint16_t flags);
+struct _Hardware;
 
-extern bool hw_i2c_start(void);
-extern void hw_i2c_stop(void);
+extern void hw_i2c_init(struct _Hardware* hw,uint16_t flags);
+
+extern bool hw_i2c_start(struct _Hardware* hw);
+extern void hw_i2c_stop(struct _Hardware* hw);
 
 extern uint8_t hw_i2c_write(
+    struct _Hardware* hw,
 		uint8_t slave_address,
 		uint32_t internal_address,
 		uint8_t isize,
@@ -21,6 +24,7 @@ extern uint8_t hw_i2c_write(
 		uint32_t n_bytes);
 
 extern uint8_t hw_i2c_read(
+    struct _Hardware* hw,
 		uint8_t slave_address,
 		uint32_t internal_address,
 		uint8_t isize,

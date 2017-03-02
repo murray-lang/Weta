@@ -99,9 +99,11 @@ init_wifi(void)
 static void WETAFUNCATTR
 weta_task(os_event_t *events)
 {
+    //DEBUGMSG("weta_loop_body()\r\n");
+    //os_delay_us(1000000);
     weta_loop_body(&weta);
-
     os_delay_us(100);
+
     system_os_post(user_procTaskPrio, 0, 0 );
 }
 
@@ -117,18 +119,21 @@ user_init(void)
 
     //system_set_os_print(0);
     uart_init(BIT_RATE_57600, BIT_RATE_57600); // For now
+
     hw_init();
+
+    weta_printf("weta_stack_init()\r\n");
     weta_stack_init();
     weta_printf("weta_init()\r\n");
     weta_init(&weta, &hardware, 0);
     weta_printf("init_wifi()\r\n");
     init_wifi();
     weta_printf("user_webserver_init()\r\n");
+
     user_webserver_init(80);
-
     system_os_task(weta_task, user_procTaskPrio,user_procTaskQueue, user_procTaskQueueLen);
-    system_os_post(user_procTaskPrio, 0, 0 );
 
+    system_os_post(user_procTaskPrio, 0, 0 );
 }
 
 

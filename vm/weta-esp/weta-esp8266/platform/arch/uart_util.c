@@ -78,7 +78,7 @@ uart_tx_byte(uint8 uart, uint8 TxChar)
 }
 
 void ICACHE_FLASH_ATTR
-uart_tx_bytes(uint8 port, uint8* bytes, uint16 length)
+uart_tx_bytes(uint8 port, const uint8* bytes, uint16 length)
 {
 	uint16 i;
 

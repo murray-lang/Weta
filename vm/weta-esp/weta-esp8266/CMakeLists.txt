@@ -26,6 +26,7 @@ set(WETA_ESP_COMMON "../weta-esp-common")
 
 set(BIN_DIR "${BUILD}/bin/${BOARD}")
 set(LIB_DIR "${BUILD}/lib/${BOARD}")
+set(BOARD_DIR ${BOARDS}/${BOARD})
 
 if (${BOARD} STREQUAL "esp01_irobot")
     # 1MB Flash in new ESP01 modules
@@ -33,12 +34,24 @@ if (${BOARD} STREQUAL "esp01_irobot")
     set(BLANK_ADDR 0xFE000)
 elseif(${BOARD} STREQUAL "esp12_hbridge_robot")
     # 512KB Flash in old ESP12 modules
-    set(INIT_DATA_ADDR 0x7C000)
-    set(BLANK_ADDR 0x7E000)
+    #set(INIT_DATA_ADDR 0x7C000)
+    #set(BLANK_ADDR 0x7E000)
+    # 4MB Flash in new  ESP12S module
+    set(INIT_DATA_ADDR 0x3FC000)
+    set(BLANK_ADDR 0x3FE000)
+        # Pretend to be 1MB module. Having problems with 4MB settings.
+    #set(INIT_DATA_ADDR 0xFC000)
+    #set(BLANK_ADDR 0xFE000)
 elseif(${BOARD} STREQUAL "esp12_stepper_robot")
     # 512KB Flash in old ESP12 modules
-    set(INIT_DATA_ADDR 0x7C000)
-    set(BLANK_ADDR 0x7E000)
+    #set(INIT_DATA_ADDR 0x7C000)
+    #set(BLANK_ADDR 0x7E000)
+    # 4MB Flash in new  ESP12S module
+    #set(INIT_DATA_ADDR 0x3FC000)
+    #set(BLANK_ADDR 0x3FE000)
+        # Pretend to be 1MB module. Having problems with 4MB settings.
+    set(INIT_DATA_ADDR 0xFC000)
+    set(BLANK_ADDR 0xFE000)
 endif()
 
 # This is used in the main board.h and board.c to include the correct files
@@ -50,7 +63,8 @@ set(TOOLS /home/murray/ESP/esp-open-sdk/xtensa-lx106-elf)
 set(CMAKE_C_COMPILER ${TOOLS}/bin/xtensa-lx106-elf-gcc)
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -I. -DICACHE_FLASH -Os -nostdlib -mlongcalls -mtext-section-literals ")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}  -ffunction-sections -fdata-sections -fno-builtin-printf")
-set(CMAKE_EXE_LINKER_FLAGS -T${SDK}/ld/eagle.app.v6.ld)
+set(CMAKE_EXE_LINKER_FLAGS -T${BOARD_DIR}/eagle.app.v6.ld)
+#set(CMAKE_EXE_LINKER_FLAGS -T${SDK}/ld/eagle.app.v6.ld)
 #set(CMAKE_EXE_LINKER_FLAGS -T${SDK}/ld/eagle.app.v6.new.1024.app1.ld)
 
 add_subdirectory(${WETA_COMMON} weta-common)
@@ -121,11 +135,12 @@ add_custom_command(
         COMMAND esptool.py --chip esp8266 elf2image --output "$<TARGET_FILE:weta-esp8266>-" $<TARGET_FILE:weta-esp8266>
 )
 
-# 0x00000 "${SDK}/bin/boot_v1.6.bin"
+# Leaving out ${INIT_DATA_ADDR} "${SDK}/bin/esp_init_data_default.bin"
+# because that's where Weta user programs are stored. We can put it back to erase that area.
 add_custom_command(
         TARGET weta-esp8266
         POST_BUILD
-        COMMAND esptool.py --port /dev/ttyUSB0 write_flash 0x00000 "$<TARGET_FILE:weta-esp8266>-0x00000.bin" 0x10000 "$<TARGET_FILE:weta-esp8266>-0x10000.bin" ${INIT_DATA_ADDR} "${SDK}/bin/esp_init_data_default.bin" ${BLANK_ADDR} "${SDK}/bin/blank.bin"
+        COMMAND esptool.py --port /dev/ttyUSB0 write_flash 0x00000 "$<TARGET_FILE:weta-esp8266>-0x00000.bin" 0x10000 "$<TARGET_FILE:weta-esp8266>-0x10000.bin" 0x4C000 "${SDK}/bin/blank.bin" ${INIT_DATA_ADDR} "${SDK}/bin/esp_init_data_default.bin" ${BLANK_ADDR} "${SDK}/bin/blank.bin"
 )
 
 

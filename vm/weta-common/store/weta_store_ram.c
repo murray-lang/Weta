@@ -48,9 +48,9 @@ static StoreMethods methods =
     };
 
 PSTORE WETAFUNCATTR 
-weta_store_init_ram(WetaCodePtr length)
+weta_store_open_ram(void)
 {
-    DEBUGMSG("weta_store_init_ram(%d)\r\n", length);
+    DEBUGMSG("weta_store_open_ram()\r\n");
 	struct _RAM * store = (struct _RAM *)weta_malloc(sizeof(struct _RAM));
     if (!store)
     {
@@ -60,18 +60,11 @@ weta_store_init_ram(WetaCodePtr length)
 
 	store->type    = STORAGE_RAM;
     store->methods = &methods;
-        // Allocate extra space for length info at the beginning
-	store->buffer    = weta_malloc(length + sizeof(uint16_t));
-	store->buffer_length  = length + sizeof(uint16_t);
-    if (!store->buffer)
-    {
-        DEBUGMSG("Error allocating memory for program.\n\r");
-        weta_free(store);
-        return 0;
-    }
+    store->buffer  = NULL;
+    store->buffer_length = 0;
     store->code_length  = 0;
     store->cursor  = 0;
-	return (PSTORE)store;
+    return (PSTORE)store;
 }
 
 //*******************************************************************************
@@ -92,11 +85,11 @@ weta_ram_start_read(PSTORE _store, WetaCodePtr startAddress)
 	store->code_length = ntoh_uint16(store->buffer + startAddress);
 	if (sizeof(uint16_t) + startAddress + store->code_length > store->buffer_length)
 	{
-        DEBUGMSG("Code length (%d + %d) goes past the end fo the buffer\n\r",startAddress,  store->code_length);
+        DEBUGMSG("Code length (%d + %d) goes past the end of the buffer\n\r",startAddress,  store->code_length);
 		return false;
 	}
 	DEBUGMSG("Code length is %d\n\r", store->code_length);
-    store->cursor = startAddress + sizeof(uint16_t); // Step past length info
+    store->cursor = sizeof(uint16_t) + startAddress; // Step past length info
 	return true;
 }
 
@@ -106,15 +99,33 @@ weta_ram_start_write(PSTORE _store, WetaCodePtr startAddress, WetaCodePtr length
 {
     DEBUGMSG("weta_ram_start_write(%d, %d)\r\n", startAddress, length);
     struct _RAM* store = (struct _RAM*)_store;
-	if (sizeof(uint16_t) + startAddress + length > store->buffer_length)
-    {
-        DEBUGMSG("Attempt to start write past the buffer\r\n");
-        return false;
-    }
 
-		// Convert the length to network byte order and store at the front
+    // Allocate extra space for length info at the beginning
+    WetaCodePtr new_buffer_length = sizeof(uint16_t) + startAddress +length;
+    if (store->buffer)
+    {
+        if (new_buffer_length > store->buffer_length)
+        {
+            weta_free(store->buffer);
+            store->buffer = 0;
+            store->buffer_length = 0;
+        }
+    }
+    if (!store->buffer)
+    {
+        store->buffer = weta_malloc(new_buffer_length);
+    }
+    if (!store->buffer)
+    {
+        DEBUGMSG("Error allocating memory for program.\n\r");
+        weta_free(store);
+        return 0;
+    }
+    store->buffer_length = new_buffer_length;
+
+		// Convert the code length to network byte order and store at the front
 	hton_uint16((uint16_t)length, store->buffer + startAddress);
-    store->cursor = startAddress + sizeof(uint16_t);
+    store->cursor = sizeof(uint16_t) + startAddress;
 	return true;
 }
 
@@ -177,7 +188,7 @@ weta_ram_read_byte(
     struct _RAM* store = (struct _RAM*)_store;
     if (address >= store->buffer_length)
     {
-        DEBUGMSG("Attempt to read past the buffer\r\n");
+        DEBUGMSG("Attempt to read past the buffer (address = %d, buffer length = %d)\r\n", address, store->buffer_length);
         return INVALID_CODEPTR;
     }
 	*pval = store->buffer[store->cursor + address];

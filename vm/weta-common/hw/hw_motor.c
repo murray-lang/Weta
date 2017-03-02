@@ -1,10 +1,7 @@
-#include "hw_motor.h"
-#include "hw_gpio.h"
-#include "hw_pwm.h"
-
+#include "hw.h"
 
 void WETAFUNCATTR 
-hw_motor_init(uint16_t flags)
+hw_motor_init(struct _Hardware* hw, uint16_t flags)
 {
 	flags = flags;
 	
@@ -15,14 +12,20 @@ hw_motor_select(Motors* motors, uint8_t select)
 {
 	int8_t i;
 	for (i = 0; i < motors->n_motors; i++)
-		motors->motors[i].state.selected = !!(select & (1 << i));
+	{
+		//DEBUGMSG("Motor %d...", i);
+		bool selected = !!(select & (1 << i));
+		//DEBUGMSG(selected ? "selected" : "not selected");
+		motors->motors[i].state.selected = selected;
+		//DEBUGMSG("...done\r\n");
+	}
 }
 
 void WETAFUNCATTR
 hw_motor_update(Motors* motors)
 {
 	int8_t i;
-    for (i = 0; i < motors->n_motors; ++i) 
+    for (i = 0; i < motors->n_motors; ++i)
 	{
         MotorState* state = &motors->motors[i].state;
         if (state->selected)
@@ -30,19 +33,19 @@ hw_motor_update(Motors* motors)
             MotorPins* pins = &motors->motors[i].pins;
             if (!state->on)
 			{
-#ifdef MOTORS_ARE_H_BRIDGE
+#if defined (MOTORS_A_B_PWM)
                 hw_gpio_set(pins->a, false);
                 hw_gpio_set(pins->b, false);
-#else
+#elif defined (MOTORS_DIR_PWM)
                 hw_pwm_set_duty(pins->pwm, (WetaPwmDuty)0);
 #endif
 			}
             else if(state->brake)
             {
-#ifdef MOTORS_ARE_H_BRIDGE
+#if defined (MOTORS_A_B_PWM)
                 hw_gpio_set(pins->a, true);
                 hw_gpio_set(pins->b, true);
-#else
+#elif defined (MOTORS_DIR_PWM)
                 hw_pwm_set_duty(pins->pwm, (WetaPwmDuty)0);
 #endif
             }
@@ -50,23 +53,24 @@ hw_motor_update(Motors* motors)
 			{
 				if (state->dir == MOTOR_THIS_WAY)
 				{
-#ifdef MOTORS_ARE_H_BRIDGE
+#if defined (MOTORS_A_B_PWM)
                     hw_gpio_set(pins->a, true);
                     hw_gpio_set(pins->b, false);
-#else
+#elif defined (MOTORS_DIR_PWM)
                     hw_gpio_set(pins->dir, true);
 #endif
 				}
 				else
 				{
-#ifdef MOTORS_ARE_H_BRIDGE
+#if defined (MOTORS_A_B_PWM)
                     hw_gpio_set(pins->a, false);
                     hw_gpio_set(pins->b, true);
-#else
-                    hw_gpio_set(pins->dir, true);
+#elif defined (MOTORS_DIR_PWM)
+                    hw_gpio_set(pins->dir, false);
 #endif
 				}
-                hw_pwm_set_duty(pins->pwm, (WetaPwmDuty)(state->power*PWM_DUTY_RESOLUTION)/255);
+                //DEBUGMSG("hw_motor_update(): Motor %d duty = %d\r\n", i, state->power);
+                hw_pwm_set_duty(pins->pwm, (WetaPwmDuty)state->power);
             }
         }
     }
@@ -75,8 +79,9 @@ hw_motor_update(Motors* motors)
 void WETAFUNCATTR
 hw_motor_on(Motors* motors, bool on)
 {
+	//DEBUGMSG("hw_motor_on(%d)\r\n", on);
 	int8_t i;
-    for (i = 0; i < motors->n_motors; ++i) 
+    for (i = 0; i < motors->n_motors; ++i)
 	{
 		if (motors->motors[i].state.selected)
 		{
@@ -92,7 +97,7 @@ void WETAFUNCATTR
 hw_motor_brake(Motors* motors, bool brake)
 {
 	int8_t i;
-    for (i = 0; i < motors->n_motors; ++i) 
+    for (i = 0; i < motors->n_motors; ++i)
 	{
 		if (motors->motors[i].state.selected)
 		{
@@ -133,13 +138,13 @@ hw_motor_reverse(Motors* motors)
 }
 
 void WETAFUNCATTR 
-hw_motor_power(Motors* motors, uint8_t power)
+hw_motor_power(Motors* motors, MotorPower power)
 {
+	//DEBUGMSG("hw_motor_power(%d)\r\n", power);
 	int8_t i;
     for (i = 0; i < motors->n_motors; ++i) 
 		if (motors->motors[i].state.selected)
 			motors->motors[i].state.power = power;
 
 	hw_motor_update(motors);
-
 }

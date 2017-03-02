@@ -34,28 +34,32 @@ LOCAL scaninfo *pscaninfo;
 extern Weta weta;
 static const char* jsonCodes = 0; // Pointer to received JSON text for program codes
 static WetaCodePtr jsonAddress;
+WetaStorage code_storage = STORAGE_NONE;
 static uint8 configSteps = 0;	// Used to determine if a full config has been received
 
 void ICACHE_FLASH_ATTR
-user_weta_prepare_for_command(void)
+user_weta_prepare_for_command(WetaStorage where)
 {
-    weta_debug(&weta, "user_weta_prepare_for_command()\n\r");
-    jsonCodes = 0;
-    jsonAddress = 0;
-    configSteps = 2;
+    DEBUGMSG("user_weta_prepare_for_command()\n\r");
+    code_storage = where;
+    jsonCodes    = 0;
+    jsonAddress  = 0;
+    configSteps  = 2;
 }
 
 void ICACHE_FLASH_ATTR
 user_weta_set_start_address(uint32 address)
 {
-    weta_debug(&weta, "user_weta_set_start_address()\n\r");
+    DEBUGMSG("user_weta_set_start_address()\n\r");
     jsonAddress = address;
     if (--configSteps == 0)
     {
         configSteps = 2;
         weta_reset(&weta);
-        weta_program_json(&weta, STORAGE_RAM, jsonAddress, jsonCodes);
-        weta_start(&weta);
+        if(!weta_program_json(&weta, code_storage, jsonAddress, jsonCodes))
+        {
+            DEBUGMSG("weta_program_json() failed\n\r");
+        }
     }
 }
 
@@ -71,20 +75,16 @@ user_weta_set_start_address(uint32 address)
 void ICACHE_FLASH_ATTR
 user_weta_program_codes(const char * codes)
 {
-    weta_debug(&weta, "user_weta_program_codes()\n\r");
+    DEBUGMSG("user_weta_program_codes()\n\r");
     jsonCodes = codes;
 
     if (--configSteps == 0)
     {
         configSteps = 2;
         weta_reset(&weta);
-        if(weta_program_json(&weta, STORAGE_RAM, jsonAddress, jsonCodes))
+        if(!weta_program_json(&weta, code_storage, jsonAddress, jsonCodes))
         {
-            weta_start(&weta);
-        }
-        else
-        {
-            weta_debug(&weta, "weta_program_json() failed\n\r");
+            DEBUGMSG("weta_program_json() failed\n\r");
         }
     }
 }
@@ -468,7 +468,20 @@ webserver_recv(void *arg, char *pusrdata, unsigned short length)
                     if (os_strcmp(pURL_Frame->pFilename, "program") == 0)
                     {
                         if (pParseBuffer != NULL) {
-							user_weta_prepare_for_command();
+							user_weta_prepare_for_command(STORAGE_FLASH);
+                            struct jsontree_context js;
+
+                            jsontree_setup(&js, (struct jsontree_value *)&weta_tree, json_putchar);
+                            json_parse(&js, pParseBuffer);
+                            response_send(ptrespconn, true);
+                        } else {
+                            response_send(ptrespconn, false);
+                        }
+                    }
+                    else if (os_strcmp(pURL_Frame->pFilename, "interpret") == 0)
+                    {
+                        if (pParseBuffer != NULL) {
+                            user_weta_prepare_for_command(STORAGE_RAM);
                             struct jsontree_context js;
 
                             jsontree_setup(&js, (struct jsontree_value *)&weta_tree, json_putchar);

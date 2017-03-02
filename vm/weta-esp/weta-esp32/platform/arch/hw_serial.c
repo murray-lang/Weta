@@ -1,4 +1,5 @@
-#include <hw_serial.h>
+#include <weta_platform.h>
+#include <hw.h>
 //#include "freertos/FreeRTOS.h"
 #include <driver/uart.h>
 #include <stdio.h> // Debugging with printf()
@@ -10,26 +11,26 @@
 //static QueueHandle_t queues[UART_NUM_MAX] = { 0, 0, 0 };
 
 void WETAFUNCATTR    
-hw_serial_init(SerialPorts* ports, uint16_t flags)
+hw_serial_init(struct _Hardware* hw, uint16_t flags)
 {
 	flags = flags;
 
 	int i;
-    for (i = 0; i < ports->n_ports; i++)
+    for (i = 0; i < hw->sports.n_ports; i++)
     {
         uart_config_t uart_config = {
-            .baud_rate           = (int)ports->ports[i].baud,
-            .data_bits           = (uart_word_length_t)ports->ports[i].data_bits,
-            .parity              = (uart_parity_t)ports->ports[i].parity,
-            .stop_bits           = (uart_stop_bits_t)ports->ports[i].stop_bits,
-            .flow_ctrl           = ports->ports[i].port == 1 ? UART_HW_FLOWCTRL_DISABLE : UART_HW_FLOWCTRL_RTS,
+            .baud_rate           = (int)hw->sports.ports[i].baud,
+            .data_bits           = (uart_word_length_t)hw->sports.ports[i].data_bits,
+            .parity              = (uart_parity_t)hw->sports.ports[i].parity,
+            .stop_bits           = (uart_stop_bits_t)hw->sports.ports[i].stop_bits,
+            .flow_ctrl           = hw->sports.ports[i].port == 1 ? UART_HW_FLOWCTRL_DISABLE : UART_HW_FLOWCTRL_RTS,
             .rx_flow_ctrl_thresh = 120,
         };
 
-        uart_param_config((uart_port_t)ports->ports[i].port, &uart_config);
+        uart_param_config((uart_port_t)hw->sports.ports[i].port, &uart_config);
 
         uart_driver_install(
-                (uart_port_t)ports->ports[i].port,
+                (uart_port_t)hw->sports.ports[i].port,
                 1024,
                 0,
                 0,
@@ -38,7 +39,7 @@ hw_serial_init(SerialPorts* ports, uint16_t flags)
         );
 
     }
-    uart_set_pin(1, PIN_UART1_TX, PIN_UART1_RX, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
+    //uart_set_pin(1, PIN_UART1_TX, PIN_UART1_RX, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
 }
 
 

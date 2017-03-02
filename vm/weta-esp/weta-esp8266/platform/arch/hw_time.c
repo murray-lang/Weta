@@ -14,13 +14,13 @@ hw_time_waitus(uint16_t us)
 	os_delay_us(us);
 }
 
-uint32_t WETAFUNCATTR
+WetaTimestamp WETAFUNCATTR
 hw_time_ticks(void)
 {
 	return system_get_time();
 }
 
-uint32_t WETAFUNCATTR 
+WetaTimestamp WETAFUNCATTR
 hw_time_now(void)
 {
 	return system_get_time();

@@ -24,59 +24,55 @@ SerialPort serialPorts[] =
 
 DebounceState debounce[1] =
     {
-        {false, false, false, true, 0}
+        { .state = false, .candidate = false, .debounced = false, .latched = true, .lastTime = 0}
     };
 
 GpioPin gpio[] =
     {
         {
             .pin = RUN_PIN,
-            .invert = false,
+            .invert = true,
             .debounce = &debounce[0]
         },
         {
-            .pin = MOTOR_0_DIRA_PIN,
+            .pin = USER_LED_PIN,
+            .invert = true,
+            .debounce = NULL
+        },
+        {
+            .pin = MOTOR_0_DIR_PIN,
             .invert = false,
             .debounce = NULL
         },
         {
-            .pin = MOTOR_0_DIRB_PIN,
+            .pin = MOTOR_1_DIR_PIN,
             .invert = false,
             .debounce = NULL
 
         },
-        {
-            .pin = MOTOR_1_DIRA_PIN,
-            .invert = false,
-            .debounce = NULL
 
-        },
-        {
-            .pin = MOTOR_1_DIRB_PIN,
-            .invert = false,
-            .debounce = NULL
-
-        }
     };
+
+GpioPin* debounced_gpios[] = { &gpio[GPIO_INDEX_RUN] };
 
 uint32_t pwm_gpio[NUM_PWM_CHANNELS][3] =
     {
-        {GPIO_PIN_REG(MOTOR_0_PWM_PIN),MOTOR_0_PWM_FUNC, BIT(MOTOR_0_PWM_PIN)},
-        {GPIO_PIN_REG(MOTOR_1_PWM_PIN),MOTOR_1_PWM_FUNC, BIT(MOTOR_1_PWM_PIN)}
+        {MOTOR_0_PWM_MUX,MOTOR_0_PWM_FUNC, MOTOR_0_PWM_PIN},
+        {MOTOR_1_PWM_MUX,MOTOR_1_PWM_FUNC, MOTOR_1_PWM_PIN}
     };
-
 uint32_t initialDuty[NUM_PWM_CHANNELS] = { 0, 0 };
+
 PwmChannel motorPwms[NUM_PWM_CHANNELS] = { 0, 1 };
 
 Motor motors[] =
 {
     {
-        .pins  = { .a = &gpio[1], .b = &gpio[2], .pwm = &motorPwms[0] },
-        .state = { 0, false, false, false, MOTOR_THIS_WAY, 100 },
+        .pins  = { .dir = &gpio[2], .pwm = &motorPwms[0] },
+        .state = { 0, false, false, false, MOTOR_THAT_WAY, 0 },
     },
     {
-        .pins  = { .a = &gpio[3], .b = &gpio[4], .pwm = &motorPwms[1] },
-        .state = { 0, false, false, false, MOTOR_THIS_WAY, 100 }
+        .pins  = { .dir = &gpio[3], .pwm = &motorPwms[1] },
+        .state = { 0, false, false, false, MOTOR_THAT_WAY, 0 }
     }
 };
 
@@ -119,11 +115,13 @@ Hardware hardware =
 	    ,.gpio =
         {
             .pins = gpio,
-            .n_pins = sizeof(gpio) / sizeof(GpioPin)
+            .n_pins = sizeof(gpio) / sizeof(GpioPin),
+            .debounced_pins = debounced_gpios,
+            .n_debounced_pins = sizeof (debounced_gpios)/sizeof (GpioPin*)
 	    },
     .pwms =
         {
-            .frequency    = 100,
+            .period       = PWM_PERIOD,
             .initial_duty = initialDuty,
             .gpio_info    = pwm_gpio,
             .n_channels   = NUM_PWM_CHANNELS

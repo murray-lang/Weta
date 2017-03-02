@@ -1,4 +1,5 @@
 #include "hw_servo.h"
+#include "hw.h"
 
 //#include <ch.h>				// For debugging
 //#include <hal.h>			// For debugging
@@ -6,8 +7,8 @@
 //#include <string.h>
 //#include <stdio.h>          // For debugging (sprintf())
 
-void WETAFUNCATTR 
-hw_servo_init(uint16_t flags)
+void WETAFUNCATTR
+hw_servo_init(struct _Hardware* hw, uint16_t flags)
 {
 	flags = flags;
 }

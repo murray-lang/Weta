@@ -9,6 +9,6 @@
 #include <weta_platform.h>
 #include "weta_store.h"
 
-extern	PSTORE weta_store_init_ram(WetaCodePtr length);
+extern	PSTORE weta_store_open_ram(void);
 
 #endif //__WETA_STORE_RAM_H__

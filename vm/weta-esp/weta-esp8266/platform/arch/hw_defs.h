@@ -10,12 +10,10 @@
 typedef uint8_t  WetaPin;
 typedef uint32_t WetaGpioMode;
 typedef uint8_t  WetaPwmChannel;
-typedef uint16_t WetaPwmDuty;
+typedef uint8_t  WetaPwmDuty;
 typedef uint8_t  WetaAdcChannel;
 typedef uint8_t  WetaAdcDepth;
 typedef uint8_t  WetaAdcAtten;
-
-#define PWM_DUTY_RESOLUTION 1023
 
 typedef struct
 {
@@ -26,11 +24,6 @@ typedef struct
     uint32_t    lastTime;
 } DebounceState;
 
-typedef enum
-{
-    GPIO16_IN,
-    GPIO16_OUT
-} Gpio16Dir;
 typedef struct
 {
     uint8_t         pin;
@@ -42,7 +35,6 @@ typedef struct
 {
     GpioPin* pins;
     uint8_t  n_pins;
-    Gpio16Dir gpio16dir;
     GpioPin** debounced_pins;
     uint8_t  n_debounced_pins;
 } Gpio;
@@ -64,7 +56,7 @@ typedef uint8_t PwmChannel;
 
 typedef struct
 {
-    uint32_t        frequency;
+    uint32_t        period;
     uint32_t*       initial_duty;
     uint32(*gpio_info)[3];
     uint8_t			n_channels;
@@ -121,5 +113,19 @@ typedef struct
     (i==13)? GPIO_PIN_REG_13: \
     (i==14)? GPIO_PIN_REG_14: \
     GPIO_PIN_REG_15
+
+#define GET_GPIO_FUNC(i) \
+    (i==0) ? FUNC_GPIO0:  \
+    (i==1) ? FUNC_GPIO1:  \
+    (i==2) ? FUNC_GPIO2:  \
+    (i==3) ? FUNC_GPIO3:  \
+    (i==4) ? FUNC_GPIO4:  \
+    (i==5) ? FUNC_GPIO5:  \
+    (i==9) ? FUNC_GPIO9:  \
+    (i==10)? FUNC_GPIO10: \
+    (i==12)? FUNC_GPIO12: \
+    (i==13)? FUNC_GPIO13: \
+    (i==14)? FUNC_GPIO14: \
+    FUNC_GPIO15
 
 #endif  //__HW_DEFS_H__

@@ -3,7 +3,6 @@
  * @brief Main implementation file of a Weta VM
  */
 #include "weta.h"
-#include "weta_defs.h"
 #include "turtle/weta_turtle.h"
 #include "WvmCodes.h"
 #include "type_handlers/type_handlers.h"
@@ -16,10 +15,11 @@
 //#include <math.h>
 #endif
 
-
+#ifdef SUPPORT_STRING
 static char* pszByteFormat  = DEFAULT_FORMAT_BYTE;
 static char* pszIntFormat   = DEFAULT_FORMAT_INT;
 static char* pszFloatFormat = DEFAULT_FORMAT_FLOAT;
+#endif
 
 // Functions implemented later in this file
 
@@ -38,9 +38,9 @@ void exec_loop_body(Weta* pWeta);
 void clear_run_button(Weta* pWeta);
 #endif
 
-PSTORE weta_init_store(Weta* pWeta, WetaStorage storage, WetaCodePtr length);
+PSTORE weta_open_store(Weta* pWeta, WetaStorage storage);
 void   weta_close_store(Weta* pWeta);
-
+void   weta_rewind(Weta* pWeta);
 
 bool with_current_type(Weta* pWeta);
 #ifdef SUPPORT_QUERY
@@ -54,6 +54,7 @@ weta_init(Weta* pWeta, Hardware* pHardware, uint16_t flags)
 
 	hw_init_specific(pHardware, flags);
 
+    DEBUGMSG("hw_init_specific() returned\r\n");
 	if(pWeta->store)
 	{
 		weta_store_close(pWeta->store);
@@ -110,19 +111,45 @@ init_states(WetaStates* states)
 	states->waitingCmd   = false;
 }
 
+#ifdef COOPERATIVE_RTOS
+
+void WETAFUNCATTR
+start_wait(Weta *pWeta, uint16_t millis)
+{
+    pWeta->regs.waitStart = hw_time_now();
+    pWeta->regs.waitMillis = millis;
+    pWeta->states.machineState = WETA_WAITING;
+}
+
+void WETAFUNCATTR
+reset_wait(Weta *pWeta)
+{
+    pWeta->regs.waitStart = 0;
+    pWeta->regs.waitMillis = 0;
+}
+
+bool WETAFUNCATTR
+test_wait_expired(Weta *pWeta)
+{
+    WetaTimestamp now = hw_time_now();
+    return (now - pWeta->regs.waitStart >= pWeta->regs.waitMillis * MILLIS_PER_TICK);
+}
+
+#endif
+
 PSTORE WETAFUNCATTR
-weta_init_store(Weta* pWeta, WetaStorage storage, WetaCodePtr length)
+weta_open_store(Weta* pWeta, WetaStorage storage)
 {
     // Clean up any existing storage now
     weta_close_store(pWeta);
 
     if (storage == STORAGE_FLASH)
     {
-        return weta_store_init_flash(pWeta->hal->flash, pWeta->hal->flashLength);
+        return weta_store_open_flash(pWeta->hal->flash);
     }
     else if (storage == STORAGE_RAM)
     {
-        return weta_store_init_ram(length);
+        return weta_store_open_ram();
     }
     return 0;
 }
@@ -139,21 +166,26 @@ weta_close_store(Weta* pWeta)
 
 //*******************************************************************************
 void WETAFUNCATTR
-weta_reset(Weta* pWeta)
+weta_rewind(Weta* pWeta)
 {
 	init_registers(&pWeta->regs);
 	init_states(&pWeta->states);
-
-    weta_close_store(pWeta);
-
 	if (pWeta->stack)
 		weta_stack_release(pWeta->stack);
 	pWeta->stack = weta_stack_allocate(/*WETA_STACK_SIZE*/);
+}
+//*******************************************************************************
+void WETAFUNCATTR
+weta_reset(Weta* pWeta)
+{
+	weta_rewind(pWeta);
+    weta_close_store(pWeta);
 
+#ifdef SUPPORT_STRING
 	pWeta->formats.pszByteFormat  = pszByteFormat;
 	pWeta->formats.pszIntFormat   = pszIntFormat;
 	pWeta->formats.pszFloatFormat = pszFloatFormat;
-
+#endif
     hw_serial_flush(pWeta->sport);
 #ifdef SUPPORT_GPIO
     clear_run_button(pWeta);
@@ -162,21 +194,38 @@ weta_reset(Weta* pWeta)
 
 //*******************************************************************************
 bool WETAFUNCATTR
-weta_start(Weta* pWeta)
+weta_start(Weta* pWeta, PSTORE store, WetaCodePtr address)
 {
+        // If new code is supplied then use it...
+    if (store)
+    {
+        weta_reset(pWeta);
+        pWeta->store = store;
+        pWeta->startAddress = address;
+    }
+    else if (pWeta->store)  //...else if there is already code then restart...
+	{
+		weta_rewind(pWeta);
+	}
+    else    //...else assume a boot/reboot and get any code from flash
+    {
+        pWeta->store = weta_open_store(pWeta, STORAGE_FLASH);
+        pWeta->startAddress = 0;
+    }
     if (!pWeta->store)
     {
-        DEBUGMSG("weta_start() failed because storage is not set.");
+        DEBUGMSG("weta_start() failed because storage is not available.");
+        weta_reset(pWeta);
         return false;
     }
 	if (!exec_prepare(pWeta))
     {
-        init_states(&pWeta->states);
+        weta_reset(pWeta);
         return false;
     }
-
     pWeta->states.machineState = WETA_RUN;
     pWeta->states.runRequest = RUNNING;
+
     return true;
 }
 
@@ -186,15 +235,16 @@ weta_debug(Weta* pWeta, const char * msg)
 {
 	hw_serial_write(pWeta->debugsport, (uint8_t*)msg, strlen(msg));
 }
+
 #ifdef SUPPORT_GPIO
 void WETAFUNCATTR
 clear_run_button(Weta* pWeta)
 {
 #ifdef SUPPORT_DEBOUNCE
+
     Gpio* gpio = &pWeta->hal->gpio;
     GpioPin* run = &gpio->pins[GPIO_INDEX_RUN];
-    run->debounce->state = false;
-    run->debounce->debounced = true;
+    hw_gpio_clear_debounce(run);
 #endif
 }
 #endif
@@ -207,14 +257,16 @@ weta_debounce(Weta* pWeta)
 	hw_gpio_debounce(gpio);
     GpioPin* run = &gpio->pins[GPIO_INDEX_RUN];
 	if(run->debounce->debounced)
-	{
-		if (run->debounce->state)
-		{
-            pWeta->states.runRequest = RUNNING;
-		}
-	}
+    {
+        if (run->debounce->state)
+        {
+			clear_run_button(pWeta);
+            weta_start(pWeta, NULL, 0);
+        }
+    }
 }
 #endif
+
 
 //*******************************************************************************
 void WETAFUNCATTR
@@ -232,31 +284,43 @@ weta_loop(Weta* pWeta)
 void WETAFUNCATTR
 weta_loop_body(Weta* pWeta)
 {
+    static int count = 0;
+    //count++;
+    if (count == 10)
+    {
+        hw_motor_select(&pWeta->hal->motors, 3);
+        hw_motor_power(&pWeta->hal->motors, 255);
+        hw_motor_on(&pWeta->hal->motors, true);
+    }
+
 #ifdef SUPPORT_DEBOUNCE
 	weta_debounce(pWeta);
 #endif
-		// Debugging
-    /*
-    char szMsg[32];
-    weta_debug(pWeta, "Reading serial port...");
-	uint8_t blah = hw_serial_read_byte(pWeta->sport);
-    sprintf(szMsg, "Read byte %0x\r\n", blah);
-	weta_debug(pWeta, szMsg);
-	*/
+
 	switch (pWeta->states.machineState)
 	{
+#ifdef COOPERATIVE_RTOS
+    case WETA_WAITING:
+        if (test_wait_expired(pWeta))
+        {
+            reset_wait(pWeta);
+            pWeta->states.machineState = WETA_RUN;
+            exec_loop_body(pWeta);
+        }
+        break;
+#endif
 	case WETA_CONFIG:
 			// Do nothing while the machine is being reconfigured
 		break;
 
 	case WETA_READY:
 #ifdef SUPPORT_CRICKET
-        //weta_debug(pWeta, "hw_serial_available()\r\n");
+        //DEBUGMSG( "hw_serial_available()\r\n");
 		if (hw_serial_available(pWeta->sport))
 		{
 			pWeta->states.machineState = WETA_COMM;
 			init_comm_transfer(pWeta);
-			weta_debug(pWeta, "Weta state change WETA_READY->WETA_COMM\r\n");
+			DEBUGMSG( "Weta state change WETA_READY->WETA_COMM\r\n");
 		}
 		else
 #endif
@@ -264,10 +328,10 @@ weta_loop_body(Weta* pWeta)
 		{
 			//Serial.println("setMachineState(RUN)");
 
-			weta_debug(pWeta, "Weta state change WETA_READY->RUN\r\n");
+			DEBUGMSG( "Weta state change WETA_READY->RUN\r\n");
             if (!exec_prepare(pWeta))
             {
-                weta_debug(pWeta, "exec_prepare() failed.\r\n");
+                DEBUGMSG( "exec_prepare() failed.\r\n");
                 init_states(&pWeta->states);
             }
             else
@@ -277,21 +341,24 @@ weta_loop_body(Weta* pWeta)
 		}
 		else
 		{
-            //weta_debug(pWeta, ".");
-			//weta_debug(pWeta, "Weta machine state:WETA_READY\r\n");
+            //DEBUGMSG( ".");
+			//DEBUGMSG( "Weta machine state:WETA_READY\r\n");
 		}
 		break;
 #ifdef SUPPORT_CRICKET
 	case WETA_COMM:
 		comm_loop(pWeta);
-		if (pWeta->states.commState == COMM_FINISHED)
+            // If comms have finished, and the machine hasn't started as a
+            // result, then go into idle/ready
+		if (   pWeta->states.commState == COMM_FINISHED
+            && pWeta->states.machineState != WETA_RUN)
 			pWeta->states.machineState = WETA_READY;
 		break;
 #endif
 	case WETA_RUN:
 		//init_registers(&pWeta->regs);
 		//weta_stack_initStack(pWeta->stack);
-        ////weta_debug(pWeta, "About to call exec_loop()\r\n");
+        ////DEBUGMSG( "About to call exec_loop()\r\n");
 		exec_loop_body(pWeta);
 		//_motors.off();
 		//pWeta->states.machineState = WETA_READY;
@@ -309,6 +376,7 @@ weta_loop_body(Weta* pWeta)
 #ifdef SUPPORT_CRICKET
 static uint8_t	   cmd = 0;
 static uint8_t	   remainingChars = 0;
+static PSTORE      cricket_store = 0;
 static WetaCodePtr start_address = 0;
 static WetaCodePtr byte_count = 0;
 static bool        byte_count_written = false;
@@ -376,7 +444,7 @@ comm_loop(Weta* pWeta)
 			break;
 
 			case cmdRun:
-				weta_debug(pWeta, "Run command received\r\n");
+				DEBUGMSG( "Run command received\r\n");
 				pWeta->states.runRequest = RUNNING;
 				pWeta->states.commState  = COMM_FINISHED;
 			break;
@@ -399,7 +467,7 @@ comm_loop(Weta* pWeta)
 					hw_serial_write_byte(pWeta->sport, cmdCricketCheckACK);
                     //DEBUGMSG("hw_serial_write_byte(%0X) completed.\r\n", cmdCricketCheckACK);
 					//sprintf(msg, "->%02x\r\n", cmdCricketCheckACK);
-					//weta_debug(pWeta, msg);
+					//DEBUGMSG( msg);
 				}
 
 				pWeta->states.commState = COMM_FINISHED;
@@ -437,13 +505,20 @@ comm_loop(Weta* pWeta)
 				}
 				else
 				{
+                    cricket_store = weta_open_store(pWeta, STORAGE_FLASH);
+                    if (!cricket_store)
+                    {
+                        DEBUGMSG("Unable to open flash storage.\n");
+                        pWeta->states.commState = COMM_FINISHED;
+                        break;
+                    }
 					if (!byte_count_written)
 					{
 						//sprintf(msg, "Writing byte count(%d)\r\n", byte_count);
 						//weta_debug(pWeta, msg);
 							// This writes the byte count at the beginning of the data
 
-						if (weta_store_start_write(pWeta->store, start_address, byte_count))
+						if (weta_store_start_write(cricket_store, start_address, byte_count))
 						{
 							//pWeta->regs.pc = 0;
                             DEBUGMSG("weta_store_start_write(%d, %d) success.\n", start_address, byte_count);
@@ -452,6 +527,7 @@ comm_loop(Weta* pWeta)
 						else
 						{
                             DEBUGMSG("weta_store_start_write() failed.\n");
+                            weta_store_close(cricket_store);
 							pWeta->states.commState = COMM_FINISHED;
 							break;
 						}
@@ -462,7 +538,7 @@ comm_loop(Weta* pWeta)
 					}
 					//sprintf(msg, "Writing [%d] = %02x\r\n", start_address, temp);
 					//weta_debug(pWeta, msg);
-					if (weta_store_write_byte(pWeta->store, temp) == 1)
+					if (weta_store_write_byte(cricket_store, temp) == 1)
 					{
                         //DEBUGMSG("weta_store_write_byte() succeeded.\n");
 						hw_serial_write_byte(pWeta->sport, ~temp);
@@ -472,13 +548,15 @@ comm_loop(Weta* pWeta)
 						if (byte_count == 0)
 						{
                             DEBUGMSG("byte_count == 0.\n");
-							weta_store_flush(pWeta->store);
+							weta_store_flush(cricket_store);
 							pWeta->states.commState = COMM_FINISHED;
+                            weta_start(pWeta, cricket_store, start_address);
 						}
 					}
 					else
 					{
                         DEBUGMSG("weta_store_write_byte() failed.\n");
+                        weta_store_close(cricket_store);
 						pWeta->states.commState = COMM_FINISHED;
 					}
 				}
@@ -494,18 +572,21 @@ comm_loop(Weta* pWeta)
 				{
 					remainingChars--;
 					byte_count |= temp & 0xFF;
-						// Once byte_count is received, start sending characters.
-					//uint8 blah[32];
-					//spi_flash_read(0x3C000, (uint32*)blah, 32);
-					//hw_serial_write(0, blah, 32);
+                    cricket_store = weta_open_store(pWeta, STORAGE_FLASH);
+                    if (!cricket_store)
+                    {
+                        DEBUGMSG("Unable to open flash storage.\n");
+                        pWeta->states.commState = COMM_FINISHED;
+                        break;
+                    }
 
-					if (weta_store_start_read(pWeta->store, start_address))
+					if (weta_store_start_read(cricket_store, start_address))
 					{
 							// reuse start_address variable as a counter
 						start_address = 0;
 						while (byte_count > 0)
 						{
-							if (weta_store_read_byte(pWeta->store, start_address, &temp) == 1)
+							if (weta_store_read_byte(cricket_store, start_address, &temp) == 1)
 							{
 								hw_serial_write_byte(pWeta->sport, temp);
 								byte_count--;
@@ -518,11 +599,7 @@ comm_loop(Weta* pWeta)
 							}
 						}
 					}
-					else											// Debugging
-					{												// Debugging
-						hw_serial_write_byte(pWeta->sport, 0x42);	// Debugging
-					}												// Debugging
-
+                    weta_store_close(cricket_store);
 					pWeta->states.commState = COMM_FINISHED;
 				}
 				break;
@@ -547,8 +624,6 @@ exec_prepare(Weta* pWeta)
 	if (!weta_store_start_read(pWeta->store, pWeta->startAddress))
 	{
         DEBUGMSG("weta_store_start_read(%d) failed\r\n", pWeta->startAddress);
-		//sprintf(szMsg, "weta_store_start_read() failed\r\n");
-		//weta_debug(pWeta, szMsg);
 		pWeta->states.runRequest = STOPPED;
 		return false;
 	}
@@ -570,7 +645,7 @@ exec_cleanup(Weta* pWeta)
 void WETAFUNCATTR
 exec_loop(Weta* pWeta)
 {
-	weta_debug(pWeta, "exec_loop()\r\n");
+	DEBUGMSG( "exec_loop()\r\n");
 
 	while (pWeta->states.runRequest == RUNNING)
 	{
@@ -584,7 +659,6 @@ void WETAFUNCATTR
 exec_loop_body(Weta* pWeta)
 {
 	//char szMsg[64];
-	WetaCodePtr bytesRead = 0;
 
 	if (pWeta->states.runRequest == RUNNING)
 	{
@@ -764,7 +838,7 @@ exec_loop_body(Weta* pWeta)
 						// (To avoid having to allocate another buffer.
 					uint8_t* psz = (uint8_t*)weta_stack_getTopAddress(pWeta->stack);
 
-					bytesRead = weta_store_read_string(pWeta->store, pWeta->regs.pc, psz, 255);
+					WetaCodePtr bytesRead = weta_store_read_string(pWeta->store, pWeta->regs.pc, psz, 255);
 					if (bytesRead > 0)
 					{
 						weta_stack_pushString(pWeta->stack, psz);
@@ -798,21 +872,21 @@ exec_loop_body(Weta* pWeta)
 				break;
 #endif
 			case OP_BEEP:
-				weta_debug(pWeta, "OP_BEEP\r\n");
-				hw_buzzer_beep();
+				DEBUGMSG( "OP_BEEP\r\n");
+				hw_buzzer_beep(pWeta->hal);
 				break;
 
 			case OP_LEDON:
                 DEBUGMSG("OP_LEDON\n");
 #ifdef GPIO_INDEX_LED
-				hw_gpio_set_i(&pWeta->hal->gpio, GPIO_INDEX_LED, LED_ON_VALUE);
+                weta_led(pWeta->hal, true);
 #endif
 				break;
 
 			case OP_LEDOFF:
                 DEBUGMSG("OP_LEDOFF\n");
 #ifdef GPIO_INDEX_LED
-				hw_gpio_set_i(&pWeta->hal->gpio, GPIO_INDEX_LED, LED_OFF_VALUE);
+                weta_led(pWeta->hal, false);
 				break;
 #endif
 
@@ -1226,7 +1300,7 @@ exec_loop_body(Weta* pWeta)
 				break;
 
 			case OP_EXIT:
-				weta_reset(pWeta);
+				weta_rewind(pWeta);
 				break;
 
 			case OP_LOOP:
@@ -1242,20 +1316,26 @@ exec_loop_body(Weta* pWeta)
 
 			case OP_WAIT:
 				{
-					weta_debug(pWeta, "OP_WAIT\r\n");
+					DEBUGMSG( "OP_WAIT\r\n");
 					uint16_t millis;
 					weta_stack_popUint16(pWeta->stack, &millis);
+#ifdef COOPERATIVE_RTOS
+                    start_wait(pWeta, millis);
+#else
 					hw_time_waitms(millis);
+#endif
 				}
 				break;
 
 			case OP_TIMER:
-					// ChibiOS call (TO DO: hide this)
-				weta_stack_pushUint16(pWeta->stack, (uint16_t)(hw_time_now()- pWeta->timerStart));
+
+				weta_stack_pushUint16(
+                    pWeta->stack,
+                    (uint16_t)((hw_time_now()- pWeta->timerStart)/MILLIS_PER_TICK));
 				break;
 
 			case OP_RESETT:
-				pWeta->timerStart = hw_time_now(); // ChibiOS call (TO DO: hide this)
+				pWeta->timerStart = hw_time_now();
 				break;
 
 			case OP_RANDOM:
@@ -1344,59 +1424,65 @@ exec_loop_body(Weta* pWeta)
 #ifdef SUPPORT_MOTORS
 			case OP_MOTORS:
 				{
-					weta_debug(pWeta, "OP_MOTORS\r\n");
+					DEBUGMSG( "OP_MOTORS\r\n");
 					uint8_t selected;
 					weta_stack_popUint8(pWeta->stack, &selected);
-					hw_motor_select(&pWeta->hal->motors, selected);
+					weta_motor_select(pWeta->hal, selected);
 				}
 				break;
 
 			case OP_THISWAY:
-				hw_motor_direction(&pWeta->hal->motors, MOTOR_THIS_WAY);
+				DEBUGMSG( "OP_THISWAY\r\n");
+				weta_motor_dir(pWeta->hal, MOTOR_THIS_WAY);
 				break;
 
 
 			case OP_THATWAY:
-				hw_motor_direction(&pWeta->hal->motors, MOTOR_THAT_WAY);
+				DEBUGMSG( "OP_THATWAY\r\n");
+                weta_motor_dir(pWeta->hal, MOTOR_THAT_WAY);
 				break;
 
 			case OP_RD:
-				hw_motor_reverse(&pWeta->hal->motors);
+				DEBUGMSG( "OP_RD\r\n");
+                weta_motor_rd(pWeta->hal);
 				break;
 
 			case OP_SETPOWER:
 				{
+					DEBUGMSG( "OP_SETPOWER\r\n");
 					uint8_t power;
 					weta_stack_popUint8(pWeta->stack, &power);
 					//sprintf(szMsg, "OP_SETPOWER to %d\r\n", power);
 					//weta_debug(pWeta, szMsg);
-					hw_motor_power(&pWeta->hal->motors, power);
+					weta_motor_power(pWeta->hal, power);
 				}
 				break;
 
 
 			case OP_BRAKE:
-				hw_motor_brake(&pWeta->hal->motors, true);
+				DEBUGMSG( "OP_BRAKE\r\n");
+				weta_motor_brake(pWeta->hal, true);
 				break;
 
 			case OP_ON:
-				weta_debug(pWeta, "OP_ON\r\n");
-				hw_motor_on(&pWeta->hal->motors, true);
+				DEBUGMSG( "OP_ON\r\n");
+				weta_motor_on(pWeta->hal, true);
 				break;
 
 			case OP_ONFOR:
 				{
+					DEBUGMSG( "OP_ONFOR\r\n");
 					uint16_t tenths;
 					weta_stack_popUint16(pWeta->stack, &tenths);
-					hw_motor_on(&pWeta->hal->motors, true);
+                    weta_motor_on(pWeta->hal, true);
 					hw_time_waitms(tenths * 100);
-					hw_motor_on(&pWeta->hal->motors, false);
+                    weta_motor_on(pWeta->hal, false);
 				}
 				break;
 
 			case OP_OFF:
-				weta_debug(pWeta, "OP_OFF\r\n");
-				hw_motor_on(&pWeta->hal->motors, false);
+				DEBUGMSG( "OP_OFF\r\n");
+                weta_motor_on(pWeta->hal, false);
 				break;
 #endif
 #ifdef SUPPORT_SERVOS
@@ -1406,7 +1492,7 @@ exec_loop_body(Weta* pWeta)
 					weta_stack_popUint8(pWeta->stack, &selected);
 					//sprintf(szMsg, "OP_SERVOS (%d)\r\n", selected);
 					//weta_debug(pWeta, szMsg);
-					hw_servo_select(&pWeta->hal->servos, selected);
+					weta_servo_select(pWeta->hal, selected);
 				}
 				break;
 
@@ -1416,7 +1502,7 @@ exec_loop_body(Weta* pWeta)
 					weta_stack_popUint16(pWeta->stack, (uint16_t*)&heading);
 					//sprintf(szMsg, "OP_SETSVH (%d)\r\n", heading);
 					//weta_debug(pWeta, szMsg);
-					hw_servo_set_position(&pWeta->hal->servos, heading);
+					weta_servo_pos(pWeta->hal, heading);
 				}
 				break;
 
@@ -1429,7 +1515,7 @@ exec_loop_body(Weta* pWeta)
 			case OP_SENSOR2:
 				{
 					int16_t value = 0;
-					hw_adc_get(&pWeta->hal->adc, pWeta->regs.opCode - OP_SENSOR1, &value);
+					weta_adc_get(pWeta->hal, pWeta->regs.opCode - OP_SENSOR1, &value);
 					//sprintf(szMsg, "OP_SENSOR(%d) = %d\r\n", pWeta->regs.opCode - OP_SENSOR1, value);
 					//weta_debug(pWeta, szMsg);
 					weta_stack_pushUint16(
@@ -1447,7 +1533,7 @@ exec_loop_body(Weta* pWeta)
 			case OP_SENSOR8:
 				{
 					int16_t value = 0;
-					hw_adc_get(&pWeta->hal->adc, pWeta->regs.opCode - OP_SENSOR3 + 2, &value);
+					weta_adc_get(pWeta->hal, pWeta->regs.opCode - OP_SENSOR3 + 2, &value);
 					//sprintf(szMsg, "OP_SENSOR(%d) = %d\r\n", pWeta->regs.opCode - OP_SENSOR3 + 2, value);
 					//weta_stack_pushUint16(pWeta->stack, (uint16_t)value);
 				}
@@ -1459,7 +1545,7 @@ exec_loop_body(Weta* pWeta)
 					uint8_t input;
 					weta_stack_popUint8(pWeta->stack, &input);
 					int16_t value = 0;
-					hw_adc_get(&pWeta->hal->adc, input, &value);
+					weta_adc_get(pWeta->hal, input, &value);
 					weta_stack_pushUint16(pWeta->stack,(uint16_t)value);
 				}
 				break;
@@ -1471,7 +1557,7 @@ exec_loop_body(Weta* pWeta)
 					uint8_t value;
 					weta_stack_popUint8(pWeta->stack, &output);
 					weta_stack_popUint8(pWeta->stack, &value);
-					hw_dac_set(output, (uint16_t)value);
+					weta_dac_set(pWeta->hal, output, (uint16_t)value);
 				}
 				break;
 #endif
@@ -1481,8 +1567,8 @@ exec_loop_body(Weta* pWeta)
 				{
 					bool value = false;
 #ifdef GPIO_INDEX_SWITCH1
-					hw_gpio_get_i(
-						&pWeta->hal->gpio,
+                    weta_digital_in(
+						pWeta->hal,
 						pWeta->regs.opCode - (uint8_t)OP_SWITCH1 + (uint8_t)GPIO_INDEX_SWITCH1,
 						&value
 					);
@@ -1518,7 +1604,7 @@ exec_loop_body(Weta* pWeta)
 					uint8_t input;
 					weta_stack_popUint8(pWeta->stack, &input);
 					bool value = false;
-					hw_gpio_get_i(&pWeta->hal->gpio, input, &value);
+                    weta_digital_in(pWeta->hal, input, &value);
 					weta_stack_pushUint8(pWeta->stack,(uint8_t)value);
 				}
 				break;
@@ -1529,7 +1615,7 @@ exec_loop_body(Weta* pWeta)
 					uint8_t value;
 					weta_stack_popUint8(pWeta->stack, &output);
 					weta_stack_popUint8(pWeta->stack, &value);
-					hw_gpio_set_i(&pWeta->hal->gpio, output, value);
+                    weta_digital_out(pWeta->hal, output, value);
 				}
 				break;
 #endif
@@ -1789,29 +1875,23 @@ exec_loop_body(Weta* pWeta)
 				break;
 #endif
 			case OP_NEWRX:
-				weta_stack_pushUint8(pWeta->stack, (uint8_t)hw_serial_available(pWeta->sport));
+				weta_stack_pushUint8(pWeta->stack, (uint8_t)weta_serial_available(pWeta->hal, 0));
 				break;
 
 			case OP_NEWRXN:
 				{
 					uint8_t port;
 					weta_stack_popUint8(pWeta->stack, &port);
-					if (port >= pWeta->hal->sports.n_ports)
-					{
-							// Port out of range. Just return false
-						weta_stack_pushUint8(pWeta->stack, (uint8_t)false);
-					}
-					else
-					{
-						weta_stack_pushUint8(pWeta->stack,
-							(uint8_t)hw_serial_available(&pWeta->hal->sports.ports[port]));
-					}
+                    weta_stack_pushUint8(
+                        pWeta->stack,
+                        (uint8_t)weta_serial_available(pWeta->hal, port)
+                    );
 				}
 				break;
 
 			case OP_RXN:
 				{
-					//weta_debug(pWeta, "OP_RXN\r\n");
+					//DEBUGMSG( "OP_RXN\r\n");
 					uint8_t  port;
 					uint16_t rxBuffLocation;
 					uint8_t  rxNumBytes;
@@ -1820,92 +1900,76 @@ exec_loop_body(Weta* pWeta)
 					weta_stack_popUint16(pWeta->stack, &rxBuffLocation);
 					weta_stack_popUint8(pWeta->stack, &rxNumBytes);
 					weta_stack_popUint16(pWeta->stack, (uint16_t*)&timeout);
-						// Check that the port number is valid
-					if (port >= pWeta->hal->sports.n_ports)
-					{
-							// Return zero bytes read
-						weta_stack_pushUint8(pWeta->stack, 0);
-					}
-					else
-					{
-						uint8_t* buffAddr = (uint8_t*)weta_stack_getStackAddress(pWeta->stack, rxBuffLocation);
-						//uint8_t rc = 42;
 
-						uint8_t bytesRead = hw_serial_read(
-							&pWeta->hal->sports.ports[port],
-							buffAddr,  //(uint8_t*)weta_stack_getStackAddress(pWeta->stack, rxBuffLocation),
-							rxNumBytes,
-							timeout
-						);
-						weta_stack_pushUint8(pWeta->stack, bytesRead);
-						/*
-						sprintf(szMsg, "hw_serial_read(%d, %d, %d, %d ) = %d\r\n",
-								port,
-								(uint8_t)*buffAddr,
-								rxNumBytes,
-								timeout,
-								bytesRead);
-						weta_debug(pWeta, szMsg);
+                    uint8_t* buffAddr = (uint8_t*)weta_stack_getStackAddress(pWeta->stack, rxBuffLocation);
+
+                    uint8_t bytesRead = weta_serial_read(
+                        pWeta->hal,
+                        port,
+                        buffAddr,  //(uint8_t*)weta_stack_getStackAddress(pWeta->stack, rxBuffLocation),
+                        rxNumBytes,
+                        timeout
+                    );
+                    weta_stack_pushUint8(pWeta->stack, bytesRead);
+                    /*
+                    sprintf(szMsg, "hw_serial_read(%d, %d, %d, %d ) = %d\r\n",
+                            port,
+                            (uint8_t)*buffAddr,
+                            rxNumBytes,
+                            timeout,
+                            bytesRead);
+                    weta_debug(pWeta, szMsg);
 						*/
 					}
-				}
 				break;
 
 			case OP_TXN:
 				{
-					//weta_debug(pWeta, "OP_TXN\r\n");
+					//DEBUGMSG( "OP_TXN\r\n");
 					uint8_t  port;
 					uint16_t txBuffLocation;
 					uint8_t  txNumBytes;
 					weta_stack_popUint8(pWeta->stack, &port);
 					weta_stack_popUint16(pWeta->stack, &txBuffLocation);
 					weta_stack_popUint8(pWeta->stack, &txNumBytes);
-						// Check that the port number is valid
-					if (port >= pWeta->hal->sports.n_ports)
-					{
-							// Return zero bytes written
-						weta_stack_pushUint8(pWeta->stack, 0);
-					}
-					else
-					{
-						uint8_t* buffAddr = (uint8_t*)weta_stack_getStackAddress(
-							pWeta->stack,
-							txBuffLocation
-						);
-						//uint8_t rc = 42;
+                    uint8_t* buffAddr = (uint8_t*)weta_stack_getStackAddress(
+                        pWeta->stack,
+                        txBuffLocation
+                    );
+                    //uint8_t rc = 42;
 
-						uint8_t bytesWritten = hw_serial_write(
-							&pWeta->hal->sports.ports[port],
-							buffAddr,  //(uint8_t*)weta_stack_getStackAddress(pWeta->stack, rxBuffLocation),
-							txNumBytes
-						);
-						weta_stack_pushUint8(pWeta->stack, bytesWritten);
-						/*
-						sprintf(szMsg, "hw_serial_write(%d, %d, %d) = %d\r\n",
-								port,
-								(uint8_t)*buffAddr,
-								txNumBytes,
-								bytesWritten
-						);
-						weta_debug(pWeta, szMsg);
-						*/
-					}
+                    uint8_t bytesWritten = weta_serial_write(
+                        pWeta->hal,
+                        port,
+                        buffAddr,  //(uint8_t*)weta_stack_getStackAddress(pWeta->stack, rxBuffLocation),
+                        txNumBytes
+                    );
+                    weta_stack_pushUint8(pWeta->stack, bytesWritten);
+                    /*
+                    sprintf(szMsg, "hw_serial_write(%d, %d, %d) = %d\r\n",
+                            port,
+                            (uint8_t)*buffAddr,
+                            txNumBytes,
+                            bytesWritten
+                    );
+                    weta_debug(pWeta, szMsg);
+                    */
 				}
 				break;
 
 			case OP_I2CSTART:
-				//weta_debug(pWeta, "OP_I2CSTART\r\n");
-				hw_i2c_start();
+				//DEBUGMSG( "OP_I2CSTART\r\n");
+				weta_i2c_start(pWeta->hal);
 				break;
 
 			case OP_I2CSTOP:
-				//weta_debug(pWeta, "OP_I2CSTOP\r\n");
-				hw_i2c_stop();
+				//DEBUGMSG( "OP_I2CSTOP\r\n");
+				weta_i2c_stop(pWeta->hal);
 				break;
 
 			case OP_I2CWRITE:
 				{
-					//weta_debug(pWeta, "OP_I2CWRITE\r\n");
+					//DEBUGMSG( "OP_I2CWRITE\r\n");
 					uint8_t  slaveAddr;
 					uint32_t registerAddr = 0;
 					uint8_t  registerAddrWidth;
@@ -1928,7 +1992,8 @@ exec_loop_body(Weta* pWeta)
 					uint8_t* buffAddr = (uint8_t*)weta_stack_getStackAddress(pWeta->stack, txBuffLocation);
 
 					//uint8_t rc =
-					hw_i2c_write(
+					weta_i2c_write(
+                        pWeta->hal,
 						slaveAddr,
 						registerAddr,
 						registerAddrWidth,
@@ -1950,7 +2015,7 @@ exec_loop_body(Weta* pWeta)
 
 			case OP_I2CREAD:
 				{
-					weta_debug(pWeta, "OP_I2CREAD\r\n");
+					DEBUGMSG( "OP_I2CREAD\r\n");
 					uint8_t  slaveAddr;
 					uint32_t registerAddr = 0;
 					uint8_t  registerAddrWidth;
@@ -1975,7 +2040,8 @@ exec_loop_body(Weta* pWeta)
 					//uint8_t rc = 42;
 
 					//uint8_t rc =
-					hw_i2c_read(
+					weta_i2c_read(
+                        pWeta->hal,
 						slaveAddr,
 						registerAddr,
 						registerAddrWidth,
@@ -2136,7 +2202,7 @@ verify_json_codes(const char* jsonArray)
 bool WETAFUNCATTR
 weta_program_json(Weta* pWeta, WetaStorage storage, WetaCodePtr address, const char* jsonArray)
 {
-	pWeta->states.machineState = WETA_CONFIG;
+    //pWeta->states.machineState = WETA_CONFIG;
 
     DEBUGMSG("weta_program_json()\n\r");
     DEBUGMSG(jsonArray);
@@ -2145,16 +2211,16 @@ weta_program_json(Weta* pWeta, WetaStorage storage, WetaCodePtr address, const c
 	if (numCodes == 0)
 		return false;
         // Initialise storage of the given type
-    pWeta->store = weta_init_store(pWeta, storage, numCodes);
-    if (!pWeta->store)
+    PSTORE store = weta_open_store(pWeta, storage);
+    if (!store)
         return false;
 
-	pWeta->startAddress = address;
+	//pWeta->startAddress = address;
 	DEBUGMSG("address = %d\n\r", address);
 
 		// Now that we have the number of codes, we can start the write
 		// operation.
-	if (!weta_store_start_write(pWeta->store, address, numCodes))
+	if (!weta_store_start_write(store, address, numCodes))
 	{
 		DEBUGMSG("weta_store_start_write() failed\r\n");
 		return false;
@@ -2167,21 +2233,40 @@ weta_program_json(Weta* pWeta, WetaStorage storage, WetaCodePtr address, const c
 	cursor++;	// Step past the '['
 	char* endptr = cursor;
 	long nextCode;
+    bool error = false;
+    uint8_t written = 0;    // debugging
 	while (*endptr != ']')
 	{
 		nextCode = strtol(cursor, &endptr, 0);
 		if (endptr == cursor)
-			break;
+        {
+            DEBUGMSG("Could not interpret a number  from %s\n\r", cursor);
+            error = true;
+            break;
+        }
         DEBUGMSG("%ld\n\r", nextCode);
-		if (!weta_store_write_byte(pWeta->store, (uint8_t)nextCode))
+		if (!weta_store_write_byte(store, (uint8_t)nextCode))
 		{
 			DEBUGMSG("weta_store_write_byte() failed\r\n");
-			return false;
+            error = true;
+			break;
 		}
+        written++;
 		cursor = endptr;
 		cursor++;	// step past comma
 	}
-	return weta_store_flush(pWeta->store);
+    DEBUGMSG("Finished write loop with %d codes written\r\n", written);
+    if (error)
+    {
+        weta_store_close(store);
+        return false;
+    }
+	else if (!weta_store_flush(store))
+	{
+		weta_store_close(store);
+		return false;
+	}
+	return weta_start(pWeta, store, address);
 }
 #endif
 

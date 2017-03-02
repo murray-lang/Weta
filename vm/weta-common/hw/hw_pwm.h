@@ -7,7 +7,9 @@
 extern "C" {
 #endif
 
-extern void hw_pwm_init(PwmChannels *channels, uint16_t flags);
+struct _Hardware;
+
+extern void hw_pwm_init(struct _Hardware* hw, uint16_t flags);
 extern void hw_pwm_set_duty_i(PwmChannels *channels, WetaPwmChannel channel, WetaPwmDuty duty);
 extern void hw_pwm_set_duty(PwmChannel *channel, WetaPwmDuty duty);
 

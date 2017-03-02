@@ -6,11 +6,15 @@
 #include "hw_gpio.h"
 #include "hw_pwm.h"
 
+struct _Hardware;
+
 typedef enum 
 {
 	MOTOR_THIS_WAY,
 	MOTOR_THAT_WAY
 } MotorDirection;
+
+typedef uint8_t MotorPower;
 
 typedef struct 
 {
@@ -19,15 +23,15 @@ typedef struct
     bool           on	    : 1;
     bool           brake	: 1;
     MotorDirection dir		: 1;
-    uint8_t        power    : 8;
+	MotorPower     power    : sizeof(MotorPower)*8;
 } MotorState;
 
 typedef struct
 {
-#ifdef MOTORS_ARE_H_BRIDGE
+#if defined(MOTORS_A_B_PWM)
     GpioPin*    a;
     GpioPin*    b;
-#else
+#elif defined(MOTORS_DIR_PWM)
     GpioPin*    dir;
 #endif
     PwmChannel* pwm;
@@ -45,14 +49,13 @@ typedef struct
 	uint8_t     n_motors;
 } Motors;
 
-extern void hw_motor_init(uint16_t flags);
+extern void hw_motor_init(struct _Hardware* hw, uint16_t flags);
 extern void hw_motor_select(Motors* motors, uint8_t select);
 extern void hw_motor_update(Motors* motors);
 extern void hw_motor_on(Motors* motors, bool on);
 extern void hw_motor_brake(Motors* motors, bool brake);
 extern void hw_motor_direction(Motors* motors, MotorDirection dir);
 extern void hw_motor_reverse(Motors* motors);
-extern void hw_motor_power(Motors* motors, uint8_t power);
-
+extern void hw_motor_power(Motors* motors, MotorPower power);
 
 #endif // __HW_MOTOR_H__

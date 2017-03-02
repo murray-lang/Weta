@@ -5,7 +5,7 @@
 typedef uint8_t  WetaPin;
 typedef uint32_t WetaGpioMode;
 typedef uint8_t  WetaPwmChannel;
-typedef uint16_t WetaPwmDuty;
+typedef uint8_t  WetaPwmDuty;
 typedef uint8_t  WetaAdcChannel;
 typedef uint8_t  WetaAdcDepth;
 typedef uint8_t  WetaAdcAtten;
@@ -24,6 +24,7 @@ typedef struct
     WetaPin			pin;
     WetaGpioMode	dir;
     WetaGpioMode	pull;
+    bool            invert;
     DebounceState*  debounce;
 } GpioPin;
 

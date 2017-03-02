@@ -38,32 +38,28 @@ DebounceState debounce[1] =
 
 GpioPin gpio[] =
     {
-        { .pin = PIN_USER_LED,     .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
-        { .pin = PIN_RUN,          .dir = GPIO_MODE_INPUT,  .pull = GPIO_PULLUP_ONLY, .debounce = &debounce[0] },
-        { .pin = PIN_SWITCH1,      .dir = GPIO_MODE_INPUT,  .pull = GPIO_PULLUP_ONLY, .debounce = NULL },
-        { .pin = PIN_SWITCH2,      .dir = GPIO_MODE_INPUT,  .pull = GPIO_PULLUP_ONLY, .debounce = NULL },
-        { .pin = PIN_SWITCH3,      .dir = GPIO_MODE_INPUT,  .pull = GPIO_PULLUP_ONLY, .debounce = NULL },
-        { .pin = PIN_SWITCH4,      .dir = GPIO_MODE_INPUT,  .pull = GPIO_PULLUP_ONLY, .debounce = NULL },
-        { .pin = PIN_MOTOR_0_DIR,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
-        { .pin = PIN_MOTOR_1_DIR,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
-        { .pin = PIN_STEPPER_0_A,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
-        { .pin = PIN_STEPPER_0_B,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
-        { .pin = PIN_STEPPER_0_C,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
-        { .pin = PIN_STEPPER_0_D,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
-        { .pin = PIN_STEPPER_1_A,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
-        { .pin = PIN_STEPPER_1_B,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
-        { .pin = PIN_STEPPER_1_C,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
-        { .pin = PIN_STEPPER_1_D,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .debounce = NULL },
+        { .pin = PIN_USER_LED,       .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .invert = true, .debounce = NULL },
+        { .pin = PIN_RUN,            .dir = GPIO_MODE_INPUT,  .pull = GPIO_PULLUP_ONLY, .invert = false, .debounce = &debounce[0] },
+        { .pin = PIN_SWITCH1,        .dir = GPIO_MODE_INPUT,  .pull = GPIO_PULLUP_ONLY, .invert = false, .debounce = NULL },
+        { .pin = PIN_SWITCH2,        .dir = GPIO_MODE_INPUT,  .pull = GPIO_PULLUP_ONLY, .invert = false, .debounce = NULL },
+        { .pin = PIN_SWITCH3,        .dir = GPIO_MODE_INPUT,  .pull = GPIO_PULLUP_ONLY, .invert = false, .debounce = NULL },
+        { .pin = PIN_SWITCH4,        .dir = GPIO_MODE_INPUT,  .pull = GPIO_PULLUP_ONLY, .invert = false, .debounce = NULL },
+        { .pin = PIN_MOTOR_0_DIR,    .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .invert = false, .debounce = NULL },
+        { .pin = PIN_MOTOR_1_DIR,    .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .invert = false, .debounce = NULL },
+        { .pin = PIN_STEPPER_CLOCK,  .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .invert = false, .debounce = NULL },
+        { .pin = PIN_STEPPER_DATA,   .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .invert = true, .debounce = NULL },
+        { .pin = PIN_STEPPER_STROBE, .dir = GPIO_MODE_OUTPUT, .pull = GPIO_FLOATING,    .invert = false, .debounce = NULL }
     };
 
 GpioPin* debounced_gpios[] = { &gpio[GPIO_INDEX_RUN] };
 
 PwmChannel pwm[] =
     {
-        { .channel = LEDC_CHANNEL_1, .pin = PIN_MOTOR_0_PWM },
-        { .channel = LEDC_CHANNEL_2, .pin = PIN_MOTOR_1_PWM },
-        { .channel = LEDC_CHANNEL_3, .pin = PIN_SERVO_0_PWM },
-        { .channel = LEDC_CHANNEL_4, .pin = PIN_SERVO_1_PWM }
+        { .channel = LEDC_CHANNEL_0, .pin = PIN_MOTOR_0_PWM },
+        { .channel = LEDC_CHANNEL_1, .pin = PIN_MOTOR_1_PWM }//,
+        //{ .channel = LEDC_CHANNEL_3, .pin = PIN_SERVO_0_PWM },
+        //{ .channel = LEDC_CHANNEL_4, .pin = PIN_SERVO_1_PWM },
+        //{ .channel = LEDC_CHANNEL_5, .pin = PIN_BUZZER }
     };
 
 Motor motors[] =
@@ -80,26 +76,8 @@ Motor motors[] =
 
 StepperMotor steppers[] =
     {
-        {
-            .pins =
-                {
-                &gpio[GPIO_INDEX_STEPPER_0_A],
-                &gpio[GPIO_INDEX_STEPPER_0_B],
-                &gpio[GPIO_INDEX_STEPPER_0_C],
-                &gpio[GPIO_INDEX_STEPPER_0_D]
-                },
-            .index = 0, .cmd = STEP_CMD_OFF, .arg = 0
-        },
-        {
-            .pins =
-                {
-                &gpio[GPIO_INDEX_STEPPER_1_A],
-                &gpio[GPIO_INDEX_STEPPER_1_B],
-                &gpio[GPIO_INDEX_STEPPER_1_C],
-                &gpio[GPIO_INDEX_STEPPER_1_D]
-                },
-            .index = 0, .cmd = STEP_CMD_OFF, .arg = 0
-        }
+        { .reverse = false, .index = 0, .cmd = STEP_CMD_OFF, .arg = 0 },
+        { .reverse = true,  .index = 0, .cmd = STEP_CMD_OFF, .arg = 0 }
     };
 #ifdef SUPPORT_SERVOS
 ServoState servos[] =
@@ -144,6 +122,12 @@ Hardware hardware =
                         { 1, 1, 0, 0 },
                         { 0, 1, 1, 0 },
                         { 0, 0, 1, 1 }
+                    },
+                .shifter =
+                    {
+                        .clock  = &gpio[GPIO_INDEX_STEPPER_CLOCK],
+                        .data   = &gpio[GPIO_INDEX_STEPPER_DATA],
+                        .strobe = &gpio[GPIO_INDEX_STEPPER_STROBE],
                     }
             }
 #ifdef SUPPORT_SERVOS

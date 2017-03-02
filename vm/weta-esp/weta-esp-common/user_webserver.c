@@ -34,13 +34,10 @@ user_weta_program(const char * json, WetaStorage storage)
         // (don't want dependency on a C JSON implementation in that code)
     char * codes = cJSON_PrintUnformatted(codesObj);
 
+
     xSemaphoreTake(weta_mutex, portMAX_DELAY);
     weta_reset(&weta);
-    if(weta_program_json(&weta, storage, address, codes))
-    {
-        weta_start(&weta);
-    }
-    else
+    if(!weta_program_json(&weta, storage, address, codes))
     {
         weta_debug(&weta, "weta_program_json() failed\n\r");
     }

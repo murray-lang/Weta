@@ -1,15 +1,19 @@
 #include <weta_platform.h>
-#include <hw_pwm.h>
+#include <hw.h>
 
 void WETAFUNCATTR
-hw_pwm_init(PwmChannels* channels, uint16_t flags)
+hw_pwm_init(struct _Hardware* hw, uint16_t flags)
 {
+    DEBUGMSG("hw_pwm_init()\r\n");
+
     pwm_init(
-            channels->frequency,
-            channels->initial_duty,
-            channels->n_channels,
-            channels->gpio_info
+            hw->pwms.period,
+            hw->pwms.initial_duty,
+            hw->pwms.n_channels,
+            hw->pwms.gpio_info
     );
+    pwm_start();
+
 }
 
 void WETAFUNCATTR
@@ -24,6 +28,9 @@ hw_pwm_set_duty_i(PwmChannels* channels, WetaPwmChannel channel, WetaPwmDuty dut
 void WETAFUNCATTR
 hw_pwm_set_duty(PwmChannel* channel, WetaPwmDuty duty)
 {
-
-    pwm_set_duty(duty, *channel);
+    DEBUGMSG("hw_pwm_set_duty(%d, %d) ", *channel, duty);
+    uint32_t converted = (duty*MAX_PWM_DUTY)/255;
+    DEBUGMSG("%d\r\n", converted);
+    pwm_set_duty(converted, *channel);
+    pwm_start();
 }

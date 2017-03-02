@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ef766f8-3c2e-40ad-9397-14766fd705c9" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WetaCompilerAssembler.js" afterPath="$PROJECT_DIR$/WetaCompilerAssembler.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assembler/WasmParser.js" afterPath="$PROJECT_DIR$/assembler/WasmParser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assembler/WasmParser.par" afterPath="$PROJECT_DIR$/assembler/WasmParser.par" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assembler/generate/codes/BaseCodes.js" afterPath="$PROJECT_DIR$/assembler/generate/codes/BaseCodes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assembler/generate/codes/WvmBaseCodes.h" afterPath="$PROJECT_DIR$/assembler/generate/codes/WvmBaseCodes.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compiler/common/AstNodes/CommandNode.js" afterPath="$PROJECT_DIR$/compiler/common/AstNodes/CommandNode.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compiler/generate/WasmGenerator.js" afterPath="$PROJECT_DIR$/compiler/generate/WasmGenerator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compiler/logo/LogoParser.js" afterPath="$PROJECT_DIR$/compiler/logo/LogoParser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compiler/logo/LogoParser.par" afterPath="$PROJECT_DIR$/compiler/logo/LogoParser.par" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compiler/logo/compilecompiler.sh" afterPath="$PROJECT_DIR$/compiler/logo/compilecompiler.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/comm/assembler/compilecommasm.sh" afterPath="$PROJECT_DIR$/lib/comm/assembler/compilecommasm.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/compile.sh" afterPath="$PROJECT_DIR$/lib/compile.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/io/assembler/compileioasm.sh" afterPath="$PROJECT_DIR$/lib/io/assembler/compileioasm.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/math/assembler/compilemathasm.sh" afterPath="$PROJECT_DIR$/lib/math/assembler/compilemathasm.sh" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/my.logo" afterPath="$PROJECT_DIR$/test/my.logo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/my.out" afterPath="$PROJECT_DIR$/test/my.out" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/my.wasm" afterPath="$PROJECT_DIR$/test/my.wasm" />
-    </list>
+    <list default="true" id="1ef766f8-3c2e-40ad-9397-14766fd705c9" name="Default" comment="" />
     <ignored path="LogoParser.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -102,8 +84,18 @@
       <file leaf-file-name="WasmGenerator.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/compiler/generate/WasmGenerator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334">
-              <caret line="845" column="33" selection-start-line="845" selection-start-column="29" selection-end-line="845" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.2697023">
+              <caret line="1082" column="31" selection-start-line="1082" selection-start-column="31" selection-end-line="1082" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Types.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/Types.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="217" column="20" selection-start-line="217" selection-start-column="20" selection-end-line="217" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -137,7 +129,7 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -203,9 +195,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="1280" />
-    <option name="y" value="230" />
-    <option name="width" value="1266" />
-    <option name="height" value="769" />
+    <option name="y" value="240" />
+    <option name="width" value="1274" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -235,8 +227,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -377,6 +367,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LogoParser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CompilerAssembler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="assembler" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -401,6 +405,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -427,7 +433,7 @@
       <recent name="$PROJECT_DIR$/compiler/generate/traverse" />
     </key>
   </component>
-  <component name="RunManager" selected="Node.js.Weta Logo">
+  <component name="RunManager" selected="Bash.compileassembler.sh">
     <configuration default="false" name="compileassembler.sh" type="BashConfigurationType" factoryName="Bash" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="INTERPRETER_PATH" value="/bin/sh" />
@@ -550,8 +556,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Bash.compilecompiler.sh" />
-        <item index="1" class="java.lang.String" itemvalue="Bash.compileassembler.sh" />
+        <item index="0" class="java.lang.String" itemvalue="Bash.compileassembler.sh" />
+        <item index="1" class="java.lang.String" itemvalue="Bash.compilecompiler.sh" />
       </list>
     </recent_temporary>
   </component>
@@ -569,16 +575,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="230" width="1266" height="769" extended-state="0" />
-    <editor active="true" />
+    <frame x="1280" y="240" width="1274" height="728" extended-state="0" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25474682" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.254717" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32844576" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31904763" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32286996" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991204" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -586,11 +594,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31905466" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30645162" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32286996" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -701,6 +707,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/assembler/generate/codes/BaseCodes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="705" column="0" selection-start-line="705" selection-start-column="0" selection-end-line="705" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assembler/AstNodes/AsmImmediateNode.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -870,13 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../BlocklyExamples/function_parameter_by_reference.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16744186">
-          <caret line="46" column="26" selection-start-line="0" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/compiler/logo/process/traverse/FixTypesAndBuildVariableTables.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -895,13 +902,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="49" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/Types.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="217" column="20" selection-start-line="217" selection-start-column="20" selection-end-line="217" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1034,7 +1034,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1062,10 +1061,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/common/Types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="217" column="20" selection-start-line="217" selection-start-column="20" selection-end-line="217" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/compiler/generate/WasmGenerator.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="845" column="33" selection-start-line="845" selection-start-column="29" selection-end-line="845" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.2697023">
+          <caret line="1082" column="31" selection-start-line="1082" selection-start-column="31" selection-end-line="1082" selection-end-column="31" />
           <folding />
         </state>
       </provider>

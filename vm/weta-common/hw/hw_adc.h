@@ -7,7 +7,9 @@
 extern "C" {
 #endif
 
-extern void hw_adc_init(Adc *adc, uint16_t flags);
+struct _Hardware;
+
+extern void hw_adc_init(struct _Hardware* hw, uint16_t flags);
 extern bool hw_adc_get(Adc *adc, uint8_t i, int16_t *value);
 
 #ifdef __cplusplus

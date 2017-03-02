@@ -1,22 +1,31 @@
 #include <weta_platform.h>
-#include <hw_time.h>
+#include <hw.h>
 #include <uart_register.h>
 #include "uart_util.h"
 
 
 void WETAFUNCATTR    
-hw_serial_init(SerialPorts *sports, uint16_t flags)
+hw_serial_init(struct _Hardware* hw, uint16_t flags)
 {
 	flags = flags;
 
 	int i;
-	for (i = 0; i < sports->n_ports; i++)
+	for (i = 0; i < hw->sports.n_ports; i++)
 	{
-		UART_SetBaudrate(sports->ports[i].port, sports->ports[i].baud);
-		UART_SetWordLength(sports->ports[i].port, sports->ports[i].data_bits);
-		UART_SetStopBits(sports->ports[i].port, sports->ports[i].stop_bits);
-		UART_SetParity(sports->ports[i].port, sports->ports[i].parity);
+		UART_SetBaudrate(hw->sports.ports[i].port, hw->sports.ports[i].baud);
+		UART_SetWordLength(hw->sports.ports[i].port, hw->sports.ports[i].data_bits);
+		UART_SetStopBits(hw->sports.ports[i].port, hw->sports.ports[i].stop_bits);
+		UART_SetParity(hw->sports.ports[i].port, hw->sports.ports[i].parity);
 	}
+}
+
+uint8_t WETAFUNCATTR
+hw_serial_read_i(SerialPorts *ports, uint8_t i, uint8_t *buf, uint8_t length, int16_t timeout)
+{
+    if (i >= ports->n_ports)
+        return 0;
+
+    return hw_serial_read(&ports->ports[i], buf, length, timeout);
 }
 
 uint8_t WETAFUNCATTR
@@ -38,6 +47,15 @@ hw_serial_read(SerialPort *port, uint8_t* buf, uint8_t length, int16_t timeout)
 	return (uint8_t)uart_read_bytes(port->port, buf, available);
 }
 
+uint8_t WETAFUNCATTR
+hw_serial_read_byte_i(SerialPorts *ports, uint8_t i)
+{
+    if (i >= ports->n_ports)
+        return 0;   // Hmm... should return value as param
+
+    return hw_serial_read_byte(&ports->ports[i]);
+}
+
 uint8_t WETAFUNCATTR    
 hw_serial_read_byte(SerialPort *port)
 {
@@ -46,27 +64,59 @@ hw_serial_read_byte(SerialPort *port)
 	return val;
 }
 
+uint8_t WETAFUNCATTR
+hw_serial_write_i(SerialPorts *ports, uint8_t i, const uint8_t *buf, uint8_t length)
+{
+    if (i >= ports->n_ports)
+        return 0;
+
+    hw_serial_write(&ports->ports[i], buf, length);
+}
+
 uint8_t WETAFUNCATTR 
-hw_serial_write(SerialPort *port, uint8_t* buf, uint8_t length)
+hw_serial_write(SerialPort *port, const uint8_t* buf, uint8_t length)
 {
 	uart_tx_bytes(port->port, buf, (uint16)length);
 	return length; // Optimism born of necessity
 }
 
-void WETAFUNCATTR    
+uint8_t WETAFUNCATTR
+hw_serial_write_byte_i(SerialPorts *ports, uint8_t i, uint8_t value)
+{
+    if (i >= ports->n_ports)
+        return 0;
+
+    return hw_serial_write_byte(&ports->ports[i], value);
+}
+
+uint8_t WETAFUNCATTR
 hw_serial_write_byte(SerialPort *port, uint8_t value)
 {
 	uart_tx_byte(port->port, value);
+
+	return 1; // Assume it worked!
 }
 
+bool WETAFUNCATTR
+hw_serial_available_i(SerialPorts *ports, uint8_t i)
+{
+    if (i >= ports->n_ports)
+        return false;
+    return hw_serial_available(&ports->ports[i]);
+}
 bool WETAFUNCATTR    
 hw_serial_available(SerialPort *port)
 {
 	return uart_data_available(port->port);
 }
 
-void WETAFUNCATTR
-hw_serial_flush(void)
+void hw_serial_flush_i(SerialPorts *ports, uint8_t i)
 {
+    if (i < ports->n_ports)
+        return hw_serial_flush(&ports->ports[i]);
+}
 
+void WETAFUNCATTR
+hw_serial_flush(SerialPort *port)
+{
 }

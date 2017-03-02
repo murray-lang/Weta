@@ -6,17 +6,22 @@
 //#include "esp_system.h"
 //#include "esp_event.h"
 #include "esp_event_loop.h"
-//#include "nvs_flash.h"
+#include "nvs_flash.h"
 //#include "lwip/sys.h"
 //#include "lwip/netdb.h"
 //#include "lwip/api.h"
 //#include "tcpip_adapter.h"
+#include <driver/gpio.h> // For debugging only
 
 #include <user_webserver.h>
 #include <stdio.h>          // For printf()
 
 #include <weta_platform.h>
 #include <weta.h>
+#include <arch/hw_defs.h>
+
+#include <driver/ledc.h>    // For debugging pwm
+
 
 Weta weta;
 extern Hardware hardware;
@@ -97,6 +102,7 @@ void weta_task(void *pvParameter)
     hw_init();
     weta_stack_init();
     weta_init(&weta, &hardware, 0);
+
     while(1)
     {
             // This mutex is required so that the Weta VM can be reprogrammed
@@ -106,24 +112,37 @@ void weta_task(void *pvParameter)
         weta_loop_body(&weta);
         xSemaphoreGive(weta_mutex);
         hw_time_waitus(10);
+
+        //printf(".");
+        //fflush(stdout);
+        //hw_time_waitms(100);
         //vTaskDelay(1 / portTICK_RATE_MS);
+
     }
 }
 
 int app_main(void)
 {
-    //nvs_flash_init();
+    nvs_flash_init();
 
     init_wifi();
     init_webserver();
 
     xTaskCreate(&webserver_task, "web_server", 2048, NULL, 5, NULL);
     xTaskCreate(weta_task, "weta_task", 2048, NULL, 5, NULL);
+
     /*
+    hw_init();
+    weta_stack_init();
+    weta_init(&weta, &hardware, 0);
+
+    hw_motor_select(&hardware.motors, 3);
+    hw_motor_power(&hardware.motors, 255);
+    hw_motor_on(&hardware.motors, true);
+
     while(1)
     {
-        hw_time_waitms(1);
-        //vTaskDelay(1 / portTICK_RATE_MS);
+        hw_time_waitus(10);
     }
      */
     return 0;

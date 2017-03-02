@@ -15,6 +15,7 @@ INCLUDE_DIRECTORIES(
         /home/murray/ESP/esp-idf-v2.0/components/lwip/include/lwip
         /home/murray/ESP/esp-idf-v2.0/components/tcpip_adapter/include
         /home/murray/ESP/esp-idf-v2.0/components/json/include
+        /home/murray/ESP/esp-idf-v2.0/components/nvs_flash/include
         /home/murray/ESP/xtensa-esp32-elf/xtensa-esp32-elf/include
        ./build/include)
 

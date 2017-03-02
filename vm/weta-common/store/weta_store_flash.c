@@ -45,7 +45,7 @@ static StoreMethods methods =
     };
 
 PSTORE WETAFUNCATTR 
-weta_store_init_flash(uint8_t* flashAddr, WetaCodePtr length)
+weta_store_open_flash(uint8_t* flashAddr)
 {
 	PFLASH flash = hw_flash_open(flashAddr);
 	if (!flash)

@@ -19637,9 +19637,8 @@ WasmGenerator.prototype[CompileNodeType.command] =
 
                 if (node.children.length == 0)
                 {
-                    // The only child is the value to send to the
-                    // default port. This version of send requires
-                    // a prefix to specify the 'with' type.
+                        // No argument, but we need to prefix the command for
+                        // the type of data required
                     var type = node.resultType;
                     prefix = Types.prefixes(type);
                     cmd = "rx";
@@ -19983,7 +19982,15 @@ WasmGenerator.prototype[CompileNodeType.arguments] =
 WasmGenerator.prototype.getConversion =
     function (typeFrom, typeTo)
     {
-        return typeFrom.prefix + "to" + typeTo.prefix;
+            // Firstly see if typeTo is unsigned. There is no conversion to
+            // unsigned because it is meaningless. Use the signed equivalent.
+        var to
+        if (typeTo.isSigned === undefined || typeTo.isSigned)
+            to = typeTo.prefix;
+        else
+            to = Types[typeTo.asSigned].prefix;
+
+        return typeFrom.prefix + "to" + to;
     };
 
 WasmGenerator.prototype.castNode =
@@ -20000,7 +20007,7 @@ WasmGenerator.prototype.castNode =
 
             // If they are just signed or unsigned versions of each other then
             // don't cast because the bits won't change. It's all in the
-            // interpretetion.
+            // interpretation.
         if (node.resultType[0].size == resultType[0].size)
             if (node.resultType[0].isSigned !== undefined && resultType[0].isSigned !== undefined)
                 return;

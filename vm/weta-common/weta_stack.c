@@ -1,5 +1,4 @@
 #include "weta_stack.h"
-#include "weta_defs.h"
 #include <stdbool.h> // for 'bool'
 
 //#include <ch.h>				// For debugging

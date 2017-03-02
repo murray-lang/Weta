@@ -19,6 +19,9 @@
 typedef enum
 {
 	WETA_CONFIG, WETA_READY,
+#ifdef COOPERATIVE_RTOS
+    WETA_WAITING,
+#endif
 #ifdef SUPPORT_CRICKET
     WETA_COMM,
 #endif
@@ -74,23 +77,28 @@ typedef struct _WetaStates
  */
 typedef struct _Registers
 {
-	WetaCodePtr	pc;			    	/**< program counter */
-	uint8_t 	opCode;		    	/**< Current instruction */
-	uint8_t		withCode;	    	/**< Sets current data type for stack operations */
-	STACKSTATE  localFrame;			/**< Saved onto the stack by procedures */
-	STACKSTATE  checkPoint;			/**< Used to cleanup args for a function call */ 
-	WetaStackPtr repcountLocation;	/**< Saved onto the stack by blocks */
-	uint8_t		blockDepthMask;		/**< One bit set to indicate block depth */
-	uint8_t     blocksExecuted;		/**< Bit set when block is run the first time */
+	WetaCodePtr	    pc;			    	/**< program counter */
+	uint8_t 	    opCode;		    	/**< Current instruction */
+	uint8_t		    withCode;	    	/**< Sets current data type for stack operations */
+	STACKSTATE      localFrame;			/**< Saved onto the stack by procedures */
+	STACKSTATE      checkPoint;			/**< Used to cleanup args for a function call */
+	WetaStackPtr    repcountLocation;	/**< Saved onto the stack by blocks */
+	uint8_t         blockDepthMask;		/**< One bit set to indicate block depth */
+	uint8_t         blocksExecuted;		/**< Bit set when block is run the first time */
+#ifdef COOPERATIVE_RTOS
+    WetaTimestamp   waitStart;          /**< Time that the last OP_WAIT occurred */
+    uint16_t        waitMillis;         /**< Number of milliseconds to wait */
+#endif
 } Registers;
 
+#ifdef SUPPORT_STRING
 typedef struct
 {
 	char* pszByteFormat;
 	char* pszIntFormat;
 	char* pszFloatFormat;
 } StringFormats;
-
+#endif
 /**
  * @brief Encapsulates a complete Weta VM
  */
@@ -102,10 +110,12 @@ typedef struct _Weta
 	WetaStates	  states;
 	Registers	  regs;
 	PSTORE	      store;
-	uint32_t	  timerStart;
+	WetaTimestamp	  timerStart;   // Cricket logo timer
 	SerialPort*   sport;		// i.e. default copied from hal
 	SerialPort*   debugsport;
+#ifdef SUPPORT_STRING
 	StringFormats formats;
+#endif
 } Weta;
 
 /**
@@ -127,7 +137,7 @@ extern void weta_init(Weta* pWeta, Hardware* pHardware, uint16_t flags);
  */
 extern void weta_reset(Weta* pWeta);
 
-extern bool weta_start(Weta* pWeta);
+extern bool weta_start(Weta* pWeta, PSTORE store, WetaCodePtr address);
 
 #ifdef SUPPORT_DEBOUNCE
 extern void weta_debounce(Weta* pWeta);

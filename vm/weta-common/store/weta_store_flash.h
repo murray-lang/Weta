@@ -9,6 +9,6 @@
 #include <weta_platform.h>
 #include "weta_store.h"
 
-extern	PSTORE weta_store_init_flash(uint8_t* flashStart, WetaCodePtr length);
+extern	PSTORE weta_store_open_flash(uint8_t* flashStart);
 
 #endif //__WETA_STORE_FLASH_H__

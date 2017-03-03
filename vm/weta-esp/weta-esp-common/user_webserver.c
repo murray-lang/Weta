@@ -23,6 +23,16 @@ xSemaphoreHandle weta_mutex;
 extern Weta weta;
 
 void
+user_weta_stop()
+{
+    //DEBUGMSG("user_weta_stop()\n\r");
+
+    xSemaphoreTake(weta_mutex, portMAX_DELAY);
+    weta_reset(&weta);
+    xSemaphoreGive(weta_mutex);
+}
+
+void
 user_weta_program(const char * json, WetaStorage storage)
 {
     //DEBUGMSG("user_weta_program(%s)\n\r", json);
@@ -495,6 +505,12 @@ parse_request(struct netconn *conn, char *pRequest, unsigned short length)
                         } else {
                             response_send(conn, false);
                         }
+                    }
+                    else if (strcmp(pURL_Frame->pFilename, "stop") == 0)
+                    {
+                        DEBUGMSG("Web server received a weta:cmd:stop\n");
+                        user_weta_stop();
+                        response_send(conn, true);
                     }
                     else {
                         response_send(conn, false);

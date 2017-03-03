@@ -2,10 +2,10 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
-      <config projectName="weta-esp32" targetName="weta-esp-common" />
-      <config projectName="weta_esp" targetName="weta-common" />
-      <config projectName="weta-esp32" targetName="weta-esp32" />
       <config projectName="weta_esp" targetName="weta_esp" />
+      <config projectName="weta_esp" targetName="weta-common" />
+      <config projectName="weta-esp32" targetName="weta-esp-common" />
+      <config projectName="weta-esp32" targetName="weta-esp32" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -34,14 +34,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="weta_platform.h" pinned="false" current-in-tab="false">
+      <file leaf-file-name="weta_platform.h" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platform/weta_platform.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1098">
-              <caret line="61" column="51" lean-forward="false" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
+            <state relative-caret-position="-41">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#847#868#0" expanded="true" />
-                <element signature="e#3754#3779#0" expanded="true" />
+                <element signature="e#3746#3771#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -53,28 +53,6 @@
             <state relative-caret-position="342">
               <caret line="19" column="10" lean-forward="false" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hw_gpio.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_gpio.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hw_gpio.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platform/arch/hw_gpio.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2322">
-              <caret line="129" column="61" lean-forward="false" selection-start-line="129" selection-start-column="61" selection-end-line="129" selection-end-column="61" />
-              <folding>
-                <element signature="e#27#42#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -91,13 +69,64 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="weta.c" pinned="false" current-in-tab="true">
+      <file leaf-file-name="weta.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../weta-common/weta.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="1032" column="28" lean-forward="false" selection-start-line="1032" selection-start-column="28" selection-end-line="1032" selection-end-column="28" />
+            <state relative-caret-position="2682">
+              <caret line="175" column="6" lean-forward="false" selection-start-line="175" selection-start-column="6" selection-end-line="175" selection-end-column="6" />
               <folding>
-                <element signature="e#20781#21761#0" expanded="true" />
+                <element signature="e#7267#7475#0" expanded="true" />
+                <element signature="e#7618#7849#0" expanded="true" />
+                <element signature="e#8414#8729#0" expanded="true" />
+                <element signature="e#9193#15979#0" expanded="true" />
+                <element signature="e#35979#36005#0" expanded="true" />
+                <element signature="e#39748#40304#0" expanded="true" />
+                <element signature="e#41382#41612#0" expanded="true" />
+                <marker date="1488528616025" expanded="false" signature="208:227" ph="..." />
+                <marker date="1488528616025" expanded="false" signature="290:309" ph="..." />
+                <marker date="1488528616025" expanded="false" signature="340:492" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="4440:4758" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="4516:4658" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="4919:5728" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="5872:5940" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="6010:6162" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="6240:6516" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="6649:6790" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="6920:9168" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="16132:16576" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="16704:16708" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="16833:17023" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="19331:19374" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="19682:19975" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="20008:20305" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="20927:21907" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="22448:22489" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="22521:22539" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="22572:22591" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="22624:22643" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="44645:45718" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="45750:46751" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="46784:47806" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="47871:48379" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="48444:48766" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="48830:49332" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="52976:53091" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="54473:54562" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="55335:55548" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="56015:56260" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="56311:56413" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="56463:56608" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="56663:56715" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="56770:56855" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="56902:57035" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="57081:57214" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="57265:57946" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="57598:57690" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="57720:57764" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="57795:57841" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="57872:57918" ph="..." />
+                <marker date="1488528616025" expanded="true" signature="58014:58444" ph="{...}" />
+                <marker date="1488528616025" expanded="true" signature="58580:60397" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -126,9 +155,42 @@
       <file leaf-file-name="user_webserver.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../weta-esp-common/user_webserver.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="391">
+              <caret line="512" column="50" lean-forward="false" selection-start-line="512" selection-start-column="50" selection-end-line="512" selection-end-column="50" />
+              <folding>
+                <marker date="1488528214939" expanded="true" signature="2496:4397" ph="{...}" />
+                <marker date="1488528214939" expanded="true" signature="4512:6180" ph="{...}" />
+                <marker date="1488528214939" expanded="true" signature="6710:8567" ph="{...}" />
+                <marker date="1488528214939" expanded="true" signature="13467:13516" ph="{...}" />
+                <marker date="1488528214939" expanded="true" signature="17954:17997" ph="{...}" />
+                <marker date="1488528214939" expanded="true" signature="18059:18670" ph="{...}" />
+                <marker date="1488528214939" expanded="true" signature="18712:19157" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hw_stepper.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_stepper.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="59" column="51" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="51" />
+              <folding>
+                <marker date="1488528530293" expanded="true" signature="76:1170" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hw_stepper.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_stepper.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+              <folding>
+                <element signature="e#4311#5061#0" expanded="true" />
+                <marker date="1488528554037" expanded="true" signature="450:509" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -175,24 +237,24 @@
         <option value="$PROJECT_DIR$/../../weta-common/turtle/weta_turtle_stepper.c" />
         <option value="$PROJECT_DIR$/platform/boards/mynano32/board.h" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_motor.h" />
-        <option value="$PROJECT_DIR$/../../weta-common/hw/hw_stepper.h" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_serial.c" />
         <option value="$PROJECT_DIR$/platform/arch/hw_adc.c" />
         <option value="$PROJECT_DIR$/platform/arch/hw_buzzer.c" />
         <option value="$PROJECT_DIR$/platform/arch/hw_dac.c" />
         <option value="$PROJECT_DIR$/platform/arch/hw_i2c.c" />
         <option value="$PROJECT_DIR$/platform/arch/hw_serial.c" />
-        <option value="$PROJECT_DIR$/../../weta-common/hw/hw_stepper.c" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/platform/boards/mynano32/board.c" />
-        <option value="$PROJECT_DIR$/../weta-esp-common/user_webserver.c" />
         <option value="$PROJECT_DIR$/main/main.c" />
         <option value="$PROJECT_DIR$/platform/arch/hw_gpio.c" />
-        <option value="$PROJECT_DIR$/platform/weta_platform.h" />
         <option value="$PROJECT_DIR$/platform/arch/hw_pwm.c" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_motor.c" />
-        <option value="$PROJECT_DIR$/../../weta-common/weta.c" />
         <option value="$PROJECT_DIR$/../../weta-common/store/weta_store_ram.c" />
+        <option value="$PROJECT_DIR$/../weta-esp-common/user_webserver.c" />
+        <option value="$PROJECT_DIR$/../../weta-common/hw/hw_stepper.h" />
+        <option value="$PROJECT_DIR$/../../weta-common/hw/hw_stepper.c" />
+        <option value="$PROJECT_DIR$/../../weta-common/weta.c" />
+        <option value="$PROJECT_DIR$/platform/weta_platform.h" />
       </list>
     </option>
   </component>
@@ -662,34 +724,35 @@
       <workItem from="1488410977355" duration="13867000" />
       <workItem from="1488431042472" duration="3823000" />
       <workItem from="1488454326736" duration="14000" />
+      <workItem from="1488527975304" duration="1485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28190000" />
+    <option name="totallyTimeSpent" value="29675000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="224" width="1280" height="775" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2430279" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2430279" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32721713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874617" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32721713" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -972,20 +1035,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_stepper.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_stepper.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2736">
-          <caret line="152" column="50" lean-forward="false" selection-start-line="152" selection-start-column="50" selection-end-line="152" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/include/sdkconfig.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1032,17 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platform/weta_platform.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1098">
-          <caret line="61" column="51" lean-forward="false" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
-          <folding>
-            <element signature="e#847#868#0" expanded="true" />
-            <element signature="e#3754#3779#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platform/arch/hw_pwm.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
@@ -1072,14 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../weta-esp-common/user_webserver.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../weta-common/store/weta_store.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1096,12 +1126,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../weta-esp-common/user_webserver.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="512" column="50" lean-forward="false" selection-start-line="512" selection-start-column="50" selection-end-line="512" selection-end-column="50" />
+          <folding>
+            <marker date="1488528214939" expanded="true" signature="2496:4397" ph="{...}" />
+            <marker date="1488528214939" expanded="true" signature="4512:6180" ph="{...}" />
+            <marker date="1488528214939" expanded="true" signature="6710:8567" ph="{...}" />
+            <marker date="1488528214939" expanded="true" signature="13467:13516" ph="{...}" />
+            <marker date="1488528214939" expanded="true" signature="17954:17997" ph="{...}" />
+            <marker date="1488528214939" expanded="true" signature="18059:18670" ph="{...}" />
+            <marker date="1488528214939" expanded="true" signature="18712:19157" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_stepper.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="59" column="51" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="51" />
+          <folding>
+            <marker date="1488528530293" expanded="true" signature="76:1170" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_stepper.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+          <folding>
+            <element signature="e#4311#5061#0" expanded="true" />
+            <marker date="1488528554037" expanded="true" signature="450:509" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../weta-common/weta.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="1032" column="28" lean-forward="false" selection-start-line="1032" selection-start-column="28" selection-end-line="1032" selection-end-column="28" />
+        <state relative-caret-position="2682">
+          <caret line="175" column="6" lean-forward="false" selection-start-line="175" selection-start-column="6" selection-end-line="175" selection-end-column="6" />
           <folding>
-            <element signature="e#20781#21761#0" expanded="true" />
+            <element signature="e#7267#7475#0" expanded="true" />
+            <element signature="e#7618#7849#0" expanded="true" />
+            <element signature="e#8414#8729#0" expanded="true" />
+            <element signature="e#9193#15979#0" expanded="true" />
+            <element signature="e#35979#36005#0" expanded="true" />
+            <element signature="e#39748#40304#0" expanded="true" />
+            <element signature="e#41382#41612#0" expanded="true" />
+            <marker date="1488528616025" expanded="false" signature="208:227" ph="..." />
+            <marker date="1488528616025" expanded="false" signature="290:309" ph="..." />
+            <marker date="1488528616025" expanded="false" signature="340:492" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="4440:4758" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="4516:4658" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="4919:5728" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="5872:5940" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="6010:6162" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="6240:6516" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="6649:6790" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="6920:9168" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="16132:16576" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="16704:16708" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="16833:17023" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="19331:19374" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="19682:19975" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="20008:20305" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="20927:21907" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="22448:22489" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="22521:22539" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="22572:22591" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="22624:22643" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="44645:45718" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="45750:46751" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="46784:47806" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="47871:48379" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="48444:48766" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="48830:49332" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="52976:53091" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="54473:54562" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="55335:55548" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="56015:56260" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="56311:56413" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="56463:56608" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="56663:56715" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="56770:56855" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="56902:57035" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="57081:57214" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="57265:57946" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="57598:57690" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="57720:57764" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="57795:57841" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="57872:57918" ph="..." />
+            <marker date="1488528616025" expanded="true" signature="58014:58444" ph="{...}" />
+            <marker date="1488528616025" expanded="true" signature="58580:60397" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/weta_platform.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-41">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#847#868#0" expanded="true" />
+            <element signature="e#3746#3771#0" expanded="true" />
           </folding>
         </state>
       </provider>

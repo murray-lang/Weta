@@ -1,0 +1,11 @@
+/home/murray/Apps/clion-2016.3.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266
+-- The C compiler identification is GNU 4.8.4
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug

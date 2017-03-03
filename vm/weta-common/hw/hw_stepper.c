@@ -18,7 +18,20 @@ hw_stepper_init(struct _Hardware* hw, uint16_t flags)
 {
 	flags = flags;
 
-	hw_stepper_apply(&hw->steppers);
+    hw_stepper_all_off(&hw->steppers);
+}
+
+void WETAFUNCATTR
+hw_stepper_all_off(Steppers* steppers)
+{
+    int i;
+    for (i = 0; i < steppers->n_steppers; i++)
+    {
+        steppers->steppers[i].index = 0;
+        steppers->steppers[i].cmd = STEP_CMD_OFF;
+        steppers->steppers[i].arg = 0;
+    }
+    hw_stepper_apply(steppers);
 }
 
 bool WETAFUNCATTR

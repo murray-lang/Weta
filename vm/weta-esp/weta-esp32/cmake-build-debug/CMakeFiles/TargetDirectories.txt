@@ -1,0 +1,7 @@
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/weta-common/CMakeFiles/edit_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/weta-common/CMakeFiles/rebuild_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/weta-esp-common/CMakeFiles/edit_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/weta-esp-common/CMakeFiles/rebuild_cache.dir

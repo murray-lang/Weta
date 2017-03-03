@@ -57,5 +57,6 @@ struct _Hardware;
 extern void hw_stepper_init(struct _Hardware* hw, uint16_t flags);
 extern bool hw_stepper_tick(Steppers* steppers);
 extern void hw_stepper_control(Steppers* steppers, StepperCommand* commands);
+extern void hw_stepper_all_off(Steppers* steppers);
 #endif // SUPPORT_STEPPERS
 #endif // __HW_STEPPER_H__

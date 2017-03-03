@@ -1,0 +1,11 @@
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles/weta-esp8266.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/weta-common/CMakeFiles/edit_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/weta-common/CMakeFiles/rebuild_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/weta-arch/CMakeFiles/edit_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/weta-arch/CMakeFiles/rebuild_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/weta-boards/CMakeFiles/edit_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/weta-boards/CMakeFiles/rebuild_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/weta-webserver/CMakeFiles/edit_cache.dir
+/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/weta-webserver/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="weta-esp8266"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\weta-common\;CMake Files\platform\;CMake Files\platform\arch\;CMake Files\platform\boards\;CMake Files\webserver\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="weta-esp8266">
+				<Option output="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/build/bin/esp12_hbridge_robot/weta-esp8266" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DTARGET_BOARD_esp12_hbridge_robot"/>
+					<Add option="-DDEBUG"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/."/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/main"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/boards"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/webserver"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/../../weta-common"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/../../weta-common/hw"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/extra_include"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/json"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/driver_lib/include"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/driver_lib/include/driver"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/espressif"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/espressif/esp8266"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/lwip"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/lwip/ipv4"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/lwip/ipv6"/>
+					<Add directory="/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/xtensa-lx106-elf/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 weta-esp8266"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="weta-esp8266/fast">
+				<Option output="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/build/bin/esp12_hbridge_robot/weta-esp8266" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DTARGET_BOARD_esp12_hbridge_robot"/>
+					<Add option="-DDEBUG"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/."/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/main"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/boards"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/webserver"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/../../weta-common"/>
+					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/../../weta-common/hw"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/extra_include"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/json"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/driver_lib/include"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/driver_lib/include/driver"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/espressif"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/espressif/esp8266"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/lwip"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/lwip/ipv4"/>
+					<Add directory="/home/murray/ESP/ESP8266_NONOS_SDK/include/lwip/ipv6"/>
+					<Add directory="/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/xtensa-lx106-elf/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 weta-esp8266/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/WvmBaseCodes.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/WvmCodes.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/WvmCommCodes.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/WvmIoCodes.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/WvmMathCodes.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_adc.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_buzzer.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_dac.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_endian.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_flash.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_flash.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_flash_raw.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_gpio.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_i2c.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pwm.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepper.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepper.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_time.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/store/weta_store.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/store/weta_store.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_flash.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_flash.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_ram.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_ram.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/turtle/weta_turtle.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/turtle/weta_turtle_stepper.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/type_handlers.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_bool.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_double.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_float.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int16.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int32.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int8.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_stackptr.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_string.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint16.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint32.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint8.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/weta.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/weta.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/weta_stack.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/weta_stack.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/main/user_main.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/espmissingincludes.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_adc.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_buzzer.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_dac.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_defs.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_endian.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_flash_raw.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_gpio.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_i2c.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_pwm.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_serial.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/hw_time.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/uart_util.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/uart_util.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/boards/board.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/boards/board.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/weta_platform.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/webserver/user_json.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/webserver/user_json.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/webserver/user_webserver.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/webserver/user_webserver.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/../../weta-common/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\..\..\weta-common\"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/arch/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\platform\arch\"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/platform/boards/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\platform\boards\"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/webserver/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\webserver\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

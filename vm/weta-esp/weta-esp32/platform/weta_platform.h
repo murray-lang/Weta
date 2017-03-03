@@ -68,10 +68,10 @@ typedef int16_t		WetaStackPtr;
 #define DEBOUNCE_TICKS 14000000
 #define MILLIS_PER_TICK 1000
 
-//#define SUPPORT_32BIT
-//#define SUPPORT_DOUBLE
-//#define SUPPORT_FLOAT
-//#define SUPPORT_STRING
+#define SUPPORT_32BIT
+#define SUPPORT_DOUBLE
+#define SUPPORT_FLOAT
+#define SUPPORT_STRING
 #define SUPPORT_JSON
 
 #define SUPPORT_QUERY

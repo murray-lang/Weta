@@ -7,9 +7,9 @@
 #include "WvmCodes.h"
 #include "type_handlers/type_handlers.h"
 
-//#ifdef SUPPORT_STRING
+#ifdef SUPPORT_STRING
 #include <string.h>
-//#endif
+#endif
 
 #if defined(SUPPORT_FLOAT) || defined(SUPPORT_DOUBLE)
 //#include <math.h>
@@ -168,6 +168,12 @@ weta_close_store(Weta* pWeta)
 void WETAFUNCATTR
 weta_rewind(Weta* pWeta)
 {
+#ifdef SUPPORT_MOTORS
+    hw_motor_all_off(&pWeta->hal->motors);
+#endif
+#ifdef SUPPORT_STEPPERS
+    hw_stepper_all_off(&pWeta->hal->steppers);
+#endif
 	init_registers(&pWeta->regs);
 	init_states(&pWeta->states);
 	if (pWeta->stack)

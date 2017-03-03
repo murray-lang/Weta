@@ -20,15 +20,6 @@ hw_serial_init(struct _Hardware* hw, uint16_t flags)
 }
 
 uint8_t WETAFUNCATTR
-hw_serial_read_i(SerialPorts *ports, uint8_t i, uint8_t *buf, uint8_t length, int16_t timeout)
-{
-    if (i >= ports->n_ports)
-        return 0;
-
-    return hw_serial_read(&ports->ports[i], buf, length, timeout);
-}
-
-uint8_t WETAFUNCATTR
 hw_serial_read(SerialPort *port, uint8_t* buf, uint8_t length, int16_t timeout)
 {
 	uint32 startTime = hw_time_now();
@@ -48,15 +39,6 @@ hw_serial_read(SerialPort *port, uint8_t* buf, uint8_t length, int16_t timeout)
 }
 
 uint8_t WETAFUNCATTR
-hw_serial_read_byte_i(SerialPorts *ports, uint8_t i)
-{
-    if (i >= ports->n_ports)
-        return 0;   // Hmm... should return value as param
-
-    return hw_serial_read_byte(&ports->ports[i]);
-}
-
-uint8_t WETAFUNCATTR    
 hw_serial_read_byte(SerialPort *port)
 {
 	uint8_t val;
@@ -65,28 +47,10 @@ hw_serial_read_byte(SerialPort *port)
 }
 
 uint8_t WETAFUNCATTR
-hw_serial_write_i(SerialPorts *ports, uint8_t i, const uint8_t *buf, uint8_t length)
-{
-    if (i >= ports->n_ports)
-        return 0;
-
-    hw_serial_write(&ports->ports[i], buf, length);
-}
-
-uint8_t WETAFUNCATTR 
 hw_serial_write(SerialPort *port, const uint8_t* buf, uint8_t length)
 {
 	uart_tx_bytes(port->port, buf, (uint16)length);
 	return length; // Optimism born of necessity
-}
-
-uint8_t WETAFUNCATTR
-hw_serial_write_byte_i(SerialPorts *ports, uint8_t i, uint8_t value)
-{
-    if (i >= ports->n_ports)
-        return 0;
-
-    return hw_serial_write_byte(&ports->ports[i], value);
 }
 
 uint8_t WETAFUNCATTR
@@ -98,22 +62,9 @@ hw_serial_write_byte(SerialPort *port, uint8_t value)
 }
 
 bool WETAFUNCATTR
-hw_serial_available_i(SerialPorts *ports, uint8_t i)
-{
-    if (i >= ports->n_ports)
-        return false;
-    return hw_serial_available(&ports->ports[i]);
-}
-bool WETAFUNCATTR    
 hw_serial_available(SerialPort *port)
 {
 	return uart_data_available(port->port);
-}
-
-void hw_serial_flush_i(SerialPorts *ports, uint8_t i)
-{
-    if (i < ports->n_ports)
-        return hw_serial_flush(&ports->ports[i]);
 }
 
 void WETAFUNCATTR

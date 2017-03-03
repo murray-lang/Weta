@@ -3,8 +3,8 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" buildAllGenerated="true">
     <generated>
       <config projectName="weta_esp8266" targetName="weta_esp8266" />
-      <config projectName="weta-esp8266" targetName="weta-esp8266" />
       <config projectName="weta-esp8266" targetName="weta-esp-common" />
+      <config projectName="weta-esp8266" targetName="weta-esp8266" />
       <config projectName="weta-esp8266" targetName="weta-common" />
     </generated>
   </component>
@@ -37,29 +37,63 @@
       <file leaf-file-name="weta.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../weta-common/weta.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="2036" column="35" lean-forward="false" selection-start-line="2036" selection-start-column="35" selection-end-line="2036" selection-end-column="35" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hw_serial.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_serial.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hw_serial.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platform/arch/hw_serial.c">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2178">
-              <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="-306">
+              <caret line="173" column="15" lean-forward="false" selection-start-line="173" selection-start-column="15" selection-end-line="173" selection-end-column="15" />
+              <folding>
+                <element signature="e#72#89#0" expanded="true" />
+                <element signature="e#290#309#0" expanded="true" />
+                <element signature="e#645#711#0" expanded="true" />
+                <element signature="e#2773#2806#0" expanded="true" />
+                <element signature="e#7540#7771#0" expanded="true" />
+                <element signature="e#8336#8651#0" expanded="true" />
+                <element signature="e#8968#9078#0" expanded="true" />
+                <element signature="e#9115#15901#0" expanded="true" />
+                <element signature="e#19604#19897#0" expanded="true" />
+                <element signature="e#19930#20227#0" expanded="true" />
+                <element signature="e#22443#22461#0" expanded="true" />
+                <element signature="e#22494#22513#0" expanded="true" />
+                <element signature="e#36999#37036#0" expanded="true" />
+                <element signature="e#37321#37358#0" expanded="true" />
+                <element signature="e#37641#37678#0" expanded="true" />
+                <element signature="e#37885#37922#0" expanded="true" />
+                <element signature="e#39670#40226#0" expanded="true" />
+                <element signature="e#40256#41274#0" expanded="true" />
+                <element signature="e#41304#41534#0" expanded="true" />
+                <element signature="e#45672#46673#0" expanded="true" />
+                <element signature="e#46706#47728#0" expanded="true" />
+                <element signature="e#47793#48301#0" expanded="true" />
+                <element signature="e#48366#48688#0" expanded="true" />
+                <element signature="e#48752#49254#0" expanded="true" />
+                <element signature="e#57642#57686#0" expanded="true" />
+                <element signature="e#57717#57763#0" expanded="true" />
+                <marker date="1488527412925" expanded="true" signature="208:227" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="340:492" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="899:934" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="1131:1184" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="2873:3351" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="4438:4580" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="4647:4671" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="5884:6084" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="6117:6438" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="7091:7112" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="7189:7397" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="19253:19296" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="20849:21829" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="22024:22051" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="22169:22208" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="22370:22411" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="22546:22565" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="35901:35927" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="38242:39637" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="41565:43076" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="44567:45640" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="52898:53013" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="54395:54484" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="55257:55470" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="57520:57612" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="57794:57840" ph="..." />
+                <marker date="1488527412925" expanded="true" signature="58388:60319" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,31 +101,79 @@
       <file leaf-file-name="hw_defs.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platform/arch/hw_defs.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1422">
-              <caret line="79" column="13" lean-forward="false" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hw_dac.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_dac.h">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="14" column="45" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+              <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="hw_dac.c" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platform/arch/hw_dac.c">
+      <file leaf-file-name="user_webserver.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webserver/user_webserver.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-8794">
+              <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hw_pwm.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platform/arch/hw_pwm.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hw_motor.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_motor.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="427">
+              <caret line="55" column="45" lean-forward="false" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hw_motor.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_motor.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pwm.h" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/ESP/ESP8266_NONOS_SDK/include/pwm.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="337">
+              <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="board.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platform/boards/esp12_hbridge_robot/board.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-468">
+              <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user_main.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main/user_main.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="31">
+              <caret line="104" column="4" lean-forward="false" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,9 +181,11 @@
       <file leaf-file-name="weta_platform.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platform/weta_platform.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1782">
-              <caret line="99" column="65" lean-forward="false" selection-start-line="99" selection-start-column="65" selection-end-line="99" selection-end-column="65" />
-              <folding />
+            <state relative-caret-position="184">
+              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+              <folding>
+                <element signature="e#1705#1741#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,7 +218,6 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/platform/arch/hw_flash_raw.c" />
         <option value="$PROJECT_DIR$/platform/boards/esp12_hbridge_robot/board.c" />
-        <option value="$PROJECT_DIR$/webserver/user_webserver.c" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_time.h" />
         <option value="$PROJECT_DIR$/platform/arch/hw_time.c" />
         <option value="$PROJECT_DIR$/../../weta-common/weta.h" />
@@ -142,7 +225,6 @@
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw.c" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_adc.h" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_gpio.h" />
-        <option value="$PROJECT_DIR$/../../weta-common/hw/hw_motor.h" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_pwm.h" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_servo.h" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_buzzer.h" />
@@ -150,17 +232,19 @@
         <option value="$PROJECT_DIR$/platform/arch/hw_buzzer.c" />
         <option value="$PROJECT_DIR$/platform/arch/hw_dac.c" />
         <option value="$PROJECT_DIR$/platform/arch/hw_i2c.c" />
-        <option value="$PROJECT_DIR$/platform/arch/hw_pwm.c" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_i2c.h" />
         <option value="$PROJECT_DIR$/platform/arch/hw_gpio.c" />
         <option value="$PROJECT_DIR$/platform/arch/uart_util.c" />
         <option value="$PROJECT_DIR$/platform/arch/uart_util.h" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_servo.c" />
-        <option value="$PROJECT_DIR$/../../weta-common/hw/hw_motor.c" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_dac.h" />
-        <option value="$PROJECT_DIR$/platform/weta_platform.h" />
         <option value="$PROJECT_DIR$/../../weta-common/hw/hw_serial.h" />
         <option value="$PROJECT_DIR$/platform/arch/hw_serial.c" />
+        <option value="$PROJECT_DIR$/webserver/user_webserver.c" />
+        <option value="$PROJECT_DIR$/platform/weta_platform.h" />
+        <option value="$PROJECT_DIR$/platform/arch/hw_pwm.c" />
+        <option value="$PROJECT_DIR$/../../weta-common/hw/hw_motor.h" />
+        <option value="$PROJECT_DIR$/../../weta-common/hw/hw_motor.c" />
         <option value="$PROJECT_DIR$/../../weta-common/weta.c" />
       </list>
     </option>
@@ -222,6 +306,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="weta-esp8266" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weta-esp8266" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weta-esp8266" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weta-esp8266" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webserver" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -310,6 +412,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="arch" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weta-esp8266" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weta-esp8266" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="weta-esp8266" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -583,11 +703,12 @@
       <workItem from="1488334108364" duration="603000" />
       <workItem from="1488343432130" duration="15596000" />
       <workItem from="1488454345959" duration="31000" />
+      <workItem from="1488523157211" duration="4803000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17607000" />
+    <option name="totallyTimeSpent" value="22410000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -600,11 +721,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="224" width="1280" height="775" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25179282" sideWeight="0.49202734" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32874617" sideWeight="0.4972156" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36544344" sideWeight="0.36429143" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36544344" sideWeight="0.36429143" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32872504" sideWeight="0.48766905" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2767584" sideWeight="0.50278443" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -670,27 +791,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/ESP/ESP8266_NONOS_SDK/include/gpio.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="43" column="8" lean-forward="false" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/ESP/ESP8266_NONOS_SDK/include/pwm.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../weta-common/store/weta_store_flash.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../weta-common/store/weta_store_ram.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -747,13 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="142" column="162" lean-forward="false" selection-start-line="142" selection-start-column="162" selection-end-line="142" selection-end-column="162" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platform/arch/hw_flash_raw.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -768,42 +861,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main/user_main.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1872">
-          <caret line="104" column="4" lean-forward="false" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webserver/user_webserver.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1458">
-          <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_time.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../weta-common/weta.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2016">
-          <caret line="112" column="17" lean-forward="false" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
-          <folding>
-            <element signature="e#98#124#0" expanded="true" />
-            <element signature="e#557#939#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platform/boards/esp12_hbridge_robot/board.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1332">
-          <caret line="74" column="59" lean-forward="false" selection-start-line="74" selection-start-column="59" selection-end-line="74" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -846,9 +907,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="12" column="41" lean-forward="false" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
-          <folding>
-            <element signature="e#45#71#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -856,13 +914,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="11" column="40" lean-forward="false" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_motor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="51" column="42" lean-forward="false" selection-start-line="51" selection-start-column="42" selection-end-line="51" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -922,13 +973,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platform/arch/hw_pwm.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="15" lean-forward="false" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_i2c.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -964,14 +1008,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_motor.c">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="22" lean-forward="false" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platform/arch/uart_util.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
@@ -1004,22 +1040,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platform/weta_platform.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1782">
-          <caret line="99" column="65" lean-forward="false" selection-start-line="99" selection-start-column="65" selection-end-line="99" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/platform/arch/hw_defs.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1422">
-          <caret line="79" column="13" lean-forward="false" selection-start-line="79" selection-start-column="2" selection-end-line="79" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_serial.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -1028,19 +1048,183 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../weta-common/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_serial.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../weta-common/weta.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding>
+            <element signature="e#557#939#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/platform/arch/hw_serial.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2178">
-          <caret line="121" column="0" lean-forward="false" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+        <state relative-caret-position="337">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/weta_platform.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding>
+            <element signature="e#1705#1741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webserver/user_webserver.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8794">
+          <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/ESP/ESP8266_NONOS_SDK/include/pwm.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main/user_main.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="104" column="4" lean-forward="false" selection-start-line="104" selection-start-column="4" selection-end-line="104" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/boards/esp12_hbridge_robot/board.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-468">
+          <caret line="58" column="5" lean-forward="true" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/arch/hw_defs.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/platform/arch/hw_pwm.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_motor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="55" column="45" lean-forward="false" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../weta-common/hw/hw_motor.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../weta-common/weta.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="2036" column="35" lean-forward="false" selection-start-line="2036" selection-start-column="35" selection-end-line="2036" selection-end-column="35" />
-          <folding />
+        <state relative-caret-position="-306">
+          <caret line="173" column="15" lean-forward="false" selection-start-line="173" selection-start-column="15" selection-end-line="173" selection-end-column="15" />
+          <folding>
+            <element signature="e#72#89#0" expanded="true" />
+            <element signature="e#290#309#0" expanded="true" />
+            <element signature="e#645#711#0" expanded="true" />
+            <element signature="e#2773#2806#0" expanded="true" />
+            <element signature="e#7540#7771#0" expanded="true" />
+            <element signature="e#8336#8651#0" expanded="true" />
+            <element signature="e#8968#9078#0" expanded="true" />
+            <element signature="e#9115#15901#0" expanded="true" />
+            <element signature="e#19604#19897#0" expanded="true" />
+            <element signature="e#19930#20227#0" expanded="true" />
+            <element signature="e#22443#22461#0" expanded="true" />
+            <element signature="e#22494#22513#0" expanded="true" />
+            <element signature="e#36999#37036#0" expanded="true" />
+            <element signature="e#37321#37358#0" expanded="true" />
+            <element signature="e#37641#37678#0" expanded="true" />
+            <element signature="e#37885#37922#0" expanded="true" />
+            <element signature="e#39670#40226#0" expanded="true" />
+            <element signature="e#40256#41274#0" expanded="true" />
+            <element signature="e#41304#41534#0" expanded="true" />
+            <element signature="e#45672#46673#0" expanded="true" />
+            <element signature="e#46706#47728#0" expanded="true" />
+            <element signature="e#47793#48301#0" expanded="true" />
+            <element signature="e#48366#48688#0" expanded="true" />
+            <element signature="e#48752#49254#0" expanded="true" />
+            <element signature="e#57642#57686#0" expanded="true" />
+            <element signature="e#57717#57763#0" expanded="true" />
+            <marker date="1488527412925" expanded="true" signature="208:227" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="340:492" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="899:934" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="1131:1184" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="2873:3351" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="4438:4580" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="4647:4671" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="5884:6084" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="6117:6438" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="7091:7112" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="7189:7397" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="19253:19296" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="20849:21829" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="22024:22051" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="22169:22208" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="22370:22411" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="22546:22565" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="35901:35927" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="38242:39637" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="41565:43076" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="44567:45640" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="52898:53013" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="54395:54484" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="55257:55470" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="57520:57612" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="57794:57840" ph="..." />
+            <marker date="1488527412925" expanded="true" signature="58388:60319" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

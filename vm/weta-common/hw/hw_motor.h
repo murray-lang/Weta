@@ -53,6 +53,7 @@ extern void hw_motor_init(struct _Hardware* hw, uint16_t flags);
 extern void hw_motor_select(Motors* motors, uint8_t select);
 extern void hw_motor_update(Motors* motors);
 extern void hw_motor_on(Motors* motors, bool on);
+extern void hw_motor_all_off(Motors* motors);
 extern void hw_motor_brake(Motors* motors, bool brake);
 extern void hw_motor_direction(Motors* motors, MotorDirection dir);
 extern void hw_motor_reverse(Motors* motors);

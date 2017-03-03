@@ -48,6 +48,13 @@ user_weta_prepare_for_command(WetaStorage where)
 }
 
 void ICACHE_FLASH_ATTR
+user_weta_stop()
+{
+    DEBUGMSG("user_weta_stop()\n\r");
+    weta_reset(&weta);
+}
+
+void ICACHE_FLASH_ATTR
 user_weta_set_start_address(uint32 address)
 {
     DEBUGMSG("user_weta_set_start_address()\n\r");
@@ -490,6 +497,11 @@ webserver_recv(void *arg, char *pusrdata, unsigned short length)
                         } else {
                             response_send(ptrespconn, false);
                         }
+                    }
+                    if (os_strcmp(pURL_Frame->pFilename, "stop") == 0)
+                    {
+                        user_weta_stop();
+                        response_send(ptrespconn, true);
                     }
                     else
                     {

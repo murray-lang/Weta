@@ -1,0 +1,44 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <block type="weta_motors_select" id="63Z$gtZo4$ZBiZil*2+8" x="38" y="-12">
+    <field name="MOTOR_A">TRUE</field>
+    <field name="MOTOR_B">TRUE</field>
+    <field name="MOTOR_C">FALSE</field>
+    <field name="MOTOR_D">FALSE</field>
+    <field name="MOTOR_E">FALSE</field>
+    <field name="MOTOR_F">FALSE</field>
+    <field name="MOTOR_G">FALSE</field>
+    <field name="MOTOR_H">FALSE</field>
+    <next>
+      <block type="weta_motors_power" id="kC:iUV#ktA7BEX-ad}|2">
+        <value name="POWER">
+          <block type="math_number" id="PBNoT7Z83J9ZZFx:zPVA">
+            <field name="NUM">255</field>
+          </block>
+        </value>
+        <next>
+          <block type="weta_motors_control" id="N-2EQQ@FwrX|lHSPzssz">
+            <field name="OP">on</field>
+            <next>
+              <block type="control_forever" id="M$dM!EqmSl1%}K4~h7|Q">
+                <statement name="CODE_BLOCK">
+                  <block type="weta_wait_tenths" id="A0LT(sD2Xy2S|5b^ohi7">
+                    <value name="VAL">
+                      <block type="math_number" id="kmiTU~zfhG_^][t-Px+n">
+                        <field name="NUM">10</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="weta_motors_control" id="h8t$P42AiQIC6;?i+WNR">
+                        <field name="OP">rd</field>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

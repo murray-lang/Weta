@@ -4,7 +4,7 @@ void WETAFUNCATTR
 hw_motor_init(struct _Hardware* hw, uint16_t flags)
 {
 	flags = flags;
-	
+	hw_motor_all_off(&hw->motors);
 }
 
 void WETAFUNCATTR
@@ -74,6 +74,13 @@ hw_motor_update(Motors* motors)
             }
         }
     }
+}
+
+void WETAFUNCATTR
+hw_motor_all_off(Motors* motors)
+{
+	hw_motor_select(motors, 0xFF);
+	hw_motor_on(motors, false);
 }
 
 void WETAFUNCATTR

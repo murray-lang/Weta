@@ -18,7 +18,7 @@
 
 #include <weta_platform.h>
 #include <weta.h>
-#include <arch/hw_defs.h>
+//#include <hw_defs.h>
 
 #include <driver/ledc.h>    // For debugging pwm
 
@@ -99,7 +99,6 @@ init_wifi(void)
 
 void weta_task(void *pvParameter)
 {
-    hw_init();
     weta_stack_init();
     weta_init(&weta, &hardware, 0);
 
@@ -123,12 +122,13 @@ void weta_task(void *pvParameter)
 
 int app_main(void)
 {
+    hw_init();
     nvs_flash_init();
 
     init_wifi();
     init_webserver();
 
-    xTaskCreate(&webserver_task, "web_server", 2048, NULL, 5, NULL);
+    xTaskCreate(&webserver_task, "web_server", 4096, NULL, 5, NULL);
     xTaskCreate(weta_task, "weta_task", 2048, NULL, 5, NULL);
 
     /*

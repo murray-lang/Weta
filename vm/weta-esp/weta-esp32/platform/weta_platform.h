@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <malloc.h>
 #include <stdio.h>
+#include <string.h>
 #include  <sdkconfig.h>
 
 #define WETA_STACK_SIZE 256
@@ -29,9 +30,18 @@
 #define weta_sprintf sprintf
 #define weta_printf printf
 
+#define weta_strcat strcat
+#define weta_strchr strchr
+#define weta_strcmp strcmp
+#define weta_strcpy strcpy
+#define weta_strlen strlen
+#define weta_strncmp strncmp
+#define weta_strncpy strncpy
+#define weta_strstr strstr
+
 #define DEBUG
 #ifdef DEBUG
-#define DEBUGMSG(...) weta_printf(__VA_ARGS__),fflush(stdout)
+#define DEBUGMSG(...) weta_printf(__VA_ARGS__)/*,fflush(stdout)*/
 #else
 #define DEBUGMSG(...)
 #endif
@@ -39,6 +49,18 @@
 typedef uint32_t WetaTimestamp;
 typedef uint32_t WetaFlashPtr;
 typedef uint32_t WetaFlashFlags;
+typedef uint32_t WetaDebounceCounter;
+
+typedef uint8_t  WetaPin;
+typedef uint32_t WetaGpioMode;
+typedef uint8_t  WetaPwmChannel;
+typedef uint8_t  WetaPwmDuty;
+typedef uint8_t  WetaAdcChannel;
+typedef uint8_t  WetaAdcDepth;
+    // Although ESP32 only has attenuation, the generic configuration uses
+    // gain. So use gain hear so that it matches the expectation for
+    // setting and querying configurations. Note signed (-ve for attenuation).
+typedef int8_t   WetaAdcGain;
 
 /**
  * @brief The type of a byte code address.
@@ -75,32 +97,33 @@ typedef int16_t		WetaStackPtr;
 #define SUPPORT_JSON
 
 #define SUPPORT_QUERY
+//#define SUPPORT_CRICKET
 
 #define FORCE_STACK_BYTE_ALIGNED
 
 #define weta_beep(hw)                               hw_buzzer_beep(hw)
-#define weta_led(hw, on)                            hw_gpio_set_i(&(hw)->gpio, GPIO_INDEX_LED, on)
-#define weta_motor_select(hw, sel)                  hw_motor_select(&(hw)->motors, sel)
-#define weta_motor_dir(hw, dir)                     hw_motor_direction(&(hw)->motors, dir)
-#define weta_motor_rd(hw)                           hw_motor_reverse(&(hw)->motors)
-#define weta_motor_power(hw, pow)                   hw_motor_power(&(hw)->motors, pow)
-#define weta_motor_brake(hw, yep)                   hw_motor_brake(&(hw)->motors, yep)
-#define weta_motor_on(hw, on)                       hw_motor_on(&(hw)->motors, on)
-#define weta_servo_select(hw, sel)                  hw_servo_select(&(hw)->servos, sel)
-#define weta_servo_pos(hw, dir)                     hw_servo_set_position(&(hw)->servos, dir)
-#define weta_adc_get(hw, i, val)                    hw_adc_get(&(hw)->adc, i, val)
-#define weta_dac_set(hw, i, val)                    hw_dac_set(&(hw)->adc, i, val)
-#define weta_digital_in(hw, i, val)                 hw_gpio_get_i(&(hw)->gpio, i, val)
-#define weta_digital_out(hw, i, val)                hw_gpio_set_i(&(hw)->gpio, i, val)
-#define weta_serial_available(hw, i)                hw_serial_available_i(&(hw)->sports, i)
-#define weta_serial_read(hw, i, buf, len, timeout)  hw_serial_read_i(&(hw)->sports, i, buf, len, timeout)
-#define weta_serial_write(hw, i, buf, len)          hw_serial_write_i(&(hw)->sports, i, buf, len)
+#define weta_motor_select(hw, sel)                  hw_motor_select(hw, sel)
+#define weta_motor_dir(hw, dir)                     hw_motor_direction(hw, dir)
+#define weta_motor_rd(hw)                           hw_motor_reverse(hw)
+#define weta_motor_power(hw, pow)                   hw_motor_power(hw, pow)
+#define weta_motor_brake(hw, yep)                   hw_motor_brake(hw, yep)
+#define weta_motor_on(hw, on)                       hw_motor_on(hw, on)
+#define weta_servo_select(hw, sel)                  hw_servo_select(hw, sel)
+#define weta_servo_pos(hw, dir)                     hw_servo_set_position(hw, dir)
+#define weta_servo_left(hw, amt)                    hw_servo_left(hw, amt)
+#define weta_servo_right(hw, amt)                   hw_servo_right(hw, amt)
+#define weta_adc_get(hw, i, val)                    hw_adc_get(hw, i, val)
+#define weta_dac_set(hw, i, val)                    hw_dac_set(hw, i, val)
+#define weta_digital_in(hw, i, val)                 hw_gpio_get(hw, i, val)
+#define weta_digital_out(hw, i, val)                hw_gpio_set(hw, i, val)
+#define weta_serial_available(hw, i)                hw_serial_available_i((hw)->sports, i)
+#define weta_serial_read(hw, i, buf, len, timeout)  hw_serial_read_i((hw)->sports, i, buf, len, timeout)
+#define weta_serial_write(hw, i, buf, len)          hw_serial_write_i((hw)->sports, i, buf, len)
 #define weta_i2c_start(hw)                          hw_i2c_start(hw)
 #define weta_i2c_stop(hw)                           hw_i2c_stop(hw)
 #define weta_i2c_write(hw, s, r, w, buf, n)         hw_i2c_write(hw, s, r, w, buf, n)
 #define weta_i2c_read(hw, s, r, w, buf, n)          hw_i2c_read(hw, s, r, w, buf, n)
 
-#include "arch/hw_defs.h"
 #include "boards/board.h"
 
 #endif //__WETA_PLATFORM_H__

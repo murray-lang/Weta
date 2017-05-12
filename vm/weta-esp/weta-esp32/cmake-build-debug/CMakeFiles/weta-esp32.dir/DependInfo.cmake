@@ -5,19 +5,20 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/main/main.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/main/main.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_adc.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/hw_adc.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_buzzer.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/hw_buzzer.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_dac.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/hw_dac.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_endian.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/hw_endian.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_flash_raw.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/hw_flash_raw.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_gpio.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/hw_gpio.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_i2c.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/hw_i2c.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_pwm.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/hw_pwm.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_serial.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/hw_serial.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_time.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/hw_time.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_adc.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/esp32_adc.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_buzzer.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/esp32_buzzer.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_dac.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/esp32_dac.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_endian.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/esp32_endian.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_flash_raw.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/esp32_flash_raw.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_gpio.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/esp32_gpio.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_i2c.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/esp32_i2c.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_pwm.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/esp32_pwm.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_serial.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/esp32_serial.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_time.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/arch/esp32_time.c.o"
   "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/board.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/boards/board.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/carlos/board.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/boards/carlos/board.c.o"
-  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/mynano32/board.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/boards/mynano32/board.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/carlos/carlos_board.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/boards/carlos/carlos_board.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/mynano32/mynano32_board.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/boards/mynano32/mynano32_board.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/mynano32/nano32_pin_caps.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/CMakeFiles/weta-esp32.dir/platform/boards/mynano32/nano32_pin_caps.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

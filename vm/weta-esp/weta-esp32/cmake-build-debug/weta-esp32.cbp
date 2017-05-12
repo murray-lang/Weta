@@ -17,21 +17,21 @@
 					<DistClean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
 					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -60,14 +60,14 @@
 					<Add directory="/home/murray/ESP/esp-idf-v2.0/components/nvs_flash/include"/>
 					<Add directory="/home/murray/ESP/xtensa-esp32-elf/xtensa-esp32-elf/include"/>
 					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/./build/include"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/4.8"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
-					<Add directory="/usr/include/c++/4.8/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 weta-esp32"/>
@@ -99,14 +99,14 @@
 					<Add directory="/home/murray/ESP/esp-idf-v2.0/components/nvs_flash/include"/>
 					<Add directory="/home/murray/ESP/xtensa-esp32-elf/xtensa-esp32-elf/include"/>
 					<Add directory="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/./build/include"/>
+					<Add directory="/usr/include/c++/4.8"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
+					<Add directory="/usr/include/c++/4.8/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed"/>
 					<Add directory="/usr/include/x86_64-linux-gnu"/>
 					<Add directory="/usr/include"/>
-					<Add directory="/usr/include/c++/4.8"/>
-					<Add directory="/usr/include/x86_64-linux-gnu/c++/4.8"/>
-					<Add directory="/usr/include/c++/4.8/backward"/>
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j2 -f &quot;/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/cmake-build-debug/Makefile&quot;  VERBOSE=1 weta-esp32/fast"/>
@@ -119,34 +119,34 @@
 		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/main/main.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_adc.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_adc.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_buzzer.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_buzzer.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_dac.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_dac.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_endian.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_endian.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_flash_raw.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_flash_raw.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_gpio.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_gpio.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_i2c.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_i2c.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_pwm.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_pwm.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_serial.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_serial.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/hw_time.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/arch/esp32_time.c">
 			<Option target="weta-esp32"/>
 		</Unit>
 		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/board.c">
@@ -155,16 +155,22 @@
 		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/board.h">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/carlos/board.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/carlos/carlos_board.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/carlos/board.h">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/carlos/carlos_board.h">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/mynano32/board.c">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/mynano32/mynano32_board.c">
 			<Option target="weta-esp32"/>
 		</Unit>
-		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/mynano32/board.h">
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/mynano32/mynano32_board.h">
+			<Option target="weta-esp32"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/boards/mynano32/nano32_pin_caps.c">
+			<Option target="weta-esp32"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/hw_defs.h">
 			<Option target="weta-esp32"/>
 		</Unit>
 		<Unit filename="/home/murray/Robotics/Weta/vm/weta-esp/weta-esp32/platform/weta_platform.h">

@@ -1,8 +1,10 @@
 #ifndef __HW_H__
 #define  __HW_H__
 
+#include "hw_pins.h"
 #include "hw_endian.h"
 #include "hw_serial.h"
+
 #ifdef SUPPORT_MOTORS
 #include "hw_motor.h"
 #endif
@@ -24,15 +26,37 @@
 #ifdef	SUPPORT_DAC
 #include "hw_dac.h"
 #endif
+#ifdef	SUPPORT_SHIFTERS
+#include "hw_shifter.h"
+#endif
+
 #include "hw_i2c.h"
 #include "hw_buzzer.h"
 #include "hw_time.h"
+
+#include <hw_defs.h>
 
 typedef struct _Hardware
 {
 	uint8_t*    flash;
 	WetaCodePtr flashLength;
+
+    uint8_t*    configFlash;
+    WetaCodePtr configFlashLength;
+
 	SerialPorts sports;
+	uint8_t     ledGpio;
+	uint8_t     beeperPwm;
+
+#ifdef	SUPPORT_GPIO
+    Gpio        gpio;
+#endif
+#ifdef	SUPPORT_SHIFTERS
+    Shifters    shifters;
+#endif
+#ifdef	SUPPORT_PWM
+    PwmChannels pwms;
+#endif
 #ifdef SUPPORT_MOTORS
 	Motors      motors;
 #endif
@@ -42,15 +66,12 @@ typedef struct _Hardware
 #ifdef	SUPPORT_SERVOS
 	Servos      servos;
 #endif
-#ifdef	SUPPORT_GPIO
-	Gpio        gpio;
-#endif
-#ifdef	SUPPORT_PWM
-	PwmChannels pwms;
-#endif
+
+
 #ifdef	SUPPORT_ADC
 	Adc			adc;
 #endif
+
 } Hardware;
 
 #ifdef __cplusplus

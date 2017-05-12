@@ -120,24 +120,6 @@ with_double(Weta* pWeta)
 		}
 		return true;
 
-	case OP_TX:
-		{
-			//Serial.println("---tx---");
-			weta_stack_popDouble(pWeta->stack, &rhs);
-			uint8_t nbuf[sizeof(double)];
-			hton_double(rhs, nbuf);
-			hw_serial_write(pWeta->sport, nbuf, sizeof(double));
-		}
-		return true;
-
-	case OP_RX:
-		{
-			//Serial.println("---rx---");
-			uint8_t nbuf[sizeof(double)];
-			hw_serial_read(pWeta->sport, nbuf, sizeof(double), -1);
-			weta_stack_pushDouble(pWeta->stack, ntoh_double(nbuf));
-		}
-		return true;
 #ifdef SUPPORT_STRING
 	case OP_TOSTR:
 		{
@@ -227,11 +209,6 @@ with_double(Weta* pWeta)
 		return true;
 
 	case OP_DIV:
-		//Serial.print("div (");
-		//Serial.print(lhs);
-		//Serial.print("/");
-		//Serial.print(rhs);
-		//Serial.print(") ");
 		weta_stack_pushDouble(pWeta->stack, (double)(lhs / rhs));
 		return true;
 

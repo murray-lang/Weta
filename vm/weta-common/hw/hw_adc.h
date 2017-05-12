@@ -10,7 +10,9 @@ extern "C" {
 struct _Hardware;
 
 extern void hw_adc_init(struct _Hardware* hw, uint16_t flags);
-extern bool hw_adc_get(Adc *adc, uint8_t i, int16_t *value);
+extern bool hw_adc_config(struct _Hardware* hw, uint8_t depth);
+extern bool hw_adc_channel_config(struct _Hardware* hw, uint8_t channel, int8_t gain);
+extern bool hw_adc_get(struct _Hardware* hw, uint8_t i, int16_t *value);
 
 #ifdef __cplusplus
 }

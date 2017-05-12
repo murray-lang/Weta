@@ -5,11 +5,28 @@
 #ifndef VM_MYNANO32_BOARD_H
 #define VM_MYNANO32_BOARD_H
 
-#define FLASH_USER_START       0x110000
-#define FLASH_USER_LENGTH      0x1000
+//#define FLASH_USER_START       0x110000
+#define FLASH_USER_START       0x0B0000
+#define FLASH_USER_LENGTH        0x1000
+#define FLASH_CONFIG_START     (FLASH_USER_START + FLASH_USER_LENGTH)
+#define FLASH_CONFIG_LENGTH     FLASH_USER_LENGTH
+
 #define FLASH_ERASE_BLOCK_SIZE 4096
 #define FLASH_BLOCK_SIZE       128
 #define FLASH_ALIGN			   4
+
+#define MAX_UARTS        1
+#define MAX_GPIO        20
+#define MAX_PWM          8
+#define MAX_PWM_TIMERS   4
+#define MAX_MOTORS      MAX_PWM
+#define MAX_SERVOS      MAX_PWM
+#define MAX_ADC         8
+#define MAX_DAC         2
+
+#define MAX_SHIFTERS 4
+#define MAX_SHIFTER_WIDTH 32
+#define MAX_STEPPERS (MAX_SHIFTERS*2)
 
 #define GPIO_INDEX_LED               0
 #define GPIO_INDEX_RUN               1   // Index into the GPIO array of the run button
@@ -68,16 +85,17 @@
 #define SUPPORT_MOTORS
 #define SUPPORT_H_BRIDGE
 #define SUPPORT_STEPPERS
-//#define SUPPORT_SERVOS
+#define SUPPORT_SERVOS
 #define SUPPORT_ADC
-//#define SUPPORT_DAC
+#define SUPPORT_DAC
+#define SUPPORT_SHIFTERS
 
 // hw_motors.h looks for this
 //#define MOTORS_A_B_PWM
-#define MOTORS_DIR_PWM
+//#define MOTORS_DIR_PWM
 
 // hw_stepper.h looks for this
-#define STEPPERS_USE_SHIFTER
+//#define STEPPERS_USE_SHIFTER
 
 
 

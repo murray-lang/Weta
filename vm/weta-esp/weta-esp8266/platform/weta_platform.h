@@ -75,6 +75,16 @@ typedef int16_t		WetaStackPtr;
 #include "arch/hw_defs.h"
 #define weta_printf os_printf
 #define weta_sprintf os_sprintf
+
+#define weta_strcat os_strcat
+#define weta_strchr os_strchr
+#define weta_strcmp os_strcmp
+#define weta_strcpy os_strcpy
+#define weta_strlen os_strlen
+#define weta_strncmp os_strncmp
+#define weta_strncpy os_strncpy
+#define weta_strstr os_strstr
+
 #define weta_malloc	os_malloc
 #define weta_free	os_free
 

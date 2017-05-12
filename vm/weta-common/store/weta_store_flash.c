@@ -133,7 +133,7 @@ weta_flash_start_write(PSTORE _store, WetaCodePtr startAddress, WetaCodePtr leng
         DEBUGMSG("hw_flash_start_write() failed\r\n");
         return false;
     }
-
+	//DEBUGMSG("hw_flash_start_write() succeeded\r\n");
 		// Convert the length to network byte order and store at the front
 	uint8_t buff[2];
 	hton_uint16((uint16_t)length, buff);

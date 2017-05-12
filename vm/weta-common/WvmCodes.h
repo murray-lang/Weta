@@ -5,5 +5,6 @@
 #include "WvmCommCodes.h"
 #include "WvmMathCodes.h"
 #include "WvmIoCodes.h"
+#include "WvmUiCodes.h"
 
 #endif // __WVMCODES_H__

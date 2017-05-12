@@ -18,7 +18,8 @@
  */
 typedef enum
 {
-	WETA_CONFIG, WETA_READY,
+    WETA_READY,
+	WETA_CONFIG,
 #ifdef COOPERATIVE_RTOS
     WETA_WAITING,
 #endif
@@ -67,7 +68,7 @@ typedef struct _WetaStates
 #endif
 	eRunRequest      runRequest      : 1;
 	bool             waitingCmd      : 1;
-	unsigned int     unused          : 1;
+	bool             configuring     : 1;
 } WetaStates;
 
 
@@ -158,6 +159,7 @@ extern void setBlockExecuted(Registers* pRegs);
 extern bool hasBlockExecuted(Registers* pRegs);
 extern void pushRegisters(Weta* pWeta);
 extern void popRegisters(Weta* pWeta);
+extern bool with_current_type(Weta* pWeta);
 
 #ifdef SUPPORT_JSON
 /**
@@ -182,7 +184,8 @@ typedef enum
     QUERY_ALL      = 0xFF
 } WetaQuery;
 
-extern bool weta_query(Weta* weta, WetaQuery q, char * json, uint16_t length);
+extern bool weta_query_status(Weta* weta, WetaQuery q, char * json, uint16_t length);
+extern bool weta_query_config(Weta* weta, char * json, uint16_t length);
 #endif
 
 #endif //__WETA_H__

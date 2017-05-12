@@ -4,6 +4,7 @@
 void WETAFUNCATTR 
 hw_init(void)
 {
+	init_board();
 }
 
 //ledc_timer_config_t blahdy;
@@ -11,7 +12,6 @@ hw_init(void)
 void WETAFUNCATTR 
 hw_init_specific(Hardware* pHardware, uint16_t flags)
 {
-
 	DEBUGMSG("hw_init_specific()\r\n");
 	hw_serial_init(pHardware, flags);
 
@@ -20,6 +20,10 @@ hw_init_specific(Hardware* pHardware, uint16_t flags)
     //uint8_t blah = pHardware->gpio.pins[0].pin;
     //DEBUGMSG("First GPIO pin is %d\r\n", blah);
 	hw_gpio_init(pHardware, flags);
+#endif
+
+#ifdef	SUPPORT_SHIFTERS
+	hw_shift_init(pHardware, flags);
 #endif
 
 #ifdef SUPPORT_PWM

@@ -441,9 +441,33 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c.o.provides.build: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c.o
 
 
+CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o: CMakeFiles/weta-esp8266.dir/flags.make
+CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o: /home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o"
+	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c
+
+CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.i"
+	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c > CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.i
+
+CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.s"
+	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.s
+
+CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o.requires:
+
+.PHONY : CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o.requires
+
+CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o.provides: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o.requires
+	$(MAKE) -f CMakeFiles/weta-esp8266.dir/build.make CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o.provides.build
+.PHONY : CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o.provides
+
+CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o.provides.build: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o
+
+
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o: /home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.i: cmake_force
@@ -467,7 +491,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_seria
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.o: /home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.i: cmake_force
@@ -491,7 +515,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.o: /home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.i: cmake_force
@@ -515,7 +539,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shift
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepper.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepper.c.o: /home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepper.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepper.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepper.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepper.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepper.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepper.c.i: cmake_force
@@ -539,7 +563,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_stepp
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store.c.o: /home/murray/Robotics/Weta/vm/weta-common/store/weta_store.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/store/weta_store.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store.c.i: cmake_force
@@ -563,7 +587,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_flash.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_flash.c.o: /home/murray/Robotics/Weta/vm/weta-common/store/weta_store_flash.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_flash.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_flash.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_flash.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/store/weta_store_flash.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_flash.c.i: cmake_force
@@ -587,7 +611,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_ram.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_ram.c.o: /home/murray/Robotics/Weta/vm/weta-common/store/weta_store_ram.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_ram.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_ram.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_ram.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/store/weta_store_ram.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_store_ram.c.i: cmake_force
@@ -611,7 +635,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/store/weta_
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/turtle/weta_turtle_stepper.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/turtle/weta_turtle_stepper.c.o: /home/murray/Robotics/Weta/vm/weta-common/turtle/weta_turtle_stepper.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/turtle/weta_turtle_stepper.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/turtle/weta_turtle_stepper.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/turtle/weta_turtle_stepper.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/turtle/weta_turtle_stepper.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/turtle/weta_turtle_stepper.c.i: cmake_force
@@ -635,7 +659,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/turtle/weta
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_bool.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_bool.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_bool.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_bool.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_bool.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_bool.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_bool.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_bool.c.i: cmake_force
@@ -659,7 +683,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_double.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_double.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_double.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_double.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_double.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_double.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_double.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_double.c.i: cmake_force
@@ -683,7 +707,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_float.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_float.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_float.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_float.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_float.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_float.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_float.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_float.c.i: cmake_force
@@ -707,7 +731,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int16.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int16.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int16.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int16.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int16.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int16.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int16.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int16.c.i: cmake_force
@@ -731,7 +755,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int32.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int32.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int32.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int32.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int32.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int32.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int32.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int32.c.i: cmake_force
@@ -755,7 +779,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int8.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int8.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int8.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int8.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int8.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int8.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int8.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_int8.c.i: cmake_force
@@ -779,7 +803,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_stackptr.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_stackptr.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_stackptr.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_stackptr.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_stackptr.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_stackptr.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_stackptr.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_stackptr.c.i: cmake_force
@@ -803,7 +827,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_string.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_string.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_string.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_string.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_string.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_string.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_string.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_string.c.i: cmake_force
@@ -827,7 +851,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint16.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint16.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint16.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint16.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint16.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint16.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint16.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint16.c.i: cmake_force
@@ -851,7 +875,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint32.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint32.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint32.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint32.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint32.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint32.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint32.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint32.c.i: cmake_force
@@ -875,7 +899,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint8.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint8.c.o: /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint8.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint8.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint8.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint8.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint8.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handlers/with_uint8.c.i: cmake_force
@@ -899,7 +923,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/type_handle
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta.c.o: /home/murray/Robotics/Weta/vm/weta-common/weta.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/weta.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta.c.i: cmake_force
@@ -923,7 +947,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta.c.o.pr
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta_stack.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta_stack.c.o: /home/murray/Robotics/Weta/vm/weta-common/weta_stack.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta_stack.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta_stack.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta_stack.c.o   -c /home/murray/Robotics/Weta/vm/weta-common/weta_stack.c
 
 CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta_stack.c.i: cmake_force
@@ -947,7 +971,7 @@ CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/weta_stack.
 
 CMakeFiles/weta-esp8266.dir/webserver/user_json.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/webserver/user_json.c.o: ../webserver/user_json.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building C object CMakeFiles/weta-esp8266.dir/webserver/user_json.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/weta-esp8266.dir/webserver/user_json.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/webserver/user_json.c.o   -c /home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/webserver/user_json.c
 
 CMakeFiles/weta-esp8266.dir/webserver/user_json.c.i: cmake_force
@@ -971,7 +995,7 @@ CMakeFiles/weta-esp8266.dir/webserver/user_json.c.o.provides.build: CMakeFiles/w
 
 CMakeFiles/weta-esp8266.dir/webserver/user_webserver.c.o: CMakeFiles/weta-esp8266.dir/flags.make
 CMakeFiles/weta-esp8266.dir/webserver/user_webserver.c.o: ../webserver/user_webserver.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building C object CMakeFiles/weta-esp8266.dir/webserver/user_webserver.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building C object CMakeFiles/weta-esp8266.dir/webserver/user_webserver.c.o"
 	/home/murray/ESP/esp-open-sdk/xtensa-lx106-elf/bin/xtensa-lx106-elf-gcc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/weta-esp8266.dir/webserver/user_webserver.c.o   -c /home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/webserver/user_webserver.c
 
 CMakeFiles/weta-esp8266.dir/webserver/user_webserver.c.i: cmake_force
@@ -1011,6 +1035,7 @@ weta__esp8266_OBJECTS = \
 "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw.c.o" \
 "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_flash.c.o" \
 "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c.o" \
+"CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o" \
 "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o" \
 "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.o" \
 "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.o" \
@@ -1054,6 +1079,7 @@ weta__esp8266_EXTERNAL_OBJECTS =
 ../build/bin/esp12_hbridge_robot/weta-esp8266: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw.c.o
 ../build/bin/esp12_hbridge_robot/weta-esp8266: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_flash.c.o
 ../build/bin/esp12_hbridge_robot/weta-esp8266: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c.o
+../build/bin/esp12_hbridge_robot/weta-esp8266: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o
 ../build/bin/esp12_hbridge_robot/weta-esp8266: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o
 ../build/bin/esp12_hbridge_robot/weta-esp8266: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.o
 ../build/bin/esp12_hbridge_robot/weta-esp8266: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.o
@@ -1079,7 +1105,7 @@ weta__esp8266_EXTERNAL_OBJECTS =
 ../build/bin/esp12_hbridge_robot/weta-esp8266: CMakeFiles/weta-esp8266.dir/webserver/user_webserver.c.o
 ../build/bin/esp12_hbridge_robot/weta-esp8266: CMakeFiles/weta-esp8266.dir/build.make
 ../build/bin/esp12_hbridge_robot/weta-esp8266: CMakeFiles/weta-esp8266.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Linking C executable ../build/bin/esp12_hbridge_robot/weta-esp8266"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Linking C executable ../build/bin/esp12_hbridge_robot/weta-esp8266"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/weta-esp8266.dir/link.txt --verbose=$(VERBOSE)
 	esptool.py --chip esp8266 elf2image --output /home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/build/bin/esp12_hbridge_robot/weta-esp8266- /home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/build/bin/esp12_hbridge_robot/weta-esp8266
 	esptool.py --port /dev/ttyUSB0 write_flash 0x00000 /home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/build/bin/esp12_hbridge_robot/weta-esp8266-0x00000.bin 0x10000 /home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/build/bin/esp12_hbridge_robot/weta-esp8266-0x10000.bin 0x4C000 /home/murray/ESP/ESP8266_NONOS_SDK/bin/blank.bin 0x3FC000 /home/murray/ESP/ESP8266_NONOS_SDK/bin/esp_init_data_default.bin 0x3FE000 /home/murray/ESP/ESP8266_NONOS_SDK/bin/blank.bin
@@ -1105,6 +1131,7 @@ CMakeFiles/weta-esp8266.dir/requires: CMakeFiles/weta-esp8266.dir/platform/board
 CMakeFiles/weta-esp8266.dir/requires: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw.c.o.requires
 CMakeFiles/weta-esp8266.dir/requires: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_flash.c.o.requires
 CMakeFiles/weta-esp8266.dir/requires: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c.o.requires
+CMakeFiles/weta-esp8266.dir/requires: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o.requires
 CMakeFiles/weta-esp8266.dir/requires: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o.requires
 CMakeFiles/weta-esp8266.dir/requires: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.o.requires
 CMakeFiles/weta-esp8266.dir/requires: CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.o.requires

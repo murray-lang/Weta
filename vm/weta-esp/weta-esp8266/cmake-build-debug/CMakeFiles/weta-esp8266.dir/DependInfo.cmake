@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/murray/Robotics/Weta/vm/weta-common/hw/hw.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw.c.o"
   "/home/murray/Robotics/Weta/vm/weta-common/hw/hw_flash.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_flash.c.o"
   "/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c.o"
+  "/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o"
   "/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o"
   "/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.o"
   "/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c" "/home/murray/Robotics/Weta/vm/weta-esp/weta-esp8266/cmake-build-debug/CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.o"

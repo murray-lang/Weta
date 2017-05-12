@@ -57,22 +57,6 @@ with_bool(Weta* pWeta)
 		}
 		return true;
 
-	case OP_TX:
-		{
-			//Serial.println("---tx---");
-			weta_stack_popUint8(pWeta->stack, &rhs);
-			hw_serial_write_byte(pWeta->sport, rhs);
-		}
-		return true;
-
-	case OP_RX:
-		{
-			//Serial.println("---rx---");
-			lhs = hw_serial_read_byte(pWeta->sport);
-			weta_stack_pushUint8(pWeta->stack, lhs);
-		}
-		return true;
-
 #ifdef SUPPORT_STRING
 	case OP_TOSTR:
 		{

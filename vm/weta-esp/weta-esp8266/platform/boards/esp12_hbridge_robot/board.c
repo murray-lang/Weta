@@ -144,15 +144,15 @@ weta_query(Weta* weta, WetaQuery q, char * json, uint16_t length)
     char* stopBits[] = {"1", "1.5", "2"};
     char* parity[]   = {"none", "even", "odd"};
     // TODO: Deal with length parameter
-    strcat(json, "{");
+    weta_strcat(json, "{");
 
     if (q & QUERY_DIGITAL)
     {
-        strcat(json, "\"digital\":{\"input\":[");
+        weta_strcat(json, "\"digital\":{\"input\":[");
         bool value = false;
         hw_gpio_get_i(&weta->hal->gpio, GPIO_INDEX_RUN, &value);
-        strcat(json, value ? "1]" : "0]");
-        strcat(json, "}");
+        weta_strcat(json, value ? "1]" : "0]");
+        weta_strcat(json, "}");
     }
 #ifdef SUPPORT_ADC
     if (q & QUERY_ANALOG)
@@ -171,8 +171,8 @@ weta_query(Weta* weta, WetaQuery q, char * json, uint16_t length)
     if (q & QUERY_SERIAL)
     {
         if (json[strlen(json)-1] == '}');
-            strcat(json, ",");
-        strcat(json, "\"serial\":[");
+        weta_strcat(json, ",");
+        weta_strcat(json, "\"serial\":[");
         int i;
         for (i = 0; i < weta->hal->sports.n_ports; i++)
         {
@@ -186,10 +186,10 @@ weta_query(Weta* weta, WetaQuery q, char * json, uint16_t length)
                     i == weta->hal->sports.n_ports - 1 ? "" : ","
             );
         }
-        strcat(json, "]");
+        weta_strcat(json, "]");
     }
 
-    strcat(json, "}");
+    weta_strcat(json, "}");
     return true;
 }
 #endif

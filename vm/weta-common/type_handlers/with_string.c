@@ -100,22 +100,6 @@ with_string(Weta* pWeta)
 		}
 		return true;
 
-	case OP_TX:
-		{
-			//Serial.print("---tx---");
-			weta_stack_topString(pWeta->stack, &psz);
-			//Serial.print((const char*)psz);
-			//Serial.println("\"");
-			// TO DO: replace _defaultStream->write((const char*)psz);
-			//Serial.print("' [");
-			//Serial.print(weta_stack_getStringTop(pWeta->stack));
-			//Serial.print(" ("); Serial.print((uint16_t)psz); Serial.print(")"); 
-			weta_stack_popString(pWeta->stack);
-			hw_serial_write(pWeta->sport, psz, strlen((char *)psz));
-			//Serial.print(", "); Serial.print(weta_stack_getStringTop(pWeta->stack)); Serial.println("]");
-		}
-		return true;
-
 	case OP_OUTPUT:
 		{
 			//Serial.print("output: ");

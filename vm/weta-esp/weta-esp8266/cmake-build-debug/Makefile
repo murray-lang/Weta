@@ -204,6 +204,33 @@ home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c.s:
 	$(MAKE) -f CMakeFiles/weta-esp8266.dir/build.make CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c.s
 .PHONY : home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c.s
 
+home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.o: home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o
+
+.PHONY : home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.o
+
+# target to build an object file
+home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o:
+	$(MAKE) -f CMakeFiles/weta-esp8266.dir/build.make CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o
+.PHONY : home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o
+
+home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.i: home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.i
+
+.PHONY : home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.i
+
+# target to preprocess a source file
+home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.i:
+	$(MAKE) -f CMakeFiles/weta-esp8266.dir/build.make CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.i
+.PHONY : home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.i
+
+home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.s: home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.s
+
+.PHONY : home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.s
+
+# target to generate assembly for a file
+home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.s:
+	$(MAKE) -f CMakeFiles/weta-esp8266.dir/build.make CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.s
+.PHONY : home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.s
+
 home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.o: home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o
 
 .PHONY : home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.o
@@ -1194,6 +1221,9 @@ help:
 	@echo "... home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.o"
 	@echo "... home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.i"
 	@echo "... home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.s"
+	@echo "... home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.o"
+	@echo "... home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.i"
+	@echo "... home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.s"
 	@echo "... home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.o"
 	@echo "... home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.i"
 	@echo "... home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.s"

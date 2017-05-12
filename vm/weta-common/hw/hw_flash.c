@@ -157,6 +157,8 @@ hw_flash_start_write(
 	WetaFlashPtr startAddress,
 	WetaFlashPtr requiredBytes)
 {
+    hw_flash_erase(flash); // Debugging only
+	//DEBUGMSG("Entered hw_flash_start_write()\r\n");
 	if (!flash->base)
 	{
 			// hw_flash_open() was not called or failed. flash in uninitialised.
@@ -165,17 +167,21 @@ hw_flash_start_write(
 	initBuffer(&flash->buffer);
 		// Quick sanity check now to see if it's even worth erasing
 		// to make space available.
-	if (startAddress + requiredBytes > hw_flash_total_size(flash))
+	if (startAddress + requiredBytes > hw_flash_total_size(flash)) {
 		return false;
+	}
+
 		// See if the program will fit one way or another.
 	if (hw_flash_free_bytes(flash) < startAddress + requiredBytes)
 	{
 			// Need to erase to make room.
 			// TODO: Be smarter about erasing
+        //DEBUGMSG("About to erase flash()\r\n");
 		hw_flash_erase(flash);
 	}
 	else
 	{
+        //DEBUGMSG("Enough room!\r\n");
 			// There is enough room in the unwritten blocks
 			// If the start address is zero, then it's time to mark the currently
 			// written blocks (old blocks plus current program blocks) as all old 
@@ -189,6 +195,7 @@ hw_flash_start_write(
 			
 		}
 	}
+
 		// If the start address is 0 then start at the next available block.
 		// Otherwise assume the caller knows where to safely continue writing to
 		// in the current block.
@@ -197,7 +204,7 @@ hw_flash_start_write(
 	else
 		flash->start = flash->base + calcReadOffset(flash) + startAddress;
 
-    //DEBUGMSG("hw_flash_start_write(%0X, %d) - Location: %0X\n", startAddress, requiredBytes, flash->start);
+    DEBUGMSG("@hw_flash_start_write(%0X, %d) - Location: %0X\n", startAddress, requiredBytes, flash->start);
 		
 		// Set the buffer address to the nearest 4-byte segment that will cover
 		// the start address.
@@ -304,7 +311,7 @@ hw_flash_write_bytes(PFLASH flash, uint8_t* vals, WetaFlashPtr count)
 			 
 		if (rc != FLASH_RAW_RESULT_OK)
 		{
-			DEBUGMSG("hw_flash_raw_write() returned %d\r\n", rc);
+			DEBUGMSG("!hw_flash_raw_write() returned %d\r\n", rc);
 			// Oops! return 0 bytes written, even though there might have been data
 			// that was consumed by the buffer and written. The situation is bad so
 			// just ignore the buffered data.
@@ -399,7 +406,7 @@ WetaFlashPtr WETAFUNCATTR
 hw_flash_read_bytes(PFLASH flash, WetaFlashPtr loc, uint8_t* vals, WetaFlashPtr count)
 {
 		// Debugging
-	DEBUGMSG("hw_flash_read_bytes(%0X + %0X + %0X, %d)\n", flash->base, flash->start, loc, count);
+	DEBUGMSG("#hw_flash_read_bytes(%0X + %0X + %0X, %d)\n", flash->base, flash->start, loc, count);
 		// We can't read bytes from any location. Data must be read from a 4
 		// byte boundary and the length must be a multiple of 4 bytes. Use the
 		// buffer to read any data that falls outside these boundaries.
@@ -526,6 +533,9 @@ hw_flash_total_size(PFLASH flash)
 uint8_t WETAFUNCATTR
 countFlags(WetaFlashFlags flags)
 {
+    if (flags == 0) {
+        return sizeof(WetaFlashFlags) * 8;
+    }
 		// Note that "set" flags are zero because flash is erased to all 1s.
 		// The flags are written repeatedly without an erase but with 0's
 		// accumulating from the lsb.
@@ -707,7 +717,7 @@ writeBuffer(PBUFFER buffer)
 	FlashRawResult rc;
 	rc = hw_flash_raw_write(buffer->addr, (WetaFlashPtr*)buffer->asBytes, FLASH_ALIGN);
     //DEBUGMSG("hw_flash_raw_write(%0X, [%0X, %0X, %0X, %0X])\n",
-           //buffer->addr, buffer->asBytes[0], buffer->asBytes[1], buffer->asBytes[2], buffer->asBytes[3]);
+    //       buffer->addr, buffer->asBytes[0], buffer->asBytes[1], buffer->asBytes[2], buffer->asBytes[3]);
 	return rc == FLASH_RAW_RESULT_OK;
 	
 }

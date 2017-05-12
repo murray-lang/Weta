@@ -17,22 +17,27 @@ typedef struct
 
 typedef struct 
 {
-	PwmChannel* pwm;
-    uint8_t     id;
-	bool		selected;
-    int16_t	    position;
-    ServoConfig config;
+	WetaPwmChannel 	pwm;
+	bool			selected;
+    int16_t	    	position;
+    ServoConfig 	config;
 } ServoState;
 
-typedef struct
-{
-	ServoState* servos;
-	uint8_t		n_servos;
-} Servos;
+typedef ServoState Servos[MAX_SERVOS];
 
 extern void hw_servo_init(struct _Hardware* hw, uint16_t flags);
-extern void hw_servo_select(Servos* servos, uint8_t select);
-extern void hw_servo_update(Servos* servos);
-extern void hw_servo_set_position(Servos* servos, int16_t position);
+extern bool hw_servo_config(
+	struct _Hardware* hw,
+	uint8_t servo,
+	uint8_t pwm,
+	uint16_t minduty,
+	uint16_t maxduty,
+	uint16_t duty0,
+	int16_t dutyper10	// Note signed
+);
+extern void hw_servo_select(struct _Hardware* hw, uint8_t select);
+extern void hw_servo_set_position(struct _Hardware* hw, int16_t position);
+extern void hw_servo_left(struct _Hardware* hw, int16_t amount);
+extern void hw_servo_right(struct _Hardware* hw, int16_t amount);
 
 #endif // __HW_SERVO_H__

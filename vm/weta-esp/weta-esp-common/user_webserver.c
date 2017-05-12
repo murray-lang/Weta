@@ -60,16 +60,23 @@ bool
 user_weta_query(const char * query, char * json, uint16_t length)
 {
     //DEBUGMSG("user_weta_query()...\n\r");
-
+    if (strcmp(query, "caps") == 0)
+    {
+        return weta_pins_to_json(json, length);
+    }
+    if (strcmp(query, "config") == 0)
+    {
+        return weta_query_config(&weta, json, length);
+    }
     WetaQuery q = QUERY_NONE;
-    if (strcmp(query, "all") == 0)
+    if (strcmp(query, "status") == 0)
     {
         q = QUERY_ALL;
     }
     //sprintf(json, "{blah:true}");
 
     xSemaphoreTake(weta_mutex, portMAX_DELAY);
-    bool ok = weta_query(&weta, q, json, length);
+    bool ok = weta_query_status(&weta, q, json, length);
     xSemaphoreGive(weta_mutex);
 
     //DEBUGMSG("leaving user_weta_query()\n\r");
@@ -456,16 +463,18 @@ parse_request(struct netconn *conn, char *pRequest, unsigned short length)
         switch (pURL_Frame->Type) {
             case GET:
                 //("We have a GET request.\n");
-                if (strcmp(pURL_Frame->pSelect, "weta") == 0 &&
-                    strcmp(pURL_Frame->pCommand, "query") == 0)
+                if (strcmp(pURL_Frame->pSelect, "weta") == 0)
                 {
-                    char json[255]; // TODO: deal with this properly
-                    json[0] = 0;
-                    //char json[] = "{blah:true}";
-                    if (user_weta_query(pURL_Frame->pFilename, json, sizeof(json)))
-                        data_send(conn, true, false, json);
-                    else
-                        response_send(conn, false);
+                    if (strcmp(pURL_Frame->pCommand, "query") == 0)
+                    {
+                        char json[2500]; // TODO: deal with this properly
+                        json[0] = 0;
+                        //char json[] = "{blah:true}";
+                        if (user_weta_query(pURL_Frame->pFilename, json, sizeof(json)))
+                            data_send(conn, true, false, json);
+                        else
+                            response_send(conn, false);
+                    }
                 }
                 break;
 
@@ -501,6 +510,16 @@ parse_request(struct netconn *conn, char *pRequest, unsigned short length)
                         DEBUGMSG("Web server received a weta:cmd:interpret\n");
                         if (pParseBuffer != NULL) {
                             user_weta_program(pParseBuffer, STORAGE_RAM);
+                            response_send(conn, true);
+                        } else {
+                            response_send(conn, false);
+                        }
+                    }
+                    else if (strcmp(pURL_Frame->pFilename, "configure") == 0)
+                    {
+                        DEBUGMSG("Web server received a weta:cmd:configure\n");
+                        if (pParseBuffer != NULL) {
+                            user_weta_program(pParseBuffer, STORAGE_CONFIG_FLASH);
                             response_send(conn, true);
                         } else {
                             response_send(conn, false);

@@ -119,25 +119,6 @@ with_float(Weta* pWeta)
 		}
 		return true;
 
-	case OP_TX:
-		{
-			//Serial.println("---tx---");
-			weta_stack_popFloat(pWeta->stack, &rhs);
-			uint8_t nbuf[sizeof(float)];
-			hton_float(rhs, nbuf);
-			hw_serial_write(pWeta->sport, nbuf, sizeof(float));
-		}
-		return true;
-
-	case OP_RX:
-		{
-			//Serial.println("---rx---");
-			uint8_t nbuf[sizeof(float)];
-			hw_serial_read(pWeta->sport, nbuf, sizeof(float), -1);
-			weta_stack_pushFloat(pWeta->stack, ntoh_float(nbuf));
-		}
-		return true;
-		
 #ifdef SUPPORT_STRING
 	case OP_TOSTR:
 		{
@@ -158,7 +139,7 @@ with_float(Weta* pWeta)
 				// onto the main stack. So the string doesn't get copied 
 				// over itself, and is already copied before the first 
 				// characters of the temporary original are overwritten 
-				// by pushing the said location onto the main stack.
+				// by the said location.
 			weta_stack_pushString(pWeta->stack, (uint8_t*)psz);
 		}
 		return true;
@@ -208,70 +189,6 @@ with_float(Weta* pWeta)
 	case OP_NEG:
 		weta_stack_pushFloat(pWeta->stack, -rhs);
 		return true;
-	case OP_MATH_SQR:
-		weta_stack_pushFloat(pWeta->stack, rhs * rhs);
-		return true;
-	case OP_MATH_SQRT:
-		weta_stack_pushFloat(pWeta->stack, (float)sqrt((double)rhs));
-		return true;
-	case OP_MATH_EXP:
-		weta_stack_pushFloat(pWeta->stack, (float)exp((double)rhs));
-		return true;
-	case OP_MATH_SIN:
-		//Serial.print("sin (");
-		//Serial.print(rhs);
-		//Serial.print(") ");
-		weta_stack_pushFloat(pWeta->stack, (float)sin((double)rhs));
-		return true;
-	case OP_MATH_COS:
-		weta_stack_pushFloat(pWeta->stack, (float)cos((double)rhs));
-		return true;
-	case OP_MATH_TAN:
-		weta_stack_pushFloat(pWeta->stack, (float)tan((double)rhs));
-		return true;
-	case OP_MATH_ASIN:
-		weta_stack_pushFloat(pWeta->stack, (float)asin((double)rhs));
-		return true;
-	case OP_MATH_ACOS:
-		weta_stack_pushFloat(pWeta->stack, (float)acos((double)rhs));
-		return true;
-	case OP_MATH_ATAN:
-		weta_stack_pushFloat(pWeta->stack, (float)atan((double)rhs));
-		return true;
-	case OP_MATH_SINH:
-		weta_stack_pushFloat(pWeta->stack, (float)sinh((double)rhs));
-		return true;
-	case OP_MATH_COSH:
-		weta_stack_pushFloat(pWeta->stack, (float)cosh((double)rhs));
-		return true;
-	case OP_MATH_TANH:
-		weta_stack_pushFloat(pWeta->stack, (float)tanh((double)rhs));
-		return true;
-	case OP_MATH_LN:
-		weta_stack_pushFloat(pWeta->stack, (float)log((double)rhs));
-		return true;
-	case OP_MATH_LOG10:
-		weta_stack_pushFloat(pWeta->stack, (float)log10((double)rhs));
-		return true;
-	case OP_MATH_RND:
-		weta_stack_pushFloat(pWeta->stack, (float)round((double)rhs));
-		return true;
-	case OP_MATH_TRUNC:
-		weta_stack_pushFloat(pWeta->stack, (float)trunc((double)rhs));
-		return true;
-	case OP_MATH_FLOOR:
-		weta_stack_pushFloat(pWeta->stack, (float)floor((double)rhs));
-		return true;
-	case OP_MATH_CEIL:
-		weta_stack_pushFloat(pWeta->stack, (float)ceil((double)rhs));
-		return true;
-	case OP_MATH_ISNAN:
-		weta_stack_pushFloat(pWeta->stack, (float)isnan((double)rhs));
-		return true;
-	case OP_MATH_ISINF:
-		weta_stack_pushFloat(pWeta->stack, (float)isinf((double)rhs));
-		return true;
-
 	}
 
 	weta_stack_popFloat(pWeta->stack, &lhs);	// lhs
@@ -332,15 +249,6 @@ with_float(Weta* pWeta)
 		return true;	
 	case OP_MAX:
 		weta_stack_pushFloat(pWeta->stack, (float)fmax((double)lhs, (double)rhs));
-		return true;
-	case OP_MATH_POW:
-		weta_stack_pushFloat(pWeta->stack, (float)pow((double)lhs, (double)rhs));
-		return true;
-	case OP_MATH_HYPOT:
-		weta_stack_pushFloat(pWeta->stack, (float)hypot((double)lhs, (double)rhs));
-		return true;
-	case OP_MATH_ATAN2:
-		weta_stack_pushFloat(pWeta->stack, (float)atan2((double)lhs, (double)rhs));
 		return true;
 	}
 	return false;

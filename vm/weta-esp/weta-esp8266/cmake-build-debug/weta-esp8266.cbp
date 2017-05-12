@@ -172,6 +172,12 @@
 		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.h">
 			<Option target="weta-esp8266"/>
 		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c">
+			<Option target="weta-esp8266"/>
+		</Unit>
+		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.h">
+			<Option target="weta-esp8266"/>
+		</Unit>
 		<Unit filename="/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pwm.h">
 			<Option target="weta-esp8266"/>
 		</Unit>

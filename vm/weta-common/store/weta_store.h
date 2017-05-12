@@ -12,6 +12,7 @@ typedef enum
 {
     STORAGE_NONE,
     STORAGE_FLASH,
+    STORAGE_CONFIG_FLASH,
     STORAGE_PROM,
     STORAGE_RAM
 } WetaStorage;

@@ -153,25 +153,6 @@ with_int16(Weta* pWeta)
 		}
 		return true;
 
-	case OP_TX:
-		{
-			//Serial.println("---tx---: ");
-			weta_stack_popUint16(pWeta->stack, (uint16_t*)&rhs);
-			uint8_t nbuf[sizeof(int16_t)];
-			hton_int16(rhs, nbuf);
-			hw_serial_write(pWeta->sport, nbuf, sizeof(int16_t));
-		}
-		return true;
-
-	case OP_RX:
-		{
-			//Serial.println("---rx---");
-			uint8_t nbuf[sizeof(int16_t)];
-			hw_serial_read(pWeta->sport, nbuf, sizeof(int16_t), -1);
-			weta_stack_pushUint16(pWeta->stack, (uint16_t)ntoh_int16(nbuf));
-		}
-		return true;
-		
 #ifdef SUPPORT_STRING
 	case OP_TOSTR:
 		{

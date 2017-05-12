@@ -15,6 +15,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw.c.o"
   "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_flash.c.o"
   "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_motor.c.o"
+  "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_pins.c.o"
   "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_serial.c.o"
   "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_servo.c.o"
   "CMakeFiles/weta-esp8266.dir/home/murray/Robotics/Weta/vm/weta-common/hw/hw_shifter.c.o"

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="ln">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>LN</title>
+    <para>
+      Return the natural logarithm (base e) of the argument.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>ln</command> <emphasis role="args">&lt;value&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - a positive number</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Return the natural logarithm (base e) of the argument, or NaN if the argument is negative
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo ln E        ; foo == 1
+          make "foo ln 1        ; foo == 0
+          make "foo ln 10       ; foo == 2.302585092994046
+          make "foo ln 0        ; foo == -infinity
+          make "foo ln -1       ; foo == NaN
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="exp">exp</olink>
+            <olink targetptr="ln">ln</olink>
+            <olink targetptr="log10">log10</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

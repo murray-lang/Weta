@@ -1,0 +1,46 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="repcount.html" title=""><link rel="next" href="resetdp.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="repcount.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="resetdp.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp28967908"></a>REPEAT</h2></div></div></div>
+    
+    <p>
+        Execute statements in a block the given number of times.
+        <span class="command"><strong>repcount</strong></span> can be used to access the current number.
+        <span class="command"><strong>repcount</strong></span> is 1-based.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28972708"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>repeat</strong></span> <span class="args">&lt;times&gt;</span>
+          <span class="command"><strong>[</strong></span> <span class="args">&lt;statements&gt;*</span> <span class="command"><strong>]</strong></span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28974964"></a>Where</h3></div></div></div>
+      
+        <div class="itemizedlist"><p><span class="args">&lt;times&gt;</span> - the number of times to execute the block statements</p><p><span class="args">&lt;statements&gt;</span> - zero or more program statements</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28976812"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+              ; send '1' to '5'on their own lines
+          repeat 5
+          [
+              send tostring repcount
+              send '\n'
+          ]
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28977604"></a>See Also</h3></div></div></div>
+      
+        <p>
+            <a href="../../reference/a-z/dowhile.html" class="olink">do.while</a>
+            <a href="../../reference/a-z/for.html" class="olink">for</a>
+            <a href="../../reference/a-z/foreach.html" class="olink">foreach</a>
+            <a href="../../reference/a-z/forever.html" class="olink">forever</a>
+            <a href="../../reference/a-z/if.html" class="olink">if</a>
+            <a href="../../reference/a-z/ifelse.html" class="olink">ifelse</a>
+            <a href="../../reference/a-z/loop.html" class="olink">loop</a>
+            <a href="../../reference/a-z/while.html" class="olink">while</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="repcount.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="resetdp.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

@@ -1,0 +1,68 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="serial.html" title=""><link rel="next" href="setitem.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="serial.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="setitem.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp29041684"></a>SETDP</h2></div></div></div>
+        
+        <p>
+            Set the current location (data point) into the built-in data array.
+        </p>
+        <p>
+            TODO: Clarify size information and include as a configuration option.
+        </p>
+        <p>
+            This command is used in conjunction with
+            <a href="../../reference/a-z/erase.html" class="olink">erase</a>,
+            <a href="../../reference/a-z/record.html" class="olink">record</a>,
+            <a href="../../reference/a-z/recall.html" class="olink">recall</a> and
+            <a href="../../reference/a-z/resetdp.html" class="olink">resetdp</a>
+        </p>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29044460"></a>Synopsis</h3></div></div></div>
+            
+            <div class="funcsynopsis">
+                <span class="command"><strong>setdp</strong></span> <span class="args">&lt;location&gt;</span>
+            </div>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29045700"></a>Arguments</h3></div></div></div>
+            
+            <div class="itemizedlist"><p><span class="args">&lt;location&gt;</span> - the new location</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29046820"></a>Returns</h3></div></div></div>
+            
+            <p>
+            Nil.
+            </p>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29047524"></a>Example</h3></div></div></div>
+            
+            <pre class="programlisting">
+            ...
+                ; Gather a day's worth of 10 minute data
+                ; (To be collected at a later time)
+            setdp 8            ; Leave room for header information
+            erase 24 * 6 +10   ; This expression will be resolved at compile time
+            repeat 24 * 6
+            [
+                record sensor1
+                wait 10 * 60 * 10
+            ]
+                ; Wait for the user to press a button connected to switch2
+            waituntil [switch2]
+            setdp 8
+            repeat 24 * 6
+            [
+                send tostring recall
+                send '\n'
+            ]
+            ...
+            </pre>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29048812"></a>See Also</h3></div></div></div>
+            
+            <p>
+                <a href="../../reference/a-z/erase.html" class="olink">erase</a>
+                <a href="../../reference/a-z/recall.html" class="olink">recall</a>
+                <a href="../../reference/a-z/record.html" class="olink">record</a>
+                <a href="../../reference/a-z/resetdp.html" class="olink">resetdp</a>
+            </p>
+        </div>
+    </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="serial.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="setitem.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

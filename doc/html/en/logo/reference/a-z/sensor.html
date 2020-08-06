@@ -1,0 +1,57 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="send.html" title=""><link rel="next" href="serial.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="send.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Logo Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="serial.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N42236"></a>SENSOR[1-8]</h2></div></div></div>
+    
+    <p>
+        Returns value of the analog sensor identified by the suffix digit. These commands are included for
+        compatibility with Cricket Logo, but the same functionality is provided in a more generic way by
+        <a href="../../../logo/reference/a-z/analogin.html" class="olink">analogin</a>.
+    </p>
+      <p>
+          The value is a signed short, but the range of values will depend on the ADC hardware.
+          In Cricket Logo the range is specified as from 0 to 1023 (Assumes 10 bit ADC)
+      </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N42245"></a>Synopsis</h3></div></div></div>
+      
+        <div class="funcsynopsis">
+        <span class="command"><strong>sensor1</strong></span>
+        </div>
+        <div class="funcsynopsis">
+            <span class="command"><strong>sensor2</strong></span>
+        </div>
+        <p>...</p>
+        <div class="funcsynopsis">
+            <span class="command"><strong>sensor8</strong></span>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N42260"></a>Arguments</h3></div></div></div>
+      
+      <p>Nil.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N42269"></a>Returns</h3></div></div></div>
+      
+      <p>
+          Returns value of the analog sensor identified by the suffix digit.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N42272"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+            ; Send some sensor data
+        foreach ip [sensor1 ', ' sensor2 ', ' sensor3 ', ' sensor4 '\n']
+        [
+                ; Because at least one list item is a string, all values are
+                ; converted to a string.
+            send :ip
+        [
+       </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4227B"></a>See Also</h3></div></div></div>
+      
+      <p>
+          <a href="../../../logo/reference/a-z/analogin.html" class="olink">analogin</a>
+          <a href="../../../logo/reference/a-z/switch.html" class="olink">switch</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="send.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="serial.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

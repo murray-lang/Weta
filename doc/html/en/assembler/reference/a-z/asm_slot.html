@@ -1,0 +1,67 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_short.html" title=""><link rel="next" href="asm_span.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_short.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_span.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N48199"></a>SLOT</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td rowspan="2" align="left">&nbsp;</td><td align="left">&nbsp;</td></tr><tr><td align="left"><span class="args">slot value</span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>
+            Returns the current count within a block of instructions associated with
+            <a href="../../../assembler/reference/a-z/asm_repeat.html" class="olink">repeat</a>.
+        </p>
+        <p>
+            The value starts at 1 and increases on each iteration of the block. At the last iteration
+            <span class="command"><strong>slot</strong></span> will equal the <span class="command"><strong>repeat</strong></span>'s count value.
+        </p>
+        <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+            If <span class="command"><strong>repeat</strong></span> blocks are nested, then the outer slot value is not available to the inner
+            blocks. If outer iterator values need to be available to inner blocks then consider the
+            <a href="../../../assembler/reference/a-z/asm_for.html" class="olink">for</a> loop instead of <span class="command"><strong>repeat</strong></span>.
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N481F8"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="command"><strong>slot</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N48205"></a>Arguments</h3></div></div></div>
+        
+            <p>Nil.</p>
+
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4820E"></a>Returns</h3></div></div></div>
+        
+        <p>
+            Returns the int16 value of the current iteration count of the innermost
+            <a href="../../../assembler/reference/a-z/asm_repeat.html" class="olink">repeat</a> block.
+        </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4821B"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        ; countdown
+        int16  10    ; Repeat count
+        block
+        int16  11    ; 11 minus the slot number is the countdown value
+        slot         ; Get the current slot (1-10)
+        ssub         ; subtract (shorts)
+        stostr       ; Convert to a string
+        send
+        string "\n"
+        send
+        eob
+        repeat
+        string "Blastoff!\n"
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N48224"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_for.html" class="olink">for</a>
+            <a href="../../../assembler/reference/a-z/asm_repeat.html" class="olink">repeat</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_short.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_span.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

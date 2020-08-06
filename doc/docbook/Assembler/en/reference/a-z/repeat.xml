@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_repeat">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>REPEAT</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='4' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+            <colspec colname='c3'/>
+            <colspec colname='c4'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c4">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before&#10;(first)</entry>
+                    <entry>Before&#10;(subsequent)</entry>
+                    <entry>After&#10;(continue)</entry>
+                    <entry>After&#10;(break)</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry morerows='2'/>
+                     <entry/>
+                     <entry/>
+                     <entry morerows='4'/>
+                 </row>
+                 <row>
+                     <entry>block address</entry>
+                     <entry>block address</entry>
+                 </row>
+                 <row>
+                     <entry><emphasis role="args">count</emphasis></entry>
+                     <entry><emphasis role="args">count</emphasis></entry>
+                 </row>
+                 <row>
+                     <entry>block address</entry>
+                     <entry>outer <olink targetptr="asm_slot">slot</olink></entry>
+                     <entry>outer <olink targetptr="asm_slot">slot</olink></entry>
+                 </row>
+                 <row>
+                     <entry><emphasis role="args">count</emphasis></entry>
+                     <entry><olink targetptr="asm_slot">slot</olink></entry>
+                     <entry><olink targetptr="asm_slot">slot</olink></entry>
+                 </row>
+             </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>Repeat the block of instructions the given number of times.</para>
+        <para>The 1-based current count is available within the block through the <olink targetptr="asm_slot">slot</olink>
+        instruction.</para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para>int16&#160;&#160;&#160;&#160;<emphasis role="args">&lt;count&gt;</emphasis></para>
+            <para>block</para>
+            <para>...</para>
+            <para>eob</para>
+            <para><command>repeat</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;count&gt;</emphasis> - number of times to repeat (int16)</para>
+        </itemizedlist>
+    </sect2>
+     <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; countdown
+        int16  10    ; Repeat count
+        block
+        int16  11    ; 11 minus the slot number is the countdown value
+        slot         ; Get the current slot (1-10)
+        ssub         ; subtract (shorts)
+        stostr       ; Convert to a string
+        send
+        string "\n"
+        strsend
+        eob
+        repeat
+        string "Blastoff!\n"
+        strsend
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_for">for</olink>
+            <olink targetptr="asm_slot">slot</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

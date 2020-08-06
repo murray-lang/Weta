@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_not">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>NOT</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry/>
+
+                 </row>
+                 <row>
+                    <entry><emphasis>bool-val</emphasis></entry>
+                    <entry><emphasis role="not">bool-val</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        Remove the Boolean value from the stack, and replace it with its logical complement.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">&lt;bool-val&gt;</emphasis></para>
+            <para><command>not</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;bool-val&gt;</emphasis> - the value to negate (bool)</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns the logical complement of the argument.
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_and">and</olink>
+            <olink targetptr="asm_or">or</olink>
+            <olink targetptr="asm_xor">xor</olink>
+
+        </para>
+    </sect2>
+</sect1>
+</article>

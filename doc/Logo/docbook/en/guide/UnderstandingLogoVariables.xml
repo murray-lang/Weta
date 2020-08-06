@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="UnderstandingLogoVariables"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+    <sect1>
+        <title>Understanding Logo Variables</title>
+        <para>
+            Logo's syntax for variable access is quirky and unique. Indeed, to a developer accustomed to modern
+            programming languages, it seems daft. However, it should be noted that Logo has its roots in Lisp, which
+            is the second oldest high-level programming language after Fortran. Its authors did not have the benefit
+            of the decades of experience with parsers and grammar definition processors that we can call upon today.
+            There were certainly no tools such as Lex and Yacc available to make life easier. Indeed, this Logo
+            compiler would not exist without <link xlink:href="http://jscc.phorward-software.com/">JS/CC</link> to do
+            the parsing work.
+        </para>
+        <para>
+            This article aims to demystify the use of variables in Logo so
+            that code samples can be understood, and the Language used more effectively.
+        </para>
+        <sect2>
+            <title>Assigning a Value to a Variable</title>
+            <para>Here is the simplest case of assigning a value to a variable:</para>
+            <programlisting>
+            make "foo 43
+            </programlisting>
+            <para>
+                Firstly it should be noted that variables in Logo need not be declared before use.
+                This is a grammatically complete, albeit useless, Logo program.
+            </para>
+            <para>
+                The only surprise in this example is the <command>"</command> preceding <command>foo</command>.
+                In Logo parlance, <command>"foo</command> means the "name of foo", though it might be more
+                useful to consider <command>"foo</command> to mean the "location labeled foo". In english, the above
+                statement translates to "Put 43 into the location labelled 'foo'". A literal translation
+                to C/C++ might be...
+            </para>
+            <programlisting>
+            *foo = 42;
+            </programlisting>
+            <para>
+                ...where it is assumed that some preceding code has declared foo to be a pointer to a short, and has
+                assigned it the address of an available memory location.
+            </para>
+         </sect2>
+        <sect2>
+            <title>Fetching the Value Contained by a Variable</title>
+            <para>
+                There is a long-hand and a short-hand way to fetch the contents of Logo variables. The long-hand way
+                will be presented first because it provides some coherence with the variable syntax introduced above.
+                Here is how you might assign the value of foo to another variable:
+            </para>
+            <programlisting>
+                make "bar thing "foo
+            </programlisting>
+            <para>
+                "<command>thing</command>" means "get the contents of", so the above statement translates into English
+                as "Put the contents of the location labelled 'foo' into the location labelled 'bar'".
+            </para>
+            <para>
+                Fortunately for the readability of Logo programs, 'thing "foo' can be abbreviated to ':foo' thus:
+            </para>
+            <programlisting>
+                make "bar :foo
+            </programlisting>
+            <para>
+               Forgetting to include the '"' and ':' is a very common pitfall for developers coming from any other
+                programming language. To make things worse, there are circumstances where neither prefix is used,
+                for example in the iterator declarations of <olink targetptr="for">for</olink> and
+                <olink targetptr="foreach">foreach</olink>. Note however that the contents of these iterator variables
+                are accessed in the usual way - for example with the nextPort variable here:
+            </para>
+            <programlisting>
+                for [nextPort 0 3 1]
+                [
+                    send tostring analogin :nextPort
+                ]
+            </programlisting>
+        </sect2>
+    </sect1>
+</chapter>

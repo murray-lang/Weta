@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="setsvh">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>SETSVH</title>
+    <para>
+      Set the headings of the selected servo(s).
+    </para>
+    <para>TODO: clarify the meaning of the heading value.
+        Gogo board documentation sites a suitable range being 15-45, but with respect to what reference?</para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>setsvh</command> <emphasis role="args">&lt;heading&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;heading&gt;</emphasis> - new heading value</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>Nil</para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        n,          ; select servo 1
+        setsvh 30   ; set servo heading
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="svl">svl</olink>
+            <olink targetptr="svr">svr</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

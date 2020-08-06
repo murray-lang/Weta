@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="round">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>ROUND</title>
+    <para>
+      Round the given number to the nearest whole number.
+      If the the fractional part of the number is exactly 0.5, then the number is rounded up.
+      The given number is not modified.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>round</command> <emphasis role="args">&lt;decimal&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;decimal&gt;</emphasis> - the number</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Returns the nearest whole number.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make “foo 4.4
+          make “bar round :foo   ; bar == 4
+
+          make “foo 4.6
+          make “bar round :foo   ; bar == 5
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="ceil">ceil</olink>
+            <olink targetptr="floor">floor</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="lshift">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>LSHIFT</title>
+    <para>
+        Returns the given value shifted by the given number of bits (the argument is not modified).
+        If the number of bits is positive then the value will be shifted left.
+        If the number of bits is negative then the value will be shifted right.
+        The sign bit will NOT be extended with a right shift.
+        (The 'L' in LSHIFT stands for 'logical', and indicates that sign is not considered)
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>lshift</command> <emphasis role="args">&lt;value&gt; &lt;number-of-bits&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;value&gt;</emphasis> - the value to shift. Must be an integer value</para>
+        <para><emphasis role="args">&lt;number-of-bits&gt;</emphasis> - number of bits to shift (-ve for right shift)</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+          Returns <emphasis role="args">&lt;value&gt;</emphasis> shifted by the given number of bits.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo 1
+          make "bar lshift :foo 1    ; bar == 2
+          make "bar lshift :foo 2    ; bar == 4
+          make "foo lshift :bar -2   ; foo == 1
+
+          make "foo -1
+          make "bar lshift :foo -1   ; bar == 32767
+          make "bar lshift :foo -2   ; bar == 16383
+          make "bar lshift :foo 1    ; bar == -2
+          make "bar lshift :foo 2    ; bar == -4
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="ashift">ashift</olink>
+            <olink targetptr="rotate">rotate</olink>
+        </para>
+    </sect2>
+  </sect1>
+</article>

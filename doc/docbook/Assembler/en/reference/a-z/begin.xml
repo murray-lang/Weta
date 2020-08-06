@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_begin">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>BEGIN</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+            <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+            <tbody>
+                <row>
+                    <entry morerows='1'/>
+                    <entry />
+                </row>
+                <row>
+                    <entry>caller's context</entry>
+                </row>
+                 <row>
+                    <entry>return address</entry>
+                    <entry>return address</entry>
+                </row>
+             </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+    <para>
+        <command>begin</command> must be the first instruction in a procedure. It saves the machine context of the
+        caller, before setting up a context frame for the procedure being defined.
+    </para>
+    <para>
+        While it uses the VM stack to store this information, it will be specific to the firmware implementation and is
+        not relevant for the purpose of the general processing instructions (other than being prone to corruption by
+        unbalanced stack operations).
+    </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <programlisting>
+    <command>begin</command>
+            </programlisting>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+       <para>None</para>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nothing is returned to the stack for general use.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        myBeep  .proc
+            begin
+            beep
+            return
+            .endproc
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_output">output</olink>
+            <olink targetptr="asm_return">return</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

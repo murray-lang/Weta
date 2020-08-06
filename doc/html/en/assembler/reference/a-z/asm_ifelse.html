@@ -1,0 +1,52 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_if.html" title=""><link rel="next" href="asm_int8.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_if.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_int8.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N44EAE"></a>IFELSE</h2></div></div></div>
+    
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>Execute one block of code if the given condition test evaluates to true, and a different block if it
+            evaluates to false.</p>
+        <p></p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44EBB"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p>block</p>
+            <p><span class="args">&lt;if-instructions&gt;</span></p>
+            <p>eob</p>
+            <p>block</p>
+            <p><span class="args">&lt;else-instructions&gt;</span></p>
+            <p>eob</p>
+            <p><span class="args">&lt;condition-test&gt;</span></p>
+            <p><span class="command"><strong>ifelse</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44EE3"></a>Arguments</h3></div></div></div>
+        
+        <div class="itemizedlist"><p><span class="args">&lt;if-instructions&gt;</span> - instructions to execute if the condition is true</p><p><span class="args">&lt;else-instructions&gt;</span> - instructions to execute if the condition is false</p><p><span class="args">&lt;condition-test&gt;</span> - instructions that evaluate to a boolean (bool)</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+     <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44EFE"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+            ; LED follows digital input 3
+        block         ; forever block
+        block         ; if block
+        ledon
+        eob
+        block         ; else block
+        ledoff
+        eob
+        uint8   3     ; get digital input 3
+        din
+        ifelse        ; test digital input result (bool)
+        eob
+        forever
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44F07"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_if.html" class="olink">if</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_if.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_int8.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

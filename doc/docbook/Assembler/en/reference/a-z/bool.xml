@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_bool">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>BOOL</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry morerows="1"/>
+                     <entry/>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">bool value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        Push the given boolean value onto the stack. In the current VM firmware, Booleans are represented by bytes.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>bool</command>&#160;&#160;&#160;&#160;<emphasis role="args"><command>true</command> | <command>false</command></emphasis></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Either <emphasis role="args">true</emphasis> or <emphasis role="args">false</emphasis></para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Returns a bool (by virtue of it being pushed onto the stack)</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_byte">byte</olink>
+            <olink targetptr="asm_cptr">cptr</olink>
+            <olink targetptr="asm_double">double</olink>
+            <olink targetptr="asm_float">float</olink>
+            <olink targetptr="asm_int8">int8</olink>
+            <olink targetptr="asm_int16">int16</olink>
+            <olink targetptr="asm_int32">int32</olink>
+            <olink targetptr="asm_short">short</olink>
+            <olink targetptr="asm_span">span</olink>
+            <olink targetptr="asm_string">string</olink>
+            <olink targetptr="asm_uint8">uint8</olink>
+            <olink targetptr="asm_uint16">uint16</olink>
+            <olink targetptr="asm_uint32">uint32</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

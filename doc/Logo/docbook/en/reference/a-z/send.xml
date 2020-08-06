@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="send">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>SEND</title>
+    <para>
+      Send the argument value to the default serial port. All of the base data types can be sent, including strings.
+    </para>
+    <para>
+        <command>send</command> also accepts an array argument.
+        This version also accepts a logical serial port number.
+    </para>
+    <para>
+      All of the base data types can be sent. Note that numerical values are sent as binary data in network byte order.
+      If you want to send a readable string representation then use <olink targetptr="tostring">tostring</olink>.
+    </para>
+    <para>
+        TODO: There is an inconsistency here with accepting a port number as an argument. serial and newserial? are
+        able to accept a port number, as can the array version of send. But not plain send! Dumb! Fix it.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+        <funcsynopsis>
+        <command>send</command> <emphasis role="args">&lt;value&gt;</emphasis>
+        </funcsynopsis>
+        <funcsynopsis>
+            <command>send</command>
+                <emphasis role="args">&lt;array-name&gt;</emphasis>
+                <emphasis role="args">&lt;num-items&gt;</emphasis>
+                <emphasis role="args">&lt;port&gt;</emphasis>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - a single value to send</para>
+            <para><emphasis role="args">&lt;array-name&gt;</emphasis> - name of an array to send</para>
+            <para><emphasis role="args">&lt;num-items&gt;</emphasis> - the number of array items to send</para>
+            <para><emphasis role="args">&lt;port&gt;</emphasis> - the serial port to send to</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>Nil.</para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        make "foo 43
+        send :foo           ; send binary value in network byte order
+        send tostring :foo  ; send '42'
+
+          ; Get and send analog data from selected ports
+        make "serialPort 1
+        array [analogData 5]
+        make "next 0
+        foreach aport [1 3 4 5 7]
+        [
+            aset analogData :next analogin :aport
+            make "next :next + 1
+        ]
+        send analogData 5 :serialPort    ; send the array data to the required port
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="newserial">newserial?</olink>
+            <olink targetptr="serial">serial</olink>
+            <olink targetptr="tostring">tostring</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

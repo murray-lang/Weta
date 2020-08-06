@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_short">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>SHORT</title>
+
+    <abstract>
+        A synonym for <olink targetptr="asm_int16">int16</olink>.
+    </abstract>
+</sect1>
+</article>

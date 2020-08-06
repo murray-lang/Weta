@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="sqrt">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>SQRT</title>
+    <para>
+      Return the square root of the given argument.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>sqrt</command> <emphasis role="args">&lt;value&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - the value to find the square root of</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Returns the square root of <emphasis role="args">&lt;value&gt;</emphasis>.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo 9
+          make "bar sqrt :foo    ; foo == 3
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="exp">exp</olink>
+            <olink targetptr="pow">pow</olink>
+            <olink targetptr="sqr">sqr</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

@@ -1,0 +1,52 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="quotient.html" title=""><link rel="next" href="rd.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="quotient.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Logo Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="rd.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N41E1C"></a>RANDOM</h2></div></div></div>
+    
+    <p>
+        If there is no argument then <span class="command"><strong>random</strong></span> returns a pseudo random number between 0 and 32767.
+    </p>
+    <p>
+      If there are two arguments then <span class="command"><strong>random</strong></span> returns a pseudo random number between limits set by
+        the first and second arguments. These arguments are expected to be signed shorts, so the maximum limits are
+        between -32767 and 32767
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41E2D"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>random</strong></span>
+      </div>
+
+      <div class="funcsynopsis">
+        <span class="command"><strong>random</strong></span><span class="args">&lt;lower-limit&gt; &lt;upper-limit&gt;</span>
+      </div>
+
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41E42"></a>Arguments</h3></div></div></div>
+      
+      <div class="itemizedlist"><p><span class="args">&lt;lower-limit&gt;</span> - the lower limit of the random number range (short)</p><p><span class="args">&lt;upper-limit&gt;</span> - the upper limit of the random number range (short)</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41E57"></a>Returns</h3></div></div></div>
+      
+      <p>
+          If there is no argument then a pseudo random number between 0 and 32767.
+      </p>
+        <p>
+            If there are two arguments then a pseudo random number between
+            <span class="args">&lt;lower-limit&gt;</span> and
+            <span class="args">&lt;upper-limit&gt;</span>.
+        </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41E6B"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+          make "foo random
+          make "bar random 0 255
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41E74"></a>See Also</h3></div></div></div>
+      
+      <p>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="quotient.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="rd.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

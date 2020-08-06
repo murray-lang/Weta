@@ -1,0 +1,69 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="conversions/asm_itos.html" title=""><link rel="next" href="asm_ledoff.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="conversions/asm_itos.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_ledoff.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N455A8"></a>LE</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td rowspan="2" align="left">&nbsp;</td></tr><tr><td align="left"><span class="args">value-2</span></td></tr><tr><td align="left"><span class="args">value-1</span></td><td align="left"><span class="args">value-1 &le; value-2 (bool)</span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>Remove the two top values from the stack, and push <span class="command"><strong>true</strong></span> if the second top value is
+            less than or equal to the top value, otherwise push <span class="command"><strong>false</strong></span>.</p>
+        <p>
+            The data types expected by <span class="command"><strong>le</strong></span> are determined by the last
+            <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span> instruction. The valid options for
+            <span class="command"><strong>le</strong></span> are:
+            <a href="../../../assembler/reference/a-z/asm_withint8.html" class="olink">withint8</a>, <a href="../../../assembler/reference/a-z/asm_withuint8.html" class="olink">withuint8</a>,
+            <a href="../../../assembler/reference/a-z/asm_withint16.html" class="olink">withint16</a>, <a href="../../../assembler/reference/a-z/asm_withuint16.html" class="olink">withuint16</a>,
+            <a href="../../../assembler/reference/a-z/asm_withint32.html" class="olink">withint32</a>, <a href="../../../assembler/reference/a-z/asm_withuint32.html" class="olink">withuint32</a>,
+            <a href="../../../assembler/reference/a-z/asm_withfloat.html" class="olink">withfloat</a> and <a href="../../../assembler/reference/a-z/asm_withdouble.html" class="olink">withdouble</a>.
+        </p>
+        <p>
+            An alternative to explicitly calling one of the <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span>
+            instructions before calling <span class="command"><strong>le</strong></span> is to use one of the prefixed versions of the the
+            instruction, namely:
+        </p>
+        <p>
+            <span class="command"><strong>ble</strong></span>, <span class="command"><strong>uble</strong></span>, <span class="command"><strong>sle</strong></span>, <span class="command"><strong>usle</strong></span>,
+            <span class="command"><strong>ile</strong></span>, <span class="command"><strong>uile</strong></span>, <span class="command"><strong>fle</strong></span> and <span class="command"><strong>dle</strong></span>
+        </p>
+        <p>
+            The assembler will expand these to a corresponding <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span>
+            instruction followed by <span class="command"><strong>le</strong></span>.
+        </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4565F"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="args">value-1</span></p>
+            <p><span class="args">value-2</span></p>
+            <p><span class="command"><strong>le</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N45676"></a>Arguments</h3></div></div></div>
+        
+        <div class="itemizedlist"><p><span class="args">&lt;value-1&gt;</span> - the first argument (left hand arg from higher level language)</p><p><span class="args">&lt;value-2&gt;</span> - the second argument (right hand arg from higher level language)</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4568B"></a>Returns</h3></div></div></div>
+        
+        <p>
+            Returns true if value-1 is less than or equal to value-2, otherwise false.
+        </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N45694"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        TODO!
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4569D"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_eq.html" class="olink">eq</a>
+            <a href="../../../assembler/reference/a-z/asm_ge.html" class="olink">ge</a>
+            <a href="../../../assembler/reference/a-z/asm_gt.html" class="olink">gt</a>
+            <a href="../../../assembler/reference/a-z/asm_lt.html" class="olink">lt</a>
+            <a href="../../../assembler/reference/a-z/asm_ne.html" class="olink">ne</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="conversions/asm_itos.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_ledoff.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

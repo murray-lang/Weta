@@ -1,0 +1,46 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="repcount.html" title=""><link rel="next" href="resetdp.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="repcount.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Logo Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="resetdp.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N41FCE"></a>REPEAT</h2></div></div></div>
+    
+    <p>
+        Execute statements in a block the given number of times.
+        <span class="command"><strong>repcount</strong></span> can be used to access the current number.
+        <span class="command"><strong>repcount</strong></span> is 1-based.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41FDC"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>repeat</strong></span> <span class="args">&lt;times&gt;</span>
+          <span class="command"><strong>[</strong></span> <span class="args">&lt;statements&gt;*</span> <span class="command"><strong>]</strong></span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41FF6"></a>Where</h3></div></div></div>
+      
+        <div class="itemizedlist"><p><span class="args">&lt;times&gt;</span> - the number of times to execute the block statements</p><p><span class="args">&lt;statements&gt;</span> - zero or more program statements</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4200B"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+              ; send '1' to '5'on their own lines
+          repeat 5
+          [
+              send tostring repcount
+              send '\n'
+          ]
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N42014"></a>See Also</h3></div></div></div>
+      
+        <p>
+            <a href="../../../logo/reference/a-z/dowhile.html" class="olink">do.while</a>
+            <a href="../../../logo/reference/a-z/for.html" class="olink">for</a>
+            <a href="../../../logo/reference/a-z/foreach.html" class="olink">foreach</a>
+            <a href="../../../logo/reference/a-z/forever.html" class="olink">forever</a>
+            <a href="../../../logo/reference/a-z/if.html" class="olink">if</a>
+            <a href="../../../logo/reference/a-z/ifelse.html" class="olink">ifelse</a>
+            <a href="../../../logo/reference/a-z/loop.html" class="olink">loop</a>
+            <a href="../../../logo/reference/a-z/while.html" class="olink">while</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="repcount.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="resetdp.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

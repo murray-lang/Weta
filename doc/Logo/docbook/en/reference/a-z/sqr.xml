@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="sqr">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>SQR</title>
+    <para>
+      Return the square of the given argument.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>sqr</command> <emphasis role="args">&lt;value&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - the value to square</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Returns the square of <emphasis role="args">&lt;value&gt;</emphasis>.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo 3
+          make "bar sqr :foo    ; foo == 9
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="exp">exp</olink>
+            <olink targetptr="pow">pow</olink>
+            <olink targetptr="sqrt">sqrt</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

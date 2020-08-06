@@ -1,0 +1,60 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="string.html" title=""><link rel="next" href="sum.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="string.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="sum.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp29156468"></a>SWITCH[1-8]</h2></div></div></div>
+    
+    <p>
+        Returns the Boolean value of the switch (digital input) identified by the suffix digit.
+        These commands are included for compatibility with Cricket Logo, but the same functionality is provided
+        in a more generic way by <a href="../../reference/a-z/digitalin.html" class="olink">digitalin</a>.
+    </p>
+    <p>
+        On the Gogo board (which this Cricket Logo is derived from) switches 1-8 are in fact sensors 1-8, but being
+        connected to a switch means that the analogue values are at either the maximum or minimum. So the switch 1-8
+        commands read the analog value and convert it to digital based on a threshold test. Assume that this is the case
+        unless you have documentation for your target device or firmware that states otherwise.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29157964"></a>Synopsis</h3></div></div></div>
+      
+        <div class="funcsynopsis">
+        <span class="command"><strong>switch1</strong></span>
+        </div>
+        <div class="funcsynopsis">
+            <span class="command"><strong>switch2</strong></span>
+        </div>
+        <p>...</p>
+        <div class="funcsynopsis">
+            <span class="command"><strong>switch8</strong></span>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29160468"></a>Arguments</h3></div></div></div>
+      
+      <p>Nil.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29161164"></a>Returns</h3></div></div></div>
+      
+      <p>
+          Returns the Boolean value of the switch identified by the suffix digit.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29161940"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+            ; Send some switch data
+        foreach ip [switch1 ', ' switch2 ', ' switch3 ', ' switch4 '\n']
+        [
+                ; Because at least one list item is a string, all values are
+                ; converted to a string. Since the switch values are Boolean,
+                ; they will be converted to 'true' or 'false'.
+            send :ip
+        [
+       </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29162988"></a>See Also</h3></div></div></div>
+      
+      <p>
+          <a href="../../reference/a-z/digitalin.html" class="olink">digitalin</a>
+          <a href="../../reference/a-z/sensor.html" class="olink">sensor[1-8]</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="string.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="sum.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

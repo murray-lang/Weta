@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="ifelse">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>IFELSE</title>
+    <para>
+        Execute the first statement block if the given condition evaluates to true.
+        Otherwise execute the second statement block.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>ifelse </command> <emphasis role="args">&lt;condition&gt;</emphasis>
+          <command>[</command> <emphasis role="args">&lt;statements-if-true&gt;*</emphasis> <command>]</command>
+          <command>[</command> <emphasis role="args">&lt;statements-if-false&gt;*</emphasis> <command>]</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Where</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;condition&gt;</emphasis> - an expression that evaluates to true of false</para>
+            <para><emphasis role="args">&lt;statements-if-true&gt;</emphasis> - statements to execute if condition is true</para>
+            <para><emphasis role="args">&lt;statements-if-false&gt;</emphasis> - statements to execute if condition is false</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          if digitalin 1
+          [
+              send 'Digital input 1 is on.\n'
+          ]
+          [
+              send 'Digital input 1 is off.\n'
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="dowhile">do.while</olink>
+            <olink targetptr="for">for</olink>
+            <olink targetptr="foreach">foreach</olink>
+            <olink targetptr="forever">forever</olink>
+            <olink targetptr="if">if</olink>
+            <olink targetptr="loop">loop</olink>
+            <olink targetptr="repeat">repeat</olink>
+            <olink targetptr="while">while</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

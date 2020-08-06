@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_resetdp">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>RESETDP</title>
+     <abstract>
+        Reset the data pointer to the inbuilt int16 array to 0.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>resetdp</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+       ...
+            ; Record 1 minute's data from sensor1 at 1 second intervals
+       resetdp       ; reset the data pointer to 0
+       uint16   60   ; repeat count
+       block
+       sensor1       ; sensor1 value (int16) on the stack
+       record        ; store it
+       uint16   1000 ; wait 1 second
+       wait
+       eob
+       repeat
+       ...
+            ; Send the data to the default stream
+       resetdp       ; reset the data pointer again for playback
+       uint16   60   ; repeat count
+       block
+       withint16     ; operations on stored data should assume int16
+       recall
+       tostr         ; that is, int16 to string
+       withstring
+       send          ; Send the value as a string to the default stream
+       send   "\n"   ; one value per line
+       eob
+       repeat
+            ; Keep the data by advancing the data pointer to just past the previous data
+       uint16  60    ; new data pointer value
+       setdp         ; set it
+       ...
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_erase">erase</olink>
+            <olink targetptr="asm_recall">recall</olink>
+            <olink targetptr="asm_record">recordp</olink>
+            <olink targetptr="asm_setdp">setdp</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

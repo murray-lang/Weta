@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="beep">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>BEEP</title>
+    <para>
+      Cause a short audible tone to be emitted.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>beep</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para>Nil</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Nil.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; beep approximately once every second
+          forever
+          [
+              beep
+              wait 9
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+       </para>
+    </sect2>
+  </sect1>
+</article>

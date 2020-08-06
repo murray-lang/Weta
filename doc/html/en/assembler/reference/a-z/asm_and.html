@@ -1,0 +1,53 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_ain.html" title=""><link rel="next" href="asm_aout.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_ain.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_aout.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N42F79"></a>AND</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td rowspan="2" align="left">&nbsp;</td></tr><tr><td align="left"><span class="args">bool-2</span></td></tr><tr><td align="left"><span class="args">bool-1</span></td><td align="left"><span class="args">bool-1 &#8896; bool-2</span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        Remove the two top Boolean values on the stack, and replace them with a single Boolean value representing the
+        logical <span class="command"><strong>and</strong></span> of the two.
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N42FCB"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="args">bool-1</span></p>
+            <p><span class="args">bool-2</span></p>
+            <p><span class="command"><strong>and</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N42FE2"></a>Arguments</h3></div></div></div>
+        
+        <div class="itemizedlist"><p><span class="args">&lt;bool-1&gt;</span> - the first argument (left hand arg from higher level language)</p><p><span class="args">&lt;bool-2&gt;</span> - the second argument (right hand arg from higher level language)</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N42FF7"></a>Returns</h3></div></div></div>
+        
+        <p>
+            Returns the logical <span class="command"><strong>and</strong></span> of the two argument expressions.
+        </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N43003"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        uint8 1         ; Select port 1
+        din             ; Get digital input 1
+        uint8 2         ; Select port 2
+        din             ; Get digital input 2
+        and             ; Are both on?
+        block           ; start of if block
+        beep            ; Beep if both digital inputs are on
+        eob
+        if              ; If condition check
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4300C"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_not.html" class="olink">not</a>
+            <a href="../../../assembler/reference/a-z/asm_or.html" class="olink">or</a>
+            <a href="../../../assembler/reference/a-z/asm_xor.html" class="olink">xor</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_ain.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_aout.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

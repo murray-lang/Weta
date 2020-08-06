@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_timer">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>TIMER</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry morerows="1"></entry>
+                     <entry></entry>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">int16 timer value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>Push the (int16) value of the free-running timer onto the stack.</para>
+        <para>The timer is reset to 0 using <olink targetptr="asm_resett">resett</olink>.</para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>timer</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns the int16 free-running timer value.
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; Measure the time between button presses
+        block
+        uint8   1       ; Button on digital input 1
+        din
+        eob
+        waituntil
+        resett          ; reset timer to 0
+        block
+        uint8   1       ; Button on digital input 1
+        din
+        eob
+        waituntil
+        timer           ; get the timer count
+        stostr          ; convert the (short) milliseconds to a string
+        strsend         ; send to the default stream
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_resett">resett</olink>
+            <olink targetptr="asm_waituntil">waituntil</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="aget">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>AGET</title>
+    <para>
+        Select an element from an array.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>aget</command> <emphasis role="args">&lt;array-var&gt; &lt;index-exp&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;array-var&gt;</emphasis> - array to retrieve the element from</para>
+        <para><emphasis role="args">&lt;index-exp&gt;</emphasis> - index of the array element</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+      The selected array element.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          array [foo 4]
+
+          aset :foo 0 42				; initialise the array
+          aset :foo 1 (aget :foo 0) + 1
+          aset :foo 2 (aget :foo 1) + 1
+          aset :foo 3 (aget :foo 2) + 1
+              ; send “42 43 44 45 ” to the default stream
+          for [i 0 3 1]
+          [
+              send tostring aget :foo :i
+              send ' '
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="array">array</olink>
+            <olink targetptr="aset">aset</olink>
+        </para>
+    </sect2>
+  </sect1>
+</article>

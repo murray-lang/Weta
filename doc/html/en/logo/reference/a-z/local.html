@@ -1,0 +1,50 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="LN2.html" title=""><link rel="next" href="log10.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="LN2.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Logo Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="log10.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N415F5"></a>LOCAL</h2></div></div></div>
+    
+    <p>
+        Declare a variable to be in procedure-local scope.
+        In this version of Logo, variables first used in a procedure are local to that procedure anyway.
+        <span class="command"><strong>local</strong></span> was included for compatibility reasons, but it can also be employed to
+        mitigate against accidental name clashes with global variables.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41600"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>local</strong></span> <span class="args">&lt;name&gt;</span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41610"></a>Arguments</h3></div></div></div>
+      
+      <div class="itemizedlist"><p><span class="args">&lt;name&gt;</span> - name of the variable</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4161F"></a>Returns</h3></div></div></div>
+      
+      <p>
+      Nil.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41628"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+          ...
+          make "foo 42      ; A global variable
+          ...
+          exit
+
+          to myProc
+            local bar        ; bar is not visible to global scope
+            make "fred 3     ; Actually, neither is fred
+            make "bar 54
+            output :bar
+          end
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41631"></a>See Also</h3></div></div></div>
+      
+      <p>
+          <a href="../../../logo/reference/a-z/make.html" class="olink">make</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="LN2.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="log10.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="atan">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>ATAN</title>
+    <para>
+      Find the angle (in radians) that has the given tangent value.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>atan</command> <emphasis role="args">&lt;tangent&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;tangent&gt;</emphasis> - tangent value to find the angle for</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Returns the angle, in radians, that has <emphasis role="args">&lt;tangent&gt;</emphasis> as its tangent.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        make “foo tan (PI / 4) ; foo == 1
+        make “bar atan :foo    ; bar == PI / 4
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="acos">acos</olink>
+            <olink targetptr="asin">asin</olink>
+            <olink targetptr="atan2">atan2</olink>
+            <olink targetptr="cos">cos</olink>
+            <olink targetptr="cosh">cosh</olink>
+            <olink targetptr="sin">sin</olink>
+            <olink targetptr="sinh">sinh</olink>
+            <olink targetptr="tan">tan</olink>
+            <olink targetptr="tanh">tanh</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

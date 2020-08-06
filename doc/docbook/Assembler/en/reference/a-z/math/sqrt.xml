@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_sqrt">
+    <?dbhtml dir="a-z/math" ?>
+<sect1>
+    <title>MATH.SQRT</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry/>
+
+                 </row>
+                 <row>
+                    <entry><emphasis role="args">value</emphasis></entry>
+                    <entry><emphasis role="args">&#8730;</emphasis><emphasis role="not">value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>Remove the top numerical value from the stack, and push the square root of the value.</para>
+        <para>
+            The data type expected by <command>math.sqrt</command> is determined by the last
+            <command>with<emphasis>&lt;type&gt;</emphasis></command> instruction. The valid options for
+            <command>math.sqrt</command> are:
+            <olink targetptr="asm_withfloat">withfloat</olink> and <olink targetptr="asm_withdouble">withdouble</olink>.
+        </para>
+        <para>
+            An alternative to explicitly calling one of the <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instructions before calling <command>math.sqrt</command> is to use one of the prefixed versions of the the
+            instruction, namely:
+        </para>
+        <para>
+            <command>math.fsqrt</command> or <command>math.dsqrt</command>
+        </para>
+        <para>
+            The assembler will expand these to a corresponding <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instruction followed by <command>math.sqrt</command>.
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">value</emphasis></para>
+            <para><command>math.sqrt</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - the value to find the square root of</para>
+        </itemizedlist>
+        <note><para>This synopsis shows an immediate value being explicitly placed onto the stack.
+            However, the value could be the result peripheral I/O, function calls or any number of mathematical
+            expressions. Or it could be an arbitrary combination of all of these.</para></note>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns the square root of the argument expression..
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_exp">math.exp</olink>
+            <olink targetptr="asm_pow">math.pow</olink>
+            <olink targetptr="asm_sqr">math.sqr</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

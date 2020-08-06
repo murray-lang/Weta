@@ -1,0 +1,3 @@
+./docbookassemblerxref.sh
+./docbookassembler.sh
+

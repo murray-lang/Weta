@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_if">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>IF</title>
+    <abstract>
+        <para>Execute a block of code if the given condition test evaluates to true.</para>
+        <para></para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para>block</para>
+            <para>...</para>
+            <para>eob</para>
+            <para><emphasis role="args">&lt;condition-test&gt;</emphasis></para>
+            <para><command>if</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;condition-test&gt;</emphasis> - instructions that evaluate to a boolean (bool)</para>
+        </itemizedlist>
+    </sect2>
+     <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; beep if switch 1 is on
+        block
+        beep
+        eob
+        switch1
+        if
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_ifelse">ifelse</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

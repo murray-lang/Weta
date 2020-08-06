@@ -1,0 +1,51 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_resett.html" title=""><link rel="next" href="asm_sensor.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_resett.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_sensor.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N47DE7"></a>RETURN</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td rowspan="3" align="left">&nbsp;</td></tr><tr><td align="left">caller's context</td></tr><tr><td align="left">return address</td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+    <p>
+        <span class="command"><strong>return</strong></span> causes execution to return to a procedure's calling context.
+        Before doing so, it unwinds the local frame and restores the machine context of the caller, both of which
+        were set up and saved respectively by <a href="../../../assembler/reference/a-z/asm_begin.html" class="olink">begin</a>.
+    </p>
+    <p>While it operates on the VM stack to restore this information, this will be specific to the firmware
+        implementation and is not relevant for the purpose of the general processing instructions
+        (other than being prone to corruption by unbalanced stack operations).
+    </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47E3A"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="command"><strong>return</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47E47"></a>Arguments</h3></div></div></div>
+        
+       <p>None</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47E50"></a>Returns</h3></div></div></div>
+        
+        <p>Nothing is returned to the stack for general use.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47E59"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        myBeep  .proc
+            begin
+            beep
+            return
+            .endproc
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47E62"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_begin.html" class="olink">begin</a>
+            <a href="../../../assembler/reference/a-z/asm_output.html" class="olink">output</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_resett.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_sensor.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

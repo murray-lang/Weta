@@ -1,0 +1,84 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../../index.html" title="The Weta project"><link rel="up" href="../../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_exp.html" title=""><link rel="next" href="asm_hypot.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_exp.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_hypot.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N4618F"></a>MATH.FLOOR</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr><tr><td align="left"><span class="emphasis"><em>value</em></span></td><td align="left"><span class="emphasis"><em>value rounded down</em></span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>
+           Pop the value from the top of the stack, and push the value rounded down to the nearest lower whole number.
+            (i.e. the floor). If there is no fractional part then the original value is pushed.
+        </p>
+        <p>
+            The data type expected by <span class="command"><strong>math.floor</strong></span> is determined by the last
+            <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span> instruction. The valid options for
+            <span class="command"><strong>math.floor</strong></span> are: <a href="../../../../assembler/reference/a-z/asm_withfloat.html" class="olink">withfloat</a> and
+            <a href="../../../../assembler/reference/a-z/asm_withdouble.html" class="olink">withdouble</a>.
+        </p>
+        <p>
+            An alternative to explicitly calling one of the <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span>
+            instructions before calling <span class="command"><strong>math.floor</strong></span> is to use one of the prefixed versions of the the
+            instruction, namely:
+        </p>
+        <p>
+            <span class="command"><strong>math.ffloor</strong></span> or <span class="command"><strong>math.dfloor</strong></span>
+        </p>
+        <p>
+            The assembler will expand these to a corresponding <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span>
+            instruction followed by <span class="command"><strong>math.floor</strong></span>.
+        </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4620B"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="args">value</span></p>
+            <p><span class="command"><strong>math.floor</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4621D"></a>Arguments</h3></div></div></div>
+        
+        <div class="itemizedlist"><p><span class="args">&lt;value&gt;</span> - the value to round down</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+        <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3><p>This synopsis shows an immediate value being explicitly placed onto the stack.
+            However, the value could be the result peripheral I/O, function calls or any number of mathematical
+            expressions. Or it could be an arbitrary combination of all of these.</p></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N46230"></a>Returns</h3></div></div></div>
+        
+        <p>
+            Returns the value rounded down to the nearest lower whole number.
+            If there is no fractional part then the original value is returned.
+        </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N46239"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        TODO!
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N46242"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../../assembler/reference/a-z/math/asm_acos.html" class="olink">math.acos</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_asin.html" class="olink">math.asin</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_atan.html" class="olink">math.atan</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_atan2.html" class="olink">math.atan2</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_ceil.html" class="olink">math.ceil</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_cos.html" class="olink">math.cos</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_cosh.html" class="olink">math.cosh</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_floor.html" class="olink">math.floor</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_hypot.html" class="olink">math.hypot</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_isinf.html" class="olink">math.isinf</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_isnan.html" class="olink">math.isnan</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_ln.html" class="olink">math.ln</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_log10.html" class="olink">math.log10</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_rnd.html" class="olink">math.rnd</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_sin.html" class="olink">math.sin</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_sinh.html" class="olink">math.sinh</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_tan.html" class="olink">math.tan</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_tanh.html" class="olink">math.tanh</a>
+            <a href="../../../../assembler/reference/a-z/math/asm_trunc.html" class="olink">math.trunc</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_exp.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_hypot.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

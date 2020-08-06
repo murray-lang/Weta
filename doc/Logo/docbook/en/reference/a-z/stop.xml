@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="stop">
+    <?dbhtml dir="a-z" ?>
+    <sect1>
+        <title>STOP</title>
+        <para>
+            Returns execution from a procedure to the caller.
+        </para>
+        <para>
+            <command>stop</command> is not required at the end of a procedure definition as it is implied by
+            <command>end</command>. It is provided as a short-cut for exiting a procedure as the result of some
+            condition.
+        </para>
+        <sect2>
+            <title>Synopsis</title>
+            <funcsynopsis>
+                <command>stop</command>
+            </funcsynopsis>
+        </sect2>
+        <sect2>
+            <title>Example</title>
+            <programlisting>
+                ; Wait for the given digital input to be the given state
+            to waitForDI :port :state
+                forever
+                [
+                    if digitalin :port = :state
+                        return
+                    wait 1
+                ]
+            end
+            </programlisting>
+        </sect2>
+        <sect2>
+            <title>See Also</title>
+            <para>
+                <olink targetptr="end">end</olink>
+                <olink targetptr="output">output</olink>
+                <olink targetptr="to">to</olink>
+            </para>
+        </sect2>
+    </sect1>
+</article>

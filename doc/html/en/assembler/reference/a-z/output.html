@@ -1,0 +1,46 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="begin.html" title=""><link rel="next" href="return.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="begin.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="return.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N4301F"></a>OUTPUT</h2></div></div></div>
+    
+    <div class="table"><a name="N43024"></a><div class="table-contents">
+        
+        <table summary="VM Stack" border="1"><thead><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td rowspan="2" align="left">&nbsp;</td></tr><tr><td align="left"><span class="args">value</span></td></tr><tr><td align="left">locals</td><td align="left">locals</td></tr><tr><td align="left">caller's context</td><td align="left">caller's context</td></tr><tr><td align="left">return address</td><td align="left">return address</td></tr><tr><td align="left">size of args</td><td align="left">size of args</td></tr><tr><td rowspan="2" align="left">args</td><td rowspan="2" align="left">args</td></tr><tr><!-- This row intentionally left blank --></tr></tbody></table>
+    </div><p class="title"><b>Table&nbsp;1.&nbsp;VM Stack</b></p></div><br class="table-break">
+    <p>
+        <span class="command"><strong>output</strong></span> removes the value from the top of the stack and puts it into the stack location just
+        before the procedure's arguments. It is assumed that the caller will clean up these arguments (if any), leaving
+        the returned value on top of the stack for a subsequent instruction to consume.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4309A"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="command"><strong>return</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N430A7"></a>Arguments</h3></div></div></div>
+        
+       <p>None</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N430B0"></a>Returns</h3></div></div></div>
+        
+        <p>Nothing is returned to the stack for general use.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N430B9"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        myBeep  .proc
+            begin
+            beep
+            return
+            .endproc
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N430C2"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/begin.html" class="olink">begin</a>
+            <a href="../../../logo/reference/a-z/output.html" class="olink">output</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="begin.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="return.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

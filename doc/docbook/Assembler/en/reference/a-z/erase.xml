@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_erase">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>ERASE</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry />
+                     <entry morerows="1"/>
+
+                 </row>
+                 <row>
+                    <entry><emphasis>num-items (uint16)</emphasis></entry>
+                 </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+       <para>
+        Pop the uint16 value at the top of the stack and erase that number of items starting at the current location
+        in the internal data array.
+       </para>
+        <para>
+            The data pointer can be reset to 0 using
+            <olink targetptr="asm_resetdp">resetdp</olink>, and set to an explicit location using
+            <olink targetptr="asm_setdp">setdp</olink>.
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">&lt;num-items&gt;</emphasis></para>
+            <para><command>erase</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;num-items&gt;</emphasis> - the number of items to erase (uint16)</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        ...
+            ; Record 1 minute's data from sensor1 at 1 second intervals
+        resetdp       ; reset the data pointer to 0
+        uint16    60
+        erase
+        uint16   60   ; repeat count
+        block
+        sensor1       ; sensor1 value (int16) on the stack
+        record        ; store it
+        uint16   1000 ; wait 1 second
+        wait
+        eob
+        repeat
+        ...
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_recall">recall</olink>
+            <olink targetptr="asm_record">record</olink>
+            <olink targetptr="asm_resetdp">resetdp</olink>
+            <olink targetptr="asm_setdp">setdp</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

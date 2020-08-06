@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="serial">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>SERIAL</title>
+    <para>
+        Return the next byte received at the default serial port. The byte is consumed.
+    </para>
+    <para>
+      TODO: newserial? and serial can accept a serial port number argument, but send cannot! Oversight. Fix it.
+    </para>
+    <para>
+      TODO: send can send all types, but serial can only receive bytes! Fix something.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>serial</command>
+      </funcsynopsis>
+      <!--
+      <funcsynopsis>
+        <command>serial</command><emphasis role="args">&lt;port&gt;</emphasis>
+      </funcsynopsis>
+      -->
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <para>Nil.</para>
+      <!--
+      <itemizedlist>
+        <para><emphasis role="args">&lt;port&gt;</emphasis> - the logical number of the serial port to check</para>
+      </itemizedlist>
+      -->
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+          Returns the next byte from the default serial port
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+            ; Echo machine!
+        forever
+        [
+            waituntil [newserial?]
+            send serial
+        ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="newserial">newserial?</olink>
+          <olink targetptr="send">send</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

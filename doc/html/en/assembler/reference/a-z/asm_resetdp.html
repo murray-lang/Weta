@@ -1,0 +1,66 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_repeat.html" title=""><link rel="next" href="asm_resett.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_repeat.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_resett.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N47D4B"></a>RESETDP</h2></div></div></div>
+    
+     <div class="abstract"><p class="title"><b>Abstract</b></p>
+        Reset the data pointer to the inbuilt int16 array to 0.
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47D53"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="command"><strong>resetdp</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47D60"></a>Arguments</h3></div></div></div>
+        
+            <p>Nil.</p>
+
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47D69"></a>Returns</h3></div></div></div>
+        
+        <p>Nil.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47D72"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+       ...
+            ; Record 1 minute's data from sensor1 at 1 second intervals
+       resetdp       ; reset the data pointer to 0
+       uint16   60   ; repeat count
+       block
+       sensor1       ; sensor1 value (int16) on the stack
+       record        ; store it
+       uint16   1000 ; wait 1 second
+       wait
+       eob
+       repeat
+       ...
+            ; Send the data to the default stream
+       resetdp       ; reset the data pointer again for playback
+       uint16   60   ; repeat count
+       block
+       withint16     ; operations on stored data should assume int16
+       recall
+       tostr         ; that is, int16 to string
+       withstring
+       send          ; Send the value as a string to the default stream
+       send   "\n"   ; one value per line
+       eob
+       repeat
+            ; Keep the data by advancing the data pointer to just past the previous data
+       uint16  60    ; new data pointer value
+       setdp         ; set it
+       ...
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47D7B"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_erase.html" class="olink">erase</a>
+            <a href="../../../assembler/reference/a-z/asm_recall.html" class="olink">recall</a>
+            <a href="../../../assembler/reference/a-z/asm_record.html" class="olink">recordp</a>
+            <a href="../../../assembler/reference/a-z/asm_setdp.html" class="olink">setdp</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_repeat.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_resett.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

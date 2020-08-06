@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_string">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>STRING</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry morerows="1"></entry>
+                     <entry></entry>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">text</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+        Push the given string literal onto the stack. Literal strings are delimited by double quotes ("example").
+        </para>
+        <para>
+        In the current VM firmware implementation, strings are 0-terminated. The assembler currently parses "\n" and
+            "\t" as well. (In future it will likely support other escapes, including numerical codes.)
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>string</command>&#160;&#160;&#160;&#160;<emphasis role="args">"&lt;text&gt;"</emphasis></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para><emphasis role="args">&lt;text&gt;</emphasis> - the literal text</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Returns a string literal (by virtue of it being pushed onto the stack)</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_bool">bool</olink>
+            <olink targetptr="asm_byte">byte</olink>
+            <olink targetptr="asm_cptr">cptr</olink>
+            <olink targetptr="asm_double">double</olink>
+            <olink targetptr="asm_float">float</olink>
+            <olink targetptr="asm_int8">int8</olink>
+            <olink targetptr="asm_int16">int16</olink>
+            <olink targetptr="asm_int32">int32</olink>
+            <olink targetptr="asm_short">short</olink>
+            <olink targetptr="asm_span">span</olink>
+            <olink targetptr="asm_uint8">uint8</olink>
+            <olink targetptr="asm_uint16">uint16</olink>
+            <olink targetptr="asm_uint32">uint32</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="thing">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>THING</title>
+    <para>
+        <command>thing</command> dereferences its argument, which will be a pointer to ("name of" in Logo parlance) a
+        value.
+    </para>
+    <para>
+        For an introduction to Logo variables see
+        <olink targetptr="UnderstandingLogoVariables">Understanding Logo Variables</olink>.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>thing</command> <emphasis role="args">&lt;reference-exp&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;reference-exp&gt;</emphasis> - an expression resolving to the "name of" (pointer to) a variable</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+      Nil.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+      ;-------------------------------------------------------------------------------
+      ; This is an example from the Berkeley Logo reference manual.
+      ; It demonstrates the passing of an argument to a function by reference,
+      ; allowing the function to modify the external variable.
+      ;-------------------------------------------------------------------------------
+
+      MAKE "X 3.14
+      INCREMENT "X		; Note that ':X' would normally be used to pass the argument
+
+      TO INCREMENT :VAR
+          ; VAR is a pointer. 'THING' dereferences it.
+          ; Note that the first argument of MAKE is :VAR instead of the usual "VAR
+          ; "VAR would provide the address of (parameter) VAR. :VAR provides the
+          ; address of X
+          MAKE :VAR (THING :VAR)+1
+      END
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="make">make</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

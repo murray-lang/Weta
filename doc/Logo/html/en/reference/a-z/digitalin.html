@@ -1,0 +1,50 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="difference.html" title=""><link rel="next" href="digitalout.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="difference.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="digitalout.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp28507764"></a>DIGITALIN</h2></div></div></div>
+    
+    <p>
+      Return the value from the given digital input port.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28508516"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>digitalin</strong></span> <span class="args">&lt;port&gt;</span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28509820"></a>Arguments</h3></div></div></div>
+      
+        <div class="itemizedlist"><p><span class="args">&lt;port&gt;</span> - evaluates to the logical number of the digital input port</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28511060"></a>Returns</h3></div></div></div>
+      
+    <p>
+      true if the input is "on", otherwise false. (TODO: how to deal with sense?)
+    </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28511836"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+          foreach port [1 3 5 6 9]
+          [
+              make "portVal 'off'
+              if digitalin :port
+              [
+                  make "portVal 'on'
+              ]
+              foreach msg ['Port ' :port ' is ' :portVal '\n']
+              [
+                  send :msg
+              ]
+          ]
+       </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28512836"></a>See Also</h3></div></div></div>
+      
+        <p>
+            <a href="../../reference/a-z/analogin.html" class="olink">analogin</a>
+            <a href="../../reference/a-z/analogout.html" class="olink">analogout</a>
+            <a href="../../reference/a-z/digitalout.html" class="olink">digitalout</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="difference.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="digitalout.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

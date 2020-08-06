@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_send">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>SEND</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry morerows="1"/>
+
+                 </row>
+                 <row>
+                    <entry><emphasis>value</emphasis></entry>
+                 </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+        Pop the value from the stack and send it to the default output stream.
+        </para>
+        <para>
+            The data type expected by <command>send</command> is determined by the last
+            <command>with<emphasis>&lt;type&gt;</emphasis></command> instruction. The valid options for
+            <command>send</command> are:
+            <olink targetptr="asm_withbool">withbool</olink>,
+            <olink targetptr="asm_withint8">withint8</olink>, <olink targetptr="asm_withuint8">withuint8</olink>,
+            <olink targetptr="asm_withint16">withint16</olink>, <olink targetptr="asm_withuint16">withuint16</olink>,
+            <olink targetptr="asm_withint32">withint32</olink>, <olink targetptr="asm_withuint32">withuint32</olink>,
+            <olink targetptr="asm_withfloat">withfloat</olink>, <olink targetptr="asm_withdouble">withdouble</olink>
+            and <olink targetptr="asm_withstring">withstring</olink>.
+        </para>
+        <para>
+            An alternative to explicitly calling one of the <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instructions before calling <command>send</command> is to use one of the prefixed versions of the the
+            instruction, namely:
+        </para>
+        <para>
+            <command>qsend</command> (bool),
+            <command>bsend</command>, <command>ubsend</command>, <command>ssend</command>, <command>ussend</command>,
+            <command>isend</command>, <command>uisend</command>, <command>fsend</command> and <command>dsend</command>
+            and <command>strsend</command>.
+        </para>
+        <para>
+            The assembler will expand these to a corresponding <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instruction followed by <command>send</command>.
+        </para>
+        <note>
+            <para>
+                Numerical values are rearranged to network byte order before being sent.
+            </para>
+        </note>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">&lt;value&gt;</emphasis></para>
+            <para><command>send</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - the value to send</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_newserial">newserial</olink>
+            <olink targetptr="asm_newserialn">newserialn</olink>
+            <olink targetptr="asm_sendn">sendn</olink>
+            <olink targetptr="asm_serial">serial</olink>
+            <olink targetptr="asm_serialn">serialn</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

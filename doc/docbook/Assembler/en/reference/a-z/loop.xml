@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_loop">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>LOOP</title>
+
+    <abstract>
+        A synonym for <olink targetptr="asm_forever">forever</olink>.
+    </abstract>
+</sect1>
+</article>

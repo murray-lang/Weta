@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="bytearray">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>BYTEARRAY</title>
+    <para>
+        Create an array of bytes with the given name and size. It was added to the language to support I/O buffers
+        such as required for I2C.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>bytearray[</command> <emphasis role="args">&lt;name&gt; &lt;size&gt;</emphasis><emphasis role="relevant">]</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;name&gt;</emphasis> - name of the array variable</para>
+        <para><emphasis role="args">&lt;size&gt;</emphasis> - the maximum number of bytes in the array</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+      Nil.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          bytearray [rxbuff 4]  ; rxbuff is an array of four bytes
+          i2cstart
+          make "i2caddr 1
+          make "timeout 1000
+          i2crx :i2caddr rxbuff 4 :timeout
+          i2cstop
+          if i2cerr = 0
+          [
+              for [i 0 3 1]
+              [
+                  send tostring aget :rxbuff :i
+                  send '\n'
+              ]
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="aget">aget</olink>
+          <olink targetptr="array">aget</olink>
+          <olink targetptr="aset">aset</olink>
+          <olink targetptr="item">item</olink>
+          <olink targetptr="setitem">setitem</olink>
+      </para>
+    </sect2>
+  </sect1>
+</article>

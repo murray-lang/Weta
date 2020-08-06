@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_wait">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>WAIT</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry morerows='1'/>
+                 </row>
+                 <row>
+                     <entry><emphasis role="args">uint16 millis</emphasis></entry>
+                 </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        Wait the given mumber of milliseconds before continuing.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para>uint16&#160;&#160;&#160;&#160;<emphasis role="args">&lt;millis&gt;</emphasis></para>
+            <para><command>wait</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;millis&gt;</emphasis> - number of milliseconds to wait (uint16)</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nothing is returned to the stack.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+                ; digital output 2 follows digital input 1
+            block         ; forever block
+            uint8   1
+            din
+            uint8   2
+            dout
+            uint16  100   ; Wait 100ms (avoid tight loop)
+            wait
+            eob
+            forever
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_ain">ain</olink>
+            <olink targetptr="asm_aout">aout</olink>
+            <olink targetptr="asm_din">din</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

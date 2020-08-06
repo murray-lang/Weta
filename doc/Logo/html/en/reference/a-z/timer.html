@@ -1,0 +1,48 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="thisway.html" title=""><link rel="next" href="to.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="thisway.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="to.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp29219988"></a>TIMER</h2></div></div></div>
+    
+    <p>
+        Returns value of free-running elapsed time device since the last time <a href="../../reference/a-z/resett.html" class="olink">resett</a>
+        was called. Time units are reported in 1 millisecond counts.
+    </p>
+      <p>
+          Since the value is a signed short, the maximum time period that can be reported is 32.768 seconds
+      </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29221612"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>timer</strong></span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29222548"></a>Arguments</h3></div></div></div>
+      
+      <p>Nil.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29223124"></a>Returns</h3></div></div></div>
+      
+      <p>
+          Returns value of free-running elapsed time device since the last time <a href="../../reference/a-z/resett.html" class="olink">resett</a>
+          was called.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29224380"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+          resett
+          waituntil [newserial?]
+          make "waitTime timer/1000
+          foreach msg ['I waited ' :waitTime ' seconds for that data!\n']
+          [
+              send :msg
+          ]
+       </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29225180"></a>See Also</h3></div></div></div>
+      
+      <p>
+          <a href="../../reference/a-z/resett.html" class="olink">resett</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="thisway.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="to.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

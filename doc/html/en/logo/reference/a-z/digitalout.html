@@ -1,0 +1,47 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="digitalin.html" title=""><link rel="next" href="dowhile.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="digitalin.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Logo Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="dowhile.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N40B39"></a>DIGITALOUT</h2></div></div></div>
+    
+    <p>
+        Set or reset the given digital output port.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N40B41"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>digitalout</strong></span> <span class="args">&lt;port&gt; &lt;value&gt;</span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N40B51"></a>Arguments</h3></div></div></div>
+      
+        <div class="itemizedlist"><p><span class="args">&lt;port&gt;</span> - evaluates to the logical number of the analog output port</p><p><span class="args">&lt;value&gt;</span> - boolean value of the port</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N40B66"></a>Returns</h3></div></div></div>
+      
+    <p>
+      Nil.
+    </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N40B6F"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+              ; give an indication if an analog input is above a threshold
+          make "indicatorPort 1
+          make "analogPort 8
+          make "threshold  127
+          forever
+          [
+              digitalout :indicatorPort (analogin :analogPort &gt; :threshold)
+              wait 1
+          ]
+       </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N40B78"></a>See Also</h3></div></div></div>
+      
+        <p>
+            <a href="../../../logo/reference/a-z/analogin.html" class="olink">analogin</a>
+            <a href="../../../logo/reference/a-z/analogout.html" class="olink">analogout</a>
+            <a href="../../../logo/reference/a-z/digitalin.html" class="olink">digitalin</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="digitalin.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="dowhile.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

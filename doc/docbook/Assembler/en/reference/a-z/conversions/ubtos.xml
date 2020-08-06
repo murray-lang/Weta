@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_ubtos">
+    <?dbhtml dir="a-z/conversions" ?>
+<sect1>
+    <title>UBTOS</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry/>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">uint8 value</emphasis></entry>
+                    <entry><emphasis role="args">uint16 value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+        Pop the uint8 (unsigned byte) from the stack and push a uint16 (unsigned short) with the same value.
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">&lt;uint8&gt;</emphasis>&#160;&#160;&#160;&#160;<emphasis role="args">&lt;value&gt;</emphasis></para>
+            <para><command>ubtos</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Where</title>
+        <para><emphasis role="args">&lt;value&gt;</emphasis> - the uint8 value to be converted</para>
+        <note>This synposis shows an immediate value being explicity placed onto the stack to be converted.
+            However, the value could be the result peripheral I/O, function calls or any number of mathematical
+            expressions. Or it could be an arbitrary combination of all of these.</note>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Returns a uint16 with the value of <emphasis role="args">&lt;value&gt;</emphasis>
+            (by virtue of it being pushed onto the stack).</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        ...
+            ; Multiply sensor value by 10
+        uint8   10
+        ubtos
+        sensor1     ; sensor values are int16
+        withint16   ; treat everything as an int16 (signed)
+        mul         ; multiply top two int16s
+        tostr       ; convert int16 result to a string
+        withstring
+        send        ; send to the default stream
+        ...
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_btoi">btoi</olink>
+            <olink targetptr="asm_btof">btof</olink>
+            <olink targetptr="asm_btod">btod</olink>
+            <olink targetptr="asm_ubtoi">ubtoi</olink>
+            <olink targetptr="asm_ubtof">ubtof</olink>
+            <olink targetptr="asm_ubtod">ubtod</olink>
+            <olink targetptr="asm_stob">stob</olink>
+            <olink targetptr="asm_stoi">stoi</olink>
+            <olink targetptr="asm_stof">stof</olink>
+            <olink targetptr="asm_stod">stod</olink>
+            <olink targetptr="asm_ustob">ustob</olink>
+            <olink targetptr="asm_ustoi">ustoi</olink>
+            <olink targetptr="asm_ustof">ustof</olink>
+            <olink targetptr="asm_ustod">ustod</olink>
+            <olink targetptr="asm_itob">itob</olink>
+            <olink targetptr="asm_itos">itos</olink>
+            <olink targetptr="asm_itof">itof</olink>
+            <olink targetptr="asm_itod">itod</olink>
+            <olink targetptr="asm_uitob">uitob</olink>
+            <olink targetptr="asm_uitos">uitos</olink>
+            <olink targetptr="asm_uitof">uitof</olink>
+            <olink targetptr="asm_uitod">uitod</olink>
+            <olink targetptr="asm_ftob">ftob</olink>
+            <olink targetptr="asm_ftos">ftos</olink>
+            <olink targetptr="asm_ftoi">ftoi</olink>
+            <olink targetptr="asm_ftod">ftod</olink>
+            <olink targetptr="asm_dtob">dtob</olink>
+            <olink targetptr="asm_dtos">dtos</olink>
+            <olink targetptr="asm_dtoi">dtoi</olink>
+            <olink targetptr="asm_dtof">dtof</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

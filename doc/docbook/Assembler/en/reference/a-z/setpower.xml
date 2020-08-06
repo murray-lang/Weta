@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_setpower">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>SETPOWER</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry></entry>
+                     <entry morerows="1"></entry>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">power (uint8)</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>Pop the uint8 from the top of the stack, and use the value to set the power level for the currently
+            selected motors. 0 means no power (off) and 255 means maximum power.</para>
+        <para>Motors are selected using the <olink targetptr="asm_motors">motors</olink> instruction.</para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para>uint8&#160;&#160;&#160;&#160;<emphasis role="args">power</emphasis></para>
+            <para><command>setpower</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para><emphasis role="args">&lt;power&gt;</emphasis> - the required power between 0 and 255 (uint8).</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        ...
+        uint8  0b11  ; Binary value selecting the first two motors
+        motors       ; Flag the above motors as being selected
+        thatway      ; selected motors in 'that' direction
+        uint8  255
+        setpower     ; selected motors to full power
+        on           ; selected motors on
+        uint16 1000  ; wait 1 second
+        wait
+        off          ; selected motors off
+        thisway      ; selected motors in 'this' direction
+        on           ; selected motors on again
+            ; Reverse motor 1 only
+        uint8  0b01
+        motors       ; Only motor 1 is selected now (both motors still on)
+        off          ; turn off motor 1
+        rd           ; reverse direction of motor 1
+        on           ; motor 1 back on (now turning the opposite direction to motor 2)
+        uint16 1000  ; wait 1 second
+        wait
+        uint8  0b11  ; select both motors again
+        motors
+        off
+        brake        ; brake both motors
+        ...
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_brake">brake</olink>
+            <olink targetptr="asm_motors">motors</olink>
+            <olink targetptr="asm_off">off</olink>
+            <olink targetptr="asm_on">on</olink>
+            <olink targetptr="asm_onfor">onfor</olink>
+            <olink targetptr="asm_rd">rd</olink>
+            <olink targetptr="asm_thatway">thatway</olink>
+            <olink targetptr="asm_thisway">thisway</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

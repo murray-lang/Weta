@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="to">
+    <?dbhtml dir="a-z" ?>
+    <sect1>
+        <title>TO</title>
+        <para>
+        Marks the beginning of a procedure definition (ended with <command>end</command>)
+        </para>
+        <sect2>
+            <title>Synopsis</title>
+            <funcsynopsis>
+                <command>to</command> <emphasis role="args">&lt;procedure-name&gt;</emphasis>
+                <emphasis role="args">&lt;statements&gt;*</emphasis>
+                end
+            </funcsynopsis>
+        </sect2>
+        <sect2>
+            <title>Where</title>
+            <itemizedlist>
+                <para><emphasis role="args">&lt;procedure-name&gt;</emphasis> - the name of the procedure being defined</para>
+                <para><emphasis role="args">&lt;statements&gt;</emphasis> - the procedure's statements</para>
+            </itemizedlist>
+        </sect2>
+        <sect2>
+            <title>Example</title>
+            <programlisting>
+                ; Define a procedure that flashes the user LED
+            to flash
+                ledon
+                wait 1
+                ledoff
+            end
+            </programlisting>
+        </sect2>
+        <sect2>
+            <title>See Also</title>
+            <para>
+                <olink targetptr="end">end</olink>
+                <olink targetptr="output">output</olink>
+                <olink targetptr="stop">stop</olink>
+            </para>
+        </sect2>
+    </sect1>
+</article>

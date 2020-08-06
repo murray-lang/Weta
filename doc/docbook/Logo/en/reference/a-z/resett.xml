@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="resett">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>RESETT</title>
+    <para>
+        Resets the free-running timer to 0.
+    </para>
+      <para>
+          This command is used in conjunction with <olink targetptr="timer">timer</olink>
+      </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>resett</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <para>Nil.</para>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>Nil.</para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          resett
+          waituntil [newserial?]
+          make "waitTime timer/1000
+          foreach msg ['I waited ' :waitTime ' seconds for that data!\n']
+          [
+              send :msg
+          ]
+       </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="timer">timer</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

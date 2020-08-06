@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="digitalout">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>DIGITALOUT</title>
+    <para>
+        Set or reset the given digital output port.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>digitalout</command> <emphasis role="args">&lt;port&gt; &lt;value&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;port&gt;</emphasis> - evaluates to the logical number of the analog output port</para>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - boolean value of the port</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Nil.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; give an indication if an analog input is above a threshold
+          make "indicatorPort 1
+          make "analogPort 8
+          make "threshold  127
+          forever
+          [
+              digitalout :indicatorPort (analogin :analogPort > :threshold)
+              wait 1
+          ]
+       </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="analogin">analogin</olink>
+            <olink targetptr="analogout">analogout</olink>
+            <olink targetptr="digitalin">digitalin</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

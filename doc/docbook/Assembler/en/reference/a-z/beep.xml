@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_beep">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>BEEP</title>
+     <abstract>
+        Cause a short beep from the standard piezo buzzer (or equivalent).
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>beep</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; Wait for a button press. Beep when it happens
+        block
+        uint8 1    ; assume a button is connected to digital input 1
+        din
+        eob
+        waituntil
+        beep
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+
+            <olink targetptr="asm_ledoff">ledoff</olink>
+            <olink targetptr="asm_ledon">ledon</olink>
+            <olink targetptr="asm_waituntil">waituntil</olink>
+
+        </para>
+    </sect2>
+</sect1>
+</article>

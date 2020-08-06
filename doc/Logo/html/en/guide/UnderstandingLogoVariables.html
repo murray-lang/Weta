@@ -1,0 +1,77 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../index.html" title="Weta Logo"><link rel="up" href="WetaLogoGuide.html" title="Weta Logo Programmer's Guide"><link rel="prev" href="WetaLogoGuide.html" title="Weta Logo Programmer's Guide"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="WetaLogoGuide.html">Prev</a> </td><th width="60%" align="center">Weta Logo Programmer's Guide</th><td width="20%" align="right"> </td></tr></table><hr></div><div lang="en" class="chapter"><div class="titlepage"></div><div class="toc"><dl class="toc"><dt><span class="sect1"><a href="UnderstandingLogoVariables.html#idp29279060">Understanding Logo Variables</a></span></dt></dl></div>
+    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp29279060"></a>Understanding Logo Variables</h2></div></div></div>
+        
+        <p>
+            Logo's syntax for variable access is quirky and unique. Indeed, to a developer accustomed to modern
+            programming languages, it seems daft. However, it should be noted that Logo has its roots in Lisp, which
+            is the second oldest high-level programming language after Fortran. Its authors did not have the benefit
+            of the decades of experience with parsers and grammar definition processors that we can call upon today.
+            There were certainly no tools such as Lex and Yacc available to make life easier. Indeed, this Logo
+            compiler would not exist without <a class="ulink" href="http://jscc.phorward-software.com/" target="_top">JS/CC</a> to do
+            the parsing work.
+        </p>
+        <p>
+            This article aims to demystify the use of variables in Logo so
+            that code samples can be understood, and the Language used more effectively.
+        </p>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29280868"></a>Assigning a Value to a Variable</h3></div></div></div>
+            
+            <p>Here is the simplest case of assigning a value to a variable:</p>
+            <pre class="programlisting">
+            make "foo 43
+            </pre>
+            <p>
+                Firstly it should be noted that variables in Logo need not be declared before use.
+                This is a grammatically complete, albeit useless, Logo program.
+            </p>
+            <p>
+                The only surprise in this example is the <span class="command"><strong>"</strong></span> preceding <span class="command"><strong>foo</strong></span>.
+                In Logo parlance, <span class="command"><strong>"foo</strong></span> means the "name of foo", though it might be more
+                useful to consider <span class="command"><strong>"foo</strong></span> to mean the "location labeled foo". In english, the above
+                statement translates to "Put 43 into the location labelled 'foo'". A literal translation
+                to C/C++ might be...
+            </p>
+            <pre class="programlisting">
+            *foo = 42;
+            </pre>
+            <p>
+                ...where it is assumed that some preceding code has declared foo to be a pointer to a short, and has
+                assigned it the address of an available memory location.
+            </p>
+         </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29284204"></a>Fetching the Value Contained by a Variable</h3></div></div></div>
+            
+            <p>
+                There is a long-hand and a short-hand way to fetch the contents of Logo variables. The long-hand way
+                will be presented first because it provides some coherence with the variable syntax introduced above.
+                Here is how you might assign the value of foo to another variable:
+            </p>
+            <pre class="programlisting">
+                make "bar thing "foo
+            </pre>
+            <p>
+                "<span class="command"><strong>thing</strong></span>" means "get the contents of", so the above statement translates into English
+                as "Put the contents of the location labelled 'foo' into the location labelled 'bar'".
+            </p>
+            <p>
+                Fortunately for the readability of Logo programs, 'thing "foo' can be abbreviated to ':foo' thus:
+            </p>
+            <pre class="programlisting">
+                make "bar :foo
+            </pre>
+            <p>
+               Forgetting to include the '"' and ':' is a very common pitfall for developers coming from any other
+                programming language. To make things worse, there are circumstances where neither prefix is used,
+                for example in the iterator declarations of <a href="../reference/a-z/for.html" class="olink">for</a> and
+                <a href="../reference/a-z/foreach.html" class="olink">foreach</a>. Note however that the contents of these iterator variables
+                are accessed in the usual way - for example with the nextPort variable here:
+            </p>
+            <pre class="programlisting">
+                for [nextPort 0 3 1]
+                [
+                    send tostring analogin :nextPort
+                ]
+            </pre>
+        </div>
+    </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="WetaLogoGuide.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="WetaLogoGuide.html">Up</a></td><td width="40%" align="right"> </td></tr><tr><td width="40%" align="left" valign="top">Weta Logo Programmer's Guide </td><td width="20%" align="center"><a accesskey="h" href="../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

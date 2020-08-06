@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_get">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>GET</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry/>
+
+                 </row>
+                <row>
+                    <entry><emphasis role="args">var-address</emphasis></entry>
+                    <entry><emphasis role="args">value</emphasis></entry>
+                </row>
+             </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>Pop the variable address from the top of the stack and push the contents of that variable.</para>
+        <para>
+            The data type expected by <command>get</command> is determined by the last
+            <command>with<emphasis>&lt;type&gt;</emphasis></command> instruction. The valid options for
+            <command>get</command> are:
+            <olink targetptr="asm_withbool">withbool</olink>,
+            <olink targetptr="asm_withint8">withint8</olink>, <olink targetptr="asm_withuint8">withuint8</olink>,
+            <olink targetptr="asm_withint16">withint16</olink>, <olink targetptr="asm_withuint16">withuint16</olink>,
+            <olink targetptr="asm_withint32">withint32</olink>, <olink targetptr="asm_withuint32">withuint32</olink>,
+            <olink targetptr="asm_withfloat">withfloat</olink>, <olink targetptr="asm_withdouble">withdouble</olink>,
+            <olink targetptr="asm_withptr">withptr</olink> and <olink targetptr="asm_withstring">withstring</olink>.
+        </para>
+        <para>
+            An alternative to explicitly calling one of the <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instructions before calling <command>get</command> is to use one of the prefixed versions of the the
+            instruction, namely:
+        </para>
+        <para>
+            <command>qget</command> (bool),
+            <command>bget</command>, <command>ubget</command>, <command>sget</command>, <command>usget</command>,
+            <command>iget</command>, <command>uiget</command>, <command>fget</command> and <command>dget</command>,
+            <command>iget</command>, <command>uiget</command>, <command>fget</command> and <command>dget</command>,
+            <command>pget</command> and <command>strget</command>.
+        </para>
+        <para>
+            The assembler will expand these to a corresponding <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instruction followed by <command>get</command>.
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">&lt;var-address&gt;</emphasis></para>
+            <para><command>get</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;var-address&gt;</emphasis> - the address of the variable to get the
+                contents of</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Returns the contents at the given variable address (ie. it is pushed onto the stack)</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_global">global</olink>
+            <olink targetptr="asm_local">local</olink>
+            <olink targetptr="asm_param">param</olink>
+            <olink targetptr="asm_set">set</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_for">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>FOR</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='3' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+            <colspec colname='c3'/>
+            <thead>
+                <row>
+                    <entry namest="c1" nameend="c3">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After&#10;(continue)</entry>
+                    <entry>After&#10;(break)</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry/>
+                     <entry morerows='5'/>
+                 </row>
+                 <row>
+                     <entry>block address</entry>
+                     <entry>block address</entry>
+                 </row>
+                 <row>
+                     <entry>int16 <emphasis role="args">&lt;step&gt;</emphasis></entry>
+                     <entry>int16 <emphasis role="args">&lt;step&gt;</emphasis></entry>
+                 </row>
+                 <row>
+                     <entry>int16 <emphasis role="args">&lt;to&gt;</emphasis></entry>
+                     <entry>int16 <emphasis role="args">&lt;to&gt;</emphasis></entry>
+                 </row>
+                 <row>
+                     <entry>int16 <emphasis role="args">&lt;from&gt;</emphasis></entry>
+                     <entry>int16 <emphasis role="args">&lt;from&gt;</emphasis></entry>
+                 </row>
+                 <row>
+                     <entry><emphasis role="args">&lt;counter-addr&gt;</emphasis></entry>
+                     <entry><emphasis role="args">&lt;counter-addr&gt;</emphasis></entry>
+                 </row>
+             </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+            Repeat the block of instructions based on the given parameters. Before the block is executed,
+            a counter variable is assigned an initial (<olink targetptr="asm_int16">int16</olink>)
+            <emphasis role="args">from</emphasis> value. Whether the block is executed depends on the result of a
+            comparison between the counter variable and the supplied <emphasis role="args">to</emphasis> value.
+            If <emphasis role="args">step</emphasis> is positive then the block is only executed if the counter is
+            less than or equal to the <emphasis role="args">to</emphasis> value.
+            If <emphasis role="args">step</emphasis> is negative then the block is only executed if the counter is
+            greater than or equal to the <emphasis role="args">to</emphasis> value.
+        </para>
+        <para></para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para>global&#160;&#160;&#160;&#160;<emphasis role="args">&lt;counter&gt;</emphasis></para>
+            <para>or...</para>
+            <para>local&#160;&#160;&#160;&#160;&#160;<emphasis role="args">&lt;counter&gt;</emphasis></para>
+            <para>int16&#160;&#160;&#160;&#160;&#160;<emphasis role="args">&lt;from&gt;</emphasis></para>
+            <para>int16&#160;&#160;&#160;&#160;&#160;<emphasis role="args">&lt;to&gt;</emphasis></para>
+            <para>int16&#160;&#160;&#160;&#160;&#160;<emphasis role="args">&lt;step&gt;</emphasis></para>
+            <para>block</para>
+            <para>...</para>
+            <para>eob</para>
+            <para><command>for</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;counter&gt;</emphasis> - counter variable name</para>
+            <para><emphasis role="args">&lt;from&gt;</emphasis> - from value (int16)</para>
+            <para><emphasis role="args">&lt;to&gt;</emphasis> - to value (int16)</para>
+            <para><emphasis role="args">&lt;step&gt;</emphasis> - step value (int16)</para>
+        </itemizedlist>
+    </sect2>
+     <sect2>
+        <title>Example</title>
+        <programlisting>
+            .global _start
+            .data
+        counter:	.short		true
+
+            .text
+        _start:
+                ; Countdown
+            global   counter    ; address of counter on the stack
+            int16    1          ; from
+            int16    10         ; to
+            int16    1          ; step
+            block
+            global   counter
+            sget                ; get the value of counter
+            stostr              ; convert it to a string
+            send
+            string "\n"
+            strsend
+            eob
+            for
+            string "Blastoff!\n"
+            strsend
+            exit
+            .end
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_block">block</olink>
+            <olink targetptr="asm_repeat">repeat</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

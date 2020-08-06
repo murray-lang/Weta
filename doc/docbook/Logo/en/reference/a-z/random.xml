@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="random">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>RANDOM</title>
+    <para>
+        If there is no argument then <command>random</command> returns a pseudo random number between 0 and 32767.
+    </para>
+    <para>
+      If there are two arguments then <command>random</command> returns a pseudo random number between limits set by
+        the first and second arguments. These arguments are expected to be signed shorts, so the maximum limits are
+        between -32767 and 32767
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>random</command>
+      </funcsynopsis>
+
+      <funcsynopsis>
+        <command>random</command><emphasis role="args">&lt;lower-limit&gt; &lt;upper-limit&gt;</emphasis>
+      </funcsynopsis>
+
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;lower-limit&gt;</emphasis> - the lower limit of the random number range (short)</para>
+        <para><emphasis role="args">&lt;upper-limit&gt;</emphasis> - the upper limit of the random number range (short)</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+          If there is no argument then a pseudo random number between 0 and 32767.
+      </para>
+        <para>
+            If there are two arguments then a pseudo random number between
+            <emphasis role="args">&lt;lower-limit&gt;</emphasis> and
+            <emphasis role="args">&lt;upper-limit&gt;</emphasis>.
+        </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo random
+          make "bar random 0 255
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+       </para>
+    </sect2>
+  </sect1>
+</article>

@@ -1,0 +1,58 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="i2cstop.html" title=""><link rel="next" href="if.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="i2cstop.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Logo Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="if.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N4119A"></a>I2CTXRX</h2></div></div></div>
+        
+        <p>
+            Transmit a buffer through I&sup2;C and receive a response buffer in a single operation.
+        </p>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N411A2"></a>Synopsis</h3></div></div></div>
+            
+            <div class="funcsynopsis">
+                <span class="command"><strong>i2ctxrx</strong></span>
+                <span class="args">&lt;i2c-slave-addr&gt;</span>
+                <span class="args">&lt;tx-buffer&gt;</span>
+                <span class="args">&lt;tx-buffer-length&gt;</span>
+                <span class="args">&lt;rx-buffer&gt;</span>
+                <span class="args">&lt;rx-buffer-length&gt;</span>
+                <span class="args">&lt;timeout&gt;</span>
+            </div>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N411C6"></a>Arguments</h3></div></div></div>
+            
+            <div class="itemizedlist"><p><span class="args">&lt;i2c-slave-addr&gt;</span> - the I&sup2;C slave address of the source device</p><p><span class="args">&lt;tx-buffer&gt;</span> - reference to a bytearray with tx data</p><p><span class="args">&lt;tx-buffer-length&gt;</span> - number of bytes to send</p><p><span class="args">&lt;rx-buffer&gt;</span> - reference to a bytearray for rx data</p><p><span class="args">&lt;rx-buffer-length&gt;</span> - the maximum number of bytes to receive</p><p><span class="args">&lt;timeout&gt;</span> - timeout in milliseconds</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N411F3"></a>Returns</h3></div></div></div>
+            
+            <p>Nil</p>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N411FC"></a>Example</h3></div></div></div>
+            
+            <pre class="programlisting">
+            ...
+            bytearray [txbuff 4]   ;bytearray is a type specific to this variant of Logo
+            bytearray [rxbuff 4]
+
+            ; Put transmit data into the buffer
+            aset :txbuff 0 1
+            aset :txbuff 1 3
+            aset :txbuff 2 5
+            aset :txbuff 3 7
+
+            i2cstart
+            i2ctxrx 1 "txbuff 4 "rxbuff 4 1000	; Read-thru-write semantics
+            make "err i2cerr					; i2cerr holds the last i2c error
+            i2cstop
+            ...
+            </pre>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N41205"></a>See Also</h3></div></div></div>
+            
+            <p>
+                <a href="../../../logo/reference/a-z/i2cerr.html" class="olink">i2cerr</a>
+                <a href="../../../logo/reference/a-z/i2crx.html" class="olink">i2crx</a>
+                <a href="../../../logo/reference/a-z/i2cstart.html" class="olink">i2cstart</a>
+                <a href="../../../logo/reference/a-z/i2cstop.html" class="olink">i2cstop</a>
+            </p>
+        </div>
+    </div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="i2cstop.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="if.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

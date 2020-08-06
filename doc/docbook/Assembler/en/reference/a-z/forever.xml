@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_forever">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>FOREVER</title>
+    <abstract>
+        <para>Repeat the block of instructions forever.</para>
+     </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para>block</para>
+            <para>...</para>
+            <para>eob</para>
+            <para><command>forever</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil</para>
+    </sect2>
+     <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; pulsar
+        block
+        ledon
+        int16  100     ; Argument to wait (1 tenth second)
+        wait
+        ledoff
+        int16  900     ; Argument to wait (9 tenths second)
+        wait
+        eob
+        forever
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_for">for</olink>
+            <olink targetptr="asm_foreach">foreach</olink>
+            <olink targetptr="asm_repeat">repeat</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

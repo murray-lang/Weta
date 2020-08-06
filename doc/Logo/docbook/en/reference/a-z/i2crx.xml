@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+         xml:id="i2crx">
+    <?dbhtml dir="a-z" ?>
+    <sect1>
+        <title>I2CRX</title>
+        <para>
+            Receive I&#178;C data.
+        </para>
+        <sect2>
+            <title>Synopsis</title>
+            <funcsynopsis>
+                <command>i2crx</command>
+                <emphasis role="args">&lt;i2c-slave-addr&gt;</emphasis>
+                <emphasis role="args">&lt;rx-buffer&gt;</emphasis>
+                <emphasis role="args">&lt;rx-buffer-length&gt;</emphasis>
+                <emphasis role="args">&lt;timeout&gt;</emphasis>
+            </funcsynopsis>
+        </sect2>
+        <sect2>
+            <title>Arguments</title>
+            <itemizedlist>
+                <para><emphasis role="args">&lt;i2c-slave-addr&gt;</emphasis> - the I&#178;C slave address of the source device</para>
+                <para><emphasis role="args">&lt;rx-buffer&gt;</emphasis> - reference to a bytearray for rx data</para>
+                <para><emphasis role="args">&lt;rx-buffer-length&gt;</emphasis> - the maximum number of bytes to receive</para>
+                <para><emphasis role="args">&lt;timeout&gt;</emphasis> - timeout in milliseconds</para>
+            </itemizedlist>
+        </sect2>
+        <sect2>
+            <title>Returns</title>
+            <para>Nil</para>
+        </sect2>
+        <sect2>
+            <title>Example</title>
+            <programlisting>
+            ...
+            bytearray [rxbuff 4]
+
+            i2cstart
+            i2crx 1 "rxbuff 4 1000	; Read data
+            make "err i2cerr	    ; i2cerr holds the last i2c error
+            i2cstop
+            ...
+            </programlisting>
+        </sect2>
+        <sect2>
+            <title>See Also</title>
+            <para>
+                <olink targetptr="i2cerr">i2cerr</olink>
+                <olink targetptr="i2cstart">i2cstart</olink>
+                <olink targetptr="i2cstop">i2cstop</olink>
+                <olink targetptr="i2ctxrx">i2ctxrx</olink>
+            </para>
+        </sect2>
+    </sect1>
+</article>

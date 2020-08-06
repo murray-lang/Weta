@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_waituntil">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>WAITUNTIL</title>
+    <abstract>
+        <para>Wait until the code in a block returns a true.</para>
+        <para></para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para>block</para>
+            <para><emphasis role="args">&lt;instructions&gt;</emphasis></para>
+            <para>eob</para>
+            <para><command>waituntil</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;instructions&gt;</emphasis> - code that ultimately pushes a Boolean value
+                onto the stack</para>
+        </itemizedlist>
+    </sect2>
+     <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; Wait for a button press. Beep when it happens
+            block
+            uint8 1    ; assume a button is connected to digital input 1
+            din
+            eob
+            waituntil
+            beep
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_if">if</olink>
+            <olink targetptr="asm_ifelse">ifelse</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

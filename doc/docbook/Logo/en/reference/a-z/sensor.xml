@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="sensor">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>SENSOR[1-8]</title>
+    <para>
+        Returns value of the analog sensor identified by the suffix digit. These commands are included for
+        compatibility with Cricket Logo, but the same functionality is provided in a more generic way by
+        <olink targetptr="analogin">analogin</olink>.
+    </para>
+      <para>
+          The value is a signed short, but the range of values will depend on the ADC hardware.
+          In Cricket Logo the range is specified as from 0 to 1023 (Assumes 10 bit ADC)
+      </para>
+    <sect2>
+      <title>Synopsis</title>
+        <funcsynopsis>
+        <command>sensor1</command>
+        </funcsynopsis>
+        <funcsynopsis>
+            <command>sensor2</command>
+        </funcsynopsis>
+        <para>...</para>
+        <funcsynopsis>
+            <command>sensor8</command>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <para>Nil.</para>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+          Returns value of the analog sensor identified by the suffix digit.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+            ; Send some sensor data
+        foreach ip [sensor1 ', ' sensor2 ', ' sensor3 ', ' sensor4 '\n']
+        [
+                ; Because at least one list item is a string, all values are
+                ; converted to a string.
+            send :ip
+        [
+       </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="analogin">analogin</olink>
+          <olink targetptr="switch">switch</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

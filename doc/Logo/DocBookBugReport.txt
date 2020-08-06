@@ -1,0 +1,14 @@
+I have a problem using olink with a non-flat directory structure.
+
+- I specify the document locations in the <sitemap> element of olinkdb.xml.
+- The href attributes in the resulting html files use these paths correctly.
+- However, the actual html files are all put in a directory together at the top.
+- So, I use <?dbhtml dir="someDir"?> in the xml files to specify the html paths.
+- This works as expected and all of the html files are where I want them. Good.
+- But, the hrefs in the html files now have an extra "someDir" appended! 
+
+I am able to get my html linking to work by falsifying the document locations in the <sitemap> element of olinkdb.xml. That is, I say that they are located at the top of the structure, then the path from <?dbhtml dir="someDir"?> is appended by the processor to make the href paths correct in the html.
+
+I am a newbie to DocBook, but it seems to me that if a <sitemap> is required then it should be treated as a source of truth. By appending the <?dbhtml dir="someDir"?> value to the sitemap paths, the collect.xref.targets handler is working on the basis that the sitemap is incorrect.
+
+I am using xsltproc and docbook-xsl-1.78.1

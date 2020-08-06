@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="atan2">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>ATAN2</title>
+    <para>
+      Find the angle (in radians) between the positive x-axis and the point given by coordinates x and y.
+      Both x and y can be positive or negative, and therefore identify a point in any quadrant.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>atan</command> <emphasis role="args">&lt;x&gt;</emphasis> <emphasis role="args">&lt;y&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;x&gt;</emphasis> - x coordinate of the point</para>
+            <para><emphasis role="args">&lt;y&gt;</emphasis> - y coordinate of the point</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Returns the angle, in radians, between the x-axis and (<emphasis role="args">&lt;x&gt;</emphasis>, <emphasis role="args">&lt;y&gt;</emphasis>).
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make “foo atan 1 1    ; foo == PI / 4
+          make “foo atan 0 1    ; foo == PI / 2
+          make “foo atan -1 0   ; foo == PI
+          make “foo atan 0 -1   ; foo == 3 * PI / 2
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="acos">acos</olink>
+            <olink targetptr="asin">asin</olink>
+            <olink targetptr="atan">atan</olink>
+            <olink targetptr="cos">cos</olink>
+            <olink targetptr="cosh">cosh</olink>
+            <olink targetptr="sin">sin</olink>
+            <olink targetptr="sinh">sinh</olink>
+            <olink targetptr="tan">tan</olink>
+            <olink targetptr="tanh">tanh</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

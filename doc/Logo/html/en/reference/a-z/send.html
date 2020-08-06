@@ -1,0 +1,68 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="round.html" title=""><link rel="next" href="sensor.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="round.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="sensor.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp29013372"></a>SEND</h2></div></div></div>
+    
+    <p>
+      Send the argument value to the default serial port. All of the base data types can be sent, including strings.
+    </p>
+    <p>
+        <span class="command"><strong>send</strong></span> also accepts an array argument.
+        This version also accepts a logical serial port number.
+    </p>
+    <p>
+      All of the base data types can be sent. Note that numerical values are sent as binary data in network byte order.
+      If you want to send a readable string representation then use <a href="../../reference/a-z/tostring.html" class="olink">tostring</a>.
+    </p>
+    <p>
+        TODO: There is an inconsistency here with accepting a port number as an argument. serial and newserial? are
+        able to accept a port number, as can the array version of send. But not plain send! Dumb! Fix it.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29016092"></a>Synopsis</h3></div></div></div>
+      
+        <div class="funcsynopsis">
+        <span class="command"><strong>send</strong></span> <span class="args">&lt;value&gt;</span>
+        </div>
+        <div class="funcsynopsis">
+            <span class="command"><strong>send</strong></span>
+                <span class="args">&lt;array-name&gt;</span>
+                <span class="args">&lt;num-items&gt;</span>
+                <span class="args">&lt;port&gt;</span>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29018868"></a>Arguments</h3></div></div></div>
+      
+        <div class="itemizedlist"><p><span class="args">&lt;value&gt;</span> - a single value to send</p><p><span class="args">&lt;array-name&gt;</span> - name of an array to send</p><p><span class="args">&lt;num-items&gt;</span> - the number of array items to send</p><p><span class="args">&lt;port&gt;</span> - the serial port to send to</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29021588"></a>Returns</h3></div></div></div>
+      
+      <p>Nil.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29022268"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+        make "foo 43
+        send :foo           ; send binary value in network byte order
+        send tostring :foo  ; send '42'
+
+          ; Get and send analog data from selected ports
+        make "serialPort 1
+        array [analogData 5]
+        make "next 0
+        foreach aport [1 3 4 5 7]
+        [
+            aset analogData :next analogin :aport
+            make "next :next + 1
+        ]
+        send analogData 5 :serialPort    ; send the array data to the required port
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29023420"></a>See Also</h3></div></div></div>
+      
+        <p>
+            <a href="../../reference/a-z/newserial.html" class="olink">newserial?</a>
+            <a href="../../reference/a-z/serial.html" class="olink">serial</a>
+            <a href="../../reference/a-z/tostring.html" class="olink">tostring</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="round.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="sensor.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

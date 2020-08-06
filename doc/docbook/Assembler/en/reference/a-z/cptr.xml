@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_cptr">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>CPTR</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry morerows="1"></entry>
+                     <entry></entry>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">code address</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+        Push the given code (procedure) address onto the stack. The assembler currently only accepts a name of a label
+        and not a number. It will resolve the symbol to an address.
+        </para>
+        <para>
+        The width of the number is up to the discretion of the assembler implementer and will depend on the scale of
+        the target firmware. In the current VM firmware implementation, <command>cptr</command> is 16 bits wide and  is in fact an offset
+        from the start of the EEPROM area.
+        </para>
+        <para>
+        In the current VM firmware implementation, the address is in fact an offset from the start of the EEPROM area.
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>cptr</command>&#160;&#160;&#160;&#160;<emphasis role="args">&lt;symbol&gt;</emphasis></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para><emphasis role="args">&lt;symbol&gt;</emphasis> - name of a procedure</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Returns a code address (by virtue of it being pushed onto the stack)</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_bool">bool</olink>
+            <olink targetptr="asm_byte">byte</olink>
+            <olink targetptr="asm_double">double</olink>
+            <olink targetptr="asm_float">float</olink>
+            <olink targetptr="asm_int8">int8</olink>
+            <olink targetptr="asm_int16">int16</olink>
+            <olink targetptr="asm_int32">int32</olink>
+            <olink targetptr="asm_short">short</olink>
+            <olink targetptr="asm_span">span</olink>
+            <olink targetptr="asm_string">string</olink>
+            <olink targetptr="asm_uint8">uint8</olink>
+            <olink targetptr="asm_uint16">uint16</olink>
+            <olink targetptr="asm_uint32">uint32</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

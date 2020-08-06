@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="not">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>NOT</title>
+    <para>
+      Return the logical complement of the argument.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>not</command> <emphasis role="args">&lt;bool-exp&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <para>
+      A single argument that must evaluate to a Boolean.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Returns the logical complement of the argument expression.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        make “foo not true          ; foo == false
+        make “foo not false         ; foo == true
+        make “foo false
+        make “bar not and :foo true ; bar == true
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="and">and</olink>
+            <olink targetptr="or">or</olink>
+            <olink targetptr="xor">xor</olink>
+        </para>
+    </sect2>
+  </sect1>
+</article>

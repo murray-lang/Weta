@@ -1,0 +1,49 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="i2cerr.html" title=""><link rel="next" href="i2cstart.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="i2cerr.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="i2cstart.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+    <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp28632796"></a>I2CRX</h2></div></div></div>
+        
+        <p>
+            Receive I²C data.
+        </p>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28633476"></a>Synopsis</h3></div></div></div>
+            
+            <div class="funcsynopsis">
+                <span class="command"><strong>i2crx</strong></span>
+                <span class="args">&lt;i2c-slave-addr&gt;</span>
+                <span class="args">&lt;rx-buffer&gt;</span>
+                <span class="args">&lt;rx-buffer-length&gt;</span>
+                <span class="args">&lt;timeout&gt;</span>
+            </div>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28635940"></a>Arguments</h3></div></div></div>
+            
+            <div class="itemizedlist"><p><span class="args">&lt;i2c-slave-addr&gt;</span> - the I²C slave address of the source device</p><p><span class="args">&lt;rx-buffer&gt;</span> - reference to a bytearray for rx data</p><p><span class="args">&lt;rx-buffer-length&gt;</span> - the maximum number of bytes to receive</p><p><span class="args">&lt;timeout&gt;</span> - timeout in milliseconds</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28638900"></a>Returns</h3></div></div></div>
+            
+            <p>Nil</p>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28639620"></a>Example</h3></div></div></div>
+            
+            <pre class="programlisting">
+            ...
+            bytearray [rxbuff 4]
+
+            i2cstart
+            i2crx 1 "rxbuff 4 1000	; Read data
+            make "err i2cerr	    ; i2cerr holds the last i2c error
+            i2cstop
+            ...
+            </pre>
+        </div>
+        <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28640556"></a>See Also</h3></div></div></div>
+            
+            <p>
+                <a href="../../reference/a-z/i2cerr.html" class="olink">i2cerr</a>
+                <a href="../../reference/a-z/i2cstart.html" class="olink">i2cstart</a>
+                <a href="../../reference/a-z/i2cstop.html" class="olink">i2cstop</a>
+                <a href="../../reference/a-z/i2ctxrx.html" class="olink">i2ctxrx</a>
+            </p>
+        </div>
+    </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="i2cerr.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="i2cstart.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

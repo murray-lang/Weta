@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="LN10">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>LN10</title>
+    <para>
+      Return the natural logarithm (base e) of 10.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>LN10</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <para>Nil</para>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Returns the natural logarithm (base e) of 10.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo LN2    ; foo == 0.6931471805599453
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="E">E</olink>
+            <olink targetptr="LN2">LN2</olink>
+            <olink targetptr="LOG10E">LOG10E</olink>
+            <olink targetptr="LOG2E">LOG2E</olink>
+            <olink targetptr="PI">PI</olink>
+            <olink targetptr="SQRT2">SQRT2</olink>
+            <olink targetptr="SQRT1_2">SQRT1_2</olink>
+        </para>
+    </sect2>
+  </sect1>
+</article>

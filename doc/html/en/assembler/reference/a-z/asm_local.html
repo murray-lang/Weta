@@ -1,0 +1,52 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_ledon.html" title=""><link rel="next" href="asm_loop.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_ledon.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_loop.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N4575F"></a>LOCAL</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td rowspan="2" align="left">&nbsp;</td><td align="left">&nbsp;</td></tr><tr><td align="left"><span class="args">variable address</span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>
+        Push the address of the given local variable onto the stack. Currently the assembler only accepts the
+        label/name of a local variable.
+        </p>
+        <p>
+        The symbol is resolved by the assembler into an offset from the beginning of the local variable frame on the
+        stack for the current procedure. From this the firmware calculates an absolute address, and pushes that onto
+        the stack. Thus any subsequent references to the address on the stack need not be concerned about its scope.
+        </p>
+        <p>
+        Note that <a href="../../../assembler/reference/a-z/asm_param.html" class="olink">param</a> works in a similar fashion.
+        </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N457AE"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="command"><strong>local</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="args">&lt;symbol&gt;</span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N457BF"></a>Arguments</h3></div></div></div>
+        
+            <p><span class="args">&lt;symbol&gt;</span> - name of a local variable</p>
+
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N457CB"></a>Returns</h3></div></div></div>
+        
+        <p>Returns a variable address (by virtue of it being pushed onto the stack)</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N457D4"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+            TODO!
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N457DD"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_cptr.html" class="olink">cptr</a>
+            <a href="../../../assembler/reference/a-z/asm_global.html" class="olink">global</a>
+            <a href="../../../assembler/reference/a-z/asm_param.html" class="olink">param</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_ledon.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_loop.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

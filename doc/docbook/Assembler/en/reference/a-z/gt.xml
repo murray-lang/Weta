@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_gt">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>GT</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry morerows='1'/>
+
+                 </row>
+                <row>
+                    <entry><emphasis role="args">value-2</emphasis></entry>
+                </row>
+                <row>
+                    <entry><emphasis role="args">value-1</emphasis></entry>
+                    <entry><emphasis role="args">value-1 &gt; value-2 (bool)</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>Remove the two top values from the stack, and push <command>true</command> if the second top value is
+            greater than the top value, otherwise push <command>false</command>.</para>
+        <para>
+            The data types expected by <command>gt</command> are determined by the last
+            <command>with<emphasis>&lt;type&gt;</emphasis></command> instruction. The valid options for
+            <command>gt</command> are:
+            <olink targetptr="asm_withint8">withint8</olink>, <olink targetptr="asm_withuint8">withuint8</olink>,
+            <olink targetptr="asm_withint16">withint16</olink>, <olink targetptr="asm_withuint16">withuint16</olink>,
+            <olink targetptr="asm_withint32">withint32</olink>, <olink targetptr="asm_withuint32">withuint32</olink>,
+            <olink targetptr="asm_withfloat">withfloat</olink> and <olink targetptr="asm_withdouble">withdouble</olink>.
+        </para>
+        <para>
+            An alternative to explicitly calling one of the <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instructions before calling <command>gt</command> is to use one of the prefixed versions of the the
+            instruction, namely:
+        </para>
+        <para>
+            <command>bgt</command>, <command>ubgt</command>, <command>sgt</command>, <command>usgt</command>,
+            <command>igt</command>, <command>uigt</command>, <command>fgt</command> and <command>dgt</command>
+        </para>
+        <para>
+            The assembler will expand these to a corresponding <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instruction followed by <command>gt</command>.
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">value-1</emphasis></para>
+            <para><emphasis role="args">value-2</emphasis></para>
+            <para><command>lt</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value-1&gt;</emphasis> - the first argument (left hand arg from higher level language)</para>
+            <para><emphasis role="args">&lt;value-2&gt;</emphasis> - the second argument (right hand arg from higher level language)</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns true if value-1 is greater than value-2, otherwise false.
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_eq">eq</olink>
+            <olink targetptr="asm_ge">ge</olink>
+            <olink targetptr="asm_gt">gt</olink>
+            <olink targetptr="asm_le">le</olink>
+            <olink targetptr="asm_lt">lt</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

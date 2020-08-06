@@ -1,0 +1,54 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="not.html" title=""><link rel="next" href="off.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="not.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="off.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp28846252"></a>NEWSERIAL?</h2></div></div></div>
+    
+    <p>
+        Return <span class="command"><strong>true</strong></span> if there is data available at the default serial port,
+        otherwise <span class="command"><strong>false</strong></span>.
+    </p>
+    <p>
+      TODO: newserial? and serial can accept a serial port number argument, but send cannot! Oversight. Fix it.
+    </p>
+      <p>
+          TODO: send can send all types, but serial can only receive bytes! Fix something.
+      </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28848068"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>newserial?</strong></span>
+      </div>
+      
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28849284"></a>Arguments</h3></div></div></div>
+      
+      <p>Nil.</p>
+      
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28850268"></a>Returns</h3></div></div></div>
+      
+      <p>
+          Return <span class="command"><strong>true</strong></span> if there is data available at the default serial port,
+          otherwise <span class="command"><strong>false</strong></span>.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28851484"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+            ; Echo machine!
+        forever
+        [
+            waituntil [newserial?]
+            send serial
+        ]
+
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28852196"></a>See Also</h3></div></div></div>
+      
+      <p>
+          <a href="../../reference/a-z/send.html" class="olink">send</a>
+          <a href="../../reference/a-z/serial.html" class="olink">serial</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="not.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="off.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

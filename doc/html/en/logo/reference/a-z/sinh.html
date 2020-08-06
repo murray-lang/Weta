@@ -1,0 +1,55 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="sin.html" title=""><link rel="next" href="sqr.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="sin.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Logo Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="sqr.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N42597"></a>SINH</h2></div></div></div>
+    
+    <p>
+      Return the hyperbolic sine of the given angle (expressed in radians).
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4259F"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>sinh</strong></span> <span class="args">&lt;radians&gt;</span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N425AF"></a>Arguments</h3></div></div></div>
+      
+        <div class="itemizedlist"><p><span class="args">&lt;radians&gt;</span> - the angle in radians</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N425BE"></a>Returns</h3></div></div></div>
+      
+    <p>
+      Returns the hyperbolic sine of the given angle.
+    </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N425C7"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+            ; Verify trig identity
+          make &ldquo;x 0
+          make "result1 cosh :x + sinh :x
+          make "result2 exp :x
+          ifelse result1 = result2
+          [
+              send 'sinh x + cosh x = exp x as expected.\n'
+          ]
+          [
+              send 'Something is not right with sinh, cosh and/or exp.\n'
+          ]
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N425D0"></a>See Also</h3></div></div></div>
+      
+        <p>
+            <a href="../../../logo/reference/a-z/acos.html" class="olink">acos</a>
+            <a href="../../../logo/reference/a-z/asin.html" class="olink">asin</a>
+            <a href="../../../logo/reference/a-z/atan.html" class="olink">atan</a>
+            <a href="../../../logo/reference/a-z/atan2.html" class="olink">atan2</a>
+            <a href="../../../logo/reference/a-z/cos.html" class="olink">cos</a>
+            <a href="../../../logo/reference/a-z/cosh.html" class="olink">cosh</a>
+            <a href="../../../logo/reference/a-z/sin.html" class="olink">sin</a>
+            <a href="../../../logo/reference/a-z/tan.html" class="olink">tan</a>
+            <a href="../../../logo/reference/a-z/tanh.html" class="olink">tanh</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="sin.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="sqr.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

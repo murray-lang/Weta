@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_dtof">
+    <?dbhtml dir="a-z/conversions" ?>
+<sect1>
+    <title>DTOF</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry/>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">double value</emphasis></entry>
+                    <entry><emphasis role="args">float value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+        Pop the double from the stack and push a float with the same value.
+        </para>
+        <note>
+            <para>A double can represent a wider range of numbers than a float. The programmer must be a ware of the
+            possibility of overflow.</para>
+            <para>Also, doubles can represent numbers with greater accuracy than floats. Be aware that the resulting
+            float might not exactly represent the value of the double.</para>
+        </note>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">&lt;double&gt;</emphasis>&#160;&#160;&#160;&#160;<emphasis role="args">&lt;value&gt;</emphasis></para>
+            <para><command>dtof</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Where</title>
+        <para><emphasis role="args">&lt;value&gt;</emphasis> - the double value to be converted</para>
+        <note>This synoposis shows an immediate value being explicitly placed onto the stack to be converted.
+            However, the value could be the result peripheral I/O, function calls or any number of mathematical
+            expressions. Or it could be an arbitrary combination of all of these.</note>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Returns a float with the value of <emphasis role="args">&lt;value&gt;</emphasis>
+            (by virtue of it being pushed onto the stack).</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        ...
+            ; calculate the hypotenuse of a right triangle with perpendicular sides 3 and 4
+        double   3.0
+        dtof
+        double   4.0
+        dtof
+        withfloat    ; treat everything as a float
+        math.hypot
+        tostr       ; convert float to a string ("5.0")
+        withstring
+        send        ; send "5.0" to the default stream
+        ...
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_math_hypot">hypot</olink>
+            <olink targetptr="asm_btos">btos</olink>
+            <olink targetptr="asm_btoi">btoi</olink>
+            <olink targetptr="asm_btof">btof</olink>
+            <olink targetptr="asm_btod">btod</olink>
+            <olink targetptr="asm_ubtos">ubtos</olink>
+            <olink targetptr="asm_ubtoi">ubtoi</olink>
+            <olink targetptr="asm_ubtof">ubtof</olink>
+            <olink targetptr="asm_ubtod">ubtod</olink>
+            <olink targetptr="asm_stob">stob</olink>
+            <olink targetptr="asm_stoi">stoi</olink>
+            <olink targetptr="asm_stof">stof</olink>
+            <olink targetptr="asm_stod">stod</olink>
+            <olink targetptr="asm_ustob">ustob</olink>
+            <olink targetptr="asm_ustoi">ustoi</olink>
+            <olink targetptr="asm_ustof">ustof</olink>
+            <olink targetptr="asm_ustod">ustod</olink>
+            <olink targetptr="asm_itob">itob</olink>
+            <olink targetptr="asm_itos">itos</olink>
+            <olink targetptr="asm_itof">itof</olink>
+            <olink targetptr="asm_itod">itod</olink>
+            <olink targetptr="asm_uitob">uitob</olink>
+            <olink targetptr="asm_uitos">uitos</olink>
+            <olink targetptr="asm_uitof">uitof</olink>
+            <olink targetptr="asm_uitod">uitod</olink>
+            <olink targetptr="asm_ftob">ftob</olink>
+            <olink targetptr="asm_ftoi">ftoi</olink>
+            <olink targetptr="asm_ftos">ftos</olink>
+            <olink targetptr="asm_ftod">ftod</olink>
+            <olink targetptr="asm_dtob">dtob</olink>
+            <olink targetptr="asm_dtos">dtos</olink>
+            <olink targetptr="asm_dtoi">dtoi</olink>
+            </para>
+    </sect2>
+</sect1>
+</article>

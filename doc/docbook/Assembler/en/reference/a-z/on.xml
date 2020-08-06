@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_on">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>ON</title>
+    <abstract>
+        <para>Turn the currently selected motors on.</para>
+        <para>Motors are selected using the <olink targetptr="asm_motors">motors</olink> instruction.</para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>on</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        ...
+        uint8  0b11  ; Binary value selecting the first two motors
+        motors       ; Flag the above motors as being selected
+        thatway      ; selected motors in 'that' direction
+        uint8  255
+        setpower     ; selected motors to full power
+        on           ; selected motors on
+        uint16 1000  ; wait 1 second
+        wait
+        off          ; selected motors off
+        thisway      ; selected motors in 'this' direction
+        on           ; selected motors on again
+        ; Reverse motor 1 only
+        uint8  0b01
+        motors       ; Only motor 1 is selected now (both motors still on)
+        off          ; turn off motor 1
+        rd           ; reverse direction of motor 1
+        on           ; motor 1 back on (now turning the opposite direction to motor 2)
+        uint16 1000  ; wait 1 second
+        wait
+        uint8  0b11  ; select both motors again
+        motors
+        off
+        brake        ; brake both motors
+        ...
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_brake">brake</olink>
+            <olink targetptr="asm_motors">motors</olink>
+            <olink targetptr="asm_off">off</olink>
+            <olink targetptr="asm_onfor">onfor</olink>
+            <olink targetptr="asm_rd">rd</olink>
+            <olink targetptr="asm_setpower">setpower</olink>
+            <olink targetptr="asm_thatway">thatway</olink>
+            <olink targetptr="asm_thisway">thisway</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

@@ -1,0 +1,44 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="lshift.html" title=""><link rel="next" href="max.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="lshift.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="max.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp28793636"></a>MAKE</h2></div></div></div>
+    
+    <p>
+        Assigns a value to a variable.
+        Also, if the variable has not previously been declared, the variable is created.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28794460"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>make "</strong></span><span class="args">&lt;var-name&gt; &lt;value&gt;</span>
+      </div>
+      <div class="funcsynopsis">
+        <span class="command"><strong>make :</strong></span><span class="args">&lt;pointer-name&gt; &lt;value&gt;</span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28796388"></a>Arguments</h3></div></div></div>
+      
+      <div class="itemizedlist"><p><span class="args">&lt;var-name&gt;</span> - name of the variable</p><p><span class="args">&lt;pointer-name&gt;</span> - name of a variable containing a pointer</p><p><span class="args">&lt;value&gt;</span> - value to assign to the variable</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28798644"></a>Returns</h3></div></div></div>
+      
+      <p>
+      Nil.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28799324"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+          make "foo 42      ; Usual case of assigning a value to a variable
+          make "bar :foo    ; Usual case of assigning the value of one variable to another
+          make "addr "bar   ; addr contains the address ("name" in Logo parlance) of bar
+          make :addr 42     ; The contents of addr is here used as the assignment target (bar)
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28800316"></a>See Also</h3></div></div></div>
+      
+      <p>
+          <a href="../../reference/a-z/local.html" class="olink">local</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="lshift.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="max.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="array">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>ARRAY</title>
+    <para>
+        Create an array with the given name and size. The alternative syntax is borrowed from FMS Logo.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>array[</command> <emphasis role="args">&lt;name&gt; &lt;size&gt;</emphasis><emphasis role="relevant">]</emphasis>
+      </funcsynopsis>
+      <para>or...</para>
+        <funcsynopsis>
+            make "<emphasis role="args">&lt;name&gt;</emphasis> <command>(array</command> <emphasis role="args">&lt;size&gt;</emphasis><command>)</command>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;name&gt;</emphasis> - name of the array variable</para>
+        <para><emphasis role="args">&lt;size&gt;</emphasis> - the maximum number of items in the array</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+      Nil.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          array [foo 2]         ; array foo has two elements
+          make “bar (array 2)   ; array bar has two elements
+
+          aset :foo 0 42		; make the first item 42
+          aset :foo 1 54		; make the second item 54
+
+          aset :bar 0 aget :foo 0	; Copy the first item in foo
+          aset :bar 1 aget :foo 1	; copy the second item in foo
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="aget">aget</olink>
+          <olink targetptr="aset">aset</olink>
+          <olink targetptr="item">item</olink>
+          <olink targetptr="setitem">setitem</olink>
+      </para>
+    </sect2>
+  </sect1>
+</article>

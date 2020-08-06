@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_int8">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>INT8</title>
+
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+            <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry morerows="1"></entry>
+                     <entry></entry>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">uint8 value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+
+    <abstract>
+        Push the given number onto the stack as a signed 8 bit value.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>int8</command>&#160;&#160;&#160;&#160;<emphasis role="args">&lt;value&gt;</emphasis></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - a number between -127 and 127 (int8)</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Returns a signed 8 bit number (by virtue of it being pushed onto the stack)</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        int8   5
+        int8   -6
+        btostr          ; Replace -30 on the stack with "-30"
+        strsend         ; Send the string to the default output stream
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_bool">bool</olink>
+            <olink targetptr="asm_byte">byte</olink>
+            <olink targetptr="asm_cptr">cptr</olink>
+            <olink targetptr="asm_double">double</olink>
+            <olink targetptr="asm_float">float</olink>
+            <olink targetptr="asm_int16">int16</olink>
+            <olink targetptr="asm_int32">int32</olink>
+            <olink targetptr="asm_short">short</olink>
+            <olink targetptr="asm_span">span</olink>
+            <olink targetptr="asm_string">string</olink>
+            <olink targetptr="asm_uint8">uint8</olink>
+            <olink targetptr="asm_uint16">uint16</olink>
+            <olink targetptr="asm_uint32">uint32</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

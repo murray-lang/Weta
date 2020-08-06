@@ -1,0 +1,1 @@
+xsltproc --output ./html/en/WetaLogo.html --xinclude --stringparam use.extensions 1 --stringparam target.database.document "/home/murray/Robotics/Weta/wetaproject.org/wwwroot/doc/Logo/docbook/en/olinkdb.xml" ../custom.xsl  ./docbook/en/WetaLogo.xml

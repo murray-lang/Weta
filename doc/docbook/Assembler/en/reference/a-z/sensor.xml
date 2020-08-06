@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_sensor">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>SENSOR[1-8]</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry morerows="1"></entry>
+                     <entry></entry>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">int16 value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>Push the value obtained from a sensor onto the stack. The sensor number is determined by the suffix
+        digit of the instruction. (i.e. <command>sensor1</command>,  <command>sensor2</command> ...
+            <command>sensor8</command>)</para>
+        <para>The range of the value will depend on the resolution of the particular ADC on the target.</para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>sensor1</command></para>
+            <para><command>sensor2</command></para>
+            <para>...</para>
+            <para><command>sensor8</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns an int16 value obtained from the sensor.
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_ain">ain</olink>
+            <olink targetptr="asm_switch">switch</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="svl">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>SVL</title>
+    <para>
+      Turn the the selected servo(s) left the given number of steps.
+    </para>
+    <para>TODO: clarify the meaning of "steps".</para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>svl</command> <emphasis role="args">&lt;steps&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;steps&gt;</emphasis> - number of steps</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>Nil</para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        n,      ; select servo 1
+        svl 5   ; turn left 5 steps
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="setsvh">setsvh</olink>
+            <olink targetptr="svr">svr</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

@@ -1,0 +1,1 @@
+xsltproc --xinclude --stringparam collect.xref.targets "only" --stringparam targets.filename "/home/murray/Robotics/Weta/wetaproject.org/wwwroot/doc/Assembler/docbook/en/target.db"  ../custom.xsl  ./docbook/en/WetaAssembler.xml

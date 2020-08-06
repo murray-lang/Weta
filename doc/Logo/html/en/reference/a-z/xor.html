@@ -1,0 +1,46 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="while.html" title=""><link rel="next" href="../../guide/WetaLogoGuide.html" title="Weta Logo Programmer's Guide"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="while.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="../../guide/WetaLogoGuide.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp29270740"></a>XOR</h2></div></div></div>
+    
+    <p>
+      Return the logical exclusive or of the the two boolean arguments.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29271508"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>xor</strong></span> <span class="args">&lt;bool-exp&gt; &lt;bool-exp&gt;</span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29272852"></a>Arguments</h3></div></div></div>
+      
+      <p>
+      Exactly two arguments are required, and they must evaluate to Booleans.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29273628"></a>Returns</h3></div></div></div>
+      
+    <p>
+      Returns true if exactly one of the two arguments is true, otherwise false.
+    </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29274436"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+        make &#8220;foo xor true true   ; foo == false
+        make &#8220;foo xor false false ; foo == false
+        make &#8220;foo xor true false  ; foo == true
+        make &#8220;foo xor false true  ; foo == true
+        make &#8220;foo false
+        make &#8220;bar xor :foo true   ; bar = true
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29275356"></a>See Also</h3></div></div></div>
+      
+        <p>
+            <a href="../../reference/a-z/and.html" class="olink">and</a>
+            <a href="../../reference/a-z/or.html" class="olink">or</a>
+            <a href="../../reference/a-z/not.html" class="olink">not</a>
+        </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="while.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="../../guide/WetaLogoGuide.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> Weta Logo Programmer's Guide</td></tr></table></div></body></html>

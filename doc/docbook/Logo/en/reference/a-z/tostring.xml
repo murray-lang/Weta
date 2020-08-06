@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="tostring">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>TOSTRING</title>
+    <para>
+      Return the string value of the argument. This works with all numerical types, Booleans and pointers.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>tostring</command> <emphasis role="args">&lt;value&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - value to convert to a string</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Returns the string representation of <emphasis role="args">&lt;value&gt;</emphasis>.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        send tostring analogin 1
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+      </para>
+    </sect2>
+  </sect1>
+</article>

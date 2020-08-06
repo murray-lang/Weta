@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="foreach">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>FOREACH</title>
+    <para>
+      Iterate through a list of values, making the current value available to the supplied statement block.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>foreach</command> <emphasis role="args">&lt;iterator&gt;</emphasis> <command>[</command><emphasis role="args">&lt;list&gt; ...</emphasis><command>]</command>
+          <command>[</command> <emphasis role="args">&lt;statements&gt;*</emphasis> <command>]</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Where</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;iterator&gt;</emphasis> - the name of the iterator variable</para>
+            <para><emphasis role="args">&lt;list&gt;</emphasis> - list of values to apply to the iterator</para>
+             <para><emphasis role="args">&lt;statements&gt;</emphasis> - zero or more program statements</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+            ; Step through these analog input pins
+          foreach nextInput [2 3 4 6 7]
+          [
+                  ; Use foreach for crude formatting of text output.
+                  ; If any list item is a string then any non-string items are
+                  ; converted to a string.
+                  ; Note that the iterator, nextInput, is one of the items
+              make "value analogin :nextInput
+              foreach nextStr ['Analog input ' :nextInput ' is ' :value '\n']
+              [
+                  send :nextStr
+              ]
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="dowhile">do.while</olink>
+            <olink targetptr="for">for</olink>
+            <olink targetptr="forever">forever</olink>
+            <olink targetptr="if">if</olink>
+            <olink targetptr="ifelse">ifelse</olink>
+            <olink targetptr="loop">loop</olink>
+            <olink targetptr="repeat">repeat</olink>
+            <olink targetptr="while">while</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

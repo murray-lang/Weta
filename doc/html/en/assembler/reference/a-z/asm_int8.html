@@ -1,0 +1,56 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_ifelse.html" title=""><link rel="next" href="asm_int16.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_ifelse.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_int16.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N44F1D"></a>INT8</h2></div></div></div>
+    
+
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td rowspan="2" align="left">&nbsp;</td><td align="left">&nbsp;</td></tr><tr><td align="left"><span class="args">uint8 value</span></td></tr></tbody></table>
+    </div>
+
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        Push the given number onto the stack as a signed 8 bit value.
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44F5F"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="command"><strong>int8</strong></span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="args">&lt;value&gt;</span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44F70"></a>Arguments</h3></div></div></div>
+        
+            <p><span class="args">&lt;value&gt;</span> - a number between -127 and 127 (int8)</p>
+
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44F7C"></a>Returns</h3></div></div></div>
+        
+        <p>Returns a signed 8 bit number (by virtue of it being pushed onto the stack)</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44F85"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        int8   5
+        int8   -6
+        btostr          ; Replace -30 on the stack with "-30"
+        strsend         ; Send the string to the default output stream
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44F8E"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_bool.html" class="olink">bool</a>
+            <a href="../../../assembler/reference/a-z/asm_byte.html" class="olink">byte</a>
+            <a href="../../../assembler/reference/a-z/asm_cptr.html" class="olink">cptr</a>
+            <a href="../../../assembler/reference/a-z/asm_double.html" class="olink">double</a>
+            <a href="../../../assembler/reference/a-z/asm_float.html" class="olink">float</a>
+            <a href="../../../assembler/reference/a-z/asm_int16.html" class="olink">int16</a>
+            <a href="../../../assembler/reference/a-z/asm_int32.html" class="olink">int32</a>
+            <a href="../../../assembler/reference/a-z/asm_short.html" class="olink">short</a>
+            <a href="../../../assembler/reference/a-z/asm_span.html" class="olink">span</a>
+            <a href="../../../assembler/reference/a-z/asm_string.html" class="olink">string</a>
+            <a href="../../../assembler/reference/a-z/asm_uint8.html" class="olink">uint8</a>
+            <a href="../../../assembler/reference/a-z/asm_uint16.html" class="olink">uint16</a>
+            <a href="../../../assembler/reference/a-z/asm_uint32.html" class="olink">uint32</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_ifelse.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_int16.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

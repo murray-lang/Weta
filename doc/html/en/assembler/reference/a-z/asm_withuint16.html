@@ -1,0 +1,53 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_withuint8.html" title=""><link rel="next" href="asm_withuint32.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_withuint8.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_withuint32.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N49F7F"></a>WITHUINT16</h2></div></div></div>
+    
+     <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>Selects uint16 as the type to be used for any subsequent stack operations.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N49F8A"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="command"><strong>withuint16</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N49F97"></a>Arguments</h3></div></div></div>
+        
+            <p>Nil.</p>
+
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N49FA0"></a>Returns</h3></div></div></div>
+        
+        <p>Nil. (The instruction sets a register that is internal to the virtual machine.)</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N49FA9"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+            .global _start
+            .data
+        val:	.short  0
+            .text
+            ...
+            global   val    ; increment val
+            withint16
+            get
+            uint16   1       ; increment by adding 1
+            add
+            global   val
+            set
+            ...
+            exit
+            .end
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N49FB2"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_withint8.html" class="olink">withint8</a> <a href="../../../assembler/reference/a-z/asm_withuint8.html" class="olink">withuint8</a>
+            <a href="../../../assembler/reference/a-z/asm_withuint16.html" class="olink">withuint16</a>
+            <a href="../../../assembler/reference/a-z/asm_withint32.html" class="olink">withint32</a> <a href="../../../assembler/reference/a-z/asm_withuint32.html" class="olink">withuint32</a>
+            <a href="../../../assembler/reference/a-z/asm_withfloat.html" class="olink">withfloat</a> <a href="../../../assembler/reference/a-z/asm_withdouble.html" class="olink">withdouble</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_withuint8.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_withuint32.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

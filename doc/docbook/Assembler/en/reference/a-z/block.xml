@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_block">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>BLOCK</title>
+
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+            <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry morerows="1"></entry>
+                     <entry></entry>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">code address of first instruction</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+
+    <abstract>
+        <para>
+            Marks the beginning of a block of code as used by the flow control structures. (The end is marked by
+            <olink targetptr="asm_eob">eob</olink>.)
+        </para>
+        <para>
+            The byte code for block is followed by a number - length of the block - and this is
+            used by the firmware to calculate the jump distance. However, the assembler doesn't require this number as
+            it is calculated using the location of the next occurring <olink targetptr="asm_eob">eob</olink>.
+        </para>
+        <para>
+            The code address pushed onto the stack (as indicated by the table) is consumed by the flow control
+            instruction that immediately follows the <olink targetptr="asm_eob">eob</olink>.
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>block</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nothing is returned to the stack for general use.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_eob">eob</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

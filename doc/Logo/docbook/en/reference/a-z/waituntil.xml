@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="waituntil">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>WAITUNTIL</title>
+    <para>
+      Wait until the given expression evaluates to <command>true</command>.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>waituntil [</command> <emphasis role="args">&lt;expression&gt;</emphasis><command>]</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Where</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;expression&gt;</emphasis> - code that evaluates to a Boolean</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          waituntil [switch1]     ; Wait for a button to be pressed
+          waituntil [newserial?]  ; Wait for new serial data
+
+          make "threshold 45
+          waituntil [sensor2 &lt;= :threshold] ; Wait for an analog value to fall
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="onfor">onfor</olink>
+            <olink targetptr="wait">wait</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

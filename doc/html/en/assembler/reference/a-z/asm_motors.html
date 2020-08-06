@@ -1,0 +1,74 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_mod.html" title=""><link rel="next" href="asm_mul.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_mod.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_mul.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N4720F"></a>MOTORS</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td rowspan="2" align="left">&nbsp;</td></tr><tr><td align="left"><span class="args">motor-bits (uint8)</span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>Pop the uint8 from the top of the stack, and use the 8 bits to select up to 8 motors.</p>
+        <p>This motor selection will remain true until the selection is changed with another
+        <span class="command"><strong>motors</strong></span> instruction.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4725A"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p>uint8&nbsp;&nbsp;&nbsp;&nbsp;<span class="args">motor-bits</span></p>
+            <p><span class="command"><strong>motors</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4726D"></a>Arguments</h3></div></div></div>
+        
+            <p><span class="args">&lt;motor-bits&gt;</span> - (uint8) bit flags indicating selected motors.
+            The least significant bit is the first motor.</p>
+
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47279"></a>Returns</h3></div></div></div>
+        
+        <p>Nil</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47282"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        ...
+        uint8  0b11  ; Binary value selecting the first two motors
+        motors       ; Flag the above motors as being selected
+        thatway      ; selected motors in 'that' direction
+        uint8  255
+        setpower     ; selected motors to full power
+        on           ; selected motors on
+        uint16 1000  ; wait 1 second
+        wait
+        off          ; selected motors off
+        thisway      ; selected motors in 'this' direction
+        on           ; selected motors on again
+            ; Reverse motor 1 only
+        uint8  0b01
+        motors       ; Only motor 1 is selected now (both motors still on)
+        off          ; turn off motor 1
+        rd           ; reverse direction of motor 1
+        on           ; motor 1 back on (now turning the opposite direction to motor 2)
+        uint16 1000  ; wait 1 second
+        wait
+        uint8  0b11  ; select both motors again
+        motors
+        off
+        brake        ; brake both motors
+        ...
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4728B"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_brake.html" class="olink">brake</a>
+            <a href="../../../assembler/reference/a-z/asm_off.html" class="olink">off</a>
+            <a href="../../../assembler/reference/a-z/asm_on.html" class="olink">on</a>
+            <a href="../../../assembler/reference/a-z/asm_onfor.html" class="olink">onfor</a>
+            <a href="../../../assembler/reference/a-z/asm_rd.html" class="olink">rd</a>
+            <a href="../../../assembler/reference/a-z/asm_setpower.html" class="olink">setpower</a>
+            <a href="../../../assembler/reference/a-z/asm_thatway.html" class="olink">thatway</a>
+            <a href="../../../assembler/reference/a-z/asm_thisway.html" class="olink">thisway</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_mod.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_mul.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

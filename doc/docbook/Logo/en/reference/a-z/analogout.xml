@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="analogout">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>ANALOGOUT</title>
+    <para>
+      Output the given value to the given analog output port.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>analogout</command> <emphasis role="args">&lt;port&gt; &lt;value&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;port&gt;</emphasis> - evaluates to the logical number of the analog output port</para>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - evaluates to the value to output</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Nil.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; Output a sinewave. Assume unsigned 8 bit analog output
+          make "port 1
+          for [i 0 255 1]
+          [
+              make "outval sin (2 * PI * :i) / 255
+              analogout :port :outval               ; outval will be cast to a byte
+          ]
+       </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="analogin">analogin</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

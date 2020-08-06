@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="isnan">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>ISNAN</title>
+    <para>
+      Return <command>true</command> if the argument is Not a Number (NaN),
+        otherwise <command>false</command>.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>isnan</command> <emphasis role="args">&lt;floating-point-num&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;floating-point-num&gt;</emphasis> - the number to test</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Return <command>true</command> if <emphasis role="args">&lt;floating-point-num&gt;</emphasis>
+        is Not a Number (NaN).
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        make "foo ln -1        ; foo == NaN
+        ifelse isnan :foo
+        [
+            send 'foo is NaN!\n'
+        ]
+        [
+            send 'BUG! something is not right with ln or isinf\n'
+        ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="abs">abs</olink>
+            <olink targetptr="isinf">isinf</olink>
+            <olink targetptr="max">max</olink>
+            <olink targetptr="min">min</olink>
+            <olink targetptr="neg">neg</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

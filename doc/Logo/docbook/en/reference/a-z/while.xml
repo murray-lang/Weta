@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="while">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>WHILE</title>
+    <para>
+      Execute statements in the block until the condition becomes true.
+      If the condition is not true when the statement is reached then the block statements will never be executed.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>while</command> <emphasis role="args">&lt;condition&gt;</emphasis>
+          <command>[</command> <emphasis role="args">&lt;statements&gt;*</emphasis> <command>]</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Where</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;condition&gt;</emphasis> - must evaluate to a Boolean value</para>
+            <para><emphasis role="args">&lt;statements&gt;</emphasis> - zero or more program statements</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; wait for a digital input before continuing
+          while not digitalin 3
+          [
+              wait 1
+          ]
+          beep
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="dowhile">while</olink>
+            <olink targetptr="for">for</olink>
+            <olink targetptr="foreach">foreach</olink>
+            <olink targetptr="forever">forever</olink>
+            <olink targetptr="if">if</olink>
+            <olink targetptr="ifelse">ifelse</olink>
+            <olink targetptr="loop">loop</olink>
+            <olink targetptr="repeat">repeat</olink>
+
+       </para>
+    </sect2>
+  </sect1>
+</article>

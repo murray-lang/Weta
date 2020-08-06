@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="wait">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>WAIT</title>
+    <para>
+      Wait for the given multiple of 1/10th of a second.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>wait</command> <emphasis role="args">&lt;tenths&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;tenths&gt;</emphasis> - the number of tenths of a second</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>Nil.</para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+            ; Flash the user LED
+        ledon
+        wait 2  ; wait 2/10ths of a second
+        ledoff
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="onfor">onfor</olink>
+            <olink targetptr="waituntil">waituntil</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

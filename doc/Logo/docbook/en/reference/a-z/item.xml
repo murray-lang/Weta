@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="item">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>ITEM</title>
+    <para>
+        Select an element from an array.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>item</command> <emphasis role="args">&lt;index-exp&gt; &lt;array-var&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;index-exp&gt;</emphasis> - index of the array element</para>
+        <para><emphasis role="args">&lt;array-var&gt;</emphasis> - array to retrieve the element from</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+      The selected array element.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          array [foo 4]
+
+          setitem 0 :foo 42				; initialise the array
+          setitem 1 :foo (item 0 :foo) + 1
+          setitem 2 :foo (item 1 :foo) + 1
+          setitem 3 :foo (item 2 :foo) + 1
+              ; send “42 43 44 45 ” to the default stream
+          for [i 0 3 1]
+          [
+              send tostring item :i :foo
+              send ' '
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="array">array</olink>
+            <olink targetptr="setitem">setitem</olink>
+            <olink targetptr="aset">aset</olink>
+            <olink targetptr="aget">aget</olink>
+        </para>
+    </sect2>
+  </sect1>
+</article>

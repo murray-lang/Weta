@@ -1,0 +1,82 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="ceil.html" title=""><link rel="next" href="cos.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ceil.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="cos.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp28457828"></a>CONFIG</h2></div></div></div>
+    
+    <p>
+    The <span class="command"><strong>config</strong></span> is used to configure a (growing) range of functions in Weta Logo.
+    In general it can be called at any time in a program, though in most cases it will be called once at the
+    beginning of a program to specify some deviation from from default behaviour.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28458892"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <span class="command"><strong>config digitalin [</strong></span><span class="args">&lt;port-list&gt;...;</span><span class="command"><strong>]</strong></span>
+        </div>
+        <div class="funcsynopsis">
+            <span class="command"><strong>config digitalout [</strong></span><span class="args">&lt;port-list&gt;...;</span><span class="command"><strong>]</strong></span>
+        </div>
+        <div class="funcsynopsis">
+            <span class="command"><strong>config send serial </strong></span><span class="args">&lt;port&gt;</span>
+        </div>
+        <div class="funcsynopsis">
+            <span class="command"><strong>config send ethernet </strong></span><span class="args">(Not yet implemented)</span>
+        </div>
+        <div class="funcsynopsis">
+            <span class="command"><strong>config serial </strong></span><span class="args">&lt;port&gt;</span>
+            <span class="command"><strong>[</strong></span>
+                <span class="command"><strong>baud:</strong></span><span class="args">&lt;baud-rate&gt;</span>
+                <span class="command"><strong>databits:</strong></span><span class="command"><strong>5</strong></span>|<span class="command"><strong>6</strong></span>|<span class="command"><strong>7</strong></span>|<span class="command"><strong>8</strong></span>
+                <span class="command"><strong>stopbits:</strong></span><span class="command"><strong>1</strong></span>|<span class="command"><strong>2</strong></span>
+                <span class="command"><strong>parity:</strong></span><span class="command"><strong>odd</strong></span>|<span class="command"><strong>even</strong></span>|<span class="command"><strong>none</strong></span>
+            <span class="command"><strong>]</strong></span>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28462964"></a>Arguments</h3></div></div></div>
+        
+        <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp28467372"></a>digitalin</h4></div></div></div>
+            
+            <div class="itemizedlist"><p><span class="args">&lt;port-list&gt;</span> - a list of logical port numbers which are to be digital inputs</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+        </div>
+        <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp28468908"></a>digitalout</h4></div></div></div>
+            
+            <div class="itemizedlist"><p><span class="args">&lt;port-list&gt;</span> - a list of logical port numbers which are to be digital outputs</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+        </div>
+        <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp28470140"></a>send serial</h4></div></div></div>
+            
+            <div class="itemizedlist"><p><span class="args">&lt;port&gt;</span> - the default logical serial port number to use for the <span class="command"><strong>send</strong></span> command</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+        </div>
+        <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp28471588"></a>send ethernet</h4></div></div></div>
+            
+            <p><span class="args">Note: Ethernet output for <span class="command"><strong>send</strong></span> has not yet been implemented.</span></p>
+        </div>
+        <div class="sect3"><div class="titlepage"><div><div><h4 class="title"><a name="idp28472836"></a>serial</h4></div></div></div>
+            
+            <div class="itemizedlist"><p><span class="args">&lt;port&gt;</span> - the logical serial port for which the following parameters are to apply</p><p><span class="args">&lt;baud-rate&gt;</span> - the required baud rate</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28474564"></a>Returns</h3></div></div></div>
+        
+        <p>Nil.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28475140"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+            ; Provide a list of logical digital I/O ports that will be inputs
+        config digitalin [1 2 3 4]
+            ; Provide a list of logical digital I/O ports that will be outputs
+        config digitalout [5 6 7 8]
+            ; Specify the stream type and port to be used by the default send command.
+            ; Alternatives at the time of writing are 'serial' and 'ethernet'.
+            ; The port numbers are 1-based
+        config send serial 1
+            ; Configure the parameters of the given serial port
+        config serial 1 [baud:9600 databits:8 stopbits:1 parity:none]
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28476332"></a>See Also</h3></div></div></div>
+        
+        <p>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ceil.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="cos.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

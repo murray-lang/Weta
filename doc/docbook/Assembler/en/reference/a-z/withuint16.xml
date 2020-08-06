@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_withuint16">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>WITHUINT16</title>
+     <abstract>
+        <para>Selects uint16 as the type to be used for any subsequent stack operations.</para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>withuint16</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil. (The instruction sets a register that is internal to the virtual machine.)</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            .global _start
+            .data
+        val:	.short  0
+            .text
+            ...
+            global   val    ; increment val
+            withint16
+            get
+            uint16   1       ; increment by adding 1
+            add
+            global   val
+            set
+            ...
+            exit
+            .end
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_withint8">withint8</olink> <olink targetptr="asm_withuint8">withuint8</olink>
+            <olink targetptr="asm_withuint16">withuint16</olink>
+            <olink targetptr="asm_withint32">withint32</olink> <olink targetptr="asm_withuint32">withuint32</olink>
+            <olink targetptr="asm_withfloat">withfloat</olink> <olink targetptr="asm_withdouble">withdouble</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

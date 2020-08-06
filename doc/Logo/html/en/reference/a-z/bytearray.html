@@ -1,0 +1,55 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="brake.html" title=""><link rel="next" href="ceil.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="brake.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="ceil.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp28441668"></a>BYTEARRAY</h2></div></div></div>
+    
+    <p>
+        Create an array of bytes with the given name and size. It was added to the language to support I/O buffers
+        such as required for I2C.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28442548"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>bytearray[</strong></span> <span class="args">&lt;name&gt; &lt;size&gt;</span><span class="relevant">]</span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28444196"></a>Arguments</h3></div></div></div>
+      
+      <div class="itemizedlist"><p><span class="args">&lt;name&gt;</span> - name of the array variable</p><p><span class="args">&lt;size&gt;</span> - the maximum number of bytes in the array</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28445956"></a>Returns</h3></div></div></div>
+      
+      <p>
+      Nil.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28446532"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+          bytearray [rxbuff 4]  ; rxbuff is an array of four bytes
+          i2cstart
+          make "i2caddr 1
+          make "timeout 1000
+          i2crx :i2caddr rxbuff 4 :timeout
+          i2cstop
+          if i2cerr = 0
+          [
+              for [i 0 3 1]
+              [
+                  send tostring aget :rxbuff :i
+                  send '\n'
+              ]
+          ]
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28447508"></a>See Also</h3></div></div></div>
+      
+      <p>
+          <a href="../../reference/a-z/aget.html" class="olink">aget</a>
+          <a href="../../reference/a-z/array.html" class="olink">aget</a>
+          <a href="../../reference/a-z/aset.html" class="olink">aset</a>
+          <a href="../../reference/a-z/item.html" class="olink">item</a>
+          <a href="../../reference/a-z/setitem.html" class="olink">setitem</a>
+      </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="brake.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="ceil.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

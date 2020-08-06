@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="onfor">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>ONFOR</title>
+    <para>
+      Turn on the selected motors for the given period of time.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>onfor <emphasis role="args">&lt;period-in-tenths&gt;</emphasis></command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;period-in-tenths&gt;</emphasis> - period to turn the motors on for (1/10s of a second)</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Nil.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; Select motors a and b.
+              ;These will stay selected until another selection is made
+          ab,
+          thisway       ; set the direction of both
+          setpower 8    ; full power
+          onfor 10      ; both on for 1s
+          off           ; both off
+          rd            ; reverse direction
+          onfor 10      ; both on for 1s
+          off           ; both off
+          brake         ; make sure both stop turning
+       </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="brake">brake</olink>
+            <olink targetptr="off">off</olink>
+            <olink targetptr="on">on</olink>
+            <olink targetptr="rd">rd</olink>
+            <olink targetptr="setpower">setpower</olink>
+            <olink targetptr="thatway">thatway</olink>
+            <olink targetptr="thisway">thisway</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

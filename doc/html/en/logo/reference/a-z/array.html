@@ -1,0 +1,51 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="and.html" title=""><link rel="next" href="ascii.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="and.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Logo Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="ascii.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N402DF"></a>ARRAY</h2></div></div></div>
+    
+    <p>
+        Create an array with the given name and size. The alternative syntax is borrowed from FMS Logo.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N402E7"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>array[</strong></span> <span class="args">&lt;name&gt; &lt;size&gt;</span><span class="relevant">]</span>
+      </div>
+      <p>or...</p>
+        <div class="funcsynopsis">
+            make "<span class="args">&lt;name&gt;</span> <span class="command"><strong>(array</strong></span> <span class="args">&lt;size&gt;</span><span class="command"><strong>)</strong></span>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4030D"></a>Arguments</h3></div></div></div>
+      
+      <div class="itemizedlist"><p><span class="args">&lt;name&gt;</span> - name of the array variable</p><p><span class="args">&lt;size&gt;</span> - the maximum number of items in the array</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N40322"></a>Returns</h3></div></div></div>
+      
+      <p>
+      Nil.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4032B"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+          array [foo 2]         ; array foo has two elements
+          make &ldquo;bar (array 2)   ; array bar has two elements
+
+          aset :foo 0 42		; make the first item 42
+          aset :foo 1 54		; make the second item 54
+
+          aset :bar 0 aget :foo 0	; Copy the first item in foo
+          aset :bar 1 aget :foo 1	; copy the second item in foo
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N40334"></a>See Also</h3></div></div></div>
+      
+      <p>
+          <a href="../../../logo/reference/a-z/aget.html" class="olink">aget</a>
+          <a href="../../../logo/reference/a-z/aset.html" class="olink">aset</a>
+          <a href="../../../logo/reference/a-z/item.html" class="olink">item</a>
+          <a href="../../../logo/reference/a-z/setitem.html" class="olink">setitem</a>
+      </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="and.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="ascii.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_din">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>DIN</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry></entry>
+                     <entry></entry>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">uint8 port#</emphasis></entry>
+                    <entry><emphasis role="args">bool value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        Remove the uint8 port number from the top of the stack, and replace it with the Boolean value read from that
+        digital input port.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para>uint8&#160;&#160;&#160;&#160;<emphasis role="args">port#</emphasis></para>
+            <para><command>din</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para><emphasis role="args">&lt;port#&gt;</emphasis> - the required port number (uint8)</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns the Boolean value from the specified digital port.
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; Wait for a button press. Beep when it happens
+            block
+            uint8 1    ; assume a button is connected to digital input 1
+            din
+            eob
+            waituntil
+            beep
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_ain">ain</olink>
+            <olink targetptr="asm_aout">aout</olink>
+            <olink targetptr="asm_dout">dout</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_span">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>SPAN</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry morerows="1"></entry>
+                     <entry></entry>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">number</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+        <command>span</command> pushes an integer onto the VM stack, and is intended to represent offsets within the
+        VM stack, such as the size of the arguments to a procedure.
+        </para>
+        <para>
+        The reason for it having a separate name is so that the width of the numbers it represents can be at the
+        discretion of the assembler back-end implementer. A very small system might get away with having
+        <command>span</command> as an 8 bit number, so program space could be saved. A much larger system might require
+        32 bit offsets. In the current firmware implementation, <command>span</command> is 16 bits wide.
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>span</command>&#160;&#160;&#160;&#160;<emphasis role="args">&lt;number&gt;</emphasis></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para><emphasis role="args">&lt;number&gt;</emphasis> - the size of the stack offset or span</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Returns a number (by virtue of it being pushed onto the stack)</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_bool">bool</olink>
+            <olink targetptr="asm_byte">byte</olink>
+            <olink targetptr="asm_cptr">cptr</olink>
+            <olink targetptr="asm_double">double</olink>
+            <olink targetptr="asm_float">float</olink>
+            <olink targetptr="asm_int8">int8</olink>
+            <olink targetptr="asm_int16">int16</olink>
+            <olink targetptr="asm_int32">int32</olink>
+            <olink targetptr="asm_short">short</olink>
+            <olink targetptr="asm_string">string</olink>
+            <olink targetptr="asm_uint8">uint8</olink>
+            <olink targetptr="asm_uint16">uint16</olink>
+            <olink targetptr="asm_uint32">uint32</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

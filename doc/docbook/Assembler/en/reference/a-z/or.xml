@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_or">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>OR</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry morerows='1'/>
+
+                 </row>
+                <row>
+                    <entry><emphasis role="args">bool-2</emphasis></entry>
+                </row>
+                <row>
+                    <entry><emphasis role="args">bool-1</emphasis></entry>
+                    <entry><emphasis role="args">bool-1 &#8897; bool-2</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        Remove the two top Boolean values on the stack, and replace them with a single Boolean value representing the
+        logical <command>or</command> of the two.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">bool-1</emphasis></para>
+            <para><emphasis role="args">bool-2</emphasis></para>
+            <para><command>or</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;bool-1&gt;</emphasis> - the first argument (left hand arg from higher level language)</para>
+            <para><emphasis role="args">&lt;bool-2&gt;</emphasis> - the second argument (right hand arg from higher level language)</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns the logical <command>or</command> of the two argument expressions.
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        uint8 1         ; Select port 1
+        din             ; Get digital input 1
+        uint8 2         ; Select port 2
+        din             ; Get digital input 2
+        or             ; Are both on?
+        block           ; start of if block
+        beep            ; Beep if either digital inputs are on
+        eob
+        if              ; If condition check
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_and">and</olink>
+            <olink targetptr="asm_not">not</olink>
+            <olink targetptr="asm_xor">xor</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

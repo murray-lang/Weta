@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="for">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>FOR</title>
+    <para>
+      Execute statements in a block until a counter reaches a given value.
+      The counter's start value, target value, step size and step direction are required
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>for [</command> <emphasis role="args">&lt;counter&gt; &lt;from&gt; &lt;to&gt; &lt;step&gt;</emphasis><command>]</command>
+          <command>[</command> <emphasis role="args">&lt;statements&gt;*</emphasis> <command>]</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Where</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;counter&gt;</emphasis> - the name of the counter variable</para>
+            <para><emphasis role="args">&lt;from&gt;</emphasis> - the start value of the counter</para>
+            <para><emphasis role="args">&lt;to&gt;</emphasis> - the stop value of the counter</para>
+            <para><emphasis role="args">&lt;step&gt;</emphasis> - the increment value for each iteration. Can be negative.</para>
+            <para><emphasis role="args">&lt;statements&gt;</emphasis> - zero or more program statements</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; Initialise an array
+          array [digits 10]
+          for [i 0 9 1]
+          [
+              aset :digits :i 0
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="dowhile">do.while</olink>
+            <olink targetptr="foreach">foreach</olink>
+            <olink targetptr="forever">forever</olink>
+            <olink targetptr="if">if</olink>
+            <olink targetptr="ifelse">ifelse</olink>
+            <olink targetptr="loop">loop</olink>
+            <olink targetptr="repeat">repeat</olink>
+            <olink targetptr="while">while</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

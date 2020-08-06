@@ -1,0 +1,97 @@
+h2.title {
+    color: white;
+    background-color: DodgerBlue;
+    padding-top: 5pt;
+    padding-bottom: 5pt;
+    padding-left: 5pt;
+    padding-right: 5pt;
+}
+
+div.abstract p.title {
+    margin-left: 0;
+}
+
+div.tip {
+    background-color: DarkSeaGreen;
+    padding-top: 1px;
+    padding-bottom: 5pt;
+    padding-left: 5pt;
+    padding-right: 5pt;
+}
+
+div.note {
+    background-color: khaki;
+}
+
+div.warning {
+    background-color: salmon;
+}
+
+p {
+    text-align: justify;
+    margin-left: 20pt;
+    margin-right: 20pt;
+}
+
+
+p.args {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+p.args span.emphasis {
+    font-style: italic;
+}
+
+div.funcsynopsis {
+    font-family: "Courier New";
+}
+
+div.funcsynopsis p {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 50pt;
+    word-spacing: -5pt;
+    text-indent: -30pt;
+}
+
+span.args {
+    font-style: italic;
+}
+
+span.not {
+    font-style: italic;
+    text-decoration: overline;
+}
+
+span.highlight {
+    font-style: italic;
+    font-weight: bold;
+}
+
+span.exponent {
+    vertical-align: super;
+}
+
+div.stack table {
+    float: right;
+    margin-right: 20pt;
+    background-color: white;
+    box-shadow: -10px 10px 5px #888888;
+}
+
+table {
+    float: right;
+    border-collapse: collapse;
+    margin-left: 20pt;
+}
+
+th, td {
+    padding: 5pt;
+    text-align: center;
+    white-space: pre;
+}
+
+pre.programlisting {
+  font-family: "Courier New";
+}

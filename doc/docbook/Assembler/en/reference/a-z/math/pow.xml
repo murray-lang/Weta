@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_pow">
+    <?dbhtml dir="a-z/math" ?>
+<sect1>
+    <title>MATH.POW</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry morerows="1"/>
+                 </row>
+                 <row>
+                     <entry><emphasis>exponent</emphasis></entry>
+                 </row>
+                 <row>
+                    <entry><emphasis>base</emphasis></entry>
+                    <entry><emphasis>base</emphasis><emphasis role="exponent">exponent</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+            Pop an exponent from the top of the stack then pop the base. Push the value of base to the power of
+            exponent.
+        </para>
+        <para>
+            The data type expected by <command>math.pow</command> is determined by the last
+            <command>with<emphasis>&lt;type&gt;</emphasis></command> instruction. The valid options for
+            <command>math.pow</command> are: <olink targetptr="asm_withfloat">withfloat</olink> and
+            <olink targetptr="asm_withdouble">withdouble</olink>.
+        </para>
+        <para>
+            An alternative to explicitly calling one of the <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instructions before calling <command>math.pow</command> is to use one of the prefixed versions of the the
+            instruction, namely:
+        </para>
+        <para>
+            <command>math.fpow</command> or <command>math.dpow</command>
+        </para>
+        <para>
+            The assembler will expand these to a corresponding <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instruction followed by <command>math.pow</command>.
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">base</emphasis></para>
+            <para><emphasis role="args">exponent</emphasis></para>
+            <para><command>math.pow</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;base&gt;</emphasis> - the value to be multiplied</para>
+            <para><emphasis role="args">&lt;exponent&gt;</emphasis> - the number of times base should be multiplied by
+                itself</para>
+        </itemizedlist>
+        <note><para>This synopsis shows immediate values being explicitly placed onto the stack.
+            However, the values could be the result peripheral I/O, function calls or any number of mathematical
+            expressions. Or it could be an arbitrary combination of all of these.</para></note>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns base to the power of exponent.
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_exp">math.exp</olink>
+            <olink targetptr="asm_sqr">math.sqr</olink>
+            <olink targetptr="asm_sqrt">math.sqrt</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

@@ -1,0 +1,82 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../../index.html" title="The Weta project"><link rel="up" href="../../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_itob.html" title=""><link rel="next" href="asm_itof.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_itob.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_itof.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N45263"></a>ITOD</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td align="left">&nbsp;</td></tr><tr><td align="left"><span class="args">int32 value</span></td><td align="left"><span class="args">double value</span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>
+        Pop the int32 (signed int) from the stack and push a double with the same value.
+        </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N452AC"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="args">&lt;int32&gt;</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="args">&lt;value&gt;</span></p>
+            <p><span class="command"><strong>itod</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N452C2"></a>Where</h3></div></div></div>
+        
+        <p><span class="args">&lt;value&gt;</span> - the int32 value to be converted</p>
+        <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>This synopsis shows an immediate value being explicitly placed onto the stack to be converted.
+            However, the value could be the result peripheral I/O, function calls or any number of mathematical
+            expressions. Or it could be an arbitrary combination of all of these.</div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N452D1"></a>Returns</h3></div></div></div>
+        
+        <p>Returns a double with the value of <span class="args">&lt;value&gt;</span>
+            (by virtue of it being pushed onto the stack).</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N452DE"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        ...
+        int32   -42
+        itod
+        withdouble  ; treat everything as a double
+        tostr       ; convert double value to a string ("-42")
+        withstring
+        send        ; send "-42" to the default stream
+        ...
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N452E7"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_btoi.html" class="olink">btoi</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_btos.html" class="olink">btos</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_btof.html" class="olink">btof</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_btod.html" class="olink">btod</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ubtos.html" class="olink">ubtos</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ubtoi.html" class="olink">ubtoi</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ubtof.html" class="olink">ubtof</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ubtod.html" class="olink">ubtod</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_stob.html" class="olink">stob</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_stoi.html" class="olink">stoi</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_stof.html" class="olink">stof</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_stod.html" class="olink">stod</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ustob.html" class="olink">ustob</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ustoi.html" class="olink">ustoi</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ustof.html" class="olink">ustof</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ustod.html" class="olink">ustod</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_itob.html" class="olink">itob</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_itos.html" class="olink">itos</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_itof.html" class="olink">itof</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_uitob.html" class="olink">uitob</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_uitos.html" class="olink">uitos</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_uitof.html" class="olink">uitof</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_uitod.html" class="olink">uitod</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ftob.html" class="olink">ftob</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ftos.html" class="olink">ftos</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ftoi.html" class="olink">ftoi</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_ftod.html" class="olink">ftod</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_dtob.html" class="olink">dtob</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_dtos.html" class="olink">dtos</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_dtoi.html" class="olink">dtoi</a>
+            <a href="../../../../assembler/reference/a-z/conversions/asm_dtof.html" class="olink">dtof</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_itob.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_itof.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter xml:id="WetaAssemblerReferenceAZ"
+         version="5.0"
+         xml:lang="en"
+         xmlns="http://docbook.org/ns/docbook"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+        >
+    <title>Weta Assembler Reference A-Z</title>
+    <xi:include href="./a-z/and.xml" />
+    
+</chapter>

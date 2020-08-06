@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="timer">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>TIMER</title>
+    <para>
+        Returns value of free-running elapsed time device since the last time <olink targetptr="resett">resett</olink>
+        was called. Time units are reported in 1 millisecond counts.
+    </para>
+      <para>
+          Since the value is a signed short, the maximum time period that can be reported is 32.768 seconds
+      </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>timer</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <para>Nil.</para>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+          Returns value of free-running elapsed time device since the last time <olink targetptr="resett">resett</olink>
+          was called.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          resett
+          waituntil [newserial?]
+          make "waitTime timer/1000
+          foreach msg ['I waited ' :waitTime ' seconds for that data!\n']
+          [
+              send :msg
+          ]
+       </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="resett">resett</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

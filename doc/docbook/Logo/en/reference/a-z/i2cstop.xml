@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+         xml:id="i2cstop">
+    <?dbhtml dir="a-z" ?>
+    <sect1>
+        <title>I2CSTOP</title>
+        <para>
+            Set the I&#178;C driver state to stop.
+            It should be called after an I&#178;C communications session to reset the state machine.
+        </para>
+        <sect2>
+            <title>Synopsis</title>
+            <funcsynopsis>
+                <command>i2cstop</command>
+            </funcsynopsis>
+        </sect2>
+        <sect2>
+            <title>Arguments</title>
+            <para>Nil</para>
+        </sect2>
+        <sect2>
+            <title>Returns</title>
+            <para>Nil</para>
+        </sect2>
+        <sect2>
+            <title>Example</title>
+            <programlisting>
+            ...
+            bytearray [txbuff 4]   ;bytearray is a type specific to this variant of Logo
+            bytearray [rxbuff 4]
+
+            ; Put transmit data into the buffer
+            aset :txbuff 0 1
+            aset :txbuff 1 3
+            aset :txbuff 2 5
+            aset :txbuff 3 7
+
+            i2cstart
+            i2ctxrx 1 "txbuff 4 "rxbuff 4 1000	; Read-thru-write semantics
+            make "err i2cerr					; i2cerr holds the last i2c error
+            i2cstop
+            ...
+            </programlisting>
+        </sect2>
+        <sect2>
+            <title>See Also</title>
+            <para>
+                <olink targetptr="i2cerr">i2cerr</olink>
+                <olink targetptr="i2crx">i2crx</olink>
+                <olink targetptr="i2cstart">i2cstart</olink>
+                <olink targetptr="i2ctxrx">i2ctxrx</olink>
+            </para>
+        </sect2>
+    </sect1>
+</article>

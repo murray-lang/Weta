@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <!DOCTYPE targetset
+                SYSTEM "file:///home/murray/Apps/docbook-xsl-1.78.1/common/targetdatabase.dtd" [
+                <!ENTITY reftargets SYSTEM "file:///home/murray/Robotics/Weta/doc/Logo/docbook/en/target.db">
+                ]>
+<targetset>
+    <targetsetinfo>
+        Documents for the Weta Logo Manual.
+    </targetsetinfo>
+
+    <!-- Site map for generating relative paths between documents -->
+    <sitemap>
+       <dir name=".">
+           <document targetdoc="WetaLogo">&reftargets;</document>
+       </dir>
+    </sitemap>
+</targetset>

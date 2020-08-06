@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="hypot">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>HYPOT</title>
+    <para>
+      Return the hypotenuse of the right triangle with other two sides of the given lengths.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>hypot</command> <emphasis role="args">&lt;x&gt;</emphasis> <emphasis role="args">&lt;y&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;x&gt;</emphasis> - length of one perpendicular side</para>
+            <para><emphasis role="args">&lt;y&gt;</emphasis> - length of the other perpendicular side</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Return the hypotenuse of the right triangle with other two sides of lengths(<emphasis role="args">&lt;x&gt;</emphasis> and <emphasis role="args">&lt;y&gt;</emphasis>).
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make “foo 3
+          make “bar hypot :foo 3    ; bar == 5
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="acos">acos</olink>
+            <olink targetptr="asin">asin</olink>
+            <olink targetptr="atan">atan</olink>
+            <olink targetptr="cos">cos</olink>
+            <olink targetptr="cosh">cosh</olink>
+            <olink targetptr="sin">sin</olink>
+            <olink targetptr="sinh">sinh</olink>
+            <olink targetptr="tan">tan</olink>
+            <olink targetptr="tanh">tanh</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

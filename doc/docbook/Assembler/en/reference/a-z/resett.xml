@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_resett">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>RESETT</title>
+     <abstract>
+        Reset the free-running timer to 0.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>resett</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; Measure the time between button presses
+            block
+            uint8   1       ; Button on digital input 1
+            din
+            eob
+            waituntil
+            resett          ; reset timer to 0
+            block
+            uint8   1       ; Button on digital input 1
+            din
+            eob
+            waituntil
+            timer           ; get the timer count
+            stostr          ; convert the (short) milliseconds to a string
+            strsend         ; send to the default stream
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+
+            <olink targetptr="asm_timer">timer</olink>
+            <olink targetptr="asm_waituntil">waituntil</olink>
+
+        </para>
+    </sect2>
+</sect1>
+</article>

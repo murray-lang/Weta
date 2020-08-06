@@ -1,0 +1,56 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="tanh.html" title=""><link rel="next" href="thing.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="tanh.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="thing.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp29194924"></a>THATWAY</h2></div></div></div>
+    
+    <p>
+      Set the direction of the selected motors. What this direction means depends on the hardware implementation.
+      It will be the opposite direction to thisway.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29195780"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>thatway</strong></span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29196772"></a>Arguments</h3></div></div></div>
+      
+        <div class="itemizedlist"><p>Nil</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29197676"></a>Returns</h3></div></div></div>
+      
+    <p>
+      Nil.
+    </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29198284"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+              ; Select motors a and b.
+              ;These will stay selected until another selection is made
+          ab,
+          thatway       ; set the direction of both
+          setpower 8    ; full power
+          on            ; both on
+          wait 10       ; wait 1s
+          off           ; both off
+          rd            ; reverse direction
+          on            ; both on
+          wait 10       ; wait 1s
+          off           ; both off
+          brake         ; make sure both stop turning
+       </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29199476"></a>See Also</h3></div></div></div>
+      
+        <p>
+            <a href="../../reference/a-z/brake.html" class="olink">brake</a>
+            <a href="../../reference/a-z/off.html" class="olink">off</a>
+            <a href="../../reference/a-z/on.html" class="olink">on</a>
+            <a href="../../reference/a-z/onfor.html" class="olink">onfor</a>
+            <a href="../../reference/a-z/rd.html" class="olink">rd</a>
+            <a href="../../reference/a-z/setpower.html" class="olink">setpower</a>
+            <a href="../../reference/a-z/thisway.html" class="olink">thistway</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="tanh.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="thing.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

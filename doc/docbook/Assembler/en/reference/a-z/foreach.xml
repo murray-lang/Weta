@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_foreach">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>FOREACH</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+            <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry morerows='6'/>
+                 </row>
+                 <row>
+                     <entry>block address</entry>
+                 </row>
+                 <row>
+                     <entry><emphasis role="args">&lt;iterator&gt;</emphasis></entry>
+                 </row>
+                 <row>
+                     <entry>uint8 <emphasis role="args">&lt;num-items&gt;</emphasis></entry>
+                 </row>
+                 <row>
+                     <entry><emphasis role="args">&lt;item-1&gt;</emphasis></entry>
+                 </row>
+                 <row>
+                     <entry>...</entry>
+                 </row>
+                 <row>
+                     <entry><emphasis role="args">&lt;item-n&gt;</emphasis></entry>
+                 </row>
+             </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+            <command>foreach</command> executes a block of instructions once for each member of a given list. The
+            name of an iterator variable is required, which points to each list member in turn, and is available
+            within the instruction block.
+        </para>
+        <para>
+            Each member of the list must be of the same type, and <command>foreach</command> must be notified which
+            type they are by a preceding <command>with<emphasis>&lt;type&gt;</emphasis></command> instruction.
+            A shortcut (for the assembly author, not the Virtual Machine) is to use a prefixed version of
+            <command>foreach</command>.
+        </para>
+        <note>
+            Note that the iterator variable is a pointer, so must be dereferenced with
+            <olink targetptr="get">pget</olink> to put the contained address onto the stack before calling
+            <command>get</command> again for the ultimate item type. It is a pointer so that it can refer directly to
+            each list item in-situ on the stack, rather than have them copied each time to the iterator. The latter
+            would be particularly onerous for the VM if dealing with a list of strings.
+        </note>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">&lt;item-n&gt;</emphasis></para>
+            <para><emphasis role="args">&lt;item-n-1&gt;</emphasis></para>
+            <para>...</para>
+            <para><emphasis role="args">&lt;item-1&gt;</emphasis></para>
+            <para>uint8&#160;&#160;&#160;&#160;<emphasis role="args">&lt;#items&gt;</emphasis></para>
+            <para>{global | local}&#160;&#160;&#160;&#160;<emphasis role="args">&lt;iterator&gt;</emphasis></para>
+            <para>block</para>
+            <para>...</para>
+            <para>eob</para>
+            <para><command>[b|ub|s|us|i|ui|f|d|p|q|str]foreach</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;item-n&gt;</emphasis> - any expression that resolves to a base type</para>
+            <para><emphasis role="args">&lt;#items&gt;</emphasis> - the number of items in the list (uint8)</para>
+            <para><emphasis role="args">&lt;iterator&gt;</emphasis> - the name of a pointer variable</para>
+         </itemizedlist>
+    </sect2>
+     <sect2>
+        <title>Example</title>
+        <programlisting>
+        ; Display the values of some analog input ports
+        .global _start
+        .data
+    port:	.ptr  0
+    msg:    .ptr  0
+
+        .text
+    _start:
+        block
+        uint8    8       ; select the port numbers
+        uint8    6
+        uint8    3
+        uint8    2
+        uint8    4       ; number of list items (ports)
+        global   port    ; address of outer iterator variable
+        block            ; start of outer foreach loop (uint8s)
+            ; Format an output string using foreach
+            ; All items must be the same type, and we need strings, so convert other items to a string
+            ; push the items last to first
+        string   "\n"                  ; newline at the end of the string
+        global   port                  ; Get the next port number
+        pget
+        ubget
+        ain                            ; get the analog input for that port
+        stostr                         ; item 4 - analog input value as a string
+        string   " is "                ; item 3
+        global   port                  ; get the port number again
+        pget
+        ubget
+        ubtostr                        ; item 2 - port number as a string
+        string   "The value of input " ; item 1
+        uint8    5                     ; number of items in the formatting list
+        global   msg                   ; address of inner iterator variable
+        block                          ; start of inner foreach loop (strings)
+        global   msg                   ; get the next iterator value
+        pget
+        strget
+        strsend                        ; send the message part to the default stream
+        eob
+        strforeach
+        eob
+        ubforeach
+        eob
+        forever
+        .end
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_repeat">repeat</olink>
+            <olink targetptr="asm_for">for</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

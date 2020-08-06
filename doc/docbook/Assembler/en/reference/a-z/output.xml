@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_output">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>OUTPUT</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+            <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+            <tbody>
+                <row>
+                    <entry></entry>
+                    <entry morerows='1'></entry>
+                </row>
+                <row>
+                    <entry><emphasis role="highlight">value</emphasis></entry>
+                </row>
+                <row>
+                    <entry>locals</entry>
+                    <entry>locals</entry>
+                </row>
+                <row>
+                    <entry>caller's context</entry>
+                    <entry>caller's context</entry>
+                </row>
+                <row>
+                    <entry>return address</entry>
+                    <entry>return address</entry>
+                </row>
+                <row>
+                    <entry>size of args</entry>
+                    <entry>size of args</entry>
+                </row>
+                <row>
+                    <entry morerows='1'>args</entry>
+                    <entry morerows='1'>args</entry>
+                </row>
+                <row></row>
+                <row>
+                    <entry><emphasis>placeholder</emphasis></entry>
+                    <entry><emphasis role="highlight">value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+        <command>output</command> removes the value from the top of the stack and puts it into the stack location just
+        before the procedure's arguments. (It is assumed that the caller pushed a placeholder here, and will clean up
+        these arguments - if any - leaving the returned value on top of the stack for a subsequent instruction to consume.)
+        </para>
+        <para>
+            The type of data that <command>output</command> expects to be on the stack is determined by the most
+            recent invocation of <command>with<emphasis>&lt;type&gt;</emphasis></command>. If none of these have been
+            called then <command>withint16</command> is the default, meaning that <command>output</command> will
+            process a signed short.
+        </para>
+        <para>
+            A shortcut to explicitly calling <command>with<emphasis>&lt;type&gt;</emphasis></command> is to prefix
+            <command>output</command> with either "<command>b</command>", "<command>ub</command>",
+            "<command>s</command>", "<command>us</command>", "<command>i</command>", "<command>ui</command>",
+            "<command>f</command>", "<command>d</command>", "<command>q</command>" or "<command>p</command>". The
+            assembler will parse these and emit a corresponding <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            command before the <command>output</command> command.
+        </para>
+        <tip>While using the prefix versions of the command is convenient, they can result in great inefficiencies in
+            both space and speed due to redundancy of the underlying
+            <command>with<emphasis>&lt;type&gt;</emphasis></command> commands. If you know that a number of sequential
+            commands are going to operate on the same type, then it is more efficient to call
+            <command>with<emphasis>&lt;type&gt;</emphasis></command> once at the beginning, and only call it again
+            if an operation is required on another type.</tip>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">&lt;value&gt;</emphasis></para>
+            <para>withint8 | withuint8 | withint16 | withuint16 | withint32 | withuint32 | withfloat | withdouble
+                | withbool | withptr | withstring</para>
+            <para><command>output</command></para>
+        </funcsynopsis>
+        <para>or...</para>
+        <funcsynopsis>
+           <para><emphasis role="args">&lt;value&gt;</emphasis></para>
+            <para><command>output</command>
+                | <command>boutput</command> | <command>uboutput</command> | <command>soutput</command>
+                | <command>usoutput</command> | <command>ioutput</command> | <command>uioutput</command>
+                | <command>foutput</command> | <command>doutput</command>  | <command>poutput</command>
+                | <command>qoutput</command> | <command>stroutput</command></para>
+         </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <para role="args"><emphasis>&lt;value&gt;</emphasis> - the value to make available as a return value</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        ; Get the value of the given analog input and apply the given scale and offset
+    myBeep  .proc
+        .params
+            port: .byte 0           ; Analog port#
+            scale: .single 0.0
+            offset: .single 0.0
+        .endparams
+        begin
+        param port      ; Get address of port param
+        bget            ; Put its value on the stack
+        ain             ; Get analog input with that port number
+        stof            ; ain returns a short. Convert it to a float
+        withfloat       ; Type-specific commands are all for floats now
+        param scale     ; Get address of scale param
+        get             ; Put its value on the stack
+        mul             ; Multiply analog input by scale
+        param offset    ; Get address of offset param
+        get             ; Put its value on the stack
+        add             ; Add the offset to the scaled value left on the stack
+        output          ; Output the float result
+        return
+        .endproc
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_begin">begin</olink>
+            <olink targetptr="asm_return">return</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

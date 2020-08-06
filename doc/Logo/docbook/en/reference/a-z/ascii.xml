@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="ascii">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>ASCII</title>
+    <para>
+      Return the ASCII value of the given character.
+      If the argument is a string longer than one character then only the first character is considered.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>ascii</command> <emphasis role="args">&lt;string-of-length-1&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;string-of-length-1&gt;</emphasis> - a character value (eg. <emphasis role="args">'a'</emphasis>)</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Returns the ASCII value of the given character.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        make “foo ascii '\n'     ; foo == 10
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+       </para>
+    </sect2>
+  </sect1>
+</article>

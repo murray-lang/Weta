@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="local">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>LOCAL</title>
+    <para>
+        Declare a variable to be in procedure-local scope.
+        In this version of Logo, variables first used in a procedure are local to that procedure anyway.
+        <command>local</command> was included for compatibility reasons, but it can also be employed to
+        mitigate against accidental name clashes with global variables.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>local</command> <emphasis role="args">&lt;name&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;name&gt;</emphasis> - name of the variable</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+      Nil.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          ...
+          make "foo 42      ; A global variable
+          ...
+          exit
+
+          to myProc
+            local bar        ; bar is not visible to global scope
+            make "fred 3     ; Actually, neither is fred
+            make "bar 54
+            output :bar
+          end
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="make">make</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_ledoff">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>LEDOFF</title>
+     <abstract>
+        Turn off the user LED.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>ledoff</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; LED follows digital input 3
+            block         ; forever block
+            block         ; if block
+            ledon
+            eob
+            block         ; else block
+            ledoff
+            eob
+            uint8   3     ; get digital input 3
+            din
+            ifelse        ; test digital input result (bool)
+            eob
+            forever
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+
+            <olink targetptr="asm_beep">beep</olink>
+            <olink targetptr="asm_ledon">ledon</olink>
+            <olink targetptr="asm_waituntil">waituntil</olink>
+
+        </para>
+    </sect2>
+</sect1>
+</article>

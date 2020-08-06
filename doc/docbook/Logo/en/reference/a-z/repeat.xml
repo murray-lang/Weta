@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="repeat">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>REPEAT</title>
+    <para>
+        Execute statements in a block the given number of times.
+        <command>repcount</command> can be used to access the current number.
+        <command>repcount</command> is 1-based.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>repeat</command> <emphasis role="args">&lt;times&gt;</emphasis>
+          <command>[</command> <emphasis role="args">&lt;statements&gt;*</emphasis> <command>]</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Where</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;times&gt;</emphasis> - the number of times to execute the block statements</para>
+            <para><emphasis role="args">&lt;statements&gt;</emphasis> - zero or more program statements</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; send '1' to '5'on their own lines
+          repeat 5
+          [
+              send tostring repcount
+              send '\n'
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="dowhile">do.while</olink>
+            <olink targetptr="for">for</olink>
+            <olink targetptr="foreach">foreach</olink>
+            <olink targetptr="forever">forever</olink>
+            <olink targetptr="if">if</olink>
+            <olink targetptr="ifelse">ifelse</olink>
+            <olink targetptr="loop">loop</olink>
+            <olink targetptr="while">while</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

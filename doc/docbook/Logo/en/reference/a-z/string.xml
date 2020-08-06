@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="string">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>STRING</title>
+    <para>
+        Create a string with the given name and size. The syntax is borrowed from the FMS Logo syntax for
+        array declarations.
+    </para>
+    <para>
+      Strings can be created by simply assigning a literal string with <olink targetptr="make">make</olink>.
+        However, using the method described on this page is more efficient where a string variable will later be set
+        by a run-time function. It is the responsibility of the programmer to set a string to a sufficient size for the
+        purpose to which it will be used.
+    </para>
+    <para>Strings are most likely stored internally as 0 terminated.
+        There is no need to add this extra character to the string size as it will be done automatically by the
+        compiler.</para>
+    <sect2>
+      <title>Synopsis</title>
+        <funcsynopsis>
+            make "<emphasis role="args">&lt;name&gt;</emphasis> <command>(string</command> <emphasis role="args">&lt;size&gt;</emphasis><command>)</command>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;name&gt;</emphasis> - name of the string variable</para>
+        <para><emphasis role="args">&lt;size&gt;</emphasis> - the maximum number of items in the array</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+      Nil.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; The first assignment creates the variable.
+              ; In this case the size is being set to 5 so that it can hold the
+              ; string representation of any short value.
+              ; (shorts are the default integer size)
+          make "str (string 5)
+          make "str tostring 32767
+          send :str
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="array">array</olink>
+          <olink targetptr="make">make</olink>
+          <olink targetptr="tostring">tostring</olink>
+      </para>
+    </sect2>
+  </sect1>
+</article>

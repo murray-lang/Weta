@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="brake">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>BRAKE</title>
+    <para>
+      Cause the selected motors to stop turning immediately.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>brake</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para>Nil</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Nil.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; Select motors a and b.
+              ;These will stay selected until another selection is made
+          ab,
+          thisway       ; set the direction of both
+          setpower 8    ; full power
+          on            ; both on
+          wait 10       ; wait 1s
+          off           ; both off
+          rd            ; reverse direction
+          on            ; both on
+          wait 10       ; wait 1s
+          off           ; both off
+          brake         ; make sure both stop turning
+       </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="off">off</olink>
+            <olink targetptr="on">on</olink>
+            <olink targetptr="onfor">onfor</olink>
+            <olink targetptr="rd">rd</olink>
+            <olink targetptr="setpower">setpower</olink>
+            <olink targetptr="thatway">thatway</olink>
+            <olink targetptr="thisway">thisway</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_return">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>RETURN</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+            <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+            <tbody>
+                <row>
+                    <entry />
+                    <entry morerows='2'/>
+                </row>
+                <row>
+                    <entry>caller's context</entry>
+                </row>
+                <row>
+                    <entry>return address</entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+    <para>
+        <command>return</command> causes execution to return to a procedure's calling context.
+        Before doing so, it unwinds the local frame and restores the machine context of the caller, both of which
+        were set up and saved respectively by <olink targetptr="asm_begin">begin</olink>.
+    </para>
+    <para>While it operates on the VM stack to restore this information, this will be specific to the firmware
+        implementation and is not relevant for the purpose of the general processing instructions
+        (other than being prone to corruption by unbalanced stack operations).
+    </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>return</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+       <para>None</para>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nothing is returned to the stack for general use.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        myBeep  .proc
+            begin
+            beep
+            return
+            .endproc
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_begin">begin</olink>
+            <olink targetptr="asm_output">output</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

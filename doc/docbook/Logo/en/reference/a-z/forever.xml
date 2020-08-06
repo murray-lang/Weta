@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="forever">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>FOREVER</title>
+    <para>
+      Execute statements in a block forever. This is exactly equivalent to <command>loop</command>
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+        <funcsynopsis>
+            <command>forever [</command><emphasis role="args">&lt;statements&gt;*</emphasis><command>]</command>
+        </funcsynopsis>
+        <para>or...</para>
+        <funcsynopsis>
+            <command>loop [</command><emphasis role="args">&lt;statements&gt;*</emphasis><command>]</command>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Where</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;statements&gt;</emphasis> - zero or more program statements</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; Flash the user LED approximately every second
+          forever
+          [
+              ledon
+              wait 1
+              ledoff
+              wait 9
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="dowhile">do.while</olink>
+            <olink targetptr="for">for</olink>
+            <olink targetptr="foreach">foreach</olink>
+            <olink targetptr="if">if</olink>
+            <olink targetptr="ifelse">ifelse</olink>
+            <olink targetptr="repeat">repeat</olink>
+            <olink targetptr="while">for</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

@@ -1,0 +1,45 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_and.html" title=""><link rel="next" href="asm_beep.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_and.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_beep.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N4302A"></a>AOUT</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td rowspan="3" align="left">&nbsp;</td></tr><tr><td align="left"><span class="args">uint8 port#</span></td></tr><tr><td align="left"><span class="args">uint8 value</span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        Remove the uint8 port number and bool value from the top of the stack, and send the value to the digital
+        output port identified by port#.
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N43074"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="args">value</span></p>
+            <p>uint8&nbsp;&nbsp;&nbsp;&nbsp;<span class="args">port#</span></p>
+            <p><span class="command"><strong>dout</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4308C"></a>Arguments</h3></div></div></div>
+        
+        <div class="itemizedlist"><p><span class="args">&lt;value&gt;</span> - value to output (bool)</p><p><span class="args">&lt;port#&gt;</span> - the required port number (uint8)</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N430A1"></a>Returns</h3></div></div></div>
+        
+        <p>Nothing is returned to the stack.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N430AA"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        uint8 1         ; #1
+        ain             ; Get user knob setting from analog input 1
+        itoub           ; convert the int16 to a uint8 value to output
+        uint8 2         ; #2
+        aout            ; Send the knob setting to the LED at analog output 2 (brightness)
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N430B3"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_ain.html" class="olink">ain</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_and.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_beep.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

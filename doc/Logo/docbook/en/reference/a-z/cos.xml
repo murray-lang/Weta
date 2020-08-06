@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="cos">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>COS</title>
+    <para>
+      Return the cosine of the given angle (expressed in radians).
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>cos</command> <emphasis role="args">&lt;radians&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;radians&gt;</emphasis> - the angle in radians</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Returns the cosine of the given angle.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        make “foo cos 0       ; foo == 1
+        make “bar acos :foo   ; bar == 0
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="acos">acos</olink>
+            <olink targetptr="asin">asin</olink>
+            <olink targetptr="atan">atan</olink>
+            <olink targetptr="atan2">atan2</olink>
+            <olink targetptr="cosh">cosh</olink>
+            <olink targetptr="sin">sin</olink>
+            <olink targetptr="sinh">sinh</olink>
+            <olink targetptr="tan">tan</olink>
+            <olink targetptr="tanh">tanh</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

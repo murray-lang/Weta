@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="log10">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>LOG10</title>
+    <para>
+      Return the base 10 logarithm of the argument.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>log10</command> <emphasis role="args">&lt;value&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - a positive number</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Return the base 10 logarithm of the argument, or NaN if the argument is negative
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo log10 2        ; foo == 0.3010299956639812
+          make "foo log10 1        ; foo == 0
+          make "foo log10 10       ; foo == 1
+          make "foo log10 10000    ; foo == 4
+          make "foo log10 0        ; foo == -infinity
+          make "foo log10 -1       ; foo == NaN
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="E">E</olink>
+            <olink targetptr="exp">exp</olink>
+            <olink targetptr="ln">ln</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

@@ -1,0 +1,58 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_record.html" title=""><link rel="next" href="asm_resetdp.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_record.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_resetdp.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N47C6E"></a>REPEAT</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="4" align="left">VM Stack</th></tr><tr><th align="left">Before
+(first)</th><th align="left">Before
+(subsequent)</th><th align="left">After
+(continue)</th><th align="left">After
+(break)</th></tr></thead><tbody><tr><td rowspan="3" align="left">&nbsp;</td><td align="left">&nbsp;</td><td align="left">&nbsp;</td><td rowspan="5" align="left">&nbsp;</td></tr><tr><td align="left">block address</td><td align="left">block address</td></tr><tr><td align="left"><span class="args">count</span></td><td align="left"><span class="args">count</span></td></tr><tr><td align="left">block address</td><td align="left">outer <a href="../../../assembler/reference/a-z/asm_slot.html" class="olink">slot</a></td><td align="left">outer <a href="../../../assembler/reference/a-z/asm_slot.html" class="olink">slot</a></td></tr><tr><td align="left"><span class="args">count</span></td><td align="left"><a href="../../../assembler/reference/a-z/asm_slot.html" class="olink">slot</a></td><td align="left"><a href="../../../assembler/reference/a-z/asm_slot.html" class="olink">slot</a></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>Repeat the block of instructions the given number of times.</p>
+        <p>The 1-based current count is available within the block through the <a href="../../../assembler/reference/a-z/asm_slot.html" class="olink">slot</a>
+        instruction.</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47CFD"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p>int16&nbsp;&nbsp;&nbsp;&nbsp;<span class="args">&lt;count&gt;</span></p>
+            <p>block</p>
+            <p>...</p>
+            <p>eob</p>
+            <p><span class="command"><strong>repeat</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47D19"></a>Arguments</h3></div></div></div>
+        
+        <div class="itemizedlist"><p><span class="args">&lt;count&gt;</span> - number of times to repeat (int16)</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+     <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47D28"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+            ; countdown
+        int16  10    ; Repeat count
+        block
+        int16  11    ; 11 minus the slot number is the countdown value
+        slot         ; Get the current slot (1-10)
+        ssub         ; subtract (shorts)
+        stostr       ; Convert to a string
+        send
+        string "\n"
+        strsend
+        eob
+        repeat
+        string "Blastoff!\n"
+        strsend
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47D31"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_for.html" class="olink">for</a>
+            <a href="../../../assembler/reference/a-z/asm_slot.html" class="olink">slot</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_record.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_resetdp.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

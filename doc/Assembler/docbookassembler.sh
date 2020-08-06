@@ -1,0 +1,1 @@
+xsltproc --output ./html/en/WetaAssembler.html --xinclude --stringparam use.extensions 1 --stringparam target.database.document "/home/murray/Robotics/Weta/wetaproject.org/wwwroot/doc/Assembler/docbook/en/olinkdb.xml" ../custom.xsl  ./docbook/en/WetaAssembler.xml

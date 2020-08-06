@@ -1,0 +1,18 @@
+p {
+    text-align: justify;
+    margin-left: 20pt;
+    margin-right: 20pt;
+}
+
+div.funcsynopsis {
+    font-family: "Courier New";
+    text-indent: 30pt;
+}
+
+span.args {
+    font-style: italic;
+}
+
+pre.programlisting {
+  font-family: "Courier New";
+}

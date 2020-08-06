@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_setdp">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>SETDP</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry morerows="1"/>
+
+                 </row>
+                 <row>
+                    <entry><emphasis>value (uint16)</emphasis></entry>
+                 </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        Pop the uint16 value at the top of the stack and set the data pointer to this value.
+        The data pointer can be reset to 0 using <olink targetptr="asm_resetdp">resetdp</olink>.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">&lt;value&gt;</emphasis></para>
+            <para><command>setdp</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - the new value for the data pointer (uint16)</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        ...
+        ; Record 1 minute's data from sensor1 at 1 second intervals
+        resetdp       ; reset the data pointer to 0
+        uint16   60   ; repeat count
+        block
+        sensor1       ; sensor1 value (int16) on the stack
+        record        ; store it
+        uint16   1000 ; wait 1 second
+        wait
+        eob
+        repeat
+        ...
+        ; Send the data to the default stream
+        resetdp       ; reset the data pointer again for playback
+        uint16   60   ; repeat count
+        block
+        withint16     ; operations on stored data should assume int16
+        recall
+        tostr         ; that is, int16 to string
+        withstring
+        send          ; Send the value as a string to the default stream
+        send   "\n"   ; one value per line
+        eob
+        repeat
+        ; Keep the data by advancing the data pointer to just past the previous data
+        uint16  60    ; new data pointer value
+        setdp         ; set it
+        ...
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_erase">erase</olink>
+            <olink targetptr="asm_recall">recall</olink>
+            <olink targetptr="asm_record">record</olink>
+            <olink targetptr="asm_resetdp">resetdp</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

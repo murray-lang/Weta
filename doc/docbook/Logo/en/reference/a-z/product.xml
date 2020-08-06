@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="product">
+    <?dbhtml dir="a-z" ?>
+    <sect1>
+        <title>PRODUCT</title>
+        <para>
+            Return the value that results from multiplying the two arguments.
+            This is the prefix version of the infix <command>*</command> operator.
+            Neither argument is modified in the process.
+        </para>
+        <sect2>
+            <title>Synopsis</title>
+            <funcsynopsis>
+                <command>sum</command> <emphasis role="args">&lt;multiplicand&gt; &lt;multiplier&gt;</emphasis>
+            </funcsynopsis>
+            <para>or...</para>
+            <funcsynopsis>
+                <emphasis role="args">&lt;multiplicand&gt;</emphasis><command> * </command><emphasis role="args">&lt;multiplier&gt;</emphasis>
+            </funcsynopsis>
+        </sect2>
+        <sect2>
+            <title>Arguments</title>
+            <itemizedlist>
+                <para><emphasis role="args">&lt;multiplicand&gt;</emphasis></para>
+                <para><emphasis role="args">&lt;multiplier&gt;</emphasis></para>
+            </itemizedlist>
+        </sect2>
+        <sect2>
+            <title>Returns</title>
+        <para>
+            Return the value that results from multiplying <emphasis role="args">&lt;multiplicand&gt;</emphasis> to <emphasis role="args">&lt;multiplier&gt;</emphasis>.
+        </para>
+        </sect2>
+        <sect2>
+          <title>Example</title>
+          <programlisting>
+              make “foo 5
+              make “bar product :foo 2    ; bar == 10
+              make “foo :bar * 2          ; foo == 20
+          </programlisting>
+        </sect2>
+        <sect2>
+            <title>See Also</title>
+            <para>
+                <olink targetptr="difference">difference</olink>
+                <olink targetptr="modulo">modulo</olink>
+                <olink targetptr="quotient">quotient</olink>
+                <olink targetptr="sum">sum</olink>
+            </para>
+        </sect2>
+    </sect1>
+</article>

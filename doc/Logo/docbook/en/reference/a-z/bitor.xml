@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="bitor">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>BITOR</title>
+    <para>
+      Return the bitwise or of the the two integer arguments.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>bitor</command> <emphasis role="args">&lt;lhs&gt; &lt;rhs&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;lhs&gt;</emphasis> - Left-hand value. Must be an integer</para>
+            <para><emphasis role="args">&lt;rhs&gt;</emphasis> - Right-hand value. Must be an integer</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Returns the bitwise or of two arguments. The type of the result is that of the widest argument.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make “foo 0                 ; TODO: Provide a way to specify values in other radixes (radices?)
+          make “bar bitor :foo 8     ; bar == 8
+          make “foo bitor :bar 4     ; foo == 12
+          make “bar bitor :foo 9     ; bar == 13
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="bitand">bitand</olink>
+            <olink targetptr="bitnot">bitnot</olink>
+            <olink targetptr="bitxor">bitxor</olink>
+        </para>
+    </sect2>
+  </sect1>
+</article>

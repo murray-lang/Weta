@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_ifelse">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>IFELSE</title>
+    <abstract>
+        <para>Execute one block of code if the given condition test evaluates to true, and a different block if it
+            evaluates to false.</para>
+        <para></para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para>block</para>
+            <para><emphasis role="args">&lt;if-instructions&gt;</emphasis></para>
+            <para>eob</para>
+            <para>block</para>
+            <para><emphasis role="args">&lt;else-instructions&gt;</emphasis></para>
+            <para>eob</para>
+            <para><emphasis role="args">&lt;condition-test&gt;</emphasis></para>
+            <para><command>ifelse</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;if-instructions&gt;</emphasis> - instructions to execute if the condition is true</para>
+            <para><emphasis role="args">&lt;else-instructions&gt;</emphasis> - instructions to execute if the condition is false</para>
+            <para><emphasis role="args">&lt;condition-test&gt;</emphasis> - instructions that evaluate to a boolean (bool)</para>
+        </itemizedlist>
+    </sect2>
+     <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; LED follows digital input 3
+        block         ; forever block
+        block         ; if block
+        ledon
+        eob
+        block         ; else block
+        ledoff
+        eob
+        uint8   3     ; get digital input 3
+        din
+        ifelse        ; test digital input result (bool)
+        eob
+        forever
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_if">if</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

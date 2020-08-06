@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_add">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>ADD</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry morerows='1'/>
+
+                 </row>
+                <row>
+                    <entry><emphasis role="args">value-2</emphasis></entry>
+                </row>
+                <row>
+                    <entry><emphasis role="args">value-1</emphasis></entry>
+                    <entry><emphasis role="args">value-1 + value-2</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>Remove the two top numerical values from the stack, and push the sum of the two values.</para>
+        <para>
+            The data type expected by <command>add</command> is determined by the last
+            <command>with<emphasis>&lt;type&gt;</emphasis></command> instruction. The valid options for
+            <command>add</command> are:
+            <olink targetptr="asm_withint8">withint8</olink>, <olink targetptr="asm_withuint8">withuint8</olink>,
+            <olink targetptr="asm_withint16">withint16</olink>, <olink targetptr="asm_withuint16">withuint16</olink>,
+            <olink targetptr="asm_withint32">withint32</olink>, <olink targetptr="asm_withuint32">withuint32</olink>,
+            <olink targetptr="asm_withfloat">withfloat</olink> and  <olink targetptr="asm_withdouble">withdouble</olink>.
+        </para>
+        <para>
+            An alternative to explicitly calling one of the <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instructions before calling <command>add</command> is to use one of the prefixed versions of the the
+            instruction, namely:
+        </para>
+        <para>
+            <command>badd</command>, <command>ubadd</command>, <command>sadd</command>, <command>usadd</command>,
+            <command>iadd</command>, <command>uiadd</command>, <command>fadd</command> and <command>dadd</command>
+        </para>
+        <para>
+            The assembler will expand these to a corresponding <command>with<emphasis>&lt;type&gt;</emphasis></command>
+            instruction followed by <command>add</command>.
+        </para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">value-1</emphasis></para>
+            <para><emphasis role="args">value-2</emphasis></para>
+            <para><command>add</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value-1&gt;</emphasis> - the first argument (left hand arg from higher level language)</para>
+            <para><emphasis role="args">&lt;value-2&gt;</emphasis> - the second argument (right hand arg from higher level language)</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns the sum of the two argument expressions.
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_sub">sub</olink>
+            <olink targetptr="asm_mul">mul</olink>
+            <olink targetptr="asm_div">div</olink>
+            <olink targetptr="asm_mod">mod</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

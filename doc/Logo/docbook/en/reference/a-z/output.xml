@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="output">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>OUTPUT</title>
+    <para>
+      Set the argument as the return value from the current procedure and return execution to the caller.
+    </para>
+    <para>
+      Any base type can be returned, including strings, but not arrays.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>output</command> <emphasis role="args">&lt;value&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - value to return</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>Nil (That is, <command>output</command> cannot be on the right hand side of an assignment)</para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        to toDegrees :radians
+            output (:radians * PI) / 180
+        end
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="end">end</olink>
+            <olink targetptr="stop">stop</olink>
+            <olink targetptr="to">to</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

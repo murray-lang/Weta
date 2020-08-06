@@ -1,0 +1,51 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="for.html" title=""><link rel="next" href="forever.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="for.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="forever.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp28592844"></a>FOREACH</h2></div></div></div>
+    
+    <p>
+      Iterate through a list of values, making the current value available to the supplied statement block.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28593620"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>foreach</strong></span> <span class="args">&lt;iterator&gt;</span> <span class="command"><strong>[</strong></span><span class="args">&lt;list&gt; ...</span><span class="command"><strong>]</strong></span>
+          <span class="command"><strong>[</strong></span> <span class="args">&lt;statements&gt;*</span> <span class="command"><strong>]</strong></span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28596452"></a>Where</h3></div></div></div>
+      
+        <div class="itemizedlist"><p><span class="args">&lt;iterator&gt;</span> - the name of the iterator variable</p><p><span class="args">&lt;list&gt;</span> - list of values to apply to the iterator</p><p><span class="args">&lt;statements&gt;</span> - zero or more program statements</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28598892"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+            ; Step through these analog input pins
+          foreach nextInput [2 3 4 6 7]
+          [
+                  ; Use foreach for crude formatting of text output.
+                  ; If any list item is a string then any non-string items are
+                  ; converted to a string.
+                  ; Note that the iterator, nextInput, is one of the items
+              make "value analogin :nextInput
+              foreach nextStr ['Analog input ' :nextInput ' is ' :value '\n']
+              [
+                  send :nextStr
+              ]
+          ]
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28600052"></a>See Also</h3></div></div></div>
+      
+        <p>
+            <a href="../../reference/a-z/dowhile.html" class="olink">do.while</a>
+            <a href="../../reference/a-z/for.html" class="olink">for</a>
+            <a href="../../reference/a-z/forever.html" class="olink">forever</a>
+            <a href="../../reference/a-z/if.html" class="olink">if</a>
+            <a href="../../reference/a-z/ifelse.html" class="olink">ifelse</a>
+            <a href="../../reference/a-z/loop.html" class="olink">loop</a>
+            <a href="../../reference/a-z/repeat.html" class="olink">repeat</a>
+            <a href="../../reference/a-z/while.html" class="olink">while</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="for.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="forever.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

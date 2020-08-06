@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_btoi">
+    <?dbhtml dir="a-z/conversions" ?>
+<sect1>
+    <title>BTOI</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry/>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">int8 value</emphasis></entry>
+                    <entry><emphasis role="args">uint32 value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+        Pop the int8 (signed byte) from the stack and push a uint32 (unsigned int) with the same value.
+        </para>
+        <note>
+            <para>
+        Whether the resulting 32 bit value is signed or unsigned is entirely up to subsequent interpretation. The sign
+        bit of the original int8 value will be extended to the full width of the resulting uint32 (unsigned), so if
+        a subsequent operation reads it as an int32 (signed), then the uint32 will be cast to an int32 and the sign of
+        the original int8 will be preserved. If you are going to treat the result as unsigned then you need to be aware
+        of the possibility that a negative int8 value will look like a much large unsigned value due to the sign bit
+        extension. Such a coding faux pas is not something that can be mitigated against by the assembler.
+            </para>
+            <para>
+            This is why there are not separate instructions for converting to signed values and to unsigned values. To
+            have these would use up a large number of the base VM op-codes for no benefit. It is arguable that the name
+            of the instruction should have been <command>btoui</command>, as this reflects the literal truth, but it
+            this would also be misleading because it suggests that sign is lost. Treat the 'i' as a generic abbreviation
+            for int, signed or otherwise.
+            </para>
+        </note>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">&lt;int8&gt;</emphasis>&#160;&#160;&#160;&#160;<emphasis role="args">&lt;value&gt;</emphasis></para>
+            <para><command>btoi</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Where</title>
+        <para><emphasis role="args">&lt;value&gt;</emphasis> - the int8 value to be converted</para>
+        <note>This synopsis shows an immediate value being explicitly placed onto the stack to be converted.
+            However, the value could be the result peripheral I/O, function calls or any number of mathematical
+            expressions. Or it could be an arbitrary combination of all of these.</note>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Returns a uint32 with the value of <emphasis role="args">&lt;value&gt;</emphasis>
+            (by virtue of it being pushed onto the stack). It can be treated as an int32 by subsequent code.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        ...
+        int8   -42
+        btoi
+        withint32   ; treat everything as an int32 (signed)
+        tostr       ; convert signed value to a string ("-42")
+        withstring
+        send        ; send "-42" to the default stream
+        ...
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_btos">btos</olink>
+            <olink targetptr="asm_btof">btof</olink>
+            <olink targetptr="asm_btod">btod</olink>
+            <olink targetptr="asm_ubtos">ubtos</olink>
+            <olink targetptr="asm_ubtoi">ubtoi</olink>
+            <olink targetptr="asm_ubtof">ubtof</olink>
+            <olink targetptr="asm_ubtod">ubtod</olink>
+            <olink targetptr="asm_stob">stob</olink>
+            <olink targetptr="asm_stoi">stoi</olink>
+            <olink targetptr="asm_stof">stof</olink>
+            <olink targetptr="asm_stod">stod</olink>
+            <olink targetptr="asm_ustob">ustob</olink>
+            <olink targetptr="asm_ustoi">ustoi</olink>
+            <olink targetptr="asm_ustof">ustof</olink>
+            <olink targetptr="asm_ustod">ustod</olink>
+            <olink targetptr="asm_itob">itob</olink>
+            <olink targetptr="asm_itos">itos</olink>
+            <olink targetptr="asm_itof">itof</olink>
+            <olink targetptr="asm_itod">itod</olink>
+            <olink targetptr="asm_uitob">uitob</olink>
+            <olink targetptr="asm_uitos">uitos</olink>
+            <olink targetptr="asm_uitof">uitof</olink>
+            <olink targetptr="asm_uitod">uitod</olink>
+            <olink targetptr="asm_ftob">ftob</olink>
+            <olink targetptr="asm_ftos">ftos</olink>
+            <olink targetptr="asm_ftoi">ftoi</olink>
+            <olink targetptr="asm_ftod">ftod</olink>
+            <olink targetptr="asm_dtob">dtob</olink>
+            <olink targetptr="asm_dtos">dtos</olink>
+            <olink targetptr="asm_dtoi">dtoi</olink>
+            <olink targetptr="asm_dtof">dtof</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

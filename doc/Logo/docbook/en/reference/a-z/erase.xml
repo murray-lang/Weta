@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="erase">
+    <?dbhtml dir="a-z" ?>
+    <sect1>
+        <title>ERASE</title>
+        <para>
+            Erase the given number of items from the current location (data point) of the built-in data array.
+        </para>
+        <para>
+            TODO: Clarify size information and include as a configuration option.
+        </para>
+        <para>
+            This command is used in conjunction with
+            <olink targetptr="record">record</olink>,
+            <olink targetptr="recall">recall</olink> and
+            <olink targetptr="resetdp">resetdp</olink>
+        </para>
+        <sect2>
+            <title>Synopsis</title>
+            <funcsynopsis>
+                <command>erase</command> <emphasis role="args">&lt;num-items&gt;</emphasis>
+            </funcsynopsis>
+        </sect2>
+        <sect2>
+            <title>Arguments</title>
+            <itemizedlist>
+                <para><emphasis role="args">&lt;num-items&gt;</emphasis> - the number of items to erase</para>
+            </itemizedlist>
+        </sect2>
+        <sect2>
+            <title>Returns</title>
+            <para>
+            Nil.
+            </para>
+        </sect2>
+        <sect2>
+            <title>Example</title>
+            <programlisting>
+            ...
+                ; Gather a day's worth of 10 minute data
+                ; (To be collected at a later time)
+            resetdp
+            erase 24 * 6    ; This expression will be resolved at compile time
+            repeat 24 * 6
+            [
+                record sensor1
+                wait 10 * 60 * 10
+            ]
+                ; Wait for the user to press a button connected to switch2
+            waituntil [switch2]
+            resetdp
+            repeat 24 * 6
+            [
+                send tostring recall
+                send '\n'
+            ]
+            ...
+            </programlisting>
+        </sect2>
+        <sect2>
+            <title>See Also</title>
+            <para>
+                <olink targetptr="recall">recall</olink>
+                <olink targetptr="record">record</olink>
+                <olink targetptr="resetdp">resetdp</olink>
+                <olink targetptr="setdp">setdp</olink>
+            </para>
+        </sect2>
+    </sect1>
+</article>

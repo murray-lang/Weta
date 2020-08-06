@@ -1,0 +1,92 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_or.html" title=""><link rel="next" href="asm_param.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_or.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_param.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N477BE"></a>OUTPUT</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td rowspan="2" align="left">&nbsp;</td></tr><tr><td align="left"><span class="highlight">value</span></td></tr><tr><td align="left">locals</td><td align="left">locals</td></tr><tr><td align="left">caller's context</td><td align="left">caller's context</td></tr><tr><td align="left">return address</td><td align="left">return address</td></tr><tr><td align="left">size of args</td><td align="left">size of args</td></tr><tr><td rowspan="2" align="left">args</td><td rowspan="2" align="left">args</td></tr><tr><!-- This row intentionally left blank --></tr><tr><td align="left"><span class="emphasis"><em>placeholder</em></span></td><td align="left"><span class="highlight">value</span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>
+        <span class="command"><strong>output</strong></span> removes the value from the top of the stack and puts it into the stack location just
+        before the procedure's arguments. (It is assumed that the caller pushed a placeholder here, and will clean up
+        these arguments - if any - leaving the returned value on top of the stack for a subsequent instruction to consume.)
+        </p>
+        <p>
+            The type of data that <span class="command"><strong>output</strong></span> expects to be on the stack is determined by the most
+            recent invocation of <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span>. If none of these have been
+            called then <span class="command"><strong>withint16</strong></span> is the default, meaning that <span class="command"><strong>output</strong></span> will
+            process a signed short.
+        </p>
+        <p>
+            A shortcut to explicitly calling <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span> is to prefix
+            <span class="command"><strong>output</strong></span> with either "<span class="command"><strong>b</strong></span>", "<span class="command"><strong>ub</strong></span>",
+            "<span class="command"><strong>s</strong></span>", "<span class="command"><strong>us</strong></span>", "<span class="command"><strong>i</strong></span>", "<span class="command"><strong>ui</strong></span>",
+            "<span class="command"><strong>f</strong></span>", "<span class="command"><strong>d</strong></span>", "<span class="command"><strong>q</strong></span>" or "<span class="command"><strong>p</strong></span>". The
+            assembler will parse these and emit a corresponding <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span>
+            command before the <span class="command"><strong>output</strong></span> command.
+        </p>
+        <div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Tip</h3>While using the prefix versions of the command is convenient, they can result in great inefficiencies in
+            both space and speed due to redundancy of the underlying
+            <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span> commands. If you know that a number of sequential
+            commands are going to operate on the same type, then it is more efficient to call
+            <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span> once at the beginning, and only call it again
+            if an operation is required on another type.</div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47892"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="args">&lt;value&gt;</span></p>
+            <p>withint8 | withuint8 | withint16 | withuint16 | withint32 | withuint32 | withfloat | withdouble
+                | withbool | withptr | withstring</p>
+            <p><span class="command"><strong>output</strong></span></p>
+        </div>
+        <p>or...</p>
+        <div class="funcsynopsis">
+           <p><span class="args">&lt;value&gt;</span></p>
+            <p><span class="command"><strong>output</strong></span>
+                | <span class="command"><strong>boutput</strong></span> | <span class="command"><strong>uboutput</strong></span> | <span class="command"><strong>soutput</strong></span>
+                | <span class="command"><strong>usoutput</strong></span> | <span class="command"><strong>ioutput</strong></span> | <span class="command"><strong>uioutput</strong></span>
+                | <span class="command"><strong>foutput</strong></span> | <span class="command"><strong>doutput</strong></span>  | <span class="command"><strong>poutput</strong></span>
+                | <span class="command"><strong>qoutput</strong></span> | <span class="command"><strong>stroutput</strong></span></p>
+         </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N478D7"></a>Arguments</h3></div></div></div>
+        
+        <p class="args"><span class="emphasis"><em>&lt;value&gt;</em></span> - the value to make available as a return value</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N478E3"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        ; Get the value of the given analog input and apply the given scale and offset
+    myBeep  .proc
+        .params
+            port: .byte 0           ; Analog port#
+            scale: .single 0.0
+            offset: .single 0.0
+        .endparams
+        begin
+        param port      ; Get address of port param
+        bget            ; Put its value on the stack
+        ain             ; Get analog input with that port number
+        stof            ; ain returns a short. Convert it to a float
+        withfloat       ; Type-specific commands are all for floats now
+        param scale     ; Get address of scale param
+        get             ; Put its value on the stack
+        mul             ; Multiply analog input by scale
+        param offset    ; Get address of offset param
+        get             ; Put its value on the stack
+        add             ; Add the offset to the scaled value left on the stack
+        output          ; Output the float result
+        return
+        .endproc
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N478EC"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_begin.html" class="olink">begin</a>
+            <a href="../../../assembler/reference/a-z/asm_return.html" class="olink">return</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_or.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_param.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

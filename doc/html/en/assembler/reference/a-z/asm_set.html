@@ -1,0 +1,69 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_sensor.html" title=""><link rel="next" href="asm_setdp.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_sensor.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_setdp.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N47F1A"></a>SET</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td rowspan="3" align="left">&nbsp;</td></tr><tr><td align="left"><span class="args">var-address</span></td></tr><tr><td align="left"><span class="args">value</span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>Place the value second from the top of the stack into the location found at the top of the stack.</p>
+        <p>
+            The data type expected by <span class="command"><strong>set</strong></span> is determined by the last
+            <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span> instruction. The valid options for
+            <span class="command"><strong>set</strong></span> are:
+            <a href="../../../assembler/reference/a-z/asm_withbool.html" class="olink">withbool</a>,
+            <a href="../../../assembler/reference/a-z/asm_withint8.html" class="olink">withint8</a>, <a href="../../../assembler/reference/a-z/asm_withuint8.html" class="olink">withuint8</a>,
+            <a href="../../../assembler/reference/a-z/asm_withint16.html" class="olink">withint16</a>, <a href="../../../assembler/reference/a-z/asm_withuint16.html" class="olink">withuint16</a>,
+            <a href="../../../assembler/reference/a-z/asm_withint32.html" class="olink">withint32</a>, <a href="../../../assembler/reference/a-z/asm_withuint32.html" class="olink">withuint32</a>,
+            <a href="../../../assembler/reference/a-z/asm_withfloat.html" class="olink">withfloat</a>, <a href="../../../assembler/reference/a-z/asm_withdouble.html" class="olink">withdouble</a>,
+            <a href="../../../assembler/reference/a-z/asm_withptr.html" class="olink">withptr</a> and <a href="../../../assembler/reference/a-z/asm_withstring.html" class="olink">withstring</a>.
+        </p>
+        <p>
+            An alternative to explicitly calling one of the <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span>
+            instructions before calling <span class="command"><strong>set</strong></span> is to use one of the prefixed versions of the the
+            instruction, namely:
+        </p>
+        <p>
+            <span class="command"><strong>qset</strong></span> (bool),
+            <span class="command"><strong>bset</strong></span>, <span class="command"><strong>ubset</strong></span>, <span class="command"><strong>sset</strong></span>, <span class="command"><strong>usset</strong></span>,
+            <span class="command"><strong>iset</strong></span>, <span class="command"><strong>uiset</strong></span>, <span class="command"><strong>fset</strong></span> and <span class="command"><strong>dset</strong></span>,
+            <span class="command"><strong>pset</strong></span> and <span class="command"><strong>strset</strong></span>.
+        </p>
+        <p>
+            The assembler will expand these to a corresponding <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span>
+            instruction followed by <span class="command"><strong>set</strong></span>.
+        </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47FDB"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="args">&lt;value&gt;</span></p>
+            <p><span class="args">&lt;var-address&gt;</span></p>
+            <p><span class="command"><strong>set</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N47FF2"></a>Arguments</h3></div></div></div>
+        
+        <div class="itemizedlist"><p><span class="args">&lt;value&gt;</span> - the value to be assigned to the variable</p><p><span class="args">&lt;var-address&gt;</span> - the address of the variable to set</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N48007"></a>Returns</h3></div></div></div>
+        
+        <p>Nil</p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N48010"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        TODO!
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N48019"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_get.html" class="olink">get</a>
+            <a href="../../../assembler/reference/a-z/asm_global.html" class="olink">global</a>
+            <a href="../../../assembler/reference/a-z/asm_local.html" class="olink">local</a>
+            <a href="../../../assembler/reference/a-z/asm_param.html" class="olink">param</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_sensor.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_setdp.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

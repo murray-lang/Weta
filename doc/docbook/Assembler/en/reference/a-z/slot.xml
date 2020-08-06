@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_slot">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>SLOT</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry morerows="1"/>
+                     <entry/>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">slot value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>
+            Returns the current count within a block of instructions associated with
+            <olink targetptr="asm_repeat">repeat</olink>.
+        </para>
+        <para>
+            The value starts at 1 and increases on each iteration of the block. At the last iteration
+            <command>slot</command> will equal the <command>repeat</command>'s count value.
+        </para>
+        <note>
+            If <command>repeat</command> blocks are nested, then the outer slot value is not available to the inner
+            blocks. If outer iterator values need to be available to inner blocks then consider the
+            <olink targetptr="asm_for">for</olink> loop instead of <command>repeat</command>.
+        </note>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>slot</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns the int16 value of the current iteration count of the innermost
+            <olink targetptr="asm_repeat">repeat</olink> block.
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        ; countdown
+        int16  10    ; Repeat count
+        block
+        int16  11    ; 11 minus the slot number is the countdown value
+        slot         ; Get the current slot (1-10)
+        ssub         ; subtract (shorts)
+        stostr       ; Convert to a string
+        send
+        string "\n"
+        send
+        eob
+        repeat
+        string "Blastoff!\n"
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_for">for</olink>
+            <olink targetptr="asm_repeat">repeat</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

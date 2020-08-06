@@ -1,0 +1,105 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaAssemblerReferenceAZ.html" title="Weta Assembler Reference A-Z"><link rel="prev" href="asm_for.html" title=""><link rel="next" href="asm_forever.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="asm_for.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Assembler Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="asm_forever.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+<div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N444B9"></a>FOREACH</h2></div></div></div>
+    
+    <div class="stack">
+        <table border="1"><thead><tr><th colspan="2" align="left">VM Stack</th></tr><tr><th align="left">Before</th><th align="left">After</th></tr></thead><tbody><tr><td align="left">&nbsp;</td><td rowspan="7" align="left">&nbsp;</td></tr><tr><td align="left">block address</td></tr><tr><td align="left"><span class="args">&lt;iterator&gt;</span></td></tr><tr><td align="left">uint8 <span class="args">&lt;num-items&gt;</span></td></tr><tr><td align="left"><span class="args">&lt;item-1&gt;</span></td></tr><tr><td align="left">...</td></tr><tr><td align="left"><span class="args">&lt;item-n&gt;</span></td></tr></tbody></table>
+    </div>
+    <div class="abstract"><p class="title"><b>Abstract</b></p>
+        <p>
+            <span class="command"><strong>foreach</strong></span> executes a block of instructions once for each member of a given list. The
+            name of an iterator variable is required, which points to each list member in turn, and is available
+            within the instruction block.
+        </p>
+        <p>
+            Each member of the list must be of the same type, and <span class="command"><strong>foreach</strong></span> must be notified which
+            type they are by a preceding <span class="command"><strong>with<span class="emphasis"><em>&lt;type&gt;</em></span></strong></span> instruction.
+            A shortcut (for the assembly author, not the Virtual Machine) is to use a prefixed version of
+            <span class="command"><strong>foreach</strong></span>.
+        </p>
+        <div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Note</h3>
+            Note that the iterator variable is a pointer, so must be dereferenced with
+            <span class="olink">pget</span> to put the contained address onto the stack before calling
+            <span class="command"><strong>get</strong></span> again for the ultimate item type. It is a pointer so that it can refer directly to
+            each list item in-situ on the stack, rather than have them copied each time to the iterator. The latter
+            would be particularly onerous for the VM if dealing with a list of strings.
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4453E"></a>Synopsis</h3></div></div></div>
+        
+        <div class="funcsynopsis">
+            <p><span class="args">&lt;item-n&gt;</span></p>
+            <p><span class="args">&lt;item-n-1&gt;</span></p>
+            <p>...</p>
+            <p><span class="args">&lt;item-1&gt;</span></p>
+            <p>uint8&nbsp;&nbsp;&nbsp;&nbsp;<span class="args">&lt;#items&gt;</span></p>
+            <p>{global | local}&nbsp;&nbsp;&nbsp;&nbsp;<span class="args">&lt;iterator&gt;</span></p>
+            <p>block</p>
+            <p>...</p>
+            <p>eob</p>
+            <p><span class="command"><strong>[b|ub|s|us|i|ui|f|d|p|q|str]foreach</strong></span></p>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44572"></a>Arguments</h3></div></div></div>
+        
+        <div class="itemizedlist"><p><span class="args">&lt;item-n&gt;</span> - any expression that resolves to a base type</p><p><span class="args">&lt;#items&gt;</span> - the number of items in the list (uint8)</p><p><span class="args">&lt;iterator&gt;</span> - the name of a pointer variable</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+     <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N4458D"></a>Example</h3></div></div></div>
+        
+        <pre class="programlisting">
+        ; Display the values of some analog input ports
+        .global _start
+        .data
+    port:	.ptr  0
+    msg:    .ptr  0
+
+        .text
+    _start:
+        block
+        uint8    8       ; select the port numbers
+        uint8    6
+        uint8    3
+        uint8    2
+        uint8    4       ; number of list items (ports)
+        global   port    ; address of outer iterator variable
+        block            ; start of outer foreach loop (uint8s)
+            ; Format an output string using foreach
+            ; All items must be the same type, and we need strings, so convert other items to a string
+            ; push the items last to first
+        string   "\n"                  ; newline at the end of the string
+        global   port                  ; Get the next port number
+        pget
+        ubget
+        ain                            ; get the analog input for that port
+        stostr                         ; item 4 - analog input value as a string
+        string   " is "                ; item 3
+        global   port                  ; get the port number again
+        pget
+        ubget
+        ubtostr                        ; item 2 - port number as a string
+        string   "The value of input " ; item 1
+        uint8    5                     ; number of items in the formatting list
+        global   msg                   ; address of inner iterator variable
+        block                          ; start of inner foreach loop (strings)
+        global   msg                   ; get the next iterator value
+        pget
+        strget
+        strsend                        ; send the message part to the default stream
+        eob
+        strforeach
+        eob
+        ubforeach
+        eob
+        forever
+        .end
+        </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N44596"></a>See Also</h3></div></div></div>
+        
+        <p>
+            <a href="../../../assembler/reference/a-z/asm_repeat.html" class="olink">repeat</a>
+            <a href="../../../assembler/reference/a-z/asm_for.html" class="olink">for</a>
+        </p>
+    </div>
+</div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="asm_for.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaAssemblerReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="asm_forever.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

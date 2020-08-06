@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="ceil">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>CEIL</title>
+    <para>
+      Round the given number up to the next higher whole number (ie. ceiling). The given number is not modified.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>ceil</command> <emphasis role="args">&lt;decimal&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;decimal&gt;</emphasis> - the number</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Returns the next highest whole number.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+        make “foo PI
+        make “bar ceil :foo   ; bar == 4 (even though the nearest whole number is 3)
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="floor">floor</olink>
+            <olink targetptr="round">round</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

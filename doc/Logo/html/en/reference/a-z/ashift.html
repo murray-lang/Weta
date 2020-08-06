@@ -1,0 +1,51 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="aset.html" title=""><link rel="next" href="asin.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="aset.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="asin.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp28356828"></a>ASHIFT</h2></div></div></div>
+    
+    <p>
+        Returns the given value shifted by the given number of bits (the argument is not modified).
+        If the number of bits is positive then the value will be shifted left.
+        If the number of bits is negative then the value will be shifted right.
+        The sign bit will be extended with a right shift.
+        (The 'A' in ASHIFT stands for 'arithmetic', and indicates this retention of sign information)
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28357940"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>ashift</strong></span> <span class="args">&lt;value&gt; &lt;number-of-bits&gt;</span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28359244"></a>Arguments</h3></div></div></div>
+      
+      <div class="itemizedlist"><p><span class="args">&lt;value&gt;</span> - the value to shift. Must be an integer value</p><p><span class="args">&lt;number-of-bits&gt;</span> - number of bits to shift (-ve for right shift)</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28361124"></a>Returns</h3></div></div></div>
+      
+      <p>
+          Returns <span class="args">&lt;value&gt;</span> shifted by the given number of bits.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28362172"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+          make "foo 1
+          make "bar ashift :foo 1    ; bar == 2
+          make "bar ashift :foo 2    ; bar == 4
+          make "foo ashift :bar -2   ; foo == 1
+
+          make "foo -1
+          make "bar ashift :foo -1   ; bar == -1 (still)
+          make "bar ashift :foo -2   ; bar == -1 (still)
+          make "bar ashift :foo 1    ; bar == -2
+          make "bar ashift :foo 2    ; bar == -4
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp28363252"></a>See Also</h3></div></div></div>
+      
+        <p>
+            <a href="../../reference/a-z/lshift.html" class="olink">lshift</a>
+            <a href="../../reference/a-z/rotate.html" class="olink">rotate</a>
+        </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="aset.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="asin.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

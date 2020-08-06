@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="modulo">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>MODULO</title>
+    <para>
+         Return the remainder from the division of the first argument by the second argument.
+         This is the prefix version of the infix <command>%</command> operator.
+         Neither argument is modified in the process.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+       <funcsynopsis>
+            <command>modulo</command> <emphasis role="args">&lt;dividend&gt; &lt;divisor&gt;</emphasis>
+       </funcsynopsis>
+       <para>or...</para>
+       <funcsynopsis>
+           <emphasis role="args">&lt;dividend&gt;</emphasis><command> % </command><emphasis role="args">&lt;divisor&gt;</emphasis>
+       </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;dividend&gt;</emphasis> - the value to be divided</para>
+            <para><emphasis role="args">&lt;divisor&gt;</emphasis> - the number of divisions</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Returns the remainder from the division of <emphasis role="args">&lt;dividend&gt;</emphasis> by <emphasis role="args">&lt;divisor&gt;</emphasis>.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make “foo 14
+          make “bar modulo :foo 5    ; bar == 4
+          make “foo :bar % 3         ; foo == 1
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="difference">difference</olink>
+            <olink targetptr="product">product</olink>
+            <olink targetptr="quotient">quotient</olink>
+            <olink targetptr="sum">sum</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

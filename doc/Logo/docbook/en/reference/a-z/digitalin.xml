@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="digitalin">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>DIGITALIN</title>
+    <para>
+      Return the value from the given digital input port.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>digitalin</command> <emphasis role="args">&lt;port&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;port&gt;</emphasis> - evaluates to the logical number of the digital input port</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      true if the input is "on", otherwise false. (TODO: how to deal with sense?)
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          foreach port [1 3 5 6 9]
+          [
+              make "portVal 'off'
+              if digitalin :port
+              [
+                  make "portVal 'on'
+              ]
+              foreach msg ['Port ' :port ' is ' :portVal '\n']
+              [
+                  send :msg
+              ]
+          ]
+       </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="analogin">analogin</olink>
+            <olink targetptr="analogout">analogout</olink>
+            <olink targetptr="digitalout">digitalout</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

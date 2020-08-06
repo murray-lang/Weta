@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_randomxy">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>RANDOMXY</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry morerows="1"/>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">int16 upper bound</emphasis></entry>
+                </row>
+                <row>
+                    <entry><emphasis role="args">int16 lower bound</emphasis></entry>
+                    <entry><emphasis role="args">int16 upper bound</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        <para>Pushes onto the stack a random int16 value between the given bounds.</para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para>int16&#160;&#160;&#160;&#160;<emphasis role="args">&lt;lower-bound&gt;</emphasis></para>
+            <para>int16&#160;&#160;&#160;&#160;<emphasis role="args">&lt;upper-bound&gt;</emphasis></para>
+            <para><command>randomxy</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <para><emphasis role="args">&lt;lower-bound&gt;</emphasis> - lower bound of the random value</para>
+        <para><emphasis role="args">&lt;upper-bound&gt;</emphasis> - upper bound of the random value</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>
+            Returns a random int16 number between the given bounds.
+        </para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        TODO!
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_random">random</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_aout">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>AOUT</title>
+    <informaltable tabstyle="stack" frame='all' pgwide="0">
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+            <colspec colname='c1'/>
+            <colspec colname='c2'/>
+3           <thead>
+                <row>
+                    <entry namest="c1" nameend="c2">VM Stack</entry>
+                </row>
+                <row>
+                    <entry>Before</entry>
+                    <entry>After</entry>
+                </row>
+            </thead>
+             <tbody>
+                 <row>
+                     <entry/>
+                     <entry morerows='2'/>
+                 </row>
+                 <row>
+                     <entry><emphasis role="args">uint8 port#</emphasis></entry>
+                 </row>
+                <row>
+                    <entry><emphasis role="args">uint8 value</emphasis></entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </informaltable>
+    <abstract>
+        Remove the uint8 port number and bool value from the top of the stack, and send the value to the digital
+        output port identified by port#.
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><emphasis role="args">value</emphasis></para>
+            <para>uint8&#160;&#160;&#160;&#160;<emphasis role="args">port#</emphasis></para>
+            <para><command>dout</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;value&gt;</emphasis> - value to output (bool)</para>
+            <para><emphasis role="args">&lt;port#&gt;</emphasis> - the required port number (uint8)</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nothing is returned to the stack.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+        uint8 1         ; #1
+        ain             ; Get user knob setting from analog input 1
+        itoub           ; convert the int16 to a uint8 value to output
+        uint8 2         ; #2
+        aout            ; Send the knob setting to the LED at analog output 2 (brightness)
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_ain">ain</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

@@ -1,0 +1,55 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link href="../../../style.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets Vsnapshot_9949" name="generator"><link rel="home" href="../../../index.html" title="The Weta project"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="stop.html" title=""><link rel="next" href="switch.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table summary="Navigation header" width="100%"><tr><th align="center" colspan="3"></th></tr><tr><td align="left" width="20%"><a accesskey="p" href="stop.html">Prev</a>&nbsp;</td><th align="center" width="60%">Weta Logo Reference A-Z</th><td align="right" width="20%">&nbsp;<a accesskey="n" href="switch.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="N427B2"></a>STRING</h2></div></div></div>
+    
+    <p>
+        Create a string with the given name and size. The syntax is borrowed from the FMS Logo syntax for
+        array declarations.
+    </p>
+    <p>
+      Strings can be created by simply assigning a literal string with <a href="../../../logo/reference/a-z/make.html" class="olink">make</a>.
+        However, using the method described on this page is more efficient where a string variable will later be set
+        by a run-time function. It is the responsibility of the programmer to set a string to a sufficient size for the
+        purpose to which it will be used.
+    </p>
+    <p>Strings are most likely stored internally as 0 terminated.
+        There is no need to add this extra character to the string size as it will be done automatically by the
+        compiler.</p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N427C4"></a>Synopsis</h3></div></div></div>
+      
+        <div class="funcsynopsis">
+            make "<span class="args">&lt;name&gt;</span> <span class="command"><strong>(string</strong></span> <span class="args">&lt;size&gt;</span><span class="command"><strong>)</strong></span>
+        </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N427DA"></a>Arguments</h3></div></div></div>
+      
+      <div class="itemizedlist"><p><span class="args">&lt;name&gt;</span> - name of the string variable</p><p><span class="args">&lt;size&gt;</span> - the maximum number of items in the array</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N427EF"></a>Returns</h3></div></div></div>
+      
+      <p>
+      Nil.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N427F8"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+              ; The first assignment creates the variable.
+              ; In this case the size is being set to 5 so that it can hold the
+              ; string representation of any short value.
+              ; (shorts are the default integer size)
+          make "str (string 5)
+          make "str tostring 32767
+          send :str
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="N42801"></a>See Also</h3></div></div></div>
+      
+      <p>
+          <a href="../../../logo/reference/a-z/array.html" class="olink">array</a>
+          <a href="../../../logo/reference/a-z/make.html" class="olink">make</a>
+          <a href="../../../logo/reference/a-z/tostring.html" class="olink">tostring</a>
+      </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table summary="Navigation footer" width="100%"><tr><td align="left" width="40%"><a accesskey="p" href="stop.html">Prev</a>&nbsp;</td><td align="center" width="20%"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td align="right" width="40%">&nbsp;<a accesskey="n" href="switch.html">Next</a></td></tr><tr><td valign="top" align="left" width="40%">&nbsp;</td><td align="center" width="20%"><a accesskey="h" href="../../../index.html">Home</a></td><td valign="top" align="right" width="40%">&nbsp;</td></tr></table></div></body></html>

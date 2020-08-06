@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="make">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>MAKE</title>
+    <para>
+        Assigns a value to a variable.
+        Also, if the variable has not previously been declared, the variable is created.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>make "</command><emphasis role="args">&lt;var-name&gt; &lt;value&gt;</emphasis>
+      </funcsynopsis>
+      <funcsynopsis>
+        <command >make :</command><emphasis role="args">&lt;pointer-name&gt; &lt;value&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;var-name&gt;</emphasis> - name of the variable</para>
+        <para><emphasis role="args">&lt;pointer-name&gt;</emphasis> - name of a variable containing a pointer</para>
+        <para><emphasis role="args">&lt;value&gt;</emphasis> - value to assign to the variable</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+      Nil.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo 42      ; Usual case of assigning a value to a variable
+          make "bar :foo    ; Usual case of assigning the value of one variable to another
+          make "addr "bar   ; addr contains the address ("name" in Logo parlance) of bar
+          make :addr 42     ; The contents of addr is here used as the assignment target (bar)
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="local">local</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

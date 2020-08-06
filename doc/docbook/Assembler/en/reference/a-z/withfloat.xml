@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_withfloat">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>WITHFLOAT</title>
+     <abstract>
+        <para>Selects float (32 bit) as the type to be used for any subsequent stack operations.</para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>withfloat</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil. (The instruction sets a register that is internal to the virtual machine.)</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            .global _start
+            .data
+        radius:	       .single  0
+        circumference: .single  0
+            .text
+            ...
+               ; Calculate the circumference for the given radius
+            withfloat
+            global   radius
+            get
+            float    3.141592654
+            float    2.0
+            mul
+            mul
+            global   circumference
+            set
+            ...
+            exit
+            .end
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_withint8">withint8</olink> <olink targetptr="asm_withuint8">withuint8</olink>
+            <olink targetptr="asm_withint16">withint16</olink> <olink targetptr="asm_withuint16">withuint16</olink>
+            <olink targetptr="asm_withint32">withint32</olink> <olink targetptr="asm_withuint32">withuint32</olink>
+            <olink targetptr="asm_withdouble">withdouble</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

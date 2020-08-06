@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="E">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>E</title>
+    <para>
+      Return the constant e (Euler's constant).
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>E</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <para>Nil</para>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Returns the constant e (Euler's constant).
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo E           ; foo == 2.718281828459045
+          make "foo exp 1       ; foo == 2.718281828459045
+          make "foo exp -1      ; foo == 0.36787944117144233
+          make "foo exp 0       ; foo == 1
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="exp">exp</olink>
+            <olink targetptr="ln">ln</olink>
+            <olink targetptr="LN10">LN10</olink>
+            <olink targetptr="LN2">LN2</olink>
+            <olink targetptr="log10">log10</olink>
+            <olink targetptr="LOG10E">LOG10E</olink>
+            <olink targetptr="LOG2E">LOG2E</olink>
+            <olink targetptr="PI">PI</olink>
+            <olink targetptr="SQRT2">SQRT2</olink>
+            <olink targetptr="SQRT1_2">SQRT1_2</olink>
+
+       </para>
+    </sect2>
+  </sect1>
+</article>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="cosh">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>COSH</title>
+    <para>
+      Return the hyperbolic cosine of the given angle (expressed in radians).
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>cosh</command> <emphasis role="args">&lt;radians&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para><emphasis role="args">&lt;radians&gt;</emphasis> - the angle in radians</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Returns the hyperbolic cosine of the given angle.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+            ; Verify trig identity
+          make “x 0
+          make "result1 cosh :x + sinh :x
+          make "result2 exp :x
+          ifelse result1 = result2
+          [
+              send 'sinh x + cosh x = exp x as expected.\n'
+          ]
+          [
+              send 'Something is not right with sinh, cosh and/or exp.\n'
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="acos">acos</olink>
+            <olink targetptr="asin">asin</olink>
+            <olink targetptr="atan">atan</olink>
+            <olink targetptr="atan2">atan2</olink>
+            <olink targetptr="cos">cos</olink>
+            <olink targetptr="sin">sin</olink>
+            <olink targetptr="sinh">sinh</olink>
+            <olink targetptr="tan">tan</olink>
+            <olink targetptr="tanh">tanh</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

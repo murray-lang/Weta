@@ -1,0 +1,57 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title></title><link rel="stylesheet" type="text/css" href="../../style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.78.1"><link rel="home" href="../../index.html" title="Weta Logo"><link rel="up" href="../WetaLogoReferenceAZ.html" title="Weta Logo Reference A-Z"><link rel="prev" href="thatway.html" title=""><link rel="next" href="thisway.html" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center"></th></tr><tr><td width="20%" align="left"><a accesskey="p" href="thatway.html">Prev</a> </td><th width="60%" align="center">Weta Logo Reference A-Z</th><td width="20%" align="right"> <a accesskey="n" href="thisway.html">Next</a></td></tr></table><hr></div><div lang="en" class="article"><div class="titlepage"><hr></div>
+    
+  <div class="sect1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="idp29203180"></a>THING</h2></div></div></div>
+    
+    <p>
+        <span class="command"><strong>thing</strong></span> dereferences its argument, which will be a pointer to ("name of" in Logo parlance) a
+        value.
+    </p>
+    <p>
+        For an introduction to Logo variables see
+        <a href="../../guide/UnderstandingLogoVariables.html" class="olink">Understanding Logo Variables</a>.
+    </p>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29204596"></a>Synopsis</h3></div></div></div>
+      
+      <div class="funcsynopsis">
+        <span class="command"><strong>thing</strong></span> <span class="args">&lt;reference-exp&gt;</span>
+      </div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29206372"></a>Arguments</h3></div></div></div>
+      
+      <div class="itemizedlist"><p><span class="args">&lt;reference-exp&gt;</span> - an expression resolving to the "name of" (pointer to) a variable</p><ul class="itemizedlist" style="list-style-type: disc; "></ul></div>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29207620"></a>Returns</h3></div></div></div>
+      
+      <p>
+      Nil.
+      </p>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29208196"></a>Example</h3></div></div></div>
+      
+      <pre class="programlisting">
+      ;-------------------------------------------------------------------------------
+      ; This is an example from the Berkeley Logo reference manual.
+      ; It demonstrates the passing of an argument to a function by reference,
+      ; allowing the function to modify the external variable.
+      ;-------------------------------------------------------------------------------
+
+      MAKE "X 3.14
+      INCREMENT "X		; Note that ':X' would normally be used to pass the argument
+
+      TO INCREMENT :VAR
+          ; VAR is a pointer. 'THING' dereferences it.
+          ; Note that the first argument of MAKE is :VAR instead of the usual "VAR
+          ; "VAR would provide the address of (parameter) VAR. :VAR provides the
+          ; address of X
+          MAKE :VAR (THING :VAR)+1
+      END
+      </pre>
+    </div>
+    <div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="idp29209588"></a>See Also</h3></div></div></div>
+      
+      <p>
+          <a href="../../reference/a-z/make.html" class="olink">make</a>
+       </p>
+    </div>
+  </div>
+</div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="thatway.html">Prev</a> </td><td width="20%" align="center"><a accesskey="u" href="../WetaLogoReferenceAZ.html">Up</a></td><td width="40%" align="right"> <a accesskey="n" href="thisway.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top"> </td><td width="20%" align="center"><a accesskey="h" href="../../index.html">Home</a></td><td width="40%" align="right" valign="top"> </td></tr></table></div></body></html>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="ledoff">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>LEDOFF</title>
+    <para>
+      Turn off the user LED.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>ledoff</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <itemizedlist>
+            <para>Nil</para>
+        </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+      Nil.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+              ; Flash the LED in an approximately one second cycle
+          forever
+          [
+              ledon
+              wait 1
+              ledoff
+              wait 9
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="ledon">ledon</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

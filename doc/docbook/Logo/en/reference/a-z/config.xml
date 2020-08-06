@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="config">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>CONFIG</title>
+    <para>
+    The <command>config</command> is used to configure a (growing) range of functions in Weta Logo.
+    In general it can be called at any time in a program, though in most cases it will be called once at the
+    beginning of a program to specify some deviation from from default behaviour.
+    </para>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <command>config digitalin [</command><emphasis role="args">&lt;port-list&gt;...;</emphasis><command>]</command>
+        </funcsynopsis>
+        <funcsynopsis>
+            <command>config digitalout [</command><emphasis role="args">&lt;port-list&gt;...;</emphasis><command>]</command>
+        </funcsynopsis>
+        <funcsynopsis>
+            <command>config send serial </command><emphasis role="args">&lt;port&gt;</emphasis>
+        </funcsynopsis>
+        <funcsynopsis>
+            <command>config send ethernet </command><emphasis role="args">(Not yet implemented)</emphasis>
+        </funcsynopsis>
+        <funcsynopsis>
+            <command>config serial </command><emphasis role="args">&lt;port&gt;</emphasis>
+            <command>[</command>
+                <command>baud:</command><emphasis role="args">&lt;baud-rate&gt;</emphasis>
+                <command>databits:</command><command>5</command>|<command>6</command>|<command>7</command>|<command>8</command>
+                <command>stopbits:</command><command>1</command>|<command>2</command>
+                <command>parity:</command><command>odd</command>|<command>even</command>|<command>none</command>
+            <command>]</command>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+        <sect3>
+            <title>digitalin</title>
+            <itemizedlist>
+                <para><emphasis role="args">&lt;port-list&gt;</emphasis> - a list of logical port numbers which are to be digital inputs</para>
+            </itemizedlist>
+        </sect3>
+        <sect3>
+            <title>digitalout</title>
+            <itemizedlist>
+            <para><emphasis role="args">&lt;port-list&gt;</emphasis> - a list of logical port numbers which are to be digital outputs</para>
+            </itemizedlist>
+        </sect3>
+        <sect3>
+            <title>send serial</title>
+            <itemizedlist>
+                <para><emphasis role="args">&lt;port&gt;</emphasis> - the default logical serial port number to use for the <command>send</command> command</para>
+            </itemizedlist>
+        </sect3>
+        <sect3>
+            <title>send ethernet</title>
+            <para><emphasis role="args">Note: Ethernet output for <command>send</command> has not yet been implemented.</emphasis></para>
+        </sect3>
+        <sect3>
+            <title>serial</title>
+            <itemizedlist>
+                <para><emphasis role="args">&lt;port&gt;</emphasis> - the logical serial port for which the following parameters are to apply</para>
+                <para><emphasis role="args">&lt;baud-rate&gt;</emphasis> - the required baud rate</para>
+            </itemizedlist>
+        </sect3>
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil.</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            ; Provide a list of logical digital I/O ports that will be inputs
+        config digitalin [1 2 3 4]
+            ; Provide a list of logical digital I/O ports that will be outputs
+        config digitalout [5 6 7 8]
+            ; Specify the stream type and port to be used by the default send command.
+            ; Alternatives at the time of writing are 'serial' and 'ethernet'.
+            ; The port numbers are 1-based
+        config send serial 1
+            ; Configure the parameters of the given serial port
+        config serial 1 [baud:9600 databits:8 stopbits:1 parity:none]
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+        </para>
+    </sect2>
+</sect1>
+</article>

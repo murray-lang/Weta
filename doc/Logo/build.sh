@@ -1,0 +1,3 @@
+./docbooklogoxref.sh
+./docbooklogo.sh
+

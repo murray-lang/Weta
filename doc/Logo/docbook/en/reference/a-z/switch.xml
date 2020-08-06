@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="switch">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>SWITCH[1-8]</title>
+    <para>
+        Returns the Boolean value of the switch (digital input) identified by the suffix digit.
+        These commands are included for compatibility with Cricket Logo, but the same functionality is provided
+        in a more generic way by <olink targetptr="digitalin">digitalin</olink>.
+    </para>
+    <para>
+        On the Gogo board (which this Cricket Logo is derived from) switches 1-8 are in fact sensors 1-8, but being
+        connected to a switch means that the analogue values are at either the maximum or minimum. So the switch 1-8
+        commands read the analog value and convert it to digital based on a threshold test. Assume that this is the case
+        unless you have documentation for your target device or firmware that states otherwise.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+        <funcsynopsis>
+        <command>switch1</command>
+        </funcsynopsis>
+        <funcsynopsis>
+            <command>switch2</command>
+        </funcsynopsis>
+        <para>...</para>
+        <funcsynopsis>
+            <command>switch8</command>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <para>Nil.</para>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+          Returns the Boolean value of the switch identified by the suffix digit.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+            ; Send some switch data
+        foreach ip [switch1 ', ' switch2 ', ' switch3 ', ' switch4 '\n']
+        [
+                ; Because at least one list item is a string, all values are
+                ; converted to a string. Since the switch values are Boolean,
+                ; they will be converted to 'true' or 'false'.
+            send :ip
+        [
+       </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+      <para>
+          <olink targetptr="digitalin">digitalin</olink>
+          <olink targetptr="sensor">sensor[1-8]</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>

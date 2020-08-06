@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="asm_withstring">
+    <?dbhtml dir="a-z" ?>
+<sect1>
+    <title>WITHSTRING</title>
+     <abstract>
+        <para>Selects string as the type to be used for any subsequent stack operations.</para>
+    </abstract>
+    <sect2>
+        <title>Synopsis</title>
+        <funcsynopsis>
+            <para><command>withstring</command></para>
+        </funcsynopsis>
+    </sect2>
+    <sect2>
+        <title>Arguments</title>
+            <para>Nil.</para>
+
+    </sect2>
+    <sect2>
+        <title>Returns</title>
+        <para>Nil. (The instruction sets a register that is internal to the virtual machine.)</para>
+    </sect2>
+    <sect2>
+        <title>Example</title>
+        <programlisting>
+            .global _start
+            .data
+        foo:	.short  0
+        bar:    .ptr    0
+            .text
+            ...
+                ; Play with indirection. Foo will be accessed indirectly using pointer bar
+            withint16
+            sensor1         ; get the (int16) value from sensor1
+            global   foo    ; get the address of foo
+            set             ; store the sensor value in foo (uses withint16 setting)
+            global foo      ; get the address of foo again
+            global bar      ; get the address of bar
+            withptr         ; operate on pointers now
+            set             ; assign the address of foo to bar (uses withptr setting)
+            global bar
+            get             ; get the address of foo (uses withptr setting)
+            withint16       ; With the pointer on the stack, we can switch to operating on int16
+            get             ; get the int16 contents of foo (via its address from bar - uses withint16 setting)
+            tostr           ; convert the value to a string (uses withint16 setting)
+            withstring      ; working with strings now
+            send            ; send the string to the default stream (uses withstring setting)
+            ...
+            exit
+            .end
+        </programlisting>
+    </sect2>
+    <sect2>
+        <title>See Also</title>
+        <para>
+            <olink targetptr="asm_withbool">withbool</olink>
+            <olink targetptr="asm_withint8">withint8</olink> <olink targetptr="asm_withuint8">withuint8</olink>
+            <olink targetptr="asm_withint16">withint16</olink> <olink targetptr="asm_withuint16">withuint16</olink>
+            <olink targetptr="asm_withint32">withint32</olink> <olink targetptr="asm_withuint32">withuint32</olink>
+            <olink targetptr="asm_withfloat">withfloat</olink> <olink targetptr="asm_withdouble">withdouble</olink>
+            <olink targetptr="asm_withstring">withptr</olink>
+        </para>
+    </sect2>
+</sect1>
+</article>

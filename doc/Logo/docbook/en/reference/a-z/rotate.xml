@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="rotate">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>ROTATE</title>
+    <para>
+        Returns the value of the first argument bit-wise rotated by the number of bits indicated by the second argument.
+        This works for all integer number types.
+    </para>
+    <para>
+        If the number of bits is positive then the value will be rotated left. The most significant bit will move to
+        the least significant bit position.
+    </para>
+      <para>
+        If the number of bits is negative then the value will be rotated right. The least significant bit will move to
+          the most significant bit position.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>rotate</command> <emphasis role="args">&lt;value&gt; &lt;number-of-bits&gt;</emphasis>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+      <itemizedlist>
+        <para><emphasis role="args">&lt;value&gt;</emphasis> - the value to rotate. Must be an integer value</para>
+        <para><emphasis role="args">&lt;number-of-bits&gt;</emphasis> - number of bits to rotate (-ve for right rotate)</para>
+      </itemizedlist>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+      <para>
+          Returns <emphasis role="args">&lt;value&gt;</emphasis> rotated by the given number of bits.
+      </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo 1              ; integer values default to 16 bits signed (short)
+          make "bar rotate :foo 1  ; bar == 2
+          make "foo rotate :bar -3 ; foo == -32767
+
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="ashift">ashift</olink>
+            <olink targetptr="lshift">lshift</olink>
+        </para>
+    </sect2>
+  </sect1>
+</article>

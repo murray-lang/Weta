@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article xmlns="http://docbook.org/ns/docbook" version="5.0" xml:lang="en"
+        xml:id="true">
+    <?dbhtml dir="a-z" ?>
+  <sect1>
+    <title>TRUE</title>
+    <para>
+      Return the Boolean true.
+    </para>
+    <sect2>
+      <title>Synopsis</title>
+      <funcsynopsis>
+        <command>true</command>
+      </funcsynopsis>
+    </sect2>
+    <sect2>
+      <title>Arguments</title>
+        <para>Nil</para>
+    </sect2>
+    <sect2>
+      <title>Returns</title>
+    <para>
+        Returns the Boolean true.
+    </para>
+    </sect2>
+    <sect2>
+      <title>Example</title>
+      <programlisting>
+          make "foo true
+          if :foo
+          [
+              send 'This should be printed because foo is true.'
+          ]
+      </programlisting>
+    </sect2>
+    <sect2>
+      <title>See Also</title>
+        <para>
+            <olink targetptr="false">false</olink>
+       </para>
+    </sect2>
+  </sect1>
+</article>
